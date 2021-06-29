@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Mascota</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Main Menu-->
+    <string name="calendar">캘린더</string>
+    <string name="home">홈</string>
+    <string name="rainbow">무지개</string>
+
+    <!--calendar-->
+
+    <!--home-->
+
+    <!--rainbow-->
+
+</resources>
