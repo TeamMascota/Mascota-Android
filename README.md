@@ -47,3 +47,15 @@
 </tr>
 </tbody>
 </table>
+
+<br>
+
+## 🌱 WIKI
+
+```
+👉 회의록 및 Project Rule(Git, Coding Convention)
+```
+- [HOME](https://github.com/TeamMascota/Mascota-Android/wiki)
+  - [1. Git 사용법](https://github.com/TeamMascota/Mascota-Android/wiki/1.-Git-%EC%82%AC%EC%9A%A9%EB%B2%95)
+  - [2. Android Coding Convention](https://github.com/TeamMascota/Mascota-Android/wiki/2.-Android-Coding-Convention)
+
