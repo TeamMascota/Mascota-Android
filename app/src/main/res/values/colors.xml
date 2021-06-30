@@ -6,10 +6,18 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
     <!--Mascota Main Color-->
     <color name="maco_orange">#E67828</color>
     <color name="maco_yellow">#FFC36A</color>
+    <color name="maco_blue">#7DA0BD</color>
+    <color name="maco_white">#FFFFFFFF</color>
+    <color name="maco_ivory">#F3F1EF</color>
+    <color name="maco_light_gray">#C4C4C4</color>
+    <color name="maco_gray">#7D7D7D</color>
+    <color name="maco_dark_gray">#5D5D5D</color>
+    <color name="maco_black">#000000</color>
+
+    <!--Etc Color-->
     <color name="dark_orange">#D77333</color>
 </resources>
