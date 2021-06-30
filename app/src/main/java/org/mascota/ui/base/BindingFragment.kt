@@ -1,4 +1,4 @@
-package com.valuecruncher.gachisaja.base
+package org.mascota.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +18,11 @@ abstract class BindingFragment<T : ViewDataBinding>(
 
     abstract fun initView()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root

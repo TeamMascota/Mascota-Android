@@ -1,8 +1,8 @@
 package org.mascota.ui
 
-import com.valuecruncher.gachisaja.base.BindingActivity
 import org.mascota.R
 import org.mascota.databinding.ActivityMainBinding
+import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.calendar.CalendarFragment
 import org.mascota.ui.view.home.HomeFragment
 import org.mascota.ui.view.rainbow.RainbowFragment
@@ -39,11 +39,19 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         }
     }
 
-    private fun initSelectMenu() { binding.bnvMain.selectedItemId = R.id.menu_home }
+    private fun initSelectMenu() {
+        binding.bnvMain.selectedItemId = R.id.menu_home
+    }
 
-    private fun replaceCalendarFragment() { replace(R.id.container_main, calendarFragment) }
+    private fun replaceCalendarFragment() {
+        replace(R.id.container_main, calendarFragment)
+    }
 
-    private fun replaceHomeFragment() { replace(R.id.container_main, homeFragment) }
+    private fun replaceHomeFragment() {
+        replace(R.id.container_main, homeFragment)
+    }
 
-    private fun replaceRainbowFragment() { replace(R.id.container_main, rainbowFragment) }
+    private fun replaceRainbowFragment() {
+        replace(R.id.container_main, rainbowFragment)
+    }
 }

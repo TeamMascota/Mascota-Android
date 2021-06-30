@@ -1,4 +1,4 @@
-package com.valuecruncher.gachisaja.base
+package org.mascota.ui.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
