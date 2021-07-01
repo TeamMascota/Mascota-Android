@@ -8,9 +8,17 @@
     <string name="rainbow">무지개</string>
 
     <!--calendar-->
+    <string name="past_day">" 작가님의 지나온 날들"</string>
+    <string name="num_record">번째 기록</string>
+    <string name="today_is">"오늘은 "</string>
+    <string name="with_what_day">와 함께 어떤 하루를 보냈나요?</string>
 
     <!--home-->
 
     <!--rainbow-->
 
+    <!--tools-->
+    <string name="soeun">최소은</string>
+    <string name="day162">162</string>
+    <string name="cobong">코봉이</string>
 </resources>
