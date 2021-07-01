@@ -1,6 +1,7 @@
 package org.mascota
 
 import android.app.Application
+import org.mascota.di.dataSourceModule
 import org.mascota.di.viewModelModule
 import org.mascota.util.extension.setUpKoin
 
@@ -9,7 +10,8 @@ class MascotaApplication : Application() {
         super.onCreate()
         setUpKoin(
             this,
-            viewModelModule
+            viewModelModule,
+            dataSourceModule
         )
     }
 }
