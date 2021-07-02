@@ -14,4 +14,10 @@
         <!-- Customize your theme here. -->
         <item name="android:includeFontPadding">false</item>
     </style>
+
+    <style name="CalendarRecordTextStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
+        <item name="android:textColor">@color/maco_light_gray</item>
+    </style>
 </resources>
