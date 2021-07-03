@@ -24,6 +24,9 @@ buildscript {
 
         //koin
         koin_version = "2.2.3"
+
+        //circleImageView
+        circleImageView_version = "3.1.0"
     }
     repositories {
         google()

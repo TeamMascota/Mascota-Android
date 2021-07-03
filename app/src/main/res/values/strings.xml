@@ -23,13 +23,16 @@
     <string name="sunday">일</string>
 
     <!--home-->
-
+    <string name="content">목차</string>
+    <string name="edit">편집</string>
     <!--rainbow-->
 
     <!--tools-->
     <string name="soeun">최소은</string>
     <string name="day162">162</string>
     <string name="cobong">코봉이</string>
+    <string name="chapter">"1부 "</string>
+    <string name="home_title">모여봐요 코봉의 숲</string>
     <string name="date">2021년 6월</string>
     <string name="one">1</string>
 </resources>
