@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 
 object BindingConversions {
     @JvmStatic
-    @BindingAdapter("imgResId")
+    @BindingAdapter("imgUrl")
     fun setRemoteCircleImage(image: ImageView, url: String?) {
         Glide.with(image.context).load(url).into(image)
     }
