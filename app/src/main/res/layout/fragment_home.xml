@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="homeBookInfoData"
+            type="org.mascota.ui.view.home.data.model.HomeBookInfoData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="59dp"
+            android:layout_marginTop="23dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="17dp">
 
@@ -30,7 +33,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="23sp"
-                android:text="@string/chapter"
+                android:text="@{homeBookInfoData.chapter}"
                 tools:text="@string/chapter"
                 android:fontFamily="@font/noto_sans_cjk_kr_bold"
                 android:textColor="@color/maco_orange"/>
@@ -43,7 +46,8 @@
                 app:layout_constraintStart_toEndOf="@id/tv_chapter"
                 android:fontFamily="@font/noto_sans_cjk_kr_regular"
                 android:textSize="23sp"
-                android:text="@string/home_title"
+                android:text="@{homeBookInfoData.title}"
+                tools:text="@string/home_title"
                 android:textColor="@color/black"/>
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -52,7 +56,8 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:src="@drawable/ic_launcher_background"
+                imgResId="@{homeBookInfoData.bookImage}"
+                tools:src="@drawable/ic_launcher_background"
                 app:civ_border_color="@color/maco_orange"
                 app:civ_border_width="1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
