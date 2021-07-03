@@ -8,9 +8,28 @@
     <string name="rainbow">무지개</string>
 
     <!--calendar-->
+    <string name="past_day">" 작가님의 지나온 날들"</string>
+    <string name="num_record">번째 기록</string>
+    <string name="today_is">"오늘은 "</string>
+    <string name="with_what_day">와 함께 어떤 하루를 보냈나요?</string>
+    <string name="part1">1부</string>
+    <string name="part2">2부</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string name="sunday">일</string>
 
     <!--home-->
 
     <!--rainbow-->
 
+    <!--tools-->
+    <string name="soeun">최소은</string>
+    <string name="day162">162</string>
+    <string name="cobong">코봉이</string>
+    <string name="date">2021년 6월</string>
+    <string name="one">1</string>
 </resources>

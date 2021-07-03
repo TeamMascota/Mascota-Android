@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_year_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:textColor="@color/maco_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/date" />
+
+        <ImageButton
+            android:id="@+id/ib_month_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="31dp"
+            android:background="@drawable/ic_arrow_left"
+            android:backgroundTint="@color/red_orange"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_month_next"
+            app:layout_constraintEnd_toStartOf="@+id/ib_month_next" />
+
+        <ImageButton
+            android:id="@+id/ib_year_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_double_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_year_month"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_year_month" />
+
+        <ImageButton
+            android:id="@+id/ib_year_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ic_double_arrow_left"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_month_prev"
+            app:layout_constraintEnd_toStartOf="@+id/ib_month_prev" />
+
+        <ImageButton
+            android:id="@+id/ib_month_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ic_arrow_right"
+            android:backgroundTint="@color/red_orange"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_year_next"
+            app:layout_constraintEnd_toStartOf="@+id/ib_year_next" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/maco_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_year_month" />
+
+        <LinearLayout
+            android:id="@+id/ll_day_of_week"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="7dp"
+            app:layout_constraintEnd_toEndOf="@+id/line"
+            app:layout_constraintStart_toStartOf="@+id/line"
+            app:layout_constraintTop_toBottomOf="@id/line">
+
+            <TextView
+                android:id="@+id/tv_monday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/monday"
+                android:textAppearance="@style/CalendarDayOfWeekTextStyle" />
+
+            <TextView
+                android:id="@+id/tv_tuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/tuesday"
+                android:textAppearance="@style/CalendarDayOfWeekTextStyle" />
+
+            <TextView
+                android:id="@+id/tv_wednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/wednesday"
+                android:textAppearance="@style/CalendarDayOfWeekTextStyle" />
+
+            <TextView
+                android:id="@+id/tv_thursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/thursday"
+                android:textAppearance="@style/CalendarDayOfWeekTextStyle" />
+
+            <TextView
+                android:id="@+id/tv_friday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/friday"
+                android:textAppearance="@style/CalendarDayOfWeekTextStyle" />
+
+            <TextView
+                android:id="@+id/tv_saturday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/saturday"
+                android:textAppearance="@style/CalendarDayOfWeekTextStyle" />
+
+            <TextView
+                android:id="@+id/tv_sunday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/sunday"
+                android:textAppearance="@style/CalendarDayOfWeekTextStyle" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

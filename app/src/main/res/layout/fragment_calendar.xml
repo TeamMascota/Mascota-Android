@@ -1,13 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="authorInfoData"
+            type="org.mascota.ui.view.calendar.data.model.AuthorInfoData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.view.calendar.CalendarFragment" />
+        tools:background="@color/maco_ivory"
+        tools:context=".ui.view.calendar.CalendarFragment">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            android:text="@{authorInfoData.name}"
+            android:textColor="@color/maco_orange"
+            android:textSize="23sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/soeun" />
+
+        <TextView
+            android:id="@+id/tv_past_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:text="@string/past_day"
+            android:textColor="@color/maco_black"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_name" />
+
+        <ImageView
+            android:id="@+id/iv_pencil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:src="@drawable/ic_pencil"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_past_day" />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:text="@{authorInfoData.recordNum}"
+            android:textColor="@color/maco_dark_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_pencil"
+            app:layout_constraintTop_toBottomOf="@+id/tv_past_day"
+            tools:text="@string/day162" />
+
+        <TextView
+            android:id="@+id/tv_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:text="@string/num_record"
+            android:textColor="@color/maco_dark_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_num"
+            app:layout_constraintStart_toEndOf="@+id/tv_num" />
+
+        <TextView
+            android:id="@+id/tv_switch_part_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_switch_btn_left"
+            android:paddingHorizontal="6dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/maco_white"
+            android:textSize="12sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:text="@string/part1"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_switch_part_2"
+            app:layout_constraintEnd_toStartOf="@+id/tv_switch_part_2" />
+
+        <TextView
+            android:id="@+id/tv_switch_part_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/selector_switch_btn_right"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:paddingHorizontal="6dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="10dp"
+            android:text="@string/part2"
+            android:textColor="@color/maco_white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_past_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_past_day" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_record"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rectangle_bottom_orange_3"
+            android:paddingHorizontal="9dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_num"
+            app:layout_constraintTop_toBottomOf="@+id/tv_num">
+
+            <TextView
+                android:id="@+id/tv_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/today_is"
+                android:textAppearance="@style/CalendarRecordTextStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_pet_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{authorInfoData.petName}"
+                android:textAppearance="@style/CalendarRecordTextStyle"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_today"
+                app:layout_constraintStart_toEndOf="@+id/tv_today"
+                tools:text="@string/cobong" />
+
+            <TextView
+                android:id="@+id/tv_what_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/with_what_day"
+                android:textAppearance="@style/CalendarRecordTextStyle"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_pet_name"
+                app:layout_constraintStart_toEndOf="@+id/tv_pet_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <org.mascota.ui.view.custom.CalendarView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_record" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
