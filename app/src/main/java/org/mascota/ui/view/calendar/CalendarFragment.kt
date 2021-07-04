@@ -15,8 +15,10 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
             it.isSelected = !it.isSelected
         }
         initClickEvent()
+        initCalendar()
         getAuthorInfo()
         observeAuthorInfo()
+        observeCurCalendar()
     }
 
     private fun getAuthorInfo() {
@@ -29,6 +31,27 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
         }
     }
 
+    private fun observeCurCalendar() {
+        calendarViewModel.curCalendar.observe(viewLifecycleOwner) {
+            binding.calendar.setCurCalendar(it)
+        }
+    }
+
+    private fun initCalendar() {
+        binding.apply {
+            calendarViewModel.setCalendar()
+
+            with(calendar) {
+                calendarViewModel.apply {
+                    setMonthNextButtonClickListener { addMonth() }
+                    setMonthPrevButtonClickListener { minusMonth() }
+                    setYearNextButtonClickListener { addYear() }
+                    setYearPrevButtonClickListener { minusYear() }
+                }
+            }
+        }
+    }
+
     private fun initClickEvent() {
         binding.clRecord.setOnClickListener {
             startDiaryWriteActivity()
@@ -37,5 +60,14 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
 
     private fun startDiaryWriteActivity() {
         //startActivity(Intent(requireActivity(), DiaryWriteActivity::class.java))
+    }
+
+    companion object {
+        const val DOG_ANGRY = 1
+        const val DOG_BORING = 2
+        const val DOG_JOY = 3
+        const val DOG_LOVE = 4
+        const val DOG_SAD = 5
+        const val DOG_USUAL = 6
     }
 }
