@@ -18,4 +18,10 @@ object CalendarUtil {
         return get(Calendar.YEAR) == calendar.get(Calendar.YEAR)
                 && get(Calendar.MONTH) == calendar.get(Calendar.MONTH)
     }
+
+    fun initCalendar(calendar : Calendar) : Calendar {
+        return calendar.apply {
+            set(Calendar.DAY_OF_MONTH, 1)
+        }
+    }
 }
