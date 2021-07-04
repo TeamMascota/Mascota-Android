@@ -151,12 +151,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <org.mascota.ui.view.custom.CalendarView
+            android:id="@+id/calendar"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
