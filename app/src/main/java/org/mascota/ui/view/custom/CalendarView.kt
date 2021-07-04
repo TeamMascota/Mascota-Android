@@ -2,34 +2,59 @@ package org.mascota.ui.view.custom
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.transition.TransitionManager
 import androidx.viewpager2.widget.ViewPager2
+import kotlinx.coroutines.*
 import org.mascota.R
+import org.mascota.data.local.MascotaPreference.setMonth
+import org.mascota.data.local.MascotaPreference.setYear
 import org.mascota.databinding.LayoutCalendarTopBinding
+import org.mascota.ui.view.calendar.data.model.CalendarData
+import org.mascota.ui.view.custom.adapter.CalendarViewPagerAdapter
+import org.mascota.ui.view.custom.adapter.CalendarViewPagerAdapter.Companion.MAX_ITEM_COUNT
 import org.mascota.util.CalendarUtil.convertCalendarToString
+import org.mascota.util.CalendarUtil.initCalendar
 import java.util.*
 
 class CalendarView(
     context: Context, attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
-    private val nowCalendar = Calendar.getInstance(Locale.KOREA)
-    private val calendarTopView = createCalendarTopView()
+    private val _dateData = mutableListOf<CalendarData>()
+    var dateData : List<CalendarData> = _dateData
+        set(value) {
+            _dateData.clear()
+            _dateData.addAll(value)
+        }
+
+    private val _curCalendar = MutableLiveData<Calendar>()
+    private val curCalendar: LiveData<Calendar>
+        get() = _curCalendar
+
+    fun setCurCalendar(calendar: Calendar) { _curCalendar.postValue(calendar) }
+
+    private var monthNextButtonClickListener: (()-> Unit) ?= null
+    private var monthPrevButtonClickListener: (()-> Unit) ?= null
+    private var yearNextButtonClickListener: (()-> Unit) ?= null
+    private var yearPrevButtonClickListener: (()-> Unit) ?= null
+
+    private val calendarTopView
+        get() = createCalendarTopView()
+    private val calendarViewPager = createViewPager()
+
     private lateinit var layoutCalendarTopBinding: LayoutCalendarTopBinding
 
     init {
         orientation = VERTICAL
         addView(calendarTopView)
-        addView(createMonthView())
-    }
-
-    private fun createCalendarView() {
-        addView(createCalendarTopView())
-        addView(createMonthView())
-        //addView(createViewPager())
+        addView(calendarViewPager)
     }
 
     private fun createCalendarTopView(): View {
@@ -37,65 +62,85 @@ class CalendarView(
         layoutCalendarTopBinding =
             DataBindingUtil.inflate(inflater, R.layout.layout_calendar_top, this, false)
 
-        setTopMonthText(0)
+        setCalendar(initCalendar(Calendar.getInstance(Locale.KOREA)))
 
-        layoutCalendarTopBinding.ibMonthNext.setOnClickListener {
-            //setViewPagerPosition(PREVIOUS_MONTH)
-        }
-
-        layoutCalendarTopBinding.ibMonthPrev.setOnClickListener {
-            //setViewPagerPosition(NEXT_MONTH)
-        }
+        initMonthChangeEvent()
 
         return layoutCalendarTopBinding.root
     }
 
+    private fun setCalendar(calendar : Calendar) {
+        setMonth(calendar)
+        setYear(calendar)
+        setTopMonthText(calendar)
+    }
 
-    private fun createMonthView() : View {
-        return MonthView(context, null).apply {
+    private fun initMonthChangeEvent() {
+        layoutCalendarTopBinding.apply {
+            ibMonthNext.setOnClickListener {
+                monthNextButtonClickListener?.invoke()
+                curItem += 1
+                calendarViewPager.setCurrentItem(curItem,true)
+                setCalendar(requireNotNull(curCalendar.value))
+            }
+            ibMonthPrev.setOnClickListener {
+                monthPrevButtonClickListener?.invoke()
+                curItem -= 1
+                calendarViewPager.setCurrentItem(curItem,true)
+                setCalendar(requireNotNull(curCalendar.value))
+            }
+            ibYearNext.setOnClickListener {
+                yearNextButtonClickListener?.invoke()
+                curItem += 12
+                calendarViewPager.setCurrentItem(curItem,true)
+                setCalendar(requireNotNull(curCalendar.value))
+            }
+            ibYearPrev.setOnClickListener {
+                yearPrevButtonClickListener?.invoke()
+                curItem -= 12
+                calendarViewPager.setCurrentItem(curItem,true)
+                setCalendar(requireNotNull(curCalendar.value))
+            }
+        }
+    }
+
+    private fun createViewPager() : ViewPager2 {
+        return ViewPager2(context, null).apply {
             layoutParams = LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
+
+            adapter = CalendarViewPagerAdapter(initCalendar(Calendar.getInstance(Locale.KOREA)))
+
+            setCurrentItem(firstPosition,false)
+
+            isUserInputEnabled = false
         }
     }
 
-    private val monthViewPagerGenerator = {
-        ViewPager2(context).apply {
-
-            //setCurrentItem(MonthlyAdapter.MAX_ITEM_COUNT, false)
-            alpha = 0f
-
-            setPageTransformer { page, position ->
-                page.pivotX = if (position < 0) page.width.toFloat() else 0f
-                page.pivotY = page.height * 0.5f
-                page.rotationY = 25f * position
-            }
-
-            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                /*override fun onPageSelected(position: Int) {
-                    val (_, firstDateOfMonth) = convertMonthlyIndexToDateToFirstDateOfMonthCalendar(
-                        position
-                    )
-                    if (isExpanded && curDate != firstDateOfMonth) {
-                        curDate = firstDateOfMonth
-                    }
-                }*/
-            })
-
-            offscreenPageLimit = 1
-        }
-    }
-
-    private fun setTopMonthText(move: Int) {
-        val calendar = nowCalendar.clone() as Calendar
-
-        calendar.apply {
-            add(Calendar.MONTH, move)
-        }
-
+    private fun setTopMonthText(calendar : Calendar) {
         layoutCalendarTopBinding.tvYearMonth.text = convertCalendarToString(calendar)
     }
 
-    private var monthlyViewPager: ViewPager2? = null
+    fun setMonthNextButtonClickListener(listener : ()-> Unit) {
+        monthNextButtonClickListener = listener
+    }
+
+    fun setMonthPrevButtonClickListener(listener : ()-> Unit) {
+        monthPrevButtonClickListener = listener
+    }
+
+    fun setYearNextButtonClickListener(listener : ()-> Unit) {
+        yearNextButtonClickListener = listener
+    }
+
+    fun setYearPrevButtonClickListener(listener : ()-> Unit) {
+        yearPrevButtonClickListener = listener
+    }
+
+    companion object {
+        const val firstPosition = MAX_ITEM_COUNT / 2
+        var curItem = firstPosition
+    }
 }

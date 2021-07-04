@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import org.mascota.R
 import org.mascota.databinding.ItemDateBinding
@@ -17,8 +17,11 @@ import java.util.*
 
 class MonthView(
     context: Context, attrs: AttributeSet? = null
-) : ConstraintLayout(context, attrs) {
+) : FrameLayout(context, attrs) {
     private val nowCalendar = Calendar.getInstance(Locale.KOREA)
+    var curCalendar = Calendar.getInstance(Locale.KOREA)
+
+    private var monthNextButtonClickListener: ((Calendar)-> Unit) ?= null
 
     private val dateItems = (1..42).map { _ ->
         ItemDateBinding.inflate(LayoutInflater.from(context), null, false).apply {
@@ -33,7 +36,7 @@ class MonthView(
     private val outerLinearLayout = LinearLayout(context).apply {
         id = ViewCompat.generateViewId()
         orientation = LinearLayout.VERTICAL
-        weightSum = 5f
+        weightSum = 6f
 
         layoutParams = LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
@@ -54,25 +57,33 @@ class MonthView(
         }
     }
 
+    init {
+        addView(outerLinearLayout)
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        updateUIWithDate()
+    }
+
     private fun updateUIWithDate() {
-        val compCalendar = nowCalendar.clone() as Calendar
+        val compCalendar = curCalendar.clone() as Calendar
 
         compCalendar.set(Calendar.DAY_OF_MONTH, 1)
-        Log.d(" ", compCalendar.get(Calendar.DAY_OF_WEEK).toString())
 
-        if(compCalendar.get(Calendar.DAY_OF_WEEK) == 1) {
-            nowCalendar.add(Calendar.DAY_OF_MONTH, -6)
-        }
-        else {
+        Log.d("fasdfs", curCalendar.get(Calendar.MONTH).toString())
+
+        if(compCalendar.get(Calendar.DAY_OF_WEEK) == 1)
+            compCalendar.add(Calendar.DAY_OF_MONTH, -6)
+        else
             compCalendar.add(Calendar.DAY_OF_MONTH, -3)
-        }
 
         innerLinearLayouts.forEach {
             it.removeAllViews()
         }
         outerLinearLayout.removeAllViews()
 
-        repeat(5) { row ->
+        repeat(6) { row ->
             val innerLinearLayout = innerLinearLayouts[row]
 
             outerLinearLayout.addView(innerLinearLayout)
@@ -84,7 +95,7 @@ class MonthView(
                 if(compCalendar.isDaySame(nowCalendar)) {
                     item.tvDay.setTextColor(getColor(R.color.maco_orange))
                 }
-                if(!compCalendar.isMonthSame(nowCalendar)) {
+                if(!compCalendar.isMonthSame(compCalendar)) {
                     item.tvDay.setTextColor(getColor(R.color.maco_light_gray))
                 }
                 item.tvDay.text = compCalendar.get(Calendar.DAY_OF_MONTH).toString()
@@ -98,8 +109,6 @@ class MonthView(
         }
     }
 
-    init {
-        addView(outerLinearLayout)
-        updateUIWithDate()
-    }
+
+
 }
