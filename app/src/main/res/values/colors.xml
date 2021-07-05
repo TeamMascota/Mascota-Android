@@ -21,5 +21,6 @@
     <!--Etc Color-->
     <color name="dark_orange">#D77333</color>
     <color name="red_orange">#E66D15</color>
+    <color name="maco_light_gray_alpha_20">#33C4C4C4</color>
     <color name="maco_orange_alpha_90">#E6E67828</color>
 </resources>
