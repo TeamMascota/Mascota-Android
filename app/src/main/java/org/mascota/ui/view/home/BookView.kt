@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import org.mascota.R
 import org.mascota.R.styleable.CustomBookView
 import org.mascota.databinding.ViewCustomBookBinding
+import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
+import org.mascota.ui.view.home.data.model.HomePageInfoData
 
 class BookView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -31,6 +33,14 @@ class BookView @JvmOverloads constructor(
 
         val attrsCustomBookView = context.obtainStyledAttributes(attrs, CustomBookView)
         setAttr(attrsCustomBookView)
+    }
+
+    fun setLeftDiary(homeDiaryInfoData: HomeDiaryInfoData) {
+        viewCustomBookBinding.layoutLeftPage.homeDiaryInfoData = homeDiaryInfoData
+    }
+
+    fun setLeftDiaryFlag(homePageInfoData: HomePageInfoData) {
+        viewCustomBookBinding.homePageInfoData = homePageInfoData
     }
 
     private fun setAttr(attrs: TypedArray) {
