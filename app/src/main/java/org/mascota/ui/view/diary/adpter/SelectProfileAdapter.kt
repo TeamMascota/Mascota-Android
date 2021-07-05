@@ -1,17 +1,21 @@
 package org.mascota.ui.view.diary.adpter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.R
 import org.mascota.databinding.ItemProfileBinding
 import org.mascota.ui.view.diary.data.ProfileList
+import kotlin.coroutines.coroutineContext
 
 class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectProfileViewHolder>() {
 
 
     var profileList = mutableListOf<ProfileList>()
+    private lateinit var itemClickListener : OnItemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectProfileViewHolder {
         //뷰홀더
@@ -30,29 +34,48 @@ class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectPro
 
 
 
-    class SelectProfileViewHolder(
+    inner class SelectProfileViewHolder(
 
         private val viewBiding : ItemProfileBinding
 
         ) : RecyclerView.ViewHolder(
         viewBiding.root
     ){
-        fun onBind(data : ProfileList){
+        fun onBind(data : ProfileList, position: Int){
             viewBiding.animal = data
             viewBiding.tvName.setText(data.tv_name)
             viewBiding.ivProfile.setBackgroundResource(data.img_profile)
-
-
+            viewBiding.listView.setOnClickListener {
+                // 색깔 바뀌게 했는데
+                itemClickListener.onClick(it, position)
+                viewBiding.tvName.isSelected = !it.isSelected
+            }
         }
     }
 
     override fun onBindViewHolder(holder: SelectProfileViewHolder, position: Int) {
-        holder.onBind(profileList[position])
+        holder.onBind(profileList[position], position)
 
 
     }
 
+
+
     override fun getItemCount(): Int = profileList.size
+
+    //어댑터에 클릭리스너 구현하기
+   interface OnItemClickListener{
+
+        fun onClick(v : View, position: Int)
+    }
+
+
+
+    fun setItemClickListenr(itemClickListener: OnItemClickListener) {
+        this.itemClickListener = itemClickListener
+
+    }
+// 프로필 색깔 함수를 만들었어! seletor로!
 
 
 }

@@ -24,4 +24,13 @@
     <string name="cobong">코봉이</string>
     <string name="chapter">"1부 "</string>
     <string name="home_title">모여봐요 코봉의 숲</string>
+
+
+    <!--Diary-->
+    <string name="love">사랑</string>
+    <string name="joy">기쁨</string>
+    <string name="usual">보통</string>
+    <string name="sad">우울</string>
+    <string name="angry">화남</string>
+    <string name="boring">심심</string>
 </resources>

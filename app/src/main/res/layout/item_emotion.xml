@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="emotion"
+            type="org.mascota.ui.view.diary.data.EmotionList" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+
+        <TextView
+            android:id="@+id/tv_pet_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp"
+            tools:text="코봉" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="의 기분"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_pet_name"
+            app:layout_constraintStart_toEndOf="@id/tv_pet_name"
+            app:layout_constraintTop_toTopOf="@id/tv_pet_name" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:background="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="@id/textView"
+            app:layout_constraintStart_toEndOf="@id/textView"
+            app:layout_constraintTop_toTopOf="@id/textView" />
+
+
+        <ImageView
+            android:id="@+id/iv_dog_love"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/love"
+            android:src="@drawable/selector_emodog_love"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
+
+        <ImageView
+            android:id="@+id/iv_dog_joy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/joy"
+            android:src="@drawable/selector_emodog_joy"
+            app:layout_constraintBottom_toBottomOf="@id/iv_dog_love"
+            app:layout_constraintStart_toEndOf="@id/iv_dog_love"
+            app:layout_constraintTop_toTopOf="@id/iv_dog_love" />
+
+        <ImageView
+            android:id="@+id/iv_dog_usual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/usual"
+            android:src="@drawable/selector_emodog_usual"
+            app:layout_constraintBottom_toBottomOf="@id/iv_dog_joy"
+            app:layout_constraintStart_toEndOf="@id/iv_dog_joy"
+            app:layout_constraintTop_toTopOf="@id/iv_dog_joy" />
+
+        <ImageView
+            android:id="@+id/iv_dog_sad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/sad"
+            android:src="@drawable/selector_emodog_sad"
+            app:layout_constraintBottom_toBottomOf="@id/iv_dog_usual"
+            app:layout_constraintStart_toEndOf="@id/iv_dog_usual"
+            app:layout_constraintTop_toTopOf="@id/iv_dog_usual" />
+
+        <ImageView
+            android:id="@+id/iv_dog_angry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/angry"
+            android:src="@drawable/selector_emodog_angry"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_dog_sad"
+            app:layout_constraintStart_toEndOf="@id/iv_dog_sad"
+            app:layout_constraintTop_toTopOf="@id/iv_dog_sad" />
+
+        <ImageView
+            android:id="@+id/iv_dog_boring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/boring"
+            android:src="@drawable/seletor_emodog_boring"
+            app:layout_constraintBottom_toBottomOf="@id/iv_dog_angry"
+            app:layout_constraintStart_toEndOf="@id/iv_dog_angry"
+            app:layout_constraintTop_toTopOf="@id/iv_dog_angry"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/love"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/iv_dog_love"
+            app:layout_constraintTop_toBottomOf="@id/iv_dog_love" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/joy"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/iv_dog_joy"
+            app:layout_constraintTop_toBottomOf="@id/iv_dog_joy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/usual"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/iv_dog_usual"
+            app:layout_constraintTop_toBottomOf="@id/iv_dog_usual" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/sad"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/iv_dog_sad"
+            app:layout_constraintTop_toBottomOf="@id/iv_dog_sad" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/angry"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/iv_dog_angry"
+            app:layout_constraintTop_toBottomOf="@id/iv_dog_angry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/boring"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/iv_dog_boring"
+            app:layout_constraintTop_toBottomOf="@id/iv_dog_boring" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
