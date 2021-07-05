@@ -2,13 +2,14 @@ package org.mascota.util
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
 import org.mascota.R
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_ANGRY
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_BORING
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_JOY
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_LOVE
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_SAD
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_USUAL
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.EMPTY
 
 object BindingAdapter {
     @JvmStatic
@@ -21,7 +22,9 @@ object BindingAdapter {
                 DOG_BORING -> setImageResource(R.drawable.ic_dog_boring)
                 DOG_JOY -> setImageResource(R.drawable.ic_dog_joy)
                 DOG_LOVE -> setImageResource(R.drawable.ic_dog_love)
-                else -> setImageResource(R.drawable.ic_dog_usual)
+                DOG_USUAL -> setImageResource(R.drawable.ic_dog_usual)
+                EMPTY -> setImageResource(R.drawable.ic_empty)
+                else -> true
             }
         }
     }
