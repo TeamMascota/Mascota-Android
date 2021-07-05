@@ -34,7 +34,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun observeHomeDiaryInfo() {
         homeViewModel.homeDiaryInfo.observe(viewLifecycleOwner) {
-            binding.bvCustom.setLeftDiary(it)
+            binding.bvHome.setLeftDiary(it)
         }
     }
 
@@ -44,7 +44,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun observeHomePageInfo() {
         homeViewModel.homePageInfo.observe(viewLifecycleOwner) {
-            binding.bvCustom.setLeftDiaryFlag(it)
+            binding.bvHome.setLeftDiaryFlag(it)
         }
     }
 

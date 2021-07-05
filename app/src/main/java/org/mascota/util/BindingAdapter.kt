@@ -68,14 +68,14 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter("imgUrl")
-    fun setRemoteCircleImage(image: ImageView, url: String?) {
+    fun setRemoteImage(image: ImageView, url: String?) {
         Glide.with(image.context).load(url).into(image)
     }
 
     @SuppressLint("SetTextI18n")
     @JvmStatic
-    @BindingAdapter("TitleText")
+    @BindingAdapter("titleText")
     fun setEpisodeText(textView: TextView, number: Int?) {
-        textView.text = number.toString() + "화 기록하기"
+        textView.text = "${number}화 기록하기"
     }
 }

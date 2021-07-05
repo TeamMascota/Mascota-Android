@@ -21,19 +21,23 @@ class BookView @JvmOverloads constructor(
 
     private lateinit var viewCustomBookBinding : ViewCustomBookBinding
 
-    private var bgBookView: View
-    private var topBookView: View
-    private var lineView: View
+    private lateinit var bgBookView: View
+    private lateinit var topBookView: View
+    private lateinit var lineView: View
 
     init {
         addView(createCustomView())
 
-        bgBookView = viewCustomBookBinding.vBgBook
-        topBookView = viewCustomBookBinding.vTopBook
-        lineView = viewCustomBookBinding.vMidLine
+        initBindingView()
 
         val attrsCustomBookView = context.obtainStyledAttributes(attrs, CustomBookView)
         setAttr(attrsCustomBookView)
+    }
+
+    private fun initBindingView() {
+        bgBookView = viewCustomBookBinding.bgBook
+        topBookView = viewCustomBookBinding.topBook
+        lineView = viewCustomBookBinding.midLine
     }
 
     fun setLeftDiary(homeDiaryInfoData: HomeDiaryInfoData) {

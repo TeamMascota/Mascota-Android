@@ -17,7 +17,7 @@
         android:clipChildren="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/v_bg_book"
+            android:id="@+id/bg_book"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="7dp"
@@ -26,46 +26,46 @@
             android:clipChildren="false"/>
 
         <View
-            android:id="@+id/v_mid_bottom_line"
+            android:id="@+id/mid_bottom_line"
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:background="@color/pure_orange"
-            app:layout_constraintBottom_toBottomOf="@id/v_bg_book"
-            app:layout_constraintEnd_toEndOf="@id/v_bg_book"
-            app:layout_constraintStart_toStartOf="@id/v_bg_book"
-            app:layout_constraintTop_toBottomOf="@id/v_top_book" />
+            app:layout_constraintBottom_toBottomOf="@id/bg_book"
+            app:layout_constraintEnd_toEndOf="@id/bg_book"
+            app:layout_constraintStart_toStartOf="@id/bg_book"
+            app:layout_constraintTop_toBottomOf="@id/top_book" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/v_top_book"
+            android:id="@+id/top_book"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/rectangle_orange_radius_3"
-            app:layout_constraintBottom_toBottomOf="@id/v_bg_book"
-            app:layout_constraintEnd_toEndOf="@id/v_bg_book"
-            app:layout_constraintStart_toStartOf="@id/v_bg_book"
+            app:layout_constraintBottom_toBottomOf="@id/bg_book"
+            app:layout_constraintEnd_toEndOf="@id/bg_book"
+            app:layout_constraintStart_toStartOf="@id/bg_book"
             app:layout_constraintTop_toTopOf="parent"
             android:clipChildren="false">
 
             <View
-                android:id="@+id/v_mid_line"
+                android:id="@+id/mid_line"
                 android:layout_width="1dp"
                 android:layout_height="0dp"
                 android:background="@color/pure_orange"
-                app:layout_constraintBottom_toBottomOf="@id/v_top_book"
-                app:layout_constraintEnd_toEndOf="@id/v_top_book"
-                app:layout_constraintStart_toStartOf="@id/v_top_book"
-                app:layout_constraintTop_toTopOf="@id/v_top_book" />
+                app:layout_constraintBottom_toBottomOf="@id/top_book"
+                app:layout_constraintEnd_toEndOf="@id/top_book"
+                app:layout_constraintStart_toStartOf="@id/top_book"
+                app:layout_constraintTop_toTopOf="@id/top_book" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_left_page"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@id/v_top_book"
-                app:layout_constraintEnd_toStartOf="@id/v_mid_line"
-                app:layout_constraintStart_toStartOf="@id/v_top_book"
-                app:layout_constraintTop_toTopOf="@id/v_top_book">
+                app:layout_constraintBottom_toBottomOf="@id/top_book"
+                app:layout_constraintEnd_toStartOf="@id/mid_line"
+                app:layout_constraintStart_toStartOf="@id/top_book"
+                app:layout_constraintTop_toTopOf="@id/top_book">
 
                 <include
                     android:id="@+id/layout_left_page"
@@ -100,10 +100,10 @@
                 android:id="@+id/cl_right_page"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@id/v_top_book"
-                app:layout_constraintEnd_toEndOf="@id/v_top_book"
-                app:layout_constraintStart_toEndOf="@id/v_mid_line"
-                app:layout_constraintTop_toTopOf="@id/v_top_book" >
+                app:layout_constraintBottom_toBottomOf="@id/top_book"
+                app:layout_constraintEnd_toEndOf="@id/top_book"
+                app:layout_constraintStart_toEndOf="@id/mid_line"
+                app:layout_constraintTop_toTopOf="@id/top_book" >
 
                 <include
                     android:id="@+id/layout_right_page"
