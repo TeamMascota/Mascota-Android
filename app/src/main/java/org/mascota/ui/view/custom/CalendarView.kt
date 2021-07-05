@@ -44,24 +44,26 @@ class CalendarView(
     private var yearNextButtonClickListener: (() -> Unit)? = null
     private var yearPrevButtonClickListener: (() -> Unit)? = null
 
-    private val calendarViewPagerAdapter = CalendarViewPagerAdapter(listOf(
-        CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-        CalendarData(CalendarFragment.DOG_SAD, "0", true),
-        CalendarData(CalendarFragment.DOG_USUAL, "0", true),
-        CalendarData(CalendarFragment.EMPTY, "0", true),
-        CalendarData(CalendarFragment.DOG_LOVE, "4", false),
-        CalendarData(CalendarFragment.EMPTY, "0", true),
-        CalendarData(CalendarFragment.DOG_BORING, "0", true),
-        CalendarData(CalendarFragment.DOG_JOY, "3", false),
-        CalendarData(CalendarFragment.EMPTY, "0", true),
-        CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-        CalendarData(CalendarFragment.EMPTY, "0", true),
-        CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-        CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-        CalendarData(CalendarFragment.EMPTY, "0", true),
-        CalendarData(CalendarFragment.DOG_LOVE, "0", true),
-        CalendarData(CalendarFragment.DOG_ANGRY, "3", false)
-    ))
+    private val calendarViewPagerAdapter = CalendarViewPagerAdapter(
+        listOf(
+            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
+            CalendarData(CalendarFragment.DOG_SAD, "0", true),
+            CalendarData(CalendarFragment.DOG_USUAL, "0", true),
+            CalendarData(CalendarFragment.EMPTY, "0", true),
+            CalendarData(CalendarFragment.DOG_LOVE, "4", false),
+            CalendarData(CalendarFragment.EMPTY, "0", true),
+            CalendarData(CalendarFragment.DOG_BORING, "0", true),
+            CalendarData(CalendarFragment.DOG_JOY, "3", false),
+            CalendarData(CalendarFragment.EMPTY, "0", true),
+            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
+            CalendarData(CalendarFragment.EMPTY, "0", true),
+            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
+            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
+            CalendarData(CalendarFragment.EMPTY, "0", true),
+            CalendarData(CalendarFragment.DOG_LOVE, "0", true),
+            CalendarData(CalendarFragment.DOG_ANGRY, "3", false)
+        )
+    )
 
     private val calendarTopView
         get() = createCalendarTopView()

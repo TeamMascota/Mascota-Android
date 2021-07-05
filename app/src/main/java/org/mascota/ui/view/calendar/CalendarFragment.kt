@@ -1,6 +1,5 @@
 package org.mascota.ui.view.calendar
 
-import android.content.Intent
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentCalendarBinding
@@ -13,6 +12,7 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
     override fun initView() {
         initSwitchEvent()
         initClickEvent()
+        initPart()
         initData()
         initCalendar()
         observeAuthorInfo()
@@ -20,15 +20,23 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
         observeDateItem()
     }
 
+    private fun initPart() {
+        binding.tvSwitchPart1.isSelected = true
+    }
+
     private fun initSwitchEvent() {
         binding.apply {
             tvSwitchPart1.setOnClickListener {
-                if(!it.isSelected)
+                if (!it.isSelected) {
+                    tvSwitchPart2.isSelected = false
                     it.isSelected = !it.isSelected
+                }
             }
             tvSwitchPart2.setOnClickListener {
-                if(!it.isSelected)
+                if (!it.isSelected) {
+                    tvSwitchPart1.isSelected = false
                     it.isSelected = !it.isSelected
+                }
             }
         }
     }

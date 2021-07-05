@@ -1,18 +1,15 @@
 package org.mascota.ui.view.custom
 
 import android.content.Context
-import android.content.Intent
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import org.mascota.R
 import org.mascota.databinding.ItemDateBinding
-import org.mascota.ui.MainActivity
 import org.mascota.ui.view.calendar.data.model.CalendarData
 import org.mascota.util.CalendarUtil.isDaySame
 import org.mascota.util.extension.getColor
@@ -21,8 +18,9 @@ import java.util.*
 class MonthView(
     context: Context, attrs: AttributeSet? = null
 ) : FrameLayout(context, attrs) {
-    private var dateItemGetter: (()-> List<CalendarData>) ?= null
-    private var calendarGetter: (()-> Calendar) ?= null
+    private val emptyData = CalendarData(100, " ", true)
+    private var dateItemGetter: (() -> List<CalendarData>)? = null
+    private var calendarGetter: (() -> Calendar)? = null
     private val nowCalendar = Calendar.getInstance(Locale.KOREA)
 
     private val dateItems = (1..42).map { _ ->
@@ -73,6 +71,7 @@ class MonthView(
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
+        this.visibility = View.VISIBLE
         updateUIWithDate()
     }
 
@@ -83,10 +82,10 @@ class MonthView(
         val curMonth = compCalendar.get(Calendar.MONTH)
 
         compCalendar.set(Calendar.DAY_OF_MONTH, 1)
-        if(compCalendar.get(Calendar.DAY_OF_WEEK) == 1)
+        if (compCalendar.get(Calendar.DAY_OF_WEEK) == 1)
             compCalendar.add(Calendar.DAY_OF_MONTH, -6)
         else
-            compCalendar.add(Calendar.DAY_OF_MONTH, 2-compCalendar.get(Calendar.DAY_OF_WEEK))
+            compCalendar.add(Calendar.DAY_OF_MONTH, 2 - compCalendar.get(Calendar.DAY_OF_WEEK))
 
         innerLinearLayouts.forEach {
             it.removeAllViews()
@@ -102,18 +101,24 @@ class MonthView(
                 val idx = row * 7 + column
 
                 val item = dateItems[idx]
-                if(compCalendar.isDaySame(nowCalendar)) {
+                if (compCalendar.isDaySame(nowCalendar)) {
                     item.tvDay.setTextColor(getColor(R.color.maco_orange))
-                    if(pos < dateItem!!.size)
-                        item.dateItem = requireNotNull(dateItem?.get(pos++))
-                }
-                else {
-                    if(pos < dateItem!!.size)
-                        item.dateItem = requireNotNull(dateItem?.get(pos++))
-                    item.tvDay.setTextColor(getColor(R.color.maco_black))
-                }
-                if(compCalendar.get(Calendar.MONTH) != curMonth) {
-                    item.tvDay.setTextColor(getColor(R.color.maco_light_gray))
+                    if (pos < dateItem!!.size)
+                        item.dateItem = dateItem[pos++]
+                    else {
+                        item.dateItem = emptyData
+                    }
+                } else {
+                    if (compCalendar.get(Calendar.MONTH) != curMonth) {
+                        item.tvDay.setTextColor(getColor(R.color.maco_light_gray))
+                        item.dateItem = emptyData
+                    } else {
+                        item.tvDay.setTextColor(getColor(R.color.maco_black))
+                        if (pos < dateItem!!.size)
+                            item.dateItem = dateItem[pos++]
+                        else
+                            item.dateItem = emptyData
+                    }
                 }
                 item.tvDay.text = compCalendar.get(Calendar.DAY_OF_MONTH).toString()
                 compCalendar.add(Calendar.DAY_OF_MONTH, 1)

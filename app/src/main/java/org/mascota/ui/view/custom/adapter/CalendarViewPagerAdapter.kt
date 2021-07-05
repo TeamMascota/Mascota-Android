@@ -1,6 +1,5 @@
 package org.mascota.ui.view.custom.adapter
 
-import android.util.Log
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -10,7 +9,7 @@ import org.mascota.ui.view.custom.CalendarView.Companion.FIRST_POSITION
 import org.mascota.ui.view.custom.MonthView
 import java.util.*
 
-class CalendarViewPagerAdapter(private val dateItem : List<CalendarData>) :
+class CalendarViewPagerAdapter(private val dateItem: List<CalendarData>) :
     RecyclerView.Adapter<CalendarViewPagerAdapter.CalendarViewHolder>() {
     //리스너 달기
     override fun getItemCount(): Int = MAX_ITEM_COUNT
@@ -34,7 +33,6 @@ class CalendarViewPagerAdapter(private val dateItem : List<CalendarData>) :
     inner class CalendarViewHolder(private val view: MonthView) : RecyclerView.ViewHolder(view) {
         fun bind(position: Int) {
 
-            Log.d("pos", position.toString())
             view.setCalendarGetter {
                 return@setCalendarGetter Calendar.getInstance(Locale.KOREA).apply {
                     set(Calendar.DAY_OF_MONTH, 1)
