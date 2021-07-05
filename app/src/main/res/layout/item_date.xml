@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
+        <variable
+            name="dateItem"
+            type="org.mascota.ui.view.calendar.data.model.CalendarData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,6 +46,27 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_day"
             app:layout_constraintStart_toStartOf="@+id/tv_day"
             app:layout_constraintTop_toBottomOf="@+id/tv_day"
-            android:src="@drawable/ic_dog_usual" />
+            app:imgEmo="@{dateItem.emo}"
+            tools:src="@drawable/ic_dog_usual" />
+
+        <TextView
+            android:id="@+id/tv_record_size"
+            android:layout_width="17dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:visibility="@{dateItem.isEmpty? View.INVISIBLE : View.VISIBLE }"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:paddingHorizontal="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/oval_orange_alpha_90"
+            android:textColor="@color/maco_white"
+            android:text="@{dateItem.recordSize}"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_emo"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="@+id/iv_emo"
+            tools:text="@string/one" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
