@@ -6,15 +6,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.ui.view.calendar.data.datasource.AuthorDataSource
+import org.mascota.ui.view.calendar.data.datasource.CalendarDataSource
 import org.mascota.ui.view.calendar.data.model.AuthorInfoData
+import org.mascota.ui.view.calendar.data.model.CalendarData
 import org.mascota.util.CalendarUtil.initCalendar
 import java.util.*
 
-class CalendarViewModel(private val authorDataSource: AuthorDataSource) : ViewModel() {
+class CalendarViewModel(private val authorDataSource: AuthorDataSource, private val calendarDataSource: CalendarDataSource) : ViewModel() {
     private val nowCalendar = initCalendar(Calendar.getInstance(Locale.KOREA))
     private val _authorInfo = MutableLiveData<AuthorInfoData>()
     val authorInfo: LiveData<AuthorInfoData>
         get() = _authorInfo
+
+    private val _dateItem = MutableLiveData<List<CalendarData>>()
+    val dateItem: LiveData<List<CalendarData>>
+        get() = _dateItem
 
     private val _curCalendar = MutableLiveData<Calendar>()
     val curCalendar: LiveData<Calendar>
@@ -24,6 +30,16 @@ class CalendarViewModel(private val authorDataSource: AuthorDataSource) : ViewMo
         runCatching { authorDataSource.getAuthorInfoData() }
             .onSuccess {
                 _authorInfo.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    fun getDateItem() = viewModelScope.launch {
+        runCatching { calendarDataSource.getCalendarData() }
+            .onSuccess {
+                _dateItem.postValue(it)
             }
             .onFailure {
                 it.printStackTrace()
