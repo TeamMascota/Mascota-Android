@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.recyclerview.widget.RecyclerView
-import org.mascota.ui.view.custom.CalendarView.Companion.firstPosition
+import org.mascota.ui.view.calendar.data.model.CalendarData
+import org.mascota.ui.view.custom.CalendarView.Companion.FIRST_POSITION
 import org.mascota.ui.view.custom.MonthView
 import java.util.*
 
-class CalendarViewPagerAdapter(private val calendar: Calendar) :
+class CalendarViewPagerAdapter(private val dateItem : List<CalendarData>) :
     RecyclerView.Adapter<CalendarViewPagerAdapter.CalendarViewHolder>() {
     //리스너 달기
     override fun getItemCount(): Int = MAX_ITEM_COUNT
@@ -27,12 +28,22 @@ class CalendarViewPagerAdapter(private val calendar: Calendar) :
         holder: CalendarViewHolder,
         position: Int
     ) {
-        holder.bind(position, calendar)
+        holder.bind(position)
     }
 
     inner class CalendarViewHolder(private val view: MonthView) : RecyclerView.ViewHolder(view) {
-        fun bind(position: Int, calendar: Calendar) {
-            calendar.add(Calendar.MONTH, position - firstPosition)
+        fun bind(position: Int) {
+
+            Log.d("pos", position.toString())
+            view.setCalendarGetter {
+                return@setCalendarGetter Calendar.getInstance(Locale.KOREA).apply {
+                    set(Calendar.DAY_OF_MONTH, 1)
+                    add(Calendar.MONTH, position - FIRST_POSITION)
+                }
+            }
+            view.setDateItemGetter {
+                return@setDateItemGetter dateItem
+            }
         }
     }
 
