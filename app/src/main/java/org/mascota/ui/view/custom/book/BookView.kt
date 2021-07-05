@@ -1,4 +1,4 @@
-package org.mascota.ui.view.home
+package org.mascota.ui.view.custom.book
 
 import android.content.Context
 import android.content.res.TypedArray
@@ -13,6 +13,7 @@ import org.mascota.R.styleable.CustomBookView
 import org.mascota.databinding.ViewCustomBookBinding
 import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
 import org.mascota.ui.view.home.data.model.HomePageInfoData
+import org.mascota.util.extension.px
 
 class BookView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -48,8 +49,8 @@ class BookView @JvmOverloads constructor(
         lineView.setBackgroundColor(lineColor)
 
         val bookColor = attrs.getColor(R.styleable.CustomBookView_bookStrokeColor, 0)
-        (bgBookView.background as GradientDrawable).setStroke(1, bookColor)
-        (topBookView.background as GradientDrawable).setStroke(1, bookColor)
+        (bgBookView.background as GradientDrawable).setStroke(px(1), bookColor)
+        (topBookView.background as GradientDrawable).setStroke(px(1), bookColor)
     }
 
     private fun createCustomView(): View {
