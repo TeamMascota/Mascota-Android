@@ -67,7 +67,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <org.mascota.ui.view.home.BookView
+        <org.mascota.ui.view.custom.book.BookView
             android:id="@+id/bv_custom"
             android:layout_width="0dp"
             android:layout_height="0dp"
