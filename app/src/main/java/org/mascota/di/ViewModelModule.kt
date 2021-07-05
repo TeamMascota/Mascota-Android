@@ -8,6 +8,6 @@ import org.mascota.ui.viewmodel.RainbowViewModel
 
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
-    viewModel { CalendarViewModel(get()) }
+    viewModel { CalendarViewModel(get(), get()) }
     viewModel { RainbowViewModel() }
 }

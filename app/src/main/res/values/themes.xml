@@ -20,4 +20,10 @@
         <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
         <item name="android:textColor">@color/maco_light_gray</item>
     </style>
+
+    <style name="CalendarDayOfWeekTextStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/maco_dark_gray</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
 </resources>
