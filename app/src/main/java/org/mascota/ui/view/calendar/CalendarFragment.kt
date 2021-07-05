@@ -11,18 +11,31 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
     private val calendarViewModel: CalendarViewModel by viewModel()
 
     override fun initView() {
-        binding.tvSwitchPart1.setOnClickListener {
-            it.isSelected = !it.isSelected
-        }
+        initSwitchEvent()
         initClickEvent()
+        initData()
         initCalendar()
-        getAuthorInfo()
         observeAuthorInfo()
         observeCurCalendar()
+        observeDateItem()
     }
 
-    private fun getAuthorInfo() {
+    private fun initSwitchEvent() {
+        binding.apply {
+            tvSwitchPart1.setOnClickListener {
+                if(!it.isSelected)
+                    it.isSelected = !it.isSelected
+            }
+            tvSwitchPart2.setOnClickListener {
+                if(!it.isSelected)
+                    it.isSelected = !it.isSelected
+            }
+        }
+    }
+
+    private fun initData() {
         calendarViewModel.getAuthorInfo()
+        calendarViewModel.getDateItem()
     }
 
     private fun observeAuthorInfo() {
@@ -34,6 +47,12 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
     private fun observeCurCalendar() {
         calendarViewModel.curCalendar.observe(viewLifecycleOwner) {
             binding.calendar.setCurCalendar(it)
+        }
+    }
+
+    private fun observeDateItem() {
+        calendarViewModel.dateItem.observe(viewLifecycleOwner) {
+            binding.calendar.dateData = it
         }
     }
 
@@ -69,5 +88,6 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
         const val DOG_LOVE = 4
         const val DOG_SAD = 5
         const val DOG_USUAL = 6
+        const val EMPTY = 7
     }
 }
