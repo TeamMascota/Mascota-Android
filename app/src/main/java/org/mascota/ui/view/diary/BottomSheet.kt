@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.mascota.R
 
 
-class BottomSheet<T : ViewDataBinding> : BottomSheetDialogFragment() {
+
+class BottomSheet : BottomSheetDialogFragment() {
 
 
     override fun onCreateView(

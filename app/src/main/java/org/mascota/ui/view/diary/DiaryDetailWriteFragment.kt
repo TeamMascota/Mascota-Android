@@ -1,18 +1,10 @@
 package org.mascota.ui.view.diary
 
-import android.graphics.Insets.add
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.SpinnerAdapter
+import android.app.DatePickerDialog
 import org.mascota.R
 import org.mascota.databinding.FragmentDiaryDetailWriteBinding
 import org.mascota.ui.base.BindingFragment
+import java.util.*
 
 
 class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding>(R.layout.fragment_diary_detail_write) {
@@ -21,6 +13,10 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
     override fun initView() {
         setBottomSheet()
+
+        binding.btnPickerDate.setOnClickListener {
+            showDatePicker()
+        }
 
         /*
 
@@ -73,10 +69,45 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
         with(binding){
            iv1.setOnClickListener {
                val bottomSheet = BottomSheet()
-               activity?.supportFragmentManager?.let { it1 -> bottomSheet.show(it1,bottomSheet.tag) }
+               activity?.supportFragmentManager?.let { it1 -> bottomSheet.show(it1,bottomSheet.tag)
+
+
+               }
 
 
            }
         }
+    }
+
+
+    private fun showDatePicker(){
+        val datePicker = Calendar.getInstance()
+        val year = datePicker.get(Calendar.YEAR)
+        val month = datePicker.get(Calendar.MONTH)
+        val day = datePicker.get(Calendar.DAY_OF_MONTH)
+
+        val dpd = DatePickerDialog(
+
+            requireContext(),
+            R.style.MySpinnerDatePickerStyle,
+            {_, year, monthOfYear, dayOfMonth ->
+                //월이 0부터 시작하여 1을 더해줘야힘
+                val month = monthOfYear + 1
+                //선택한 날짜의 요일을 구하기 위한 캘린더
+                val calendar = Calendar.getInstance()
+                // 선택한 날짜 세팅
+                calendar.set(year,monthOfYear,dayOfMonth)
+
+
+                binding.btnPickerDate.text = "$year.$month.$dayOfMonth"
+
+
+            },
+            year,
+            month,
+            day
+        )
+
+        dpd.show()
     }
 }

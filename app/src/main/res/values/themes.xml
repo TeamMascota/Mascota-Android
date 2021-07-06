@@ -26,6 +26,19 @@
         <item name="android:dividerHeight">1dp</item> <!-- 구분석 높이-->
     </style>
 
+    <style name="MySpinnerDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <!--상단색 변경-->
+        <item name="colorAccent">@color/maco_orange</item>
+        <!--다이얼로그 배경 변경-->
+        <item name="background">@color/maco_orange</item>
+        <!--다이얼로그 배경 변경-->
+        <item name="colorControlActivated">@color/maco_orange</item>
+        <item name="colorControlHighlight">@color/maco_orange</item>
+        <!--취소/확인 버튼 색상-->
+        <item name="android:textColor">@color/maco_orange</item>
+
+    </style>
+
 
 
 </resources>
