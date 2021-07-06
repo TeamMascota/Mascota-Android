@@ -55,7 +55,7 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                imgUrl="@{homeBookInfoData.bookImage}"
+                app:imgUrl="@{homeBookInfoData.bookImage}"
                 tools:src="@drawable/ic_launcher_background"
                 app:civ_border_color="@color/maco_orange"
                 app:civ_border_width="1dp"
@@ -67,17 +67,30 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+        <org.mascota.ui.view.custom.book.BookView
+            android:id="@+id/bv_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="25dp"
+            app:bookStrokeColor="@color/maco_orange"
+            app:layout_constraintBottom_toTopOf="@id/cl_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_top_bar"
+            android:layout_marginBottom="39dp"
+            app:lineColor="@color/maco_orange" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/cl_top_bar"
+            android:layout_marginBottom="112dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="281dp">
+            android:layout_marginEnd="16dp">
 
             <TextView
                 android:id="@+id/tv_content"
@@ -117,6 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/v_line"
+                app:layout_constraintBottom_toBottomOf="parent"/>
                 tools:listitem="@layout/item_content"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
