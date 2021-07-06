@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.view.profile.ProfileCreateActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
