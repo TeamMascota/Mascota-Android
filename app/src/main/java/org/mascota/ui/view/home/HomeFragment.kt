@@ -1,7 +1,5 @@
 package org.mascota.ui.view.home
 
-import android.util.Log
-import androidx.lifecycle.ViewModelProvider
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentHomeBinding
@@ -10,7 +8,7 @@ import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
-    private val homeViewModel : HomeViewModel by viewModel()
+    private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var homeContentAdapter: HomeContentAdapter
 
     override fun initView() {
@@ -69,9 +67,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun observeHomeContentInfo() {
         homeViewModel.homeContent.observe(viewLifecycleOwner) {
             homeContentAdapter.contentList = it
-            homeContentAdapter.notifyDataSetChanged()
         }
     }
-    
-
 }

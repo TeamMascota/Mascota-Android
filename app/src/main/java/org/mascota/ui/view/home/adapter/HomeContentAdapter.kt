@@ -6,9 +6,16 @@ import androidx.recyclerview.widget.RecyclerView
 import org.mascota.databinding.ItemContentBinding
 import org.mascota.ui.view.home.data.model.HomeContentInfoData
 
-class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>(){
+class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>() {
 
-    var contentList = listOf<HomeContentInfoData>()
+    private val _contentList = mutableListOf<HomeContentInfoData>()
+
+    var contentList: List<HomeContentInfoData> = _contentList
+        set(value) {
+            _contentList.clear()
+            _contentList.addAll(value)
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeContentViewHolder {
         val binding = ItemContentBinding.inflate(
@@ -24,8 +31,9 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
     override fun getItemCount(): Int = contentList.size
 
     class HomeContentViewHolder(
-        private val binding : ItemContentBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(homeContentData : HomeContentInfoData) {
+        private val binding: ItemContentBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(homeContentData: HomeContentInfoData) {
             binding.homeContentInfoData = homeContentData
         }
     }
