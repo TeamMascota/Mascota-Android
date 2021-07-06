@@ -186,7 +186,7 @@
             android:id="@+id/tv_titel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/picker_date"
+            android:text="@string/title"
             android:textColor="@color/maco_gray"
             android:textSize="15sp"
             android:textStyle="bold"

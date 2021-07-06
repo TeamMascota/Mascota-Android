@@ -5,6 +5,10 @@
     app:layout_behavior="com.goole.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".ui.view.diary.BottomSheet">
 
+    <data>
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

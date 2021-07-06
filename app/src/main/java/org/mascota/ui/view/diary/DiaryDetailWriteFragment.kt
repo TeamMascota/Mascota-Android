@@ -1,6 +1,7 @@
 package org.mascota.ui.view.diary
 
 import android.app.DatePickerDialog
+import android.util.Log
 import org.mascota.R
 import org.mascota.databinding.FragmentDiaryDetailWriteBinding
 import org.mascota.ui.base.BindingFragment
@@ -12,7 +13,7 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
 
     override fun initView() {
-        setBottomSheet()
+        initClickSelectImage()
 
         binding.btnPickerDate.setOnClickListener {
             showDatePicker()
@@ -63,21 +64,46 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
     }
 
-    private fun setBottomSheet(){
+
+    private fun initClickSelectImage(){
 
 
         with(binding){
-           iv1.setOnClickListener {
-               val bottomSheet = BottomSheet()
-               activity?.supportFragmentManager?.let { it1 -> bottomSheet.show(it1,bottomSheet.tag)
+            iv1.setOnClickListener {
+                showBottomSheet()
+            }
 
+            iv2.setOnClickListener {
+                showBottomSheet()
+            }
+            iv3.setOnClickListener {
+                showBottomSheet()
+            }
 
-               }
-
-
-           }
+            iv4.setOnClickListener {
+                showBottomSheet()
+            }
+            iv5.setOnClickListener {
+                showBottomSheet()
+            }
         }
+
     }
+
+    private fun showBottomSheet(){
+        val bottomSheet = BottomSheet()
+        bottomSheet.setCallbackButtonClickListener {
+            // 카메라 함수 실행하기
+            Log.d("프래그멘트","누름")
+        }
+        activity?.supportFragmentManager?.let { it1 ->
+            bottomSheet.show(it1, bottomSheet.tag)
+        }
+
+
+    }
+
+
 
 
     private fun showDatePicker(){
