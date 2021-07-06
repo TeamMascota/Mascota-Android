@@ -1,7 +1,10 @@
 package org.mascota.ui.view.diary.adpter
 
+import android.app.AlertDialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.view.menu.MenuView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.R
@@ -13,8 +16,17 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
 
 
     var emotionList = mutableListOf<EmotionList>()
+    private var deleteButtonClickListener : ((EmotionList) -> Unit) ?= null
 
-    class SelectEmotionViewHolder(
+    fun setDeleteButtonClickListener(listener : (EmotionList)->Unit){
+        this.deleteButtonClickListener  = listener
+    }
+
+
+
+
+
+    inner class SelectEmotionViewHolder(
         private val viewBiding : ItemEmotionBinding
 
     ) : RecyclerView.ViewHolder(
@@ -41,10 +53,19 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
                    ivDogSad.isSelected = !it.isSelected
                }
                ivDogUsual.setOnClickListener {
-                   ivDogUsual.isSelected = !it.isSelected
+                   ivDogUsual.isSelected =!it.isSelected
                }
+
+               btnDelete.setOnClickListener {
+                   deleteButtonClickListener?.invoke(data)
+               }
+
            }
         }
+
+
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectEmotionViewHolder {
@@ -60,6 +81,10 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
     }
 
     override fun getItemCount(): Int = emotionList.size
+
+
+
+
 }
 //삭제버튼  클릭 리스너
 // 감정선택시 -> 검은색 테두리 : 셀렉터

@@ -1,5 +1,6 @@
 package org.mascota.ui.view.diary.adpter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,11 +48,24 @@ class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectPro
             viewBiding.ivProfile.setBackgroundResource(data.img_profile)
             viewBiding.listView.setOnClickListener {
                 // 색깔 바뀌게 했는데
-                itemClickListener.onClick(it, position)
+                val item = profileList.get(position).tv_name
+                itemClickListener.onClick(it, position, item)
+
                 viewBiding.tvName.isSelected = !it.isSelected
+
+                //Log.d("이름","아이템:")
+
             }
+
+
+
         }
     }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
 
     override fun onBindViewHolder(holder: SelectProfileViewHolder, position: Int) {
         holder.onBind(profileList[position], position)
@@ -66,7 +80,7 @@ class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectPro
     //어댑터에 클릭리스너 구현하기
    interface OnItemClickListener{
 
-        fun onClick(v : View, position: Int)
+        fun onClick(v : View, position: Int, item : String)
     }
 
 

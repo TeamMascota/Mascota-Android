@@ -59,6 +59,17 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
 
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rcv_emotion"
+            android:background="@drawable/btn_next"
+            android:text="@string/next"
+            tools:textColor="#ffffff"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
