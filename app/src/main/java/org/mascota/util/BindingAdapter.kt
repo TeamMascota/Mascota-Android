@@ -78,4 +78,18 @@ object BindingAdapter {
     fun setEpisodeText(textView: TextView, number: Int?) {
         textView.text = "${number}화 기록하기"
     }
+
+    @SuppressLint("SetTextI18n")
+    @JvmStatic
+    @BindingAdapter("chapterText")
+    fun setChapterText(textView: TextView, number: Int?) {
+        textView.text = "제 ${number}장"
+    }
+
+    @SuppressLint("SetTextI18n")
+    @JvmStatic
+    @BindingAdapter("totalText")
+    fun setTotalText(textView: TextView, number: Int?) {
+        textView.text = "총 ${number}화"
+    }
 }
