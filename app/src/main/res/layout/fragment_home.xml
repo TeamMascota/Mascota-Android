@@ -66,74 +66,95 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <org.mascota.ui.view.custom.book.BookView
-            android:id="@+id/bv_home"
-            android:layout_width="0dp"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsv_home"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="25dp"
-            app:bookStrokeColor="@color/maco_orange"
-            app:layout_constraintBottom_toTopOf="@id/cl_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_top_bar"
-            android:layout_marginBottom="39dp"
-            app:lineColor="@color/maco_orange" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_content"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="112dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="16dp">
+            android:fillViewport="true">
 
-            <TextView
-                android:id="@+id/tv_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="7dp"
-                android:text="@string/content"
-                android:textSize="20sp"
-                android:fontFamily="@font/noto_sans_cjk_kr_medium"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/tv_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/edit"
-                android:textSize="14sp"
-                android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                android:textColor="@color/maco_dark_gray"/>
-
-            <View
-                android:id="@+id/v_line"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_scroll"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_content"
-                android:background="@color/maco_dark_gray"
-                android:layout_marginTop="3dp"/>
+                android:layout_height="0dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/v_line"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-                tools:listitem="@layout/item_content"/>
+                <org.mascota.ui.view.custom.book.BookView
+                    android:id="@+id/bv_home"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="343:220"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="37dp"
+                    app:bookStrokeColor="@color/maco_orange"
+                    app:layout_constraintBottom_toTopOf="@id/cl_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lineColor="@color/maco_orange" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="112dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/content"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/tv_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/edit"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:textColor="@color/maco_dark_gray"/>
+
+                    <View
+                        android:id="@+id/v_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_content"
+                        android:background="@color/maco_dark_gray"
+                        android:layout_marginTop="3dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/v_line"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_content"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
 
 
 

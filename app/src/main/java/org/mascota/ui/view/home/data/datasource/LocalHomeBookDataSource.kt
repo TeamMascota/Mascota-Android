@@ -13,6 +13,12 @@ class LocalHomeBookDataSource : HomeBookDataSource {
         HomeContentInfoData(1, "코봉의 봄", 30),
         HomeContentInfoData(2, "코봉의 여름", 15),
         HomeContentInfoData(3, "코봉의 가을", 15),
+        HomeContentInfoData(4, "코봉의 겨울", 15),
+        HomeContentInfoData(4, "코봉의 겨울", 15),
+        HomeContentInfoData(4, "코봉의 겨울", 15),
+        HomeContentInfoData(4, "코봉의 겨울", 15),
+        HomeContentInfoData(4, "코봉의 겨울", 15),
+        HomeContentInfoData(4, "코봉의 겨울", 15),
         HomeContentInfoData(4, "코봉의 겨울", 15)
     )
 }

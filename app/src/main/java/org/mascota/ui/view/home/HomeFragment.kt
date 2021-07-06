@@ -20,16 +20,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         observeHomeDiaryInfo()
         getHomePageInfo()
         observeHomePageInfo()
-
-        homeContentAdapter = HomeContentAdapter()
-        binding.rvContent.adapter = homeContentAdapter
-
-        homeViewModel.getHomeContentInfo()
-
-        homeViewModel.homeContent.observe(viewLifecycleOwner) {
-            homeContentAdapter.contentList.addAll(it)
-            homeContentAdapter.notifyDataSetChanged()
-        }
+        getHomeContentInfo()
+        initHomeContentAdapter()
+        observeHomeContentInfo()
     }
 
     private fun getHomeBookInfo() {
@@ -62,7 +55,23 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         }
     }
 
+    private fun getHomeContentInfo() {
+        homeViewModel.getHomeContentInfo()
+    }
 
+    private fun initHomeContentAdapter() {
+        homeContentAdapter = HomeContentAdapter()
+        binding.rvContent.adapter = homeContentAdapter
 
+        binding.rvContent.isNestedScrollingEnabled = false
+    }
+
+    private fun observeHomeContentInfo() {
+        homeViewModel.homeContent.observe(viewLifecycleOwner) {
+            homeContentAdapter.contentList = it
+            homeContentAdapter.notifyDataSetChanged()
+        }
+    }
+    
 
 }
