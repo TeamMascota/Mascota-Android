@@ -8,7 +8,7 @@ import org.mascota.ui.view.home.data.model.HomeContentInfoData
 
 class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>(){
 
-    val contentList = mutableListOf<HomeContentInfoData>()
+    var contentList = listOf<HomeContentInfoData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeContentViewHolder {
         val binding = ItemContentBinding.inflate(
