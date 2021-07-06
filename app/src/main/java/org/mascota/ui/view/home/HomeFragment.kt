@@ -12,6 +12,10 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     override fun initView() {
         getHomeBookInfo()
         observeHomeBookInfo()
+        getHomeDiaryInfo()
+        observeHomeDiaryInfo()
+        getHomePageInfo()
+        observeHomePageInfo()
     }
 
     private fun getHomeBookInfo() {
@@ -23,5 +27,28 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             binding.homeBookInfoData = it
         }
     }
+
+    private fun getHomeDiaryInfo() {
+        homeViewModel.getHomeDiaryInfo()
+    }
+
+    private fun observeHomeDiaryInfo() {
+        homeViewModel.homeDiaryInfo.observe(viewLifecycleOwner) {
+            binding.bvHome.setLeftDiary(it)
+        }
+    }
+
+    private fun getHomePageInfo() {
+        homeViewModel.getHomePageInfo()
+    }
+
+    private fun observeHomePageInfo() {
+        homeViewModel.homePageInfo.observe(viewLifecycleOwner) {
+            binding.bvHome.setLeftDiaryFlag(it)
+        }
+    }
+
+
+
 
 }
