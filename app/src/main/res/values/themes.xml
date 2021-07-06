@@ -26,4 +26,14 @@
         <item name="android:textColor">@color/maco_dark_gray</item>
         <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
     </style>
+
+    <style name="TextBody2Style" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
+
+    <style name="TextSub1Style" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
+    </style>
 </resources>
