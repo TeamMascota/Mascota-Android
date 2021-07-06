@@ -20,4 +20,12 @@
         <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
         <item name="android:textColor">@color/maco_light_gray</item>
     </style>
+
+    <style name="SpinnerDivideStyle" parent="android:style/Widget.ListView.DropDown">
+        <item name="android:divider">@color/maco_gray</item> <!--구분선 색-->
+        <item name="android:dividerHeight">1dp</item> <!-- 구분석 높이-->
+    </style>
+
+
+
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -37,4 +38,15 @@ abstract class BindingFragment<T : ViewDataBinding>(
         super.onDestroyView()
         _binding = null
     }
+
+  /*  open fun ArrayAdapter(
+        bindingFragment: BindingFragment<T>,
+        supportSimpleSpinnerDropdownItem: Int,
+        items: Array<String>
+    ): Adapter {
+
+    }*/
 }
+
+
+

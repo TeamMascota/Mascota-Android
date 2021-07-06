@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.view.diary.DiaryDetailWriteFragment">
 
@@ -9,7 +10,239 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/maco_light_gray"
+        >
+
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_icon_back"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_chapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="162화 작성"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_add_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_image"
+            android:textColor="@color/maco_gray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount_image"
+            android:textColor="@color/maco_gray"
+            android:textSize="10sp"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_image"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_image"
+            app:layout_constraintStart_toEndOf="@+id/tv_add_image"
+            android:layout_marginStart="3dp"
+
+            />
+
+        <HorizontalScrollView
+            android:id="@+id/scv_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_image"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scrollbars="none"
+            >
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/iv_1"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_add_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/before_add_image"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/iv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/before_add_image"
+                    app:layout_constraintTop_toTopOf="@+id/iv_1"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_1"
+                    app:layout_constraintStart_toEndOf="@+id/iv_1"
+                    android:layout_marginStart="2dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/iv_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/before_add_image"
+                    app:layout_constraintTop_toTopOf="@+id/iv_2"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_2"
+                    app:layout_constraintStart_toEndOf="@+id/iv_2"
+                    android:layout_marginStart="2dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/iv_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/before_add_image"
+                    app:layout_constraintTop_toTopOf="@+id/iv_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_3"
+                    app:layout_constraintStart_toEndOf="@+id/iv_3"
+                    android:layout_marginStart="2dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/iv_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/before_add_image"
+                    app:layout_constraintTop_toTopOf="@+id/iv_4"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_4"
+                    app:layout_constraintStart_toEndOf="@+id/iv_4"
+                    android:layout_marginStart="2dp"
+                    />
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </HorizontalScrollView>
+
+
+
+        <TextView
+            android:id="@+id/tv_select_chapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_chapter"
+            android:textColor="@color/maco_gray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scv_image"
+            android:layout_marginTop="20dp"
+            />
+
+        <Spinner
+            android:id="@+id/spin_select_chapter"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select_chapter"
+            android:spinnerMode="dropdown"
+            android:theme="@style/SpinnerDivideStyle"
+            android:background="@drawable/spinner_background"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_picker_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/picker_date"
+            android:textColor="@color/maco_gray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spin_select_chapter"
+            android:layout_marginTop="20dp"
+            />
+
+        <Button
+            android:id="@+id/btn_picker_date"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/maco_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_picker_date"
+            android:text="YYYY.MM.DD"
+            android:textColor="@color/maco_gray"
+            />
+
+        <TextView
+            android:id="@+id/tv_titel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/picker_date"
+            android:textColor="@color/maco_gray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_picker_date"
+            android:layout_marginTop="20dp"
+            />
+
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/maco_white"
+            android:hint="162화"
+            app:layout_constraintTop_toBottomOf="@id/tv_titel"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:id="@+id/tv_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/story"
+            android:textColor="@color/maco_gray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_title"
+            android:layout_marginTop="20dp"
+            />
+
+        <EditText
+            android:id="@+id/et_story"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/maco_white"
+            android:hint="@string/story_hint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_story" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/maco_light_gray"
+            android:text="@string/finish"
+            android:textColor="@color/maco_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_story"
+            android:layout_marginTop="20dp"
+            />
+
+
+
+
+
+
 
 
 

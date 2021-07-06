@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import org.koin.core.time.measureDuration
 import org.mascota.R
+import org.mascota.R.id.frg_profile
 import org.mascota.databinding.DiaogDeleteBinding
 import org.mascota.databinding.FragmentDiaryEmotionBinding
 import org.mascota.ui.base.BindingFragment
@@ -24,7 +25,10 @@ import org.mascota.ui.view.diary.data.ProfileList
 
 class DiaryEmotionFragment : BindingFragment<FragmentDiaryEmotionBinding>(R.layout.fragment_diary_emotion){
 
+
     private lateinit var diaogDeleteBinding : DiaogDeleteBinding
+
+
 
     val selectEmotionaAdapter = SelectEmotionAdapter()
     val selectProfileAdapter = SelectProfileAdapter()
@@ -117,6 +121,10 @@ class DiaryEmotionFragment : BindingFragment<FragmentDiaryEmotionBinding>(R.layo
 // 클릭시
         // 다음으로 넘어가려면 하면 리플레이스프래그멘트 쓰기!!!
     }
+
+
+
+
 
     private fun showDeleteDialog() {
         diaogDeleteBinding = DataBindingUtil.inflate(LayoutInflater.from(requireContext())
