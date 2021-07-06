@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.mascota">
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--갤러리 권한-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+    출처: https://superwony.tistory.com/101 [개발자 키우기]
     <application
         android:name=".MascotaApplication"
         android:allowBackup="true"
