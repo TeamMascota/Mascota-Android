@@ -29,7 +29,7 @@ class ContentDetailMonthAdapter :
     }
 
     override fun onBindViewHolder(holder: ContentDetailMonthViewHolder, position: Int) {
-        holder.onBind(contentMonthList[position])
+        holder.onBind(_contentMonthList[position])
 
 
     }
@@ -43,9 +43,10 @@ class ContentDetailMonthAdapter :
         fun onBind(contentMonthInfoData: ContentMonthInfoData) {
             binding.contentMonthDataInfo = contentMonthInfoData
 
-            val contentDetailDiaryAdapter: ContentDetailDiaryAdapter = ContentDetailDiaryAdapter()
-            contentDetailDiaryAdapter.contentDiaryList = contentMonthInfoData.diaryList
-            binding.rvContentDiary.adapter = contentDetailDiaryAdapter
+            ContentDetailDiaryAdapter().apply {
+                contentDiaryList = contentMonthInfoData.diaryList
+                binding.rvContentDiary.adapter = this
+            }
         }
     }
 }

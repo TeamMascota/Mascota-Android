@@ -25,7 +25,7 @@ class ContentDetailDiaryAdapter: RecyclerView.Adapter<ContentDetailDiaryAdapter.
     }
 
     override fun onBindViewHolder(holder: ContentDetailDiaryViewHolder, position: Int) {
-        holder.onBind(contentDiaryList[position])
+        holder.onBind(_contentDiaryList[position])
     }
 
     override fun getItemCount(): Int = contentDiaryList.size
