@@ -136,7 +136,7 @@
                         android:textAppearance="@style/TextBody2Style"
                         android:textColorHint="@color/maco_light_gray"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_text_size"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_book_title_size"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -153,14 +153,14 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tv_text_size"
+                        android:id="@+id/tv_book_title_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/cur_name_size"
                         android:textAppearance="@style/TextBody2Style"
                         android:textColor="@color/maco_light_gray"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_text_limit"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_text_limit"
-                        tools:text="@string/cur_name_size" />
+                        app:layout_constraintEnd_toStartOf="@+id/tv_text_limit" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
@@ -199,22 +199,22 @@
                         android:hint="@string/plz_input_writer"
                         android:textColorHint="@color/maco_light_gray"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_current_writer"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_writer_size"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tv_current_writer"
+                        android:id="@+id/tv_writer_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/cur_name_size"
                         android:textAppearance="@style/TextBody2Style"
                         android:textColor="@color/maco_light_gray"
-                        app:layout_constraintBottom_toBottomOf="@+id/tv_writer_size"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_writer_size"
-                        tools:text="@string/cur_name_size"/>
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_writer_limit"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_writer_limit" />
 
                     <TextView
-                        android:id="@+id/tv_writer_size"
+                        android:id="@+id/tv_writer_limit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="1dp"
@@ -282,11 +282,11 @@
                         android:id="@+id/tv_prolog_size"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/cur_name_size"
                         android:textAppearance="@style/TextBody2Style"
                         android:textColor="@color/maco_light_gray"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_prolog_limit"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_prolog_limit"
-                        tools:text="@string/cur_name_size" />
+                        app:layout_constraintEnd_toStartOf="@+id/tv_prolog_limit" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
@@ -309,16 +309,16 @@
                     android:layout_marginBottom="12dp"
                     android:ems="10"
                     android:padding="10dp"
+                    android:hint="@string/now_cobong_what_life"
                     android:textColor="@color/maco_black"
                     android:textColorHint="@color/maco_light_gray"
                     android:textAppearance="@style/TextBody2Style"
                     android:background="@drawable/selector_profile_et"
-                    android:inputType="textPersonName"
+                    android:singleLine="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/tv_prolog"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_prolog"
-                    tools:hint="@string/now_cobong_what_life"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prolog" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

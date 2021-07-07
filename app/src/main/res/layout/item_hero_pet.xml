@@ -1,38 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="isEmptyImgVisible"
+            type="Boolean" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_item"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/selector_profile_white_btn"
-        app:layout_constraintDimensionRatio="100:132"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/layout_empty_image"
-            layout="@layout/layout_empty_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/tv_hero"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_item"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selector_profile_bottom_btn"
-            android:gravity="center"
-            android:paddingVertical="6dp"
-            android:textAppearance="@style/TextBody2Style"
-            android:textColor="@color/maco_white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/selector_profile_white_btn"
+            app:layout_constraintDimensionRatio="100:132"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/pet1" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include
+                android:id="@+id/layout_empty_image"
+                layout="@layout/layout_empty_image"
+                android:visibility="@{isEmptyImgVisible? View.VISIBLE : View.GONE}"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_hero"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/layout_plus_image"
+                layout="@layout/layout_plus_image"
+                android:visibility="@{isEmptyImgVisible? View.GONE : View.VISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_hero"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_hero"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_profile_bottom_btn"
+                android:gravity="center"
+                android:paddingVertical="6dp"
+                android:textAppearance="@style/TextBody2Style"
+                android:textColor="@color/maco_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/pet1" />
+
+            <ImageView
+                android:id="@+id/iv_pet_img"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_hero"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_dog_boring" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

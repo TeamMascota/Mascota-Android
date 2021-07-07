@@ -16,9 +16,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
+            android:fillViewport="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -96,9 +94,9 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextBody2Style"
                         android:textColor="@color/maco_light_gray"
+                        android:text="@string/cur_name_size"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_name_limit"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_name_limit"
-                        tools:text="@string/cur_name_size" />
+                        app:layout_constraintEnd_toStartOf="@+id/tv_name_limit" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
@@ -156,13 +154,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/male"
-                    android:textColor="@color/selector_animal_text"
-                    android:textAppearance="@style/TextBody2Style"
-                    android:paddingVertical="4dp"
-                    android:paddingHorizontal="26dp"
+                    android:layout_marginBottom="43dp"
                     android:background="@drawable/selector_animal_btn"
                     android:gravity="center"
+                    android:paddingHorizontal="26dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/male"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/selector_animal_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btn_female"
                     app:layout_constraintStart_toStartOf="@+id/tv_gender"
                     app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
@@ -205,11 +205,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="34dp"
+                    android:text="@string/pet1_name"
                     android:textAppearance="@style/TextSub1Style"
                     android:textColor="@color/maco_dark_gray"
                     app:layout_constraintStart_toStartOf="@+id/tv_current_pet"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_current_pet"
-                    tools:text="@string/pet1_name" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_current_pet" />
 
                 <TextView
                     android:id="@+id/tv_pet_num"
