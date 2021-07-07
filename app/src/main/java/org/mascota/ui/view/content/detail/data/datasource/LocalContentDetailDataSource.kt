@@ -38,7 +38,7 @@ class LocalContentDetailDataSource : ContentDetailDataSource {
 
     override fun getContentMonthInfoData(): List<ContentMonthInfoData> =
         listOf<ContentMonthInfoData>(
-            ContentMonthInfoData(7, 15),
-            ContentMonthInfoData(6, 3)
+            ContentMonthInfoData(7, 15, getContentDiaryInfoData().toMutableList()),
+            ContentMonthInfoData(6, 3, getContentDiaryInfoData().toMutableList())
         )
 }
