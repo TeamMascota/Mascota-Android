@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/maco_light_gray"
+        android:background="@color/maco_ivory"
         >
 
 
@@ -20,7 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/btn_icon_back"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,52 +71,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/iv_1"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_add_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/before_add_image"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_add_image"
+                    app:srcCompat="@drawable/before_add_image" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/iv_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/before_add_image"
+                    app:srcCompat="@drawable/before_add_image"
                     app:layout_constraintTop_toTopOf="@+id/iv_1"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_1"
                     app:layout_constraintStart_toEndOf="@+id/iv_1"
                     android:layout_marginStart="2dp"
                     />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/iv_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/before_add_image"
+                    app:srcCompat="@drawable/before_add_image"
                     app:layout_constraintTop_toTopOf="@+id/iv_2"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_2"
                     app:layout_constraintStart_toEndOf="@+id/iv_2"
                     android:layout_marginStart="2dp"
                     />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/iv_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/before_add_image"
+                    app:srcCompat="@drawable/before_add_image"
                     app:layout_constraintTop_toTopOf="@+id/iv_3"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_3"
                     app:layout_constraintStart_toEndOf="@+id/iv_3"
                     android:layout_marginStart="2dp"
                     />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/iv_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/before_add_image"
+                    app:srcCompat="@drawable/before_add_image"
                     app:layout_constraintTop_toTopOf="@+id/iv_4"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_4"
                     app:layout_constraintStart_toEndOf="@+id/iv_4"
@@ -171,15 +170,14 @@
             android:layout_marginTop="20dp"
             />
 
-        <Button
-            android:id="@+id/btn_picker_date"
+        <TextView
+            android:id="@+id/tv_today"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@color/maco_white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_picker_date"
-            android:text="YYYY.MM.DD"
-            android:textColor="@color/maco_gray"
+            android:textColor="@color/black"
             />
 
         <TextView
@@ -191,7 +189,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_picker_date"
+            app:layout_constraintTop_toBottomOf="@id/tv_today"
             android:layout_marginTop="20dp"
             />
 
@@ -201,9 +199,20 @@
             android:layout_height="40dp"
             android:background="@color/maco_white"
             android:hint="162화"
+            android:maxLength="11"
             app:layout_constraintTop_toBottomOf="@id/tv_titel"
             android:textColor="#000000"
             />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/maco_light_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/et_title"
+            app:layout_constraintEnd_toEndOf="@+id/tv_today"
+            app:layout_constraintTop_toTopOf="@+id/et_title" />
 
         <TextView
             android:id="@+id/tv_story"
@@ -224,6 +233,9 @@
             android:layout_height="150dp"
             android:background="@color/maco_white"
             android:hint="@string/story_hint"
+            android:gravity="top"
+            android:paddingTop="20dp"
+            android:paddingStart="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_story" />
 
