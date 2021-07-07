@@ -81,7 +81,8 @@
             app:layout_constraintBottom_toTopOf="@id/bottom_line"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_title"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintDimensionRatio="1:1">
 
             <ImageView
                 android:id="@+id/iv_picture"
