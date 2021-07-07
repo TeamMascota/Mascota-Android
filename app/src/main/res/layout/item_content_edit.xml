@@ -61,10 +61,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="44dp"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:text="@string/revise"
+            android:textAppearance="@style/TextBody2Style"
             android:textColor="@color/maco_dark_gray"
-            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/revise" />
@@ -74,10 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:text="@string/delete"
+            android:textAppearance="@style/TextBody2Style"
             android:textColor="@color/maco_orange"
-            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_edit"
             tools:text="@string/delete" />
