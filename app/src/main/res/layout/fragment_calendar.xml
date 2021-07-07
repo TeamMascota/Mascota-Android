@@ -150,7 +150,7 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_pet_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <org.mascota.ui.view.custom.CalendarView
+        <org.mascota.ui.view.custom.calendar.CalendarView
             android:id="@+id/calendar"
             android:layout_width="0dp"
             android:layout_height="0dp"

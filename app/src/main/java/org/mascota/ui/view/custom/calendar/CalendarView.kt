@@ -1,4 +1,4 @@
-package org.mascota.ui.view.custom
+package org.mascota.ui.view.custom.calendar
 
 import android.content.Context
 import android.util.AttributeSet
@@ -94,7 +94,7 @@ class CalendarView(
     }
 
     private fun initMonthChangeEvent() {
-        var newPosition = 0
+        var newPosition: Int
         layoutCalendarTopBinding.apply {
             ibMonthNext.setOnClickListener {
                 monthNextButtonClickListener?.invoke()

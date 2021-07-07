@@ -1,4 +1,4 @@
-package org.mascota.ui.view.custom
+package org.mascota.ui.view.custom.calendar
 
 import android.content.Context
 import android.util.AttributeSet
