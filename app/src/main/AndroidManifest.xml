@@ -3,6 +3,7 @@
     package="org.mascota">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MascotaApplication"
@@ -13,7 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.view.profile.BookCompleteActivity"
+            android:exported="true"/>
+        <activity android:name=".ui.view.profile.ProfileCreateActivity"
+            android:exported="true"/>
         <activity android:name=".ui.MainActivity">
+
+        </activity>
+        <activity android:name=".ui.view.content.detail.ContentDetailActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

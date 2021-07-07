@@ -27,6 +27,42 @@
     <string name="edit">편집</string>
     <!--rainbow-->
 
+    <!--profile_create-->
+    <string name="total_page">/2</string>
+    <string name="to_home">홈으로</string>
+    <string name="next">다음</string>
+    <string name="total_book_name_size">/12)</string>
+    <string name="total_prolog_size">/10)</string>
+    <string name="hero_register">주인공 등록</string>
+    <string name="book_register">책 등록</string>
+    <string name="total_name_size">/6)</string>
+    <string name="current_pet">"현재 등록된 반려동물 주인공 "</string>
+    <string name="num">마리</string>
+    <string name="plz_input_pet_name">반려동물의 이름을 입력해 주세요</string>
+    <string name="cat">고양이</string>
+    <string name="dog">강아지</string>
+    <string name="to_be_family">가족이 된 날</string>
+    <string name="yyyy_mm_dd">YYYY.MM.DD</string>
+    <string name="gender">성별</string>
+    <string name="male">남</string>
+    <string name="female">여</string>
+    <string name="secret">비밀</string>
+    <string name="book_title">책 제목</string>
+    <string name="plz_input_book">책 제목을 입력해 주세요</string>
+    <string name="plz_input_prolog">프롤로그 제목을 입력해 주세요</string>
+    <string name="prolog">프롤로그</string>
+    <string name="writer_name">작가명</string>
+    <string name="plz_input_writer">작가님의 이름을 입력해 주세요</string>
+    <string name="prolog_title">프롤로그 제목</string>
+    <string name="book_complete">책 생성 완료</string>
+    <string name="hero">"주인공 "</string>
+    <string name="pet_for_story">마리를 위한 이야기를</string>
+    <string name="now_start">이제 시작해 보세요!</string>
+    <string name="profile_photo_register">프로필 사진 등록하기</string>
+    <string name="album_photo">앨범에서 사진 선택</string>
+    <string name="photo_delete">사진 삭제</string>
+    <string name="quit">취소</string>
+
     <!--tools-->
     <string name="soeun">최소은</string>
     <string name="day162">162</string>
@@ -45,4 +81,13 @@
     <string name="chapter1">제 1장</string>
     <string name="cobong_spring">코봉의 봄</string>
     <string name="total">총 0화</string>
+    <string name="cur_name_size">(0</string>
+    <string name="pet1_name">주인공 1의 이름</string>
+    <string name="pet1">주인공 1</string>
+    <string name="author_soeun">작가 최소은</string>
+    <string name="now_cobong_what_life">Q.지금까지 코봉이는 어떤 삶을 살았나요?\n\n</string>
+    <string name="date_day">"13일\n금요일"</string>
+    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타</string>
+    <string name="content_title">코봉이와의 첫만남</string>
+    <string name="month7">7월</string>
 </resources>

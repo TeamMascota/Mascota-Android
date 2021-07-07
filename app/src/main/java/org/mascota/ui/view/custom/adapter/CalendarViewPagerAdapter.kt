@@ -5,8 +5,8 @@ import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.ui.view.calendar.data.model.CalendarData
-import org.mascota.ui.view.custom.CalendarView.Companion.FIRST_POSITION
-import org.mascota.ui.view.custom.MonthView
+import org.mascota.ui.view.custom.calendar.CalendarView.Companion.FIRST_POSITION
+import org.mascota.ui.view.custom.calendar.MonthView
 import java.util.*
 
 class CalendarViewPagerAdapter(private val dateItem: List<CalendarData>) :

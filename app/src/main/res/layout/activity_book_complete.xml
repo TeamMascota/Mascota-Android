@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.view.profile.BookCompleteActivity">
+
+        <TextView
+            android:id="@+id/tv_book_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:textAppearance="@style/TextSub1Style"
+            android:textColor="@color/maco_black"
+            android:text="@string/book_complete"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ib_back"
+            app:layout_constraintTop_toTopOf="@+id/ib_back" />
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_hero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="41dp"
+            android:textAppearance="@style/TextH1Style"
+            android:text="@string/hero"
+            android:textColor="@color/maco_dark_gray"
+            app:layout_constraintStart_toStartOf="@+id/ib_back"
+            app:layout_constraintTop_toBottomOf="@+id/ib_back" />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/maco_orange"
+            android:textAppearance="@style/TextH1Style"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_hero"
+            app:layout_constraintStart_toEndOf="@+id/tv_hero"
+            app:layout_constraintTop_toTopOf="@+id/tv_hero"
+            tools:text="@string/one"/>
+
+        <TextView
+            android:id="@+id/tv_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pet_for_story"
+            android:textColor="@color/maco_dark_gray"
+            android:textAppearance="@style/TextH1Style"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_num"
+            app:layout_constraintStart_toEndOf="@+id/tv_num" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_to_home"
+            style="@style/MascotaButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="58dp"
+            android:text="@string/to_home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="29dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_to_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_now_start">
+
+            <ImageView
+                android:id="@+id/iv_book_holder"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/rectangle_fill_orange_left_3" />
+
+            <ImageView
+                android:id="@+id/iv_book_cover"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
+                app:srcCompat="@drawable/ic_dog_angry" />
+
+            <TextView
+                android:id="@+id/tv_book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="21dp"
+                android:textColor="@color/maco_white"
+                android:textAppearance="@style/TextH1Style"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@string/home_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_mascota_logo_white" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="19dp"
+                android:background="@color/maco_orange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
+                app:layout_constraintTop_toBottomOf="@+id/tv_book_title" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="23dp"
+                android:textAppearance="@style/TextSub1Style"
+                android:textColor="@color/maco_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line"
+                tools:text="@string/author_soeun"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_now_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/now_start"
+            android:textColor="@color/maco_dark_gray"
+            android:textAppearance="@style/TextH1Style"
+            app:layout_constraintStart_toStartOf="@+id/tv_hero"
+            app:layout_constraintTop_toBottomOf="@+id/tv_hero" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
