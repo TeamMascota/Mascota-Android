@@ -92,4 +92,11 @@ object BindingAdapter {
     fun setTotalText(textView: TextView, number: Int?) {
         textView.text = "총 ${number}화"
     }
+
+    @SuppressLint("SetTextI18n")
+    @JvmStatic
+    @BindingAdapter("monthText")
+    fun setMonthText(textView: TextView, number: Int?) {
+        textView.text = "${number}월"
+    }
 }
