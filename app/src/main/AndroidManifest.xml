@@ -28,6 +28,9 @@
         <activity android:name=".ui.view.content.detail.ContentDetailActivity">
             
         </activity>
+        <activity android:name=".ui.view.content.edit.ContentEditActivity">
+
+        </activity>
     </application>
 
 </manifest>
