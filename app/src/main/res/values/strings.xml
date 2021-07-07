@@ -86,4 +86,8 @@
     <string name="pet1">주인공 1</string>
     <string name="author_soeun">작가 최소은</string>
     <string name="now_cobong_what_life">Q.지금까지 코봉이는 어떤 삶을 살았나요?\n\n</string>
+    <string name="date_day">"13일\n금요일"</string>
+    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타</string>
+    <string name="content_title">코봉이와의 첫만남</string>
+    <string name="month7">7월</string>
 </resources>
