@@ -1,6 +1,7 @@
 package org.mascota.ui.view.rainbow
 
 import android.app.Dialog
+import android.content.Intent
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -8,12 +9,15 @@ import org.mascota.R
 import org.mascota.databinding.FragmentRainbowBinding
 import org.mascota.databinding.LayoutFarewellDialogBinding
 import org.mascota.databinding.LayoutHelpMessageDialogBinding
+import org.mascota.databinding.LayoutMascotaDialogBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter
 import org.mascota.ui.view.rainbow.adapter.HelpAdapter
+import org.mascota.ui.view.rainbow.farewell.FarewellActivity
 import org.mascota.ui.viewmodel.RainbowViewModel
 import org.mascota.util.DialogUtil.makeDialog
 import org.mascota.util.DialogUtil.setDialog
+import org.mascota.util.extension.setTextPartialColor
 import org.mascota.util.extension.urlIntent
 
 class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragment_rainbow) {
@@ -23,8 +27,10 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
     private lateinit var farewellAdapter: FarewellAdapter
     private lateinit var farewellDialog: Dialog
     private lateinit var helpDialog: Dialog
+    private lateinit var finishDialog: Dialog
     private lateinit var farewellDialogBinding: LayoutFarewellDialogBinding
     private lateinit var helpMessageDialogBinding: LayoutHelpMessageDialogBinding
+    private lateinit var finishDialogBinding: LayoutMascotaDialogBinding
 
     override fun initView() {
         initBookView()
@@ -45,10 +51,12 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         requireContext().apply {
             farewellDialog = makeDialog(this)
             helpDialog = makeDialog(this)
+            finishDialog = makeDialog(this)
         }
 
         setDialog(farewellDialog, farewellDialogBinding.root)
         setDialog(helpDialog, helpMessageDialogBinding.root)
+        setDialog(finishDialog, finishDialogBinding.root)
     }
 
     private fun initDialogDataBinding() {
@@ -61,6 +69,12 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         helpMessageDialogBinding = DataBindingUtil.inflate(
             LayoutInflater.from(requireContext()),
             R.layout.layout_help_message_dialog,
+            null,
+            false
+        )
+        finishDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(requireContext()),
+            R.layout.layout_mascota_dialog,
             null,
             false
         )
@@ -80,6 +94,21 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
             tvQuit.setOnClickListener {
                 farewellDialog.dismiss()
             }
+            tvNext.setOnClickListener {
+                farewellDialog.dismiss()
+                finishDialog.show()
+            }
+        }
+
+        finishDialogBinding.apply {
+            tvContent.text = getString(R.string.finish_cobong)
+            tvQuit.setOnClickListener {
+                finishDialog.dismiss()
+            }
+            tvNext.setOnClickListener {
+                finishDialog.dismiss()
+                startFarewell()
+            }
         }
     }
 
@@ -90,6 +119,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         helpAdapter.apply {
             binding.rvHelp.adapter = this
             setHelpMessageClickListener { requireContext().urlIntent(it) }
+            setColorConverter { text, length -> setTextPartialColor(R.color.maco_gray, 0, length, text) }
         }
 
         farewellAdapter.apply {
@@ -123,6 +153,10 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
                 }
             }
         }
+    }
+
+    private fun startFarewell() {
+        startActivity(Intent(requireContext(), FarewellActivity::class.java))
     }
 
     companion object {

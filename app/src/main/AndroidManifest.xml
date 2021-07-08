@@ -28,6 +28,13 @@
             android:exported="true"/>
         <activity android:name=".ui.view.profile.ProfileCreateActivity"
             android:exported="true"/>
+        <activity android:name=".ui.view.rainbow.farewell.FarewellActivity"></activity>
+        <activity
+            android:name=".ui.view.profile.BookCompleteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.profile.ProfileCreateActivity"
+            android:exported="true" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,6 +48,8 @@
         <activity android:name=".ui.view.content.edit.ContentEditActivity">
 
         </activity>
+        <activity android:name=".ui.view.content.detail.ContentDetailActivity"></activity>
+        <activity android:name=".ui.view.content.edit.ContentEditActivity"></activity>
     </application>
 
 </manifest>
