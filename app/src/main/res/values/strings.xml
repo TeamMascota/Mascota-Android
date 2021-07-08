@@ -116,9 +116,7 @@
     <string name="sad">우울</string>
     <string name="angry">화남</string>
     <string name="boring">심심</string>
-    <string name="next">다음</string>
     <string name="emotion_delete">기분 삭제</string>
-    <string name="delete">삭제</string>
     <string name="cancel">취소</string>
     <string name="add_image">사진 첨부</string>
     <string name="amount_image">(최대 5장)</string>
@@ -130,6 +128,7 @@
     <string name="finish">작성 완료</string>
     <string name="bottomsheet_add">일기 사진 첨부하기</string>
     <string name="bottomsheet_select">앨범에서 사진 선택</string>
+    <string name="title_top">162화 작성</string>
 
 
 </resources>

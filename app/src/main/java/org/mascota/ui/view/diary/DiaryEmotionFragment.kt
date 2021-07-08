@@ -3,16 +3,11 @@ package org.mascota.ui.view.diary
 
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import org.koin.core.time.measureDuration
 import org.mascota.R
-import org.mascota.R.id.frg_profile
 import org.mascota.databinding.DiaogDeleteBinding
 import org.mascota.databinding.FragmentDiaryEmotionBinding
 import org.mascota.ui.base.BindingFragment
@@ -108,7 +103,7 @@ class DiaryEmotionFragment : BindingFragment<FragmentDiaryEmotionBinding>(R.layo
             showDeleteDialog()
 
         }
-        SetBtnNext()
+
 
 
 
@@ -148,20 +143,7 @@ class DiaryEmotionFragment : BindingFragment<FragmentDiaryEmotionBinding>(R.layo
 
     }
 
-    //다음버튼 비활성화
-    //뭔함수 써야될거같은데
-    // if ( 감정을 선택 안했을 경우 || 감정프로필이 안보일때 )
-    // else ->
-    private fun SetBtnNext(){
-        if(binding.rcvEmotion.visibility == View.GONE)
-        {
-            binding.btnNext.setBackgroundResource(R.drawable.btn_next)
 
-        } else{
-            binding.btnNext.setBackgroundResource(R.drawable.btn_next_actived)
-        }
-
-    }
 
 
 }

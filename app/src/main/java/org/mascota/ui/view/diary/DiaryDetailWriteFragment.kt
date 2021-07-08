@@ -3,7 +3,6 @@ package org.mascota.ui.view.diary
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -11,6 +10,7 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -39,6 +39,22 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
     private lateinit var spinnerAdapter: SpinnerAdapter
     private var item_spin = arrayListOf<SpinnerModel>()
 
+    val image = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+
+            activityResult ->
+        if(activityResult.resultCode == Activity.RESULT_OK){
+            val intent = activityResult.data
+            if(intent != null){
+                val fileUri = intent.data
+                binding.iv1.setImageURI(fileUri)
+            }
+            else{
+                Log.d("reusltcode","못함")
+            }
+        }
+
+    }
+
 
 
     override fun initView() {
@@ -46,14 +62,6 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
         initClickSelectImage()
         binding.tvToday.setText(tv_today)
         WriteTitle()
-
-
-//        clickSpinner()
-
-       /* binding.spinSelectChapter.setOnClickListener{
-            clickSpinner()
-        }*/
-
 
 
 
@@ -149,12 +157,13 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
         } else {
             //권한 있을 경우
-            var intent = Intent(Intent.ACTION_PICK)
+           var intent = Intent(Intent.ACTION_PICK)
             //어떤 종류의 데이터를 선택할 수 있는지 정해줌
-            // intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            // intent.type = "image/*"
+            intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
-            startActivityForResult(intent, REQ_GALLERY)
+            image.launch(intent)
+
+
 
         }
     }
@@ -168,10 +177,11 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
     //인탠트로 이미지가 넘어옴
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        Log.d("됨","됨")
+
         if(requestCode == RESULT_OK){
+            Log.d("requsetCode","RESULT_OK")
             when(requestCode){
                 REQ_GALLERY->{
                     // 이미지가 nullable함. null일 경우 처리해야함
@@ -180,17 +190,15 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
                         binding.iv1.setImageURI(uri)
 
                     }
-//data에 uri 주소가 담겨서 그냥 꺼내면됨
-                // 원본 이미지의 주소를 저장할 uri 필요
-
-
-
                 }
 
             }
         }
+        else{
+            Log.d("requsetCode","Nope")
+        }
 
-    }
+    }*/
 
     private fun WriteTitle() {
         binding.etTitle.addTextChangedListener(object : TextWatcher{

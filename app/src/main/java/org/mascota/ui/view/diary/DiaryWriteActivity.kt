@@ -12,7 +12,7 @@ class DiaryWriteActivity : BindingActivity<ActivityDiaryWriteBinding>(R.layout.a
 
             //프래그맨트 생성
             val diaryemotionfragment = DiaryEmotionFragment()
-            //val diaryDetailWriteFragment = DiaryDetailWriteFragment()
+            val diaryDetailWriteFragment = DiaryDetailWriteFragment()
 
 
             //프래그멘트 매니저가 프래그멘트를 관리할 작업 단위 생성(transaction)
@@ -21,7 +21,16 @@ class DiaryWriteActivity : BindingActivity<ActivityDiaryWriteBinding>(R.layout.a
             transaction.add(R.id.frg_profile,diaryemotionfragment)
             transaction.commit()
 
+            btnNext.setOnClickListener {
+                val move_transacion = supportFragmentManager.
+                    beginTransaction().
+                    replace(R.id.frg_profile, diaryDetailWriteFragment)
+                    .commit()
+            }
+
         }
 
     }
+
+
 }
