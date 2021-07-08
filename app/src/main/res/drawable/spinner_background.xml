@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle"
-    >
-
-    <solid
-        android:color="@color/maco_white"/>
-
-    <stroke
-        android:width="1dp"
-        android:color="@color/maco_gray"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/maco_white"/>
+                    <corners android:radius="10dp"/>
+                    <padding android:left="3dp"
+                        android:top="3dp"
+                        />
+                </shape>
+            </item>
+            <item
+                android:drawable="@drawable/icon_down"
+                android:width="20dp"
+                android:height="20dp"
+                android:top="8dp"
+                android:bottom="3dp"
+                android:end="10dp"
+                android:gravity="right"/>
+        </layer-list>
+    </item>
+</selector>

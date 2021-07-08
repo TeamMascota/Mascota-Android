@@ -13,15 +13,29 @@
         android:layout_height="match_parent">
 
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/frg_profile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:name="org.mascota.ui.view.diary.DiaryEmotionFragment" />
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/frg_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:name="org.mascota.ui.view.diary.DiaryEmotionFragment" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/maco_light_gray"
+                android:text="@string/finish"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                android:textColor="@color/maco_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frg_profile" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

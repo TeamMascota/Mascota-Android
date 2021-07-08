@@ -17,14 +17,16 @@ import androidx.core.content.ContextCompat
 import org.mascota.R
 import org.mascota.databinding.FragmentDiaryDetailWriteBinding
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.diary.adpter.SpinnerAdapter
+import org.mascota.ui.view.diary.data.SpinnerModel
 import java.time.LocalDate
 import java.time.LocalDate.now
 import java.time.format.DateTimeFormatter
 
 
 @Suppress("DEPRECATION")
-class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding>(R.layout.fragment_diary_detail_write) {
-    val items = arrayOf("아이템1", "아이템2")
+class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding>(R.layout.fragment_diary_detail_write){
+
     val REQ_STORAGE_PERMISSION: Int = 1
     val REQ_GALLERY = 12
     @RequiresApi(Build.VERSION_CODES.O)
@@ -34,60 +36,48 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
     @RequiresApi(Build.VERSION_CODES.O)
     val tv_today = current_date.format(formatter).toString()
 
+    private lateinit var spinnerAdapter: SpinnerAdapter
+    private var item_spin = arrayListOf<SpinnerModel>()
+
+
 
     override fun initView() {
+        setupSpinner()
         initClickSelectImage()
         binding.tvToday.setText(tv_today)
         WriteTitle()
 
 
+//        clickSpinner()
+
+       /* binding.spinSelectChapter.setOnClickListener{
+            clickSpinner()
+        }*/
 
 
-
-        /*
-
-
-        binding.spinSelectChapter.adapter = ArrayAdapter(
-            this,
-            R.layout.support_simple_spinner_dropdown_item,
-            items
-        ) as SpinnerAdapter
-
-        binding.spinSelectChapter.onItemClickListener = object : AdapterView.OnItemClickListener{
-            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                when(p2){
-                    0->{
-
-                    }
-                    1->{
-
-                    }
-                    else->{
-
-                    }
-
-                }
-            }
-
-
-
-
-        }
-
-
-    }*/
-
-        /*override fun ArrayAdapter(
-        bindingFragment: BindingFragment<FragmentDiaryDetailWriteBinding>,
-        supportSimpleSpinnerDropdownItem: Int,
-        items: Array<String>
-    ): Adapter {
-       //
-
-    }*/
 
 
     }
+
+    private fun initList(){
+        item_spin.add(SpinnerModel(tv_chapter = "제 1장",tv_chatitle = "코봉이의 적응"))
+        item_spin.add(SpinnerModel(tv_chapter = "제 2장", tv_chatitle = "코봉아 아프지마"))
+        item_spin.add(SpinnerModel(tv_chapter = "제 3장", tv_chatitle = "코봉아 사랑해"))
+
+
+    }
+
+    private fun setupSpinner(){
+
+       initList()
+
+        spinnerAdapter = context?.let { SpinnerAdapter(it, R.layout.item_spinner, item_spin) }!!
+        binding.spinSelectChapter.adapter = spinnerAdapter
+
+
+    }
+
+
 
 
     private fun initClickSelectImage() {
@@ -226,11 +216,6 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
         })
 
     }
-
-
-
-
-
 
 
 }
