@@ -33,7 +33,8 @@
             app:layout_constraintEnd_toEndOf="@+id/iv_profile"
             app:layout_constraintStart_toStartOf="@+id/iv_profile"
             app:layout_constraintTop_toBottomOf="@+id/iv_profile"
-            android:textColor="#ffffff"
+            android:textColor="@color/maco_white"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:paddingStart="9dp"
             android:background="@drawable/selector_profile" />
 

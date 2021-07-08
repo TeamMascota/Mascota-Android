@@ -26,43 +26,47 @@
                     android:id="@+id/tv_select"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="주인공 선택"
-                    android:textColor="#000000"
-                    android:textSize="32sp"
+                    android:text="@string/select_hero"
+                    android:textColor="@color/maco_dark_gray"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    android:textSize="17sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcv_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_select"
+                    app:layout_constraintStart_toStartOf="@+id/tv_select"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_explain"
                     app:spanCount="4"
                     tools:listitem="@layout/item_profile" />
 
                 <TextView
                     android:id="@+id/tv_explain"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="오늘 이야기의 주인공을 선택해 주세요 (복수선택 가능)"
+                    android:text="@string/explain_tv"
                     android:textColor="@color/maco_gray"
                     android:textSize="10sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rcv_profile" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_select"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_select" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcv_emotion"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="7dp"
+                    android:layout_marginStart="10dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_explain"
+                    app:layout_constraintTop_toBottomOf="@+id/rcv_profile"
                     tools:listitem="@layout/item_emotion" />
 
 

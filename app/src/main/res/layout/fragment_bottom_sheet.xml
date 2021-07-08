@@ -11,40 +11,46 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
         <TextView
             android:id="@+id/tv_add_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:background="@color/maco_white"
             android:text="@string/bottomsheet_add"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="25sp"
-            android:layout_marginStart="100dp"
+            android:textColor="@color/maco_gray"
+            android:textSize="14sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:layout_marginHorizontal="90dp"
+            android:paddingVertical="7dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_select"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/maco_white"
             android:text="@string/bottomsheet_select"
-            android:textColor="#000000"
-            android:textSize="25sp"
+            android:textColor="@color/maco_black"
+            android:textSize="16sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_add_image" />
+            app:layout_constraintTop_toBottomOf="@id/tv_add_image"
+            tools:ignore="MissingClass" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/maco_white"
             android:text="@string/cancel"
-            android:textColor="#000000"
-            android:textSize="25sp"
+            android:textColor="@color/maco_black"
+            android:textSize="16sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_select" />
