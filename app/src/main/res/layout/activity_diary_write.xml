@@ -22,14 +22,14 @@
             android:layout_marginEnd="101dp"
             android:textAppearance="@style/TextSub1Style"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_back"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
             app:layout_constraintEnd_toStartOf="@+id/tv_page"
-            app:layout_constraintStart_toEndOf="@+id/ib_back"
-            app:layout_constraintTop_toTopOf="@+id/ib_back"
+            app:layout_constraintStart_toEndOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="@+id/btn_back"
             android:text="@string/title_top" />
 
         <ImageButton
-            android:id="@+id/ib_back"
+            android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
@@ -94,7 +94,7 @@
             android:layout_marginTop="20dp"
             android:background="@color/maco_light_gray"
             android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:text="@string/finish"
+            tools:text="작성완료"
             android:textColor="@color/maco_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

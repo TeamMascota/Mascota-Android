@@ -1,10 +1,7 @@
 package org.mascota.ui.view.diary.adpter
 
-import android.app.AlertDialog
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.R
@@ -13,12 +10,10 @@ import org.mascota.ui.view.diary.data.EmotionList
 
 class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmotionViewHolder>(){
 
-
-
     var emotionList = mutableListOf<EmotionList>()
-    private var deleteButtonClickListener : ((EmotionList) -> Unit) ?= null
+    private var deleteButtonClickListener : ((String, Int) -> Unit) ?= null
 
-    fun setDeleteButtonClickListener(listener : (EmotionList)->Unit){
+    fun setDeleteButtonClickListener(listener : (String, Int)->Unit){
         this.deleteButtonClickListener  = listener
     }
 
@@ -32,7 +27,7 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
     ) : RecyclerView.ViewHolder(
         viewBiding.root
     ){
-        fun onBind(data : EmotionList){
+        fun onBind(data : EmotionList, position: Int){
             viewBiding.emotion = data
             viewBiding.tvPetName.setText(data.pet_name)
 
@@ -57,7 +52,7 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
                }
 
                btnDelete.setOnClickListener {
-                   deleteButtonClickListener?.invoke(data)
+                   deleteButtonClickListener?.invoke(data.pet_name, position)
                }
 
            }
@@ -77,7 +72,7 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
     }
 
     override fun onBindViewHolder(holder: SelectEmotionViewHolder, position: Int) {
-        holder.onBind(emotionList[position])
+        holder.onBind(emotionList[position], position)
     }
 
     override fun getItemCount(): Int = emotionList.size
