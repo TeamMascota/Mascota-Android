@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.view.profile.ProfileCreateBookFragment"
+        tools:background="@color/maco_ivory">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_book"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="43dp"
+                    android:layout_marginBottom="11dp"
+                    android:background="@drawable/rectangle_fill_white_border_orange_3"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_current_pet"
+                    app:layout_constraintDimensionRatio="176:248"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_book_holder"
+                        android:layout_width="18dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rectangle_fill_orange_left_3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/rectangle_fill_orange_left_3" />
+
+                    <View
+                        android:id="@+id/line"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="39dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/maco_orange"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_empty_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
+                        app:layout_constraintTop_toBottomOf="@+id/line"
+                        app:srcCompat="@drawable/ic_empty_img" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_current_pet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="302dp"
+                    android:text="@string/current_pet"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/maco_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_pet_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/maco_orange"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_current_pet"
+                    app:layout_constraintStart_toEndOf="@+id/tv_current_pet"
+                    tools:text="@string/one" />
+
+                <TextView
+                    android:id="@+id/tv_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/num"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/maco_gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_pet_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_pet_num" />
+
+                <TextView
+                    android:id="@+id/tv_book_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:text="@string/book_title"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/maco_dark_gray"
+                    app:layout_constraintStart_toStartOf="@+id/tv_current_pet"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_current_pet" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_book_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="27dp"
+                    android:background="@drawable/selector_profile_et"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_book_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_book_title">
+
+                    <EditText
+                        android:id="@+id/et_book_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:ems="10"
+                        android:textColor="@color/maco_black"
+                        android:maxLength="12"
+                        android:hint="@string/plz_input_book"
+                        android:inputType="textPersonName"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColorHint="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_book_title_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_text_limit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="1dp"
+                        android:text="@string/total_book_name_size"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColor="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_book_title_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cur_name_size"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColor="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_text_limit"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_text_limit" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_writer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:text="@string/writer_name"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textAppearance="@style/TextSub1Style"
+                    app:layout_constraintStart_toStartOf="@+id/tv_book_title"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_book_title" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_writer"
+                    android:layout_width="0dp"
+                    android:background="@drawable/selector_profile_et"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="27dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_writer"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_writer">
+
+                    <EditText
+                        android:id="@+id/et_writer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:ems="10"
+                        android:maxLength="6"
+                        android:textColor="@color/maco_black"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:inputType="textPersonName"
+                        android:hint="@string/plz_input_writer"
+                        android:textColorHint="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_writer_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_writer_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cur_name_size"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColor="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_writer_limit"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_writer_limit" />
+
+                    <TextView
+                        android:id="@+id/tv_writer_limit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="1dp"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColor="@color/maco_light_gray"
+                        android:text="@string/total_name_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_prolog_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:text="@string/prolog_title"
+                    android:textAppearance="@style/TextSub1Style"
+                    app:layout_constraintStart_toStartOf="@+id/cl_writer"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_writer" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_prolog_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="27dp"
+                    android:background="@drawable/selector_profile_et"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prolog_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prolog_title">
+
+                    <EditText
+                        android:id="@+id/et_prolog_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:maxLength="10"
+                        android:ems="10"
+                        android:hint="@string/plz_input_prolog"
+                        android:inputType="textPersonName"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColor="@color/maco_black"
+                        android:textColorHint="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_prolog_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_prolog_limit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="1dp"
+                        android:text="@string/total_prolog_size"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColor="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_prolog_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cur_name_size"
+                        android:textAppearance="@style/TextBody2Style"
+                        android:textColor="@color/maco_light_gray"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_prolog_limit"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_prolog_limit" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_prolog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="29dp"
+                    android:text="@string/prolog"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textAppearance="@style/TextSub1Style"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prolog_title"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_prolog_title" />
+
+                <EditText
+                    android:id="@+id/et_prolog"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="27dp"
+                    android:layout_marginBottom="12dp"
+                    android:ems="10"
+                    android:padding="10dp"
+                    android:hint="@string/now_cobong_what_life"
+                    android:textColor="@color/maco_black"
+                    android:textColorHint="@color/maco_light_gray"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:background="@drawable/selector_profile_et"
+                    android:singleLine="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prolog"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prolog" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

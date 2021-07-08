@@ -2,12 +2,11 @@ package org.mascota.di
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import org.mascota.ui.viewmodel.CalendarViewModel
-import org.mascota.ui.viewmodel.HomeViewModel
-import org.mascota.ui.viewmodel.RainbowViewModel
+import org.mascota.ui.viewmodel.*
 
 val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
-    viewModel { CalendarViewModel(get()) }
-    viewModel { RainbowViewModel() }
+    viewModel { CalendarViewModel(get(), get()) }
+    viewModel { RainbowViewModel(get()) }
+    viewModel { ContentDetailViewModel(get()) }
 }

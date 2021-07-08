@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="homeDiaryInfoData"
+            type="org.mascota.ui.view.home.data.model.HomeDiaryInfoData" />
+        <variable
+            name="isProlog"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_episode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="16dp"
+            tools:text="@string/episode"
+            android:text="@{homeDiaryInfoData.episode}"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:textSize="14sp"
+            android:textColor="@color/maco_dark_gray"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_episode"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="16dp"
+            tools:text="@string/diary_title"
+            android:text="@{homeDiaryInfoData.title}"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:textSize="14sp"
+            android:textColor="@color/maco_dark_gray"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            tools:text="@string/diary_content"
+            android:text="@{homeDiaryInfoData.content}"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:textSize="14sp"
+            android:textColor="@color/maco_gray"
+            android:ellipsize="end"
+            android:maxLines="4"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="19dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="15dp"
+            tools:text="@string/diary_date"
+            android:text="@{homeDiaryInfoData.date}"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:textSize="14sp"
+            android:textColor="@color/maco_gray"/>
+
+        <ImageView
+            android:id="@+id/iv_left_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mascota_logo_orange"
+            android:visibility="@{isProlog? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

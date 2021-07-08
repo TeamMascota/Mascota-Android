@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="isHome"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_custom_book"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bg_book"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/rectangle_orange_radius_3"
+            android:clipChildren="false"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/mid_bottom_line"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/pure_orange"
+            app:layout_constraintBottom_toBottomOf="@id/bg_book"
+            app:layout_constraintEnd_toEndOf="@id/bg_book"
+            app:layout_constraintStart_toStartOf="@id/bg_book"
+            app:layout_constraintTop_toBottomOf="@id/top_book" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top_book"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rectangle_orange_radius_3"
+            android:clipChildren="false"
+            app:layout_constraintBottom_toBottomOf="@id/bg_book"
+            app:layout_constraintEnd_toEndOf="@id/bg_book"
+            app:layout_constraintStart_toStartOf="@id/bg_book"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/mid_line"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/pure_orange"
+                app:layout_constraintBottom_toBottomOf="@id/top_book"
+                app:layout_constraintEnd_toEndOf="@id/top_book"
+                app:layout_constraintStart_toStartOf="@id/top_book"
+                app:layout_constraintTop_toTopOf="@id/top_book" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_left_page"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/top_book"
+                app:layout_constraintEnd_toStartOf="@id/mid_line"
+                app:layout_constraintStart_toStartOf="@id/top_book"
+                app:layout_constraintTop_toTopOf="@id/top_book">
+
+                <include
+                    android:id="@+id/layout_left_page"
+                    layout="@layout/layout_book_diary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{isHome? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <include
+                    android:id="@+id/layout_rainbow_left_page"
+                    layout="@layout/layout_rainbow_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{isHome? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_right_page"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/top_book"
+                app:layout_constraintEnd_toEndOf="@id/top_book"
+                app:layout_constraintStart_toEndOf="@id/mid_line"
+                app:layout_constraintTop_toTopOf="@id/top_book">
+
+                <include
+                    android:id="@+id/layout_right_page"
+                    layout="@layout/layout_diary_write"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="@{isHome? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/layout_rainbow_right_page"
+                    layout="@layout/layout_rainbow_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{isHome? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

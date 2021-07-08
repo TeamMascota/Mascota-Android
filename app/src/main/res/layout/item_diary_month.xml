@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contentMonthDataInfo"
+            type="org.mascota.ui.view.content.detail.data.model.ContentMonthInfoData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_month"
+            monthText="@{contentMonthDataInfo.month}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:textColor="@color/maco_black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/month7" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            totalText="@{contentMonthDataInfo.total}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="9dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:textColor="@color/maco_dark_gray"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/total" />
+
+
+        <View
+            android:id="@+id/top_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/maco_orange"
+            app:layout_constraintTop_toBottomOf="@id/tv_month" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_content_diary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_line"
+            tools:listitem="@layout/item_diary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

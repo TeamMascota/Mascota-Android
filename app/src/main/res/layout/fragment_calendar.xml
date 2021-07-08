@@ -75,6 +75,38 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_num"
             app:layout_constraintStart_toEndOf="@+id/tv_num" />
 
+        <TextView
+            android:id="@+id/tv_switch_part_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_switch_btn_left"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/maco_white"
+            android:textSize="12sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:text="@string/part1"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_switch_part_2"
+            app:layout_constraintEnd_toStartOf="@+id/tv_switch_part_2" />
+
+        <TextView
+            android:id="@+id/tv_switch_part_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="3dp"
+            android:background="@drawable/selector_switch_btn_right"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:paddingTop="6dp"
+            android:paddingBottom="10dp"
+            android:text="@string/part2"
+            android:textColor="@color/maco_white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_past_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_past_day" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_record"
             android:layout_width="0dp"
@@ -117,6 +149,19 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tv_pet_name"
                 app:layout_constraintStart_toEndOf="@+id/tv_pet_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <org.mascota.ui.view.custom.calendar.CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_record" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

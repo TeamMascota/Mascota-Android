@@ -7,11 +7,21 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.ui.view.home.data.datasource.HomeBookDataSource
 import org.mascota.ui.view.home.data.model.HomeBookInfoData
+import org.mascota.ui.view.home.data.model.HomeContentInfoData
+import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
 
 class HomeViewModel(private val homeBookDataSource: HomeBookDataSource) : ViewModel() {
     private val _homeBookInfo = MutableLiveData<HomeBookInfoData>()
     val homeBookInfo: LiveData<HomeBookInfoData>
-    get() = _homeBookInfo
+        get() = _homeBookInfo
+
+    private val _homeDiaryInfo = MutableLiveData<HomeDiaryInfoData>()
+    val homeDiaryInfo: LiveData<HomeDiaryInfoData>
+        get() = _homeDiaryInfo
+
+    private val _homeContent = MutableLiveData<List<HomeContentInfoData>>()
+    val homeContent: LiveData<List<HomeContentInfoData>>
+        get() = _homeContent
 
     fun getHomeBookInfo() = viewModelScope.launch {
         runCatching { homeBookDataSource.getHomeBookInfoData() }
@@ -23,5 +33,23 @@ class HomeViewModel(private val homeBookDataSource: HomeBookDataSource) : ViewMo
             }
     }
 
+    fun getHomeDiaryInfo() = viewModelScope.launch {
+        runCatching { homeBookDataSource.getHomeDiaryInfoData() }
+            .onSuccess {
+                _homeDiaryInfo.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
 
+    fun getHomeContentInfo() = viewModelScope.launch {
+        runCatching { homeBookDataSource.getHomeContentInfoData() }
+            .onSuccess {
+                _homeContent.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
 }

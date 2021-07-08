@@ -6,8 +6,8 @@
         <item name="colorPrimaryVariant">@color/maco_orange</item>
         <item name="colorOnPrimary">@color/maco_orange</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/maco_orange</item>
+        <item name="colorSecondaryVariant">@color/maco_orange</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -19,6 +19,53 @@
         <item name="android:textSize">11sp</item>
         <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
         <item name="android:textColor">@color/maco_light_gray</item>
+    </style>
+
+    <style name="CalendarDayOfWeekTextStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/maco_dark_gray</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
+
+    <style name="TextBody1Style" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
+
+    <style name="TextBody2Style" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
+
+    <style name="TextBody2MediumStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
+    </style>
+
+    <style name="TextSub1Style" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
+    </style>
+
+    <style name="TextH1Style" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
+
+    <style name="TextH1MediumStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
+    </style>
+
+    <style name="MascotaButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_bold</item>
+        <item name="android:textColor">@color/selector_btn_text</item>
+        <item name="android:background">@drawable/selector_maco_btn</item>
+    </style>
+
+    <style name="MascotaDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:background">@drawable/rectangle_fill_white_3</item>
     </style>
 
     <style name="SpinnerDivideStyle">

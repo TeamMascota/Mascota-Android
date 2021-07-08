@@ -12,11 +12,69 @@
     <string name="num_record">번째 기록</string>
     <string name="today_is">"오늘은 "</string>
     <string name="with_what_day">와 함께 어떤 하루를 보냈나요?</string>
+    <string name="part1">1부</string>
+    <string name="part2">2부</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string name="sunday">일</string>
 
     <!--home-->
     <string name="content">목차</string>
     <string name="edit">편집</string>
+
     <!--rainbow-->
+    <string name="prepare_rainbow">무지개 준비하기</string>
+    <string name="farewell_pet_question">반려동물과 이별했나요?</string>
+    <string name="help_document">도움글</string>
+    <string name="about_help">도움글에 대해</string>
+    <string name="close">닫기</string>
+    <string name="farewell_level">이별의 단계</string>
+    <string name="help_explain">지금은 먼 훗날의 일이라고 생각될 수 있지만, 언젠가 다가올 이별을 위해 정리했어요. 이별의 과정이 후회로만 기억되지 않도록 도움글을 읽으며 마음을 천천히 준비해 보세요.</string>
+
+    <!--profile_create-->
+    <string name="total_page">/2</string>
+    <string name="to_home">홈으로</string>
+    <string name="next">다음</string>
+    <string name="total_book_name_size">/12)</string>
+    <string name="total_prolog_size">/10)</string>
+    <string name="hero_register">주인공 등록</string>
+    <string name="book_register">책 등록</string>
+    <string name="total_name_size">/6)</string>
+    <string name="current_pet">"현재 등록된 반려동물 주인공 "</string>
+    <string name="num">마리</string>
+    <string name="plz_input_pet_name">반려동물의 이름을 입력해 주세요</string>
+    <string name="cat">고양이</string>
+    <string name="dog">강아지</string>
+    <string name="to_be_family">가족이 된 날</string>
+    <string name="yyyy_mm_dd">YYYY.MM.DD</string>
+    <string name="gender">성별</string>
+    <string name="male">남</string>
+    <string name="female">여</string>
+    <string name="secret">비밀</string>
+    <string name="book_title">책 제목</string>
+    <string name="plz_input_book">책 제목을 입력해 주세요</string>
+    <string name="plz_input_prolog">프롤로그 제목을 입력해 주세요</string>
+    <string name="prolog">프롤로그</string>
+    <string name="writer_name">작가명</string>
+    <string name="plz_input_writer">작가님의 이름을 입력해 주세요</string>
+    <string name="prolog_title">프롤로그 제목</string>
+    <string name="book_complete">책 생성 완료</string>
+    <string name="hero">"주인공 "</string>
+    <string name="pet_for_story">마리를 위한 이야기를</string>
+    <string name="now_start">이제 시작해 보세요!</string>
+    <string name="profile_photo_register">프로필 사진 등록하기</string>
+    <string name="album_photo">앨범에서 사진 선택</string>
+    <string name="photo_delete">사진 삭제</string>
+    <string name="quit">취소</string>
+
+    <!--content-->
+    <string name="content_edit">목차 편집</string>
+    <string name="revise">수정</string>
+    <string name="delete">삭제</string>
 
     <!--tools-->
     <string name="soeun">최소은</string>
@@ -24,6 +82,31 @@
     <string name="cobong">코봉이</string>
     <string name="chapter">"1부 "</string>
     <string name="home_title">모여봐요 코봉의 숲</string>
+    <string name="episode">161화</string>
+    <string name="diary_title">코봉이의 중성화날</string>
+    <string name="diary_date">2020.03.03</string>
+    <string name="day">17일</string>
+    <string name="write">162화 기록하기</string>
+    <string name="how_today">오늘 코봉이는 어떤</string>
+    <string name="question">하루를 보냈나요?</string>
+    <string name="date">2021년 6월</string>
+    <string name="one">1</string>
+    <string name="chapter1">제 1장</string>
+    <string name="cobong_spring">코봉의 봄</string>
+    <string name="total">총 0화</string>
+    <string name="cur_name_size">(0</string>
+    <string name="pet1_name">주인공 1의 이름</string>
+    <string name="pet1">주인공 1</string>
+    <string name="author_soeun">작가 최소은</string>
+    <string name="now_cobong_what_life">Q.지금까지 코봉이는 어떤 삶을 살았나요?\n\n</string>
+    <string name="date_day">"13일\n금요일"</string>
+    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타</string>
+    <string name="content_title">코봉이와의 첫만남</string>
+    <string name="month7">7월</string>
+    <string name="help_message">[블로그] 반려동물 장례식장 처음이라면, 보호자가 알고 있어야 하는 내용</string>
+    <string name="finish_cobong">코봉의 이야기를 마무리하시겠어요?</string>
+    <string name="know_what_hero">어느 주인공과 이별했는지 알려주세요</string>
+    <string name="date_story">2020년 5월의 이야기</string>
 
 
     <!--Diary-->

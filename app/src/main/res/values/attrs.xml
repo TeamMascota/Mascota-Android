@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomBookView">
+        <attr name="bookStrokeColor" format="color"/>
+        <attr name="lineColor" format="color"/>
+    </declare-styleable>
+</resources>
