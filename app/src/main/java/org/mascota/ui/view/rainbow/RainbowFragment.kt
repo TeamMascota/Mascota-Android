@@ -17,6 +17,7 @@ import org.mascota.ui.view.rainbow.farewell.FarewellActivity
 import org.mascota.ui.viewmodel.RainbowViewModel
 import org.mascota.util.DialogUtil.makeDialog
 import org.mascota.util.DialogUtil.setDialog
+import org.mascota.util.extension.setTextPartialColor
 import org.mascota.util.extension.urlIntent
 
 class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragment_rainbow) {
@@ -100,6 +101,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         }
 
         finishDialogBinding.apply {
+            tvContent.text = getString(R.string.finish_cobong)
             tvQuit.setOnClickListener {
                 finishDialog.dismiss()
             }
@@ -117,6 +119,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         helpAdapter.apply {
             binding.rvHelp.adapter = this
             setHelpMessageClickListener { requireContext().urlIntent(it) }
+            setColorConverter { text, length -> setTextPartialColor(R.color.maco_gray, 0, length, text) }
         }
 
         farewellAdapter.apply {
