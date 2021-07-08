@@ -31,8 +31,8 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
             with(vpFarewell) {
                 btnNext.setOnClickListener {
                     when(currentItem) {
-                        FIRST_PAGE -> setCurrentItem(SECOND_PAGE, true)
-                        SECOND_PAGE -> setCurrentItem(THIRD_PAGE, true)
+                        FIRST_PAGE -> setCurrentItem(SECOND_PAGE, false)
+                        SECOND_PAGE -> setCurrentItem(THIRD_PAGE, false)
                         else -> true
                     }
                 }
