@@ -25,7 +25,15 @@
     <!--home-->
     <string name="content">목차</string>
     <string name="edit">편집</string>
+
     <!--rainbow-->
+    <string name="prepare_rainbow">무지개 준비하기</string>
+    <string name="farewell_pet_question">반려동물과 이별했나요?</string>
+    <string name="help_document">도움글</string>
+    <string name="about_help">도움글에 대해</string>
+    <string name="close">닫기</string>
+    <string name="farewell_level">이별의 단계</string>
+    <string name="help_explain">지금은 먼 훗날의 일이라고 생각될 수 있지만, 언젠가 다가올 이별을 위해 정리했어요. 이별의 과정이 후회로만 기억되지 않도록 도움글을 읽으며 마음을 천천히 준비해 보세요.</string>
 
     <!--profile_create-->
     <string name="total_page">/2</string>
@@ -95,4 +103,8 @@
     <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타</string>
     <string name="content_title">코봉이와의 첫만남</string>
     <string name="month7">7월</string>
+    <string name="help_message">[블로그] 반려동물 장례식장 처음이라면, 보호자가 알고 있어야 하는 내용</string>
+    <string name="finish_cobong">코봉의 이야기를 마무리하시겠어요?</string>
+    <string name="know_what_hero">어느 주인공과 이별했는지 알려주세요</string>
+    <string name="date_story">2020년 5월의 이야기</string>
 </resources>

@@ -37,6 +37,11 @@
         <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
     </style>
 
+    <style name="TextBody2MediumStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
+    </style>
+
     <style name="TextSub1Style" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">17sp</item>
         <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
@@ -47,7 +52,7 @@
         <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
     </style>
 
-    <style name="TextH2Style" parent="@style/TextAppearance.AppCompat.Caption">
+    <style name="TextH1MediumStyle" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
     </style>
@@ -57,5 +62,9 @@
         <item name="android:fontFamily">@font/noto_sans_cjk_kr_bold</item>
         <item name="android:textColor">@color/selector_btn_text</item>
         <item name="android:background">@drawable/selector_maco_btn</item>
+    </style>
+
+    <style name="MascotaDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:background">@drawable/rectangle_fill_white_3</item>
     </style>
 </resources>

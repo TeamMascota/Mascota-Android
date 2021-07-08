@@ -9,9 +9,12 @@ import org.mascota.ui.view.content.detail.data.datasource.ContentDetailDataSourc
 import org.mascota.ui.view.content.detail.data.datasource.LocalContentDetailDataSource
 import org.mascota.ui.view.home.data.datasource.HomeBookDataSource
 import org.mascota.ui.view.home.data.datasource.LocalHomeBookDataSource
+import org.mascota.ui.view.rainbow.data.datasource.LocalRainbowDataSource
+import org.mascota.ui.view.rainbow.data.datasource.RainbowDataSource
 
 val dataSourceModule = module {
     single<AuthorDataSource> { LocalAuthorDataSource() }
+    single<RainbowDataSource> { LocalRainbowDataSource() }
     single<CalendarDataSource> { LocalCalendarDataSource() }
     single<HomeBookDataSource> { LocalHomeBookDataSource() }
     single<ContentDetailDataSource> { LocalContentDetailDataSource() }
