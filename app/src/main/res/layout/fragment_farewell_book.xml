@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.view.rainbow.farewell.FarewellBookFragment"
+        tools:background="@color/maco_blue">
+
+        <TextView
+            android:id="@+id/tv_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="23dp"
+            android:text="@string/now_book"
+            android:textColor="@color/maco_white"
+            android:textAppearance="@style/TextH1Style"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_with_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/with_day"
+            android:textAppearance="@style/TextH1Style"
+            android:textColor="@color/maco_white"
+            app:layout_constraintStart_toStartOf="@+id/tv_book"
+            app:layout_constraintTop_toBottomOf="@+id/tv_book" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_book"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="29dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_with_day">
+
+            <ImageView
+                android:id="@+id/iv_book_holder"
+                android:layout_width="32dp"
+                android:layout_height="0dp"
+                android:src="@drawable/rectangle_fill_orange_left_3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_book_img"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_dog_joy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_book_holder" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="21dp"
+                android:textColor="@color/maco_white"
+                android:textAppearance="@style/TextH1Style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/cobong_spring"/>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="19dp"
+                android:background="@color/maco_orange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_writer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAppearance="@style/TextSub1Style"
+                android:textColor="@color/maco_white"
+                android:text="@string/author_soeun"
+                app:layout_constraintEnd_toEndOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_mascota_logo_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
