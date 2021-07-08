@@ -4,24 +4,24 @@
 
     <data>
         <variable
-            name="imgUrl"
-            type="String" />
+            name="emotionImgNum"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/rectangle_orange_radius_0">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:src="@drawable/ic_dog_joy"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginVertical="1dp"
-            android:src="@mipmap/ic_launcher"
-            imgUrl="@{imgUrl}"
-            android:scaleType="fitXY"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="9dp"
+            imgEmo="@{emotionImgNum}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
