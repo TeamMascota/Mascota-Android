@@ -10,8 +10,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layoutAnimation="@anim/animation_fade_in"
         tools:context=".ui.view.rainbow.farewell.FarewellBookFragment"
-        tools:background="@color/maco_blue">
+        tools:background="@color/maco_blue"
+        tools:layoutAnimation="@null">
 
         <TextView
             android:id="@+id/tv_book"
@@ -19,22 +21,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginTop="23dp"
-            android:text="@string/now_book"
             android:textColor="@color/maco_white"
             android:textAppearance="@style/TextH1Style"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/now_book"/>
 
         <TextView
             android:id="@+id/tv_with_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/with_day"
             android:textAppearance="@style/TextH1Style"
             android:textColor="@color/maco_white"
             app:layout_constraintStart_toStartOf="@+id/tv_book"
-            app:layout_constraintTop_toBottomOf="@+id/tv_book" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_book"
+            tools:text="@string/with_day"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_book"
@@ -102,7 +104,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/iv_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
