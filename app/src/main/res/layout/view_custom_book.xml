@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
         <variable
-            name="homePageInfoData"
-            type="org.mascota.ui.view.home.data.model.HomePageInfoData" />
+            name="isHome"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,8 +21,8 @@
             android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:background="@drawable/rectangle_orange_radius_3"
-            app:layout_constraintTop_toTopOf="parent"
-            android:clipChildren="false"/>
+            android:clipChildren="false"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/mid_bottom_line"
@@ -42,11 +41,11 @@
             android:layout_marginHorizontal="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/rectangle_orange_radius_3"
+            android:clipChildren="false"
             app:layout_constraintBottom_toBottomOf="@id/bg_book"
             app:layout_constraintEnd_toEndOf="@id/bg_book"
             app:layout_constraintStart_toStartOf="@id/bg_book"
-            app:layout_constraintTop_toTopOf="parent"
-            android:clipChildren="false">
+            app:layout_constraintTop_toTopOf="parent">
 
             <View
                 android:id="@+id/mid_line"
@@ -72,7 +71,7 @@
                     layout="@layout/layout_book_diary"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="@{homePageInfoData.prolog? View.INVISIBLE : View.VISIBLE}"
+                    android:visibility="@{isHome? View.VISIBLE : View.GONE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -80,20 +79,19 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0" />
 
-                <ImageView
-                    android:id="@+id/iv_left_logo"
-                    android:layout_width="62dp"
-                    android:layout_height="51dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:visibility="@{homePageInfoData.prolog? View.VISIBLE : View.INVISIBLE}"
-                    app:layout_constraintTop_toTopOf="parent"
+
+                <include
+                    android:id="@+id/layout_rainbow_left_page"
+                    layout="@layout/layout_rainbow_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{isHome? View.GONE : View.VISIBLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="80dp"
-                    android:layout_marginBottom="84dp"
-                    android:layout_marginStart="52dp"
-                    android:layout_marginEnd="53dp"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,19 +101,29 @@
                 app:layout_constraintBottom_toBottomOf="@id/top_book"
                 app:layout_constraintEnd_toEndOf="@id/top_book"
                 app:layout_constraintStart_toEndOf="@id/mid_line"
-                app:layout_constraintTop_toTopOf="@id/top_book" >
+                app:layout_constraintTop_toTopOf="@id/top_book">
 
                 <include
                     android:id="@+id/layout_right_page"
                     layout="@layout/layout_diary_write"
-                    android:visibility="visible"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    />
+                    android:visibility="@{isHome? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/layout_rainbow_right_page"
+                    layout="@layout/layout_rainbow_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{isHome? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/iv_logo"
@@ -123,19 +131,12 @@
                     android:layout_height="10dp"
                     android:src="@mipmap/ic_launcher"
                     android:visibility="gone"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

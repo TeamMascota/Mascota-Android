@@ -4,9 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
         <variable
             name="homeDiaryInfoData"
             type="org.mascota.ui.view.home.data.model.HomeDiaryInfoData" />
+        <variable
+            name="isProlog"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,6 +77,17 @@
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textSize="14sp"
             android:textColor="@color/maco_gray"/>
+
+        <ImageView
+            android:id="@+id/iv_left_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mascota_logo_orange"
+            android:visibility="@{isProlog? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

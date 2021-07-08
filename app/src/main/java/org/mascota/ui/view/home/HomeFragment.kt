@@ -12,12 +12,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private lateinit var homeContentAdapter: HomeContentAdapter
 
     override fun initView() {
+        initBookView()
         getHomeBookInfo()
         observeHomeBookInfo()
         getHomeDiaryInfo()
         observeHomeDiaryInfo()
-        getHomePageInfo()
-        observeHomePageInfo()
         getHomeContentInfo()
         initHomeContentAdapter()
         observeHomeContentInfo()
@@ -43,16 +42,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         }
     }
 
-    private fun getHomePageInfo() {
-        homeViewModel.getHomePageInfo()
-    }
-
-    private fun observeHomePageInfo() {
-        homeViewModel.homePageInfo.observe(viewLifecycleOwner) {
-            binding.bvHome.setLeftDiaryFlag(it)
-        }
-    }
-
     private fun getHomeContentInfo() {
         homeViewModel.getHomeContentInfo()
     }
@@ -68,5 +57,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         homeViewModel.homeContent.observe(viewLifecycleOwner) {
             homeContentAdapter.contentList = it
         }
+    }
+
+    private fun initBookView() { binding.bvHome.setWhereBookView(IS_HOME) }
+
+    companion object {
+        const val IS_HOME = true
     }
 }

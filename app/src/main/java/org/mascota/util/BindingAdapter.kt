@@ -14,6 +14,9 @@ import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_LOVE
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_SAD
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_USUAL
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.EMPTY
+import org.mascota.util.CalendarUtil.convertCalendarToBeFamilyDateString
+import org.mascota.util.CalendarUtil.convertCalendarToStoryDateString
+import java.util.*
 
 object BindingAdapter {
     @JvmStatic
@@ -98,5 +101,19 @@ object BindingAdapter {
     @BindingAdapter("monthText")
     fun setMonthText(textView: TextView, number: Int?) {
         textView.text = "${number}월"
+    }
+
+    @JvmStatic
+    @BindingAdapter("yearMonthStory")
+    fun setYearMonthStoryText(textView: TextView, calendar: Calendar?) {
+        if(calendar != null)
+            textView.text = convertCalendarToStoryDateString(calendar)
+    }
+
+    @JvmStatic
+    @BindingAdapter("yearMonthDay")
+    fun setYearMonthDayText(textView: TextView, calendar: Calendar?) {
+        if(calendar != null)
+            textView.text = convertCalendarToBeFamilyDateString(calendar)
     }
 }
