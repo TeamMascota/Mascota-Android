@@ -3,7 +3,7 @@ package org.mascota.ui.view.diary.read.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.mascota.databinding.ItemProfileBinding
+import org.mascota.databinding.ItemSmallProfileBinding
 
 class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.TestViewHolder>() {
 
@@ -17,7 +17,7 @@ class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.TestViewHolder>() {
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
-        val binding = ItemProfileBinding.inflate(
+        val binding = ItemSmallProfileBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return TestViewHolder(binding)
@@ -30,7 +30,7 @@ class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.TestViewHolder>() {
     override fun getItemCount(): Int = profileUrlList.size
 
     class TestViewHolder(
-        private val binding: ItemProfileBinding
+        private val binding: ItemSmallProfileBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(profileImgUrl: String) {
             binding.profileImgUrl = profileImgUrl

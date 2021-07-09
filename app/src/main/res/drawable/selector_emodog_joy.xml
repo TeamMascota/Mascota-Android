@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--클릭시 -->
+    <item android:state_selected="true" android:drawable="@drawable/emo_dog_joy_sel"/>
+
+    <!--클릭 안했을 때-->
+    <item android:state_selected="false" android:drawable="@drawable/emo_dog_joy" />
+
+    <!--걍 설정해주는거  -->
+    <item android:drawable="@drawable/emo_dog_joy_sel" />
+</selector>

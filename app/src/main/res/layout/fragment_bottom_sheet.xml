@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="com.goole.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".ui.view.diary.BottomSheet">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/tv_add_image"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@color/maco_white"
+            android:text="@string/bottomsheet_add"
+            android:textColor="@color/maco_gray"
+            android:textSize="14sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:layout_marginHorizontal="90dp"
+            android:paddingVertical="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/maco_white"
+            android:text="@string/bottomsheet_select"
+            android:textColor="@color/maco_black"
+            android:textSize="16sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_image"
+            tools:ignore="MissingClass" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/maco_white"
+            android:text="@string/cancel"
+            android:textColor="@color/maco_black"
+            android:textSize="16sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_select" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>
