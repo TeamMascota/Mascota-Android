@@ -12,7 +12,7 @@
             type="Integer" />
 
         <variable
-            name="visible"
+            name="smallProfileVisibility"
             type="Boolean" />
 
     </data>
@@ -41,7 +41,7 @@
             android:layout_marginEnd="4dp"
             android:background="@drawable/rectangle_fill_white_3"
             android:orientation="vertical"
-            android:visibility="@{visible? View.VISIBLE : View.INVISIBLE}"
+            android:visibility="@{smallProfileVisibility? View.VISIBLE : View.INVISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
