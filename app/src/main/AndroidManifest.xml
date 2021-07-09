@@ -18,21 +18,18 @@
             android:windowSoftInputMode="adjustPan"
             android:exported="true"
             />
-        <activity android:name=".ui.view.profile.BookCompleteActivity"
+        <activity android:name=".ui.view.profile.BookCompleteActivity"/>
         <activity android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
             android:exported="true"/>
         <activity android:name=".ui.view.rainbow.farewell.FarewellActivity" />
-        <activity
-            android:name=".ui.view.profile.BookCompleteActivity"
-            android:exported="true" />
         <activity
             android:name=".ui.view.profile.ProfileCreateActivity"
             android:exported="true" />
         <activity android:name=".ui.MainActivity">
 
         </activity>
-        <activity android:name=".ui.view.content.detail.ContentDetailActivity"></activity>
-        <activity android:name=".ui.view.content.edit.ContentEditActivity"></activity>
+        <activity android:name=".ui.view.content.detail.ContentDetailActivity"/>
+        <activity android:name=".ui.view.content.edit.ContentEditActivity"/>
         <activity android:name=".ui.view.diary.read.DiaryReadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,14 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.view.content.detail.ContentDetailActivity">
-
-        </activity>
-        <activity android:name=".ui.view.content.edit.ContentEditActivity">
-
-        </activity>
-        <activity android:name=".ui.view.content.detail.ContentDetailActivity"></activity>
-        <activity android:name=".ui.view.content.edit.ContentEditActivity"></activity>
     </application>
 
 </manifest>
