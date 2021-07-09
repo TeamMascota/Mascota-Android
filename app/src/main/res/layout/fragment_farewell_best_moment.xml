@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.view.rainbow.farewell.FarewellBestMoment">
+
+<data>
+
+</data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/maco_blue"
+        >
+
+        <ImageView
+            android:id="@+id/iv_dog_love"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/emo_dog_love_sel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="23dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_love"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/love"
+            android:textSize="20sp"
+            android:fontFamily="@font/noto_sans_cjk_kr_bold"
+            app:layout_constraintTop_toTopOf="@id/iv_dog_love"
+            app:layout_constraintBottom_toBottomOf="@id/iv_dog_love"
+            app:layout_constraintStart_toEndOf="@id/iv_dog_love"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/maco_white"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            />
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
