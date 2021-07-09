@@ -12,11 +12,13 @@ import org.mascota.databinding.LayoutHelpMessageDialogBinding
 import org.mascota.databinding.LayoutMascotaDialogBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter
+import org.mascota.ui.view.rainbow.adapter.FarewellAdapter.Companion.NOT_SELECTED
 import org.mascota.ui.view.rainbow.adapter.HelpAdapter
 import org.mascota.ui.view.rainbow.farewell.FarewellActivity
 import org.mascota.ui.viewmodel.RainbowViewModel
 import org.mascota.util.DialogUtil.makeDialog
 import org.mascota.util.DialogUtil.setDialog
+import org.mascota.util.StringUtil.setTextPartialBold
 import org.mascota.util.extension.setTextPartialColor
 import org.mascota.util.extension.urlIntent
 
@@ -93,9 +95,11 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         farewellDialogBinding.apply {
             tvQuit.setOnClickListener {
                 farewellDialog.dismiss()
+                farewellAdapter.setItemViewType(NOT_SELECTED)
             }
             tvNext.setOnClickListener {
                 farewellDialog.dismiss()
+                farewellAdapter.setItemViewType(NOT_SELECTED)
                 finishDialog.show()
             }
         }
@@ -125,7 +129,10 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         farewellAdapter.apply {
             farewellDialogBinding.rvPet.adapter = this
             data = listOf("코봉", "녹차")
-            setHeroClickListener { }
+            setHeroClickListener {  name, position ->
+                finishDialogBinding.tvContent.text = setTextPartialBold(0, name.length, "${name}의 이야기를 마무리하시겠어요?")
+                setItemViewType(position)
+            }
         }
     }
 
