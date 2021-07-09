@@ -35,6 +35,8 @@ object StringUtil {
 
     fun makeNowDay(text : String) : String = "함께 보낸 날은 $text"
 
+    fun makePetLifeText(text : String) : String = "${text}의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 ${text}의 삶이 어땠는지"
+
     fun setTextPartialBold(start : Int, end : Int, text : String) : SpannableString {
         val resultString = SpannableString(text)
 
