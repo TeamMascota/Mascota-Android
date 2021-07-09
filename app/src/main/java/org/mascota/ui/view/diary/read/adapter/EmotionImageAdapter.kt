@@ -3,13 +3,14 @@ package org.mascota.ui.view.diary.read.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.mascota.databinding.ItemImageBinding
+import org.mascota.databinding.ItemFeelingBinding
+import org.mascota.ui.view.diary.read.data.model.DiaryPetFeelingInfoData
 
-class EmotionImageAdapter : RecyclerView.Adapter<EmotionImageAdapter.EmotionImgViewHolder>() {
+class EmotionImageAdapter() : RecyclerView.Adapter<EmotionImageAdapter.EmotionImgViewHolder>() {
 
-    private val _emotionNumList = mutableListOf<Int>()
+    private val _emotionNumList = mutableListOf<DiaryPetFeelingInfoData>()
 
-    var emotionNumList: List<Int> = _emotionNumList
+    var emotionNumList: List<DiaryPetFeelingInfoData> = _emotionNumList
         set(value) {
             _emotionNumList.clear()
             _emotionNumList.addAll(value)
@@ -17,7 +18,7 @@ class EmotionImageAdapter : RecyclerView.Adapter<EmotionImageAdapter.EmotionImgV
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmotionImgViewHolder {
-        val binding = ItemImageBinding.inflate(
+        val binding = ItemFeelingBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return EmotionImgViewHolder(binding)
@@ -30,10 +31,18 @@ class EmotionImageAdapter : RecyclerView.Adapter<EmotionImageAdapter.EmotionImgV
     override fun getItemCount(): Int = emotionNumList.size
 
     class EmotionImgViewHolder(
-        private val binding: ItemImageBinding
+        val binding: ItemFeelingBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(emotionImgNum: Int) {
-            binding.emotionImgNum = emotionImgNum
+        fun onBind(diaryPetFeelingInfoData: DiaryPetFeelingInfoData) {
+            binding.emotionImgNum = diaryPetFeelingInfoData.emotion
+            binding.visible = diaryPetFeelingInfoData.visibility
+            ProfileAdapter().apply {
+                binding.rvProfile.adapter = this
+                profileUrlList = diaryPetFeelingInfoData.profileUrlList
+            }
+            binding.ivEmotion.setOnClickListener {
+                binding.visible = !(binding.visible!!)
+            }
         }
     }
 }
