@@ -30,7 +30,7 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
         binding.apply {
             with(vpFarewell) {
                 farewellViewPagerAdapter.apply {
-                    fragmentList = listOf(FarewellExplainFragment(), FarewellBookFragment())
+                    fragmentList = listOf(FarewellExplainFragment(), FarewellBookFragment(),FarewellBestMoment())
                     adapter = this
                     isUserInputEnabled = false
 

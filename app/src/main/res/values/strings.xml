@@ -127,7 +127,7 @@
     <string name="finish_cobong">코봉의 이야기를 마무리하시겠어요?</string>
     <string name="know_what_hero">어느 주인공과 이별했는지 알려주세요</string>
     <string name="date_story">2020년 5월의 이야기</string>
-<<<<<<<<< Temporary merge branch 1
+
 
 
     <!--Diary-->
@@ -159,8 +159,6 @@
     <string name="with_story">작가님과 함께했던 2318화의 이야기 속에서</string>
     <string name="brave_cat">가나다라마바(은)는 의젓하고 당당한 고양이로서</string>
     <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
-    <string name="now_book">지금까지 쓴 책은 총 2318화</string>
-    <string name="with_day">함께 보낸 날은 총 5160일</string>
     <string name="talk_pet">가나다라마바의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 가나다라마바의 삶이 어땠는지</string>
     <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
 </resources>
