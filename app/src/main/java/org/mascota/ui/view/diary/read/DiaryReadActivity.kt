@@ -26,7 +26,7 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
     }
 
     private fun connectPagerToIndicator() {
-        TabLayoutMediator(binding.tabIndicator, binding.vpPetImg) { tab, position -> }.attach()
+        TabLayoutMediator(binding.tabIndicator, binding.vpPetImg) { _, _ -> }.attach()
     }
 
     private fun initEmotionImageAdapter() {
