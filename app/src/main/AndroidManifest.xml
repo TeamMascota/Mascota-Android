@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.view.rainbow.farewell.FarewellActivity"></activity>
+        <activity android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
+            android:exported="true"/>
+        <activity android:name=".ui.view.rainbow.farewell.FarewellActivity" />
         <activity
             android:name=".ui.view.profile.BookCompleteActivity"
             android:exported="true" />
@@ -33,6 +35,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.view.content.detail.ContentDetailActivity"></activity>
+        <activity android:name=".ui.view.content.edit.ContentEditActivity"></activity>
     </application>
 
 </manifest>
