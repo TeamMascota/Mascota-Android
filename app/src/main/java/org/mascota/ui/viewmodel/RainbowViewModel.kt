@@ -8,8 +8,10 @@ import kotlinx.coroutines.launch
 import org.mascota.ui.view.rainbow.data.datasource.RainbowDataSource
 import org.mascota.ui.view.rainbow.data.model.HelpInfoData
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
+import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
+import org.mascota.ui.view.rainbow.farewell.data.model.PetInfoData
 
-class RainbowViewModel(private val rainbowDataSource: RainbowDataSource) : ViewModel() {
+class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private val farewellDataSource: FarewellDataSource) : ViewModel() {
     private val _rainbowInfo = MutableLiveData<RainbowInfoData>()
     val rainbowInfo: LiveData<RainbowInfoData>
         get() = _rainbowInfo
@@ -33,6 +35,10 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource) : ViewM
     }
 
 
+    private val _petInfo = MutableLiveData<PetInfoData>()
+    val petInfo: LiveData<PetInfoData>
+        get() = _petInfo
+
     fun getHelpInfo() = viewModelScope.launch {
         runCatching { rainbowDataSource.getHelpInfoData() }
             .onSuccess {
@@ -53,5 +59,14 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource) : ViewM
             }
     }
 
-}
+    fun getPetInfo() = viewModelScope.launch {
+        runCatching { farewellDataSource.getPetInfoData() }
+            .onSuccess {
+                _petInfo.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
 
+}

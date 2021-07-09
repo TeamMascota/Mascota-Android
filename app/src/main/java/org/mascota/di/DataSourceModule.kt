@@ -11,6 +11,8 @@ import org.mascota.ui.view.home.data.datasource.HomeBookDataSource
 import org.mascota.ui.view.home.data.datasource.LocalHomeBookDataSource
 import org.mascota.ui.view.rainbow.data.datasource.LocalRainbowDataSource
 import org.mascota.ui.view.rainbow.data.datasource.RainbowDataSource
+import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
+import org.mascota.ui.view.rainbow.farewell.data.datasource.LocalFarewellDataSource
 
 val dataSourceModule = module {
     single<AuthorDataSource> { LocalAuthorDataSource() }
@@ -18,4 +20,5 @@ val dataSourceModule = module {
     single<CalendarDataSource> { LocalCalendarDataSource() }
     single<HomeBookDataSource> { LocalHomeBookDataSource() }
     single<ContentDetailDataSource> { LocalContentDetailDataSource() }
+    single<FarewellDataSource> { LocalFarewellDataSource() }
 }
