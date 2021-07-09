@@ -1,25 +1,51 @@
 package org.mascota.ui.view.rainbow.farewell
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
+import org.mascota.databinding.FragmentFarewellBestMomentBinding
+import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.rainbow.adapter.BestMomentAdapter
+import org.mascota.ui.viewmodel.RainbowViewModel
+
+
+class FarewellBestMoment : BindingFragment<FragmentFarewellBestMomentBinding>(R.layout.fragment_farewell_best_moment) {
+
+    private val rainbowViewModel: RainbowViewModel by viewModel()
+    private lateinit var bestAdapter : BestMomentAdapter
+
+    override fun initView() {
+        initData()
+        initAdapter()
+        observeLoveData()
+
+    }
 
 
 
-class FarewellBestMoment : Fragment() {
+    private fun initData() {
+        rainbowViewModel.getloveoMent()
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_farewell_best_moment, container, false)
+    private fun observeLoveData(){
+        rainbowViewModel.loveMoment.observe(viewLifecycleOwner){
+            bestAdapter.data = it.diaryList
+        }
+    }
+
+    private fun initAdapter(){
+
+        bestAdapter = BestMomentAdapter()
+        bestAdapter.apply {
+            binding.rcvLove.adapter = this
+
+        }
     }
 
 
 
 
+
+
+
 }
+

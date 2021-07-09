@@ -6,4 +6,5 @@ import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
 interface RainbowDataSource {
     fun getHelpInfoData(): List<HelpInfoData>
     fun getRainbowInfoData(): RainbowInfoData
+    fun getLoveBestMomentData() : RainbowInfoData
 }

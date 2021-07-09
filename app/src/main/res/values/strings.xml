@@ -39,9 +39,11 @@
     <string name="assemble">모아봤어요.</string>
     <string name="now_book">지금까지 쓴 책은 총 2318화</string>
     <string name="with_day">함께 보낸 날은 총 5160일</string>
-    <string name="love_explain_1">작가님과 함께하면서 가나다라마바(은)는\n많은 사랑을 받았고, 또 주었어요.\n</string>
-    <string name="love_explain_2">(이)가 사랑을 느꼈던 순간들이에요</string>
-    <string name="love_explain_3">에게 사랑을 알려주셔서 감사합니다.</string>
+    <string name="love_explain_1">작가님과 함께하면서</string>
+    <string name="love_explain_2">많은 사랑을 받았고, 또 주었어요.</string>
+    <string name="love_explain_3">(이)가 사랑을 느꼈던 순간들이에요</string>
+    <string name="love_explain_4">에게 사랑을 알려주셔서 감사합니다.</string>
+    <string name="tv_pet_name">가나다라마바</string>
 
     <!--profile_create-->
     <string name="total_page">/2</string>

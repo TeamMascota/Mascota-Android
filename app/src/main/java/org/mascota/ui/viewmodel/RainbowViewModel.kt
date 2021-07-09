@@ -18,6 +18,21 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource) : ViewM
     val helpInfo: LiveData<List<HelpInfoData>>
         get() = _helpInfo
 
+    private val _loveMoment =MutableLiveData<RainbowInfoData>()
+    val loveMoment : MutableLiveData<RainbowInfoData>
+            get() = _loveMoment
+
+    fun getloveoMent() = viewModelScope.launch {
+        kotlin.runCatching { rainbowDataSource.getLoveBestMomentData() }
+            .onSuccess {
+                _loveMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+
     fun getHelpInfo() = viewModelScope.launch {
         runCatching { rainbowDataSource.getHelpInfoData() }
             .onSuccess {
@@ -39,3 +54,4 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource) : ViewM
     }
 
 }
+

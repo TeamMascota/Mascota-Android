@@ -21,7 +21,58 @@ class LocalRainbowDataSource : RainbowDataSource {
                 "과제충 판정 ㅠㅠ",
                 "쬐끄매 보이는 게 어떻게 8.7키로나 되는 거지 믿을 수가 없다. 중성화 이후로 많이 먹은 탓...",
                 3
-            )
+            ),
+
         )
     )
+
+    override fun getLoveBestMomentData(): RainbowInfoData = RainbowInfoData(
+        listOf(
+            RainbowInfoData.Data(
+                Calendar.getInstance(),
+                "과제충 판정 ㅠㅠ",
+                "쬐끄매 보이는 게 어떻게 8.7키로나 되는 거지 믿을 수가 없다. 중성화 이후로 많이 먹은 탓...",
+                3
+            ),
+            RainbowInfoData.Data(
+                Calendar.getInstance(),
+                "사랑2",
+                "사랑사랑사랑사랑사랑사랑사랑사랑사랑사랑222222222222",
+                3
+            ),
+            RainbowInfoData.Data(
+                Calendar.getInstance(),
+                "사랑3",
+                "사랑사랑사랑사랑사랑사랑사랑사랑사랑사랑33333333333",
+                3
+            ),
+            RainbowInfoData.Data(
+                Calendar.getInstance(),
+                "사랑4",
+                "사랑사랑사랑사랑사랑사랑사랑사랑사랑사랑444444444444",
+                3
+            ),
+            RainbowInfoData.Data(
+                Calendar.getInstance(),
+                "사랑5",
+                "사랑사랑사랑사랑사랑사랑사랑사랑사랑사랑555555555555",
+                3
+            ),
+            RainbowInfoData.Data(
+                Calendar.getInstance(),
+                "사랑6",
+                "사랑사랑사랑사랑사랑사랑사랑사랑사랑사랑6666666666666",
+                3
+            ),
+            RainbowInfoData.Data(
+                Calendar.getInstance(),
+                "사랑7",
+                "사랑사랑사랑사랑사랑사랑사랑사랑사랑사랑777777777777",
+                3
+            ),
+
+            )
+
+    )
+
 }
