@@ -3,13 +3,7 @@
     package="org.mascota">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--갤러리 권한-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-    <uses-permission
-        android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MascotaApplication"
@@ -25,10 +19,21 @@
             android:exported="true"
             />
         <activity android:name=".ui.view.profile.BookCompleteActivity"
+        <activity android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
             android:exported="true"/>
-        <activity android:name=".ui.view.profile.ProfileCreateActivity"
-            android:exported="true"/>
+        <activity android:name=".ui.view.rainbow.farewell.FarewellActivity" />
+        <activity
+            android:name=".ui.view.profile.BookCompleteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.profile.ProfileCreateActivity"
+            android:exported="true" />
         <activity android:name=".ui.MainActivity">
+
+        </activity>
+        <activity android:name=".ui.view.content.detail.ContentDetailActivity"></activity>
+        <activity android:name=".ui.view.content.edit.ContentEditActivity"></activity>
+        <activity android:name=".ui.view.diary.read.DiaryReadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,6 +46,8 @@
         <activity android:name=".ui.view.content.edit.ContentEditActivity">
 
         </activity>
+        <activity android:name=".ui.view.content.detail.ContentDetailActivity"></activity>
+        <activity android:name=".ui.view.content.edit.ContentEditActivity"></activity>
     </application>
 
 </manifest>

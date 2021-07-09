@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="isBackVisible"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/maco_blue"
+        tools:context=".ui.view.rainbow.farewell.FarewellActivity">
+
+        <TextView
+            android:id="@+id/tv_rainbow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rainbow_bridge"
+            android:textColor="@color/maco_white"
+            android:textAppearance="@style/TextSub1Style"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_back"
+            app:layout_constraintEnd_toStartOf="@+id/ib_quit"
+            app:layout_constraintStart_toEndOf="@+id/ib_back"
+            app:layout_constraintTop_toTopOf="@+id/ib_back" />
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="36dp"
+            android:visibility="@{isBackVisible? View.VISIBLE : View.INVISIBLE}"
+            android:background="@drawable/ic_arrow_back_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ib_quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/ic_quit_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/maco_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rainbow" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_farewell"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/next"
+            android:textColor="@color/maco_blue"
+            android:background="@drawable/rectangle_fill_white_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

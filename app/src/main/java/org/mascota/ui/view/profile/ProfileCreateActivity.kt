@@ -5,13 +5,13 @@ import androidx.viewpager2.widget.ViewPager2
 import org.mascota.R
 import org.mascota.databinding.ActivityProfileCreateBinding
 import org.mascota.ui.base.BindingActivity
-import org.mascota.ui.view.profile.adapteer.ProfileViewPagerAdapter
+import org.mascota.ui.view.adapter.MascotaViewPagerAdapter
 import org.mascota.util.AnimationUtil.setProgress100Animation
 import org.mascota.util.AnimationUtil.setProgress50Animation
 
 class ProfileCreateActivity :
     BindingActivity<ActivityProfileCreateBinding>(R.layout.activity_profile_create) {
-    private lateinit var profileViewPagerAdapter: ProfileViewPagerAdapter
+    private lateinit var mascotaViewPagerAdapter: MascotaViewPagerAdapter
 
     override fun initView() {
         initViewPager()
@@ -19,9 +19,9 @@ class ProfileCreateActivity :
     }
 
     private fun initViewPager() {
-        profileViewPagerAdapter = ProfileViewPagerAdapter(this@ProfileCreateActivity)
+        mascotaViewPagerAdapter = MascotaViewPagerAdapter(this@ProfileCreateActivity)
         binding.apply {
-            with(profileViewPagerAdapter) {
+            with(mascotaViewPagerAdapter) {
                 fragmentList = listOf(ProfileCreatePetFragment(), ProfileCreateBookFragment())
                 vpProfile.adapter = this
                 vpProfile.isUserInputEnabled = false

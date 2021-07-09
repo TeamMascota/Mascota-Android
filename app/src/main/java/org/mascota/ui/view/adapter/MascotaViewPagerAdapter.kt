@@ -1,10 +1,10 @@
-package org.mascota.ui.view.profile.adapteer
+package org.mascota.ui.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class ProfileViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+class MascotaViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
     private val _fragmentList = mutableListOf<Fragment>()
     var fragmentList: List<Fragment> = _fragmentList
         set(value) {

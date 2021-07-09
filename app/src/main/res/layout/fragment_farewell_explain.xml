@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutAnimation="@anim/animation_fade_in"
+        tools:context=".ui.view.rainbow.farewell.FarewellExplainFragment"
+        tools:background="@color/maco_blue"
+        tools:layoutAnimation="@null">
+
+
+        <TextView
+            android:id="@+id/tv_in_story"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="25dp"
+            android:textAppearance="@style/TextBody1Style"
+            android:textColor="@color/maco_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/with_story"/>
+
+        <TextView
+            android:id="@+id/tv_animal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textAppearance="@style/TextBody1Style"
+            android:textColor="@color/maco_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_in_story"
+            app:layout_constraintTop_toBottomOf="@+id/tv_in_story"
+            tools:text="@string/brave_cat" />
+
+        <TextView
+            android:id="@+id/tv_rainbow_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/happy_life"
+            android:lineSpacingExtra="6dp"
+            android:textAppearance="@style/TextBody1Style"
+            android:textColor="@color/maco_white"
+            app:layout_constraintStart_toStartOf="@+id/tv_animal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_animal" />
+
+        <TextView
+            android:id="@+id/tv_best_moment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textAppearance="@style/TextBody1Style"
+            android:textColor="@color/maco_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_rainbow_explain"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rainbow_explain"
+            tools:text="@string/feel_moment"/>
+
+        <TextView
+            android:id="@+id/tv_assemble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/assemble"
+            android:textAppearance="@style/TextBody1Style"
+            android:textColor="@color/maco_white"
+            app:layout_constraintStart_toStartOf="@+id/tv_best_moment"
+            app:layout_constraintTop_toBottomOf="@+id/tv_best_moment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
