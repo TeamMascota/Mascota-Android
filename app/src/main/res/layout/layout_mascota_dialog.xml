@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_farewell_level"
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -29,38 +29,22 @@
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:background="@color/maco_light_gray"
-            app:layout_constraintTop_toBottomOf="@+id/tv_farewell_level"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:layout_editor_absoluteX="0dp" />
 
         <TextView
-            android:id="@+id/tv_know_what_hero"
+            android:id="@+id/tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
-            android:layout_marginBottom="140dp"
-            android:text="@string/know_what_hero"
+            android:layout_marginBottom="16dp"
             android:textAppearance="@style/TextBody2Style"
             android:textColor="@color/maco_black"
             app:layout_constraintBottom_toTopOf="@+id/ll_btn_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_pet"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="23dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/ll_btn_list"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_know_what_hero"
-            tools:listitem="@layout/item_farewell"/>
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            tools:text="@string/know_what_hero"/>
 
         <LinearLayout
             android:id="@+id/ll_btn_list"

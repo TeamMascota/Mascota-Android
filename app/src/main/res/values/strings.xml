@@ -33,7 +33,12 @@
     <string name="about_help">도움글에 대해</string>
     <string name="close">닫기</string>
     <string name="farewell_level">이별의 단계</string>
+    <string name="rainbow_bridge">무지개 다리</string>
     <string name="help_explain">지금은 먼 훗날의 일이라고 생각될 수 있지만, 언젠가 다가올 이별을 위해 정리했어요. 이별의 과정이 후회로만 기억되지 않도록 도움글을 읽으며 마음을 천천히 준비해 보세요.</string>
+    <string name="happy_life">행복한 인생을 보낼 수 있었어요.\n그리고 지금은 작가님보다 한 발 앞서서\n먼저 무지개 다리로 가 친구들과 함께\n작가님을 기다리기로 했습니다.\n\n그동안 행복한 일상을 선물해주셔서 감사합니다.</string>
+    <string name="assemble">모아봤어요.</string>
+    <string name="finish_farewell">이별의 단계가 초기화됩니다.\n무지개 다리를 나가시겠어요?</string>
+    <string name="exit">나가기</string>
 
     <!--profile_create-->
     <string name="total_page">/2</string>
@@ -109,4 +114,9 @@
     <string name="date_story">2020년 5월의 이야기</string>
     <string name="full_date">2021년 7월 8일</string>
     <string name="together">함께한 지 2021일</string>
+    <string name="with_story">작가님과 함께했던 2318화의 이야기 속에서</string>
+    <string name="brave_cat">가나다라마바(은)는 의젓하고 당당한 고양이로서</string>
+    <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
+    <string name="now_book">지금까지 쓴 책은 총 2318화</string>
+    <string name="with_day">함께 보낸 날은 총 5160일</string>
 </resources>
