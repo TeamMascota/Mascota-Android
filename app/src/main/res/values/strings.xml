@@ -39,6 +39,14 @@
     <string name="assemble">모아봤어요.</string>
     <string name="finish_farewell">이별의 단계가 초기화됩니다.\n무지개 다리를 나가시겠어요?</string>
     <string name="exit">나가기</string>
+    <string name="epilogue">에필로그</string>
+    <string name="writer_talk">작가의 말</string>
+    <string name="farewell_last_level">이별을 마무리하는 마지막 단계예요.</string>
+    <string name="talk_writer_story">적어주세요. 그리고 이제는 작가님의 이야기를\n들려주세요.</string>
+    <string name="complete_farewell">이별의 단계 완료</string>
+    <string name="hear">들려주세요.</string>
+    <string name="epilogue_title">에필로그 제목</string>
+    <string name="to_be_continue">에서 계속</string>
 
     <!--profile_create-->
     <string name="total_page">/2</string>
@@ -119,4 +127,6 @@
     <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
     <string name="now_book">지금까지 쓴 책은 총 2318화</string>
     <string name="with_day">함께 보낸 날은 총 5160일</string>
+    <string name="talk_pet">가나다라마바의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 가나다라마바의 삶이 어땠는지</string>
+    <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
 </resources>
