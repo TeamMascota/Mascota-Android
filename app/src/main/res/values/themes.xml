@@ -67,4 +67,30 @@
     <style name="MascotaDialogStyle" parent="@android:style/Theme.Dialog">
         <item name="android:background">@drawable/rectangle_fill_white_3</item>
     </style>
+
+    <style name="SpinnerDivideStyle">
+        <item name="android:divider">@color/maco_gray</item> <!--구분선 색-->
+        <item name="android:dividerHeight">1dp</item> <!-- 구분석 높이-->
+    </style>
+
+    <style name="SpinnerTheme" parent="Theme.AppCompat.Light">
+        <item name="android:dropDownListViewStyle">@style/SpinnerDivideStyle</item>
+        <item name="android:spinnerStyle">@android:style/Widget.Spinner.DropDown</item>
+    </style>
+
+    <style name="MySpinnerDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <!--상단색 변경-->
+        <item name="colorAccent">@color/maco_orange</item>
+        <!--다이얼로그 배경 변경-->
+        <item name="background">@color/maco_orange</item>
+        <!--다이얼로그 배경 변경-->
+        <item name="colorControlActivated">@color/maco_orange</item>
+        <item name="colorControlHighlight">@color/maco_orange</item>
+        <!--취소/확인 버튼 색상-->
+        <item name="android:textColor">@color/maco_orange</item>
+
+    </style>
+
+
+
 </resources>
