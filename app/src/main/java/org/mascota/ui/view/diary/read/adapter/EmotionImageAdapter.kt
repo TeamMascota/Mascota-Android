@@ -34,14 +34,18 @@ class EmotionImageAdapter() : RecyclerView.Adapter<EmotionImageAdapter.EmotionIm
         val binding: ItemFeelingBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(diaryPetFeelingInfoData: DiaryPetFeelingInfoData) {
-            binding.emotionImgNum = diaryPetFeelingInfoData.emotion
-            binding.visible = diaryPetFeelingInfoData.visibility
+            binding.apply {
+                with(diaryPetFeelingInfoData) {
+                    emotionImgNum = emotion
+                    smallProfileVisibility = false
+                }
+            }
             ProfileAdapter().apply {
                 binding.rvProfile.adapter = this
                 profileUrlList = diaryPetFeelingInfoData.profileUrlList
             }
             binding.ivEmotion.setOnClickListener {
-                binding.visible = !(binding.visible!!)
+                binding.smallProfileVisibility = !requireNotNull(binding.smallProfileVisibility)
             }
         }
     }
