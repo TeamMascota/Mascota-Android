@@ -1,5 +1,7 @@
 package org.mascota.ui.view.diary.read.data.datasource
 
+import org.mascota.ui.view.diary.read.data.model.DiaryPetFeelingInfoData
+
 class LocalPetImageDataSource: PetImageDataSource {
     override fun getPetImageUrlData(): List<String> = listOf<String>(
         "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg",
@@ -9,7 +11,12 @@ class LocalPetImageDataSource: PetImageDataSource {
         "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg"
     )
 
-    override fun getEmotionImageData(): List<Int> = listOf(
-        2, 1, 3, 4
+    override fun getEmotionImageData(): List<DiaryPetFeelingInfoData> = listOf(
+        DiaryPetFeelingInfoData(2, listOf<String>("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg"), false),
+        DiaryPetFeelingInfoData(3, listOf<String>("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg"), false),
+        DiaryPetFeelingInfoData(5, listOf<String>("https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_960_720.jpg"), false)
     )
+
 }
