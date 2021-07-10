@@ -3,8 +3,12 @@ package org.mascota.ui.view.content.detail.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import org.mascota.databinding.ItemDiaryBinding
 import org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData
+import org.mascota.util.dp
 
 class ContentDetailDiaryAdapter: RecyclerView.Adapter<ContentDetailDiaryAdapter.ContentDetailDiaryViewHolder>() {
 
@@ -30,11 +34,13 @@ class ContentDetailDiaryAdapter: RecyclerView.Adapter<ContentDetailDiaryAdapter.
 
     override fun getItemCount(): Int = contentDiaryList.size
 
-    class ContentDetailDiaryViewHolder(
-        private val binding: ItemDiaryBinding
+    inner class ContentDetailDiaryViewHolder(
+        val binding: ItemDiaryBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(contentDiaryInfoData: ContentDiaryInfoData) {
             binding.contentDiaryInfoData = contentDiaryInfoData
+            Glide.with(binding.ivPicture.context).load(contentDiaryInfoData.img).transform(CenterCrop(),
+            RoundedCorners(3.dp)).into(binding.ivPicture)
         }
     }
 }
