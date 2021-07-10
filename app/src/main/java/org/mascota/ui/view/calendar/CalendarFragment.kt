@@ -1,9 +1,11 @@
 package org.mascota.ui.view.calendar
 
+import android.content.Intent
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentCalendarBinding
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.viewmodel.CalendarViewModel
 
 class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragment_calendar) {
@@ -86,7 +88,7 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
     }
 
     private fun startDiaryWriteActivity() {
-        //startActivity(Intent(requireActivity(), DiaryWriteActivity::class.java))
+        startActivity(Intent(requireActivity(), DiaryWriteActivity::class.java))
     }
 
     companion object {
