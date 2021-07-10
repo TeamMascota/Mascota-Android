@@ -18,15 +18,13 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="98dp"
-            android:layout_marginEnd="101dp"
             android:textAppearance="@style/TextSub1Style"
             android:textColor="@color/black"
+            android:text="@string/story_write"
             app:layout_constraintBottom_toBottomOf="@+id/btn_back"
             app:layout_constraintEnd_toStartOf="@+id/tv_page"
             app:layout_constraintStart_toEndOf="@+id/btn_back"
-            app:layout_constraintTop_toTopOf="@+id/btn_back"
-            android:text="@string/title_top" />
+            app:layout_constraintTop_toTopOf="@+id/btn_back" />
 
         <ImageButton
             android:id="@+id/btn_back"
@@ -61,7 +59,7 @@
             tools:text="@string/one" />
 
         <ProgressBar
-            android:id="@+id/pb_profile"
+            android:id="@+id/pb_diary_write"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -76,29 +74,27 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/frg_profile"
-            android:name="org.mascota.ui.view.diary.DiaryEmotionFragment"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_diary_write"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_next"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pb_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/pb_diary_write" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            style="@style/MascotaButtonStyle"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/maco_light_gray"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            tools:text="작성완료"
-            android:textColor="@color/maco_white"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="58dp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            tools:text="@string/write_complete" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
