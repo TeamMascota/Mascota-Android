@@ -9,4 +9,5 @@ val viewModelModule = module {
     viewModel { CalendarViewModel(get(), get()) }
     viewModel { RainbowViewModel(get(), get()) }
     viewModel { ContentDetailViewModel(get()) }
+    viewModel { DiaryViewModel() }
 }
