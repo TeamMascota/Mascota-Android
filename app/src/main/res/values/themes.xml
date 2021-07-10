@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Mascota" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Mascota" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/maco_orange</item>
         <item name="colorPrimaryVariant">@color/maco_orange</item>
@@ -10,6 +10,7 @@
         <item name="colorSecondaryVariant">@color/maco_orange</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/maco_ivory</item>
         <!-- Customize your theme here. -->
         <item name="android:includeFontPadding">false</item>
@@ -55,6 +56,11 @@
     <style name="TextH1MediumStyle" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/noto_sans_cjk_kr_medium</item>
+    </style>
+
+    <style name="TextCaptionStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
     </style>
 
     <style name="MascotaButtonStyle" parent="Widget.AppCompat.Button">
