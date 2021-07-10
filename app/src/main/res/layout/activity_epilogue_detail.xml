@@ -120,6 +120,7 @@
             android:layout_marginTop="23dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="58dp"
+            android:lineSpacingExtra="12dp"
             android:textAppearance="@style/TextBody1Style"
             android:textColor="@color/maco_dark_gray"
             android:background="@drawable/rectangle_bottom_orange_3"
