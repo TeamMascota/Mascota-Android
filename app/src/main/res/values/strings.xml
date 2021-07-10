@@ -54,6 +54,20 @@
     <string name="hear">들려주세요.</string>
     <string name="epilogue_title">에필로그 제목</string>
     <string name="to_be_continue">에서 계속</string>
+    <string name="joy_explain_1">맛있는 간식을 먹거나 재미있는 놀이를 할 때, </string>
+    <string name="joy_explain_2">작가님은</string>
+    <string name="joy_explain_3">(을)를 행복하게 해 주려고</string>
+    <string name="joy_explain_4">매순간 노력했어요. 이런 작가님과 함께한 매일매일이</string>
+    <string name="joy_explain_5">에게는 기쁜 순간이었습니다.</string>
+    <string name="usual_explain_1">매일 색다른 모험을 하지 않아도 좋아요. 평화롭던\n보통의 날들도 아름다운 추억으로 여기 남아 있습니다.</string>
+    <string name="angry_explin">평화롭고 행복한 날들만이 의미있는 것은 아니죠.\n때로는 화도 냈고, 투정도 부렸어요. 그 과정에서</string>
+    <string name="angry_explin_2">(은)는 다양한 감정을 배우는</string>
+    <string name="angry_explain_3">어른 고양이로 성장할 수 있었습니다.</string>
+    <string name="best_bottom">의 최고의 순간</string>
+    <string name="end_1">1부를 마치며</string>
+    <string name="sad_com">, 우울</string>
+    <string name="boring_com">, 심심</string>
+    <string name="tv_char">~</string>
 
     <!--profile_create-->
     <string name="total_page">/2</string>

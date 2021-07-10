@@ -7,4 +7,7 @@ interface RainbowDataSource {
     fun getHelpInfoData(): List<HelpInfoData>
     fun getRainbowInfoData(): RainbowInfoData
     fun getLoveBestMomentData() : RainbowInfoData
+    fun getJoyBestMomentData() : RainbowInfoData
+    fun getAngryBestMomentData() : RainbowInfoData
+    fun getUsualMomentData() : RainbowInfoData
 }

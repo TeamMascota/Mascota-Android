@@ -23,6 +23,53 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
     private val _loveMoment =MutableLiveData<RainbowInfoData>()
     val loveMoment : MutableLiveData<RainbowInfoData>
             get() = _loveMoment
+    
+    private val _joyMoment = MutableLiveData<RainbowInfoData>()
+    val joyMoment : MutableLiveData<RainbowInfoData>
+    get() = _joyMoment
+
+
+    private val _angryMoment = MutableLiveData<RainbowInfoData>()
+    val angryMoment : MutableLiveData<RainbowInfoData>
+    get() = _angryMoment
+
+
+    private val _usualMoment = MutableLiveData<RainbowInfoData>()
+    val usualMoment : MutableLiveData<RainbowInfoData>
+    get() = _usualMoment
+
+    fun getUsualMoment() = viewModelScope.launch {
+        kotlin.runCatching { rainbowDataSource.getUsualMomentData() }
+            .onSuccess {
+                _usualMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+
+    fun getAngryMoment() = viewModelScope.launch {
+        kotlin.runCatching { rainbowDataSource.getAngryBestMomentData() }
+            .onSuccess {
+                _angryMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+
+
+    }
+    fun getJoyMent() = viewModelScope.launch {
+        kotlin.runCatching { rainbowDataSource.getJoyBestMomentData() }
+            .onSuccess {
+                _joyMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
 
     fun getloveoMent() = viewModelScope.launch {
         kotlin.runCatching { rainbowDataSource.getLoveBestMomentData() }

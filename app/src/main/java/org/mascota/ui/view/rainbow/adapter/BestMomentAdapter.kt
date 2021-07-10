@@ -6,24 +6,28 @@ import androidx.recyclerview.widget.RecyclerView
 import org.mascota.databinding.ItemMomentBinding
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
 
-class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewHolder>(){
+class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewHolder>() {
+
+
 
     private val _lovedata = mutableListOf<RainbowInfoData.Data>()
-    var data : List<RainbowInfoData.Data> = _lovedata
+    var data: List<RainbowInfoData.Data> = _lovedata
 
-    set(value) {
 
-        _lovedata.clear()
-        _lovedata.addAll(value)
-        notifyDataSetChanged()
-    }
+        set(value) {
+
+
+            _lovedata.clear()
+            _lovedata.addAll(value)
+            notifyDataSetChanged()
+        }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestMomentViewHolder {
 
         val binding = ItemMomentBinding.inflate(
             LayoutInflater.from(parent.context),
-            parent,false
+            parent, false
         )
         return BestMomentViewHolder(binding)
 
@@ -34,18 +38,20 @@ class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewH
 
     }
 
-    override fun getItemCount(): Int = _lovedata.size
+    override fun getItemCount(): Int {
+        return _lovedata.size
 
-    inner class BestMomentViewHolder(private val binding : ItemMomentBinding) :
-        RecyclerView.ViewHolder(binding.root){
-            fun bind(rainbowInfoData: RainbowInfoData.Data){
+    }
 
-                binding.dvBestMoment.setWhereBookView(IS_RAINBOW)
-                binding.dvBestMoment.setLeftRainbow(rainbowInfoData)
-                binding.dvBestMoment.setRightRainbow(rainbowInfoData)
+    inner class BestMomentViewHolder(private val binding: ItemMomentBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(rainbowInfoData: RainbowInfoData.Data) {
 
-            }
+            binding.dvBestMoment.setWhereBookView(IS_RAINBOW)
+            binding.dvBestMoment.setLeftRainbow(rainbowInfoData)
+            binding.dvBestMoment.setRightRainbow(rainbowInfoData)
 
+        }
 
 
     }
@@ -53,7 +59,6 @@ class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewH
     companion object {
         const val IS_RAINBOW = false
     }
-
 
 
 }

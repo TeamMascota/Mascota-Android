@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
-import org.mascota.databinding.FragmentRainbowBinding
-import org.mascota.databinding.LayoutFarewellDialogBinding
-import org.mascota.databinding.LayoutHelpMessageDialogBinding
-import org.mascota.databinding.LayoutMascotaDialogBinding
+import org.mascota.databinding.*
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter.Companion.NOT_SELECTED
@@ -33,6 +30,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
     private lateinit var farewellDialogBinding: LayoutFarewellDialogBinding
     private lateinit var helpMessageDialogBinding: LayoutHelpMessageDialogBinding
     private lateinit var finishDialogBinding: LayoutMascotaDialogBinding
+    private lateinit var bestMomentBinding: FragmentFarewellBestMomentBinding
 
     override fun initView() {
         initBookView()
@@ -112,6 +110,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
             tvNext.setOnClickListener {
                 finishDialog.dismiss()
                 startFarewell()
+
             }
         }
     }
@@ -132,6 +131,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
             setHeroClickListener {  name, position ->
                 finishDialogBinding.tvContent.text = setTextPartialBold(0, name.length, "${name}의 이야기를 마무리하시겠어요?")
                 setItemViewType(position)
+
             }
         }
     }
@@ -164,6 +164,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
 
     private fun startFarewell() {
         startActivity(Intent(requireContext(), FarewellActivity::class.java))
+        Intent().putExtra()
     }
 
     companion object {

@@ -3,10 +3,7 @@ package org.mascota.util
 import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
-import android.text.style.TypefaceSpan
-import org.mascota.util.extension.getColor
 
 object StringUtil {
     fun makeHeroNumbering(position: Int): String = "주인공 $position"
@@ -30,6 +27,8 @@ object StringUtil {
     fun makePetInfoText(name : String, species : String) : String = "${name}(은)는 의젓하고 당당한 ${species}로서"
 
     fun makeBestMomentText(name : String) : String = "${name}(이)가 느꼈던 최고의 순간들을"
+
+    fun makPetNameText(name: String) : String = name
 
     fun makeNowEpisode(text : String) : String = "지금까지 쓴 책은 $text"
 
