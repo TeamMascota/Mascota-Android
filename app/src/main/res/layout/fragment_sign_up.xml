@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.view.signup.SignUpFragment">
 
     <data>
@@ -12,224 +12,220 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:text="@string/ment"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-
-        <TextView
-            android:id="@+id/tv_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:text="@string/email"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            android:layout_marginTop="30dp"
-            />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_input_id"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_email"
-            app:layout_constraintStart_toStartOf="@+id/tv_email"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            >
-
-            <EditText
-                android:id="@+id/et_email"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/rectangle_bottom_orange_3"
-                android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                android:hint="@string/input_id"
-                android:paddingStart="8dp"
-                android:textColor="@color/maco_black"
-                android:textColorHint="@color/maco_light_gray"
-                android:textSize="16dp"
-                android:inputType="textEmailAddress"
-                android:layout_marginHorizontal="23dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="@+id/cl_input_id"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_msg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:layout_marginHorizontal="23dp"
-                app:layout_constraintStart_toStartOf="@+id/cl_input_id"
-                app:layout_constraintTop_toBottomOf="@+id/et_email"
-                android:layout_marginTop="5dp"
-                />
-
-            <Button
-                android:id="@+id/btn_check"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:background="@drawable/btn_id"
-                android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                android:text="@string/check"
-                android:textSize="9sp"
-                android:textColor="@color/maco_white"
-                app:layout_constraintEnd_toEndOf="@+id/et_email"
-                app:layout_constraintTop_toTopOf="@+id/cl_input_id"
-                android:layout_marginTop="3dp"
-                />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/ment"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    android:text="@string/email"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        <TextView
-            android:id="@+id/tv_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:text="@string/pwd"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/cl_input_id"
-            app:layout_constraintTop_toBottomOf="@+id/cl_input_id"
-            android:layout_marginTop="30dp"
-            />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_input_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/tv_email"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_email"
 
+                    >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_input_pwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_pwd"
-            app:layout_constraintStart_toStartOf="@+id/tv_pwd"
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="23dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:hint="@string/input_id"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="8dp"
+                        android:textColor="@color/maco_black"
+                        android:textColorHint="@color/maco_light_gray"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_id"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            >
+                    <TextView
+                        android:id="@+id/tv_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="23dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12dp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_id"
+                        app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
-            <EditText
-                android:id="@+id/et_pwd"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/rectangle_bottom_orange_3"
-                android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                android:hint="@string/input_pw"
-                android:paddingStart="8dp"
-                android:textColor="@color/maco_black"
-                android:textColorHint="@color/maco_light_gray"
-                android:textSize="16dp"
-                android:inputType="textPassword"
-                android:layout_marginHorizontal="23dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_pwd_msg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:textColor="@color/maco_blue"
-                android:textSize="12dp"
-                android:layout_marginHorizontal="23dp"
-                app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
-                app:layout_constraintTop_toBottomOf="@+id/et_pwd"
-                android:layout_marginTop="5dp"
-                />
-
-            <ImageButton
-                android:id="@+id/btn_pwd_check"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                tools:src="@drawable/check"
-                app:layout_constraintEnd_toEndOf="@+id/et_pwd"
-                app:layout_constraintTop_toTopOf="@+id/cl_input_pwd"
-                android:layout_marginTop="3dp"
-                android:visibility="gone"
-                />
+                    <Button
+                        android:id="@+id/btn_check"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/btn_id"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:text="@string/check"
+                        android:textColor="@color/maco_white"
+                        android:textSize="9sp"
+                        app:layout_constraintEnd_toEndOf="@+id/et_email"
+                        app:layout_constraintTop_toTopOf="@+id/cl_input_id" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_re_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:text="@string/re_pwe"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
-            app:layout_constraintTop_toBottomOf="@+id/cl_input_pwd"
-            android:layout_marginTop="30dp"
-            />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_input_re_pwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_re_pwd"
-            app:layout_constraintStart_toStartOf="@+id/tv_re_pwd"
-
-            >
-
-            <EditText
-                android:id="@+id/et_re_pwd"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/rectangle_bottom_orange_3"
-                android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                android:hint="@string/re_pwe"
-                android:paddingStart="8dp"
-                android:textColor="@color/maco_black"
-                android:textColorHint="@color/maco_light_gray"
-                android:textSize="16dp"
-                android:inputType="textPassword"
-                android:layout_marginHorizontal="23dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="@+id/cl_input_re_pwd"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_re_pwd_msg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:textColor="@color/maco_blue"
-                android:textSize="12dp"
-                android:layout_marginHorizontal="23dp"
-                app:layout_constraintStart_toStartOf="@+id/cl_input_re_pwd"
-                app:layout_constraintTop_toBottomOf="@+id/et_re_pwd"
-                android:layout_marginTop="5dp"
-                />
-
-            <ImageButton
-                android:id="@+id/btn_re_pwd_check"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                tools:src="@drawable/check"
-                app:layout_constraintEnd_toEndOf="@+id/et_re_pwd"
-                app:layout_constraintTop_toTopOf="@+id/cl_input_re_pwd"
-                android:layout_marginTop="3dp"
-                android:visibility="gone"
-                />
+                <TextView
+                    android:id="@+id/tv_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    android:text="@string/pwd"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/cl_input_id"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_input_id" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_input_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/tv_pwd"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_pwd"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/et_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="23dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:hint="@string/input_pw"
+                        android:inputType="textPassword"
+                        android:paddingStart="8dp"
+                        android:textColor="@color/maco_black"
+                        android:textColorHint="@color/maco_light_gray"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_pwd_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="23dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12dp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
+                        app:layout_constraintTop_toBottomOf="@+id/et_pwd"
+                        tools:textColor="@color/maco_blue" />
+
+                    <ImageButton
+                        android:id="@+id/btn_pwd_check"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="3dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/et_pwd"
+                        app:layout_constraintTop_toTopOf="@+id/cl_input_pwd"
+                        android:src="@drawable/check" />
 
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_re_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    android:text="@string/re_pwe"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_input_pwd" />
 
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_input_re_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/tv_re_pwd"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_re_pwd"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/et_re_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginHorizontal="23dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:hint="@string/re_pwe"
+                        android:inputType="textPassword"
+                        android:paddingStart="8dp"
+                        android:textColor="@color/maco_black"
+                        android:textColorHint="@color/maco_light_gray"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_re_pwd"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_re_pwd_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="23dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="12dp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_re_pwd"
+                        app:layout_constraintTop_toBottomOf="@+id/et_re_pwd"
+                        tools:textColor="@color/maco_blue" />
+
+                    <ImageButton
+                        android:id="@+id/btn_re_pwd_check"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="3dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/et_re_pwd"
+                        app:layout_constraintTop_toTopOf="@+id/cl_input_re_pwd"
+                        android:src="@drawable/check"  />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

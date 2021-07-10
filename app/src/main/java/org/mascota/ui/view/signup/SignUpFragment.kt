@@ -5,12 +5,17 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.View
 import androidx.core.content.ContextCompat
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentSignUpBinding
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.viewmodel.UserViewModel
 
 
 class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_sign_up) {
+
+    private val userViewModel : UserViewModel by sharedViewModel()
+
 
     override fun initView() {
         checkId()
@@ -135,6 +140,11 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
                 tvRePwdMsg.setText("")
             }
         }
+
+    }
+
+    private fun postEmail(){
+
 
     }
 
