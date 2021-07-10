@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.databinding.ItemDiaryMonthBinding
+import org.mascota.ui.view.content.detail.SwipeHelperCallback
 import org.mascota.ui.view.content.detail.data.model.ContentMonthInfoData
 import org.mascota.util.dp
 
@@ -45,6 +46,8 @@ class ContentDetailMonthAdapter :
         @SuppressLint("ClickableViewAccessibility")
         fun onBind(contentMonthInfoData: ContentMonthInfoData) {
             binding.contentMonthDataInfo = contentMonthInfoData
+
+
 
             ContentDetailDiaryAdapter().apply {
                 contentDiaryList = contentMonthInfoData.diaryList

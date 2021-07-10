@@ -1,5 +1,8 @@
 package org.mascota.ui.view.content.detail
 
+import android.graphics.*
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.ActivityContentDetailBinding
@@ -15,6 +18,8 @@ class ContentDetailActivity : BindingActivity<ActivityContentDetailBinding>(R.la
         getContentMonthInfo()
         initContentDetailMonthAdapter()
         observeContentDetailMonthInfo()
+
+        test()
     }
 
     private fun getContentMonthInfo() {
@@ -30,5 +35,9 @@ class ContentDetailActivity : BindingActivity<ActivityContentDetailBinding>(R.la
         contentDetailViewModel.contentDetailMonth.observe(this) {
             contentDetailMonthAdapter.contentMonthList = it
         }
+    }
+
+    private fun test() {
+
     }
 }
