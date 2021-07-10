@@ -7,6 +7,21 @@
     <string name="home">홈</string>
     <string name="rainbow">무지개</string>
 
+    <!--회원가입-->
+    <string name="ment">환영합니다! 작가님이 어떤 책을\n만들게 될지 기대됩니다.</string>
+    <string name="email">이메일 아이디</string>
+    <string name="pwd">비밀번호</string>
+    <string name="re_pwe">비밀번호 확인</string>
+    <string name="input_id">이메일 아이디 입력</string>
+    <string name="input_pw">비밀번호 입력(8자 이상)</string>
+    <string name="input_re_pw">비밀번호를 한 번 더 입력해주세요</string>
+    <string name="signup">회원가입</string>
+    <string name="check">중복 확인</string>
+    <string name="email_id">songhun101@naver.com</string>
+    <string name="nim">님</string>
+    <string name="end_ment">회원가입이 완료되었습니다.\n\n작가님, 이제 책을 만들기 위한\n간단한 정보를 등록해 볼까요?</string>
+    <string name="register_pet">반려동물 등록하기</string>
+
     <!--calendar-->
     <string name="past_day">" 작가님의 지나온 날들"</string>
     <string name="num_record">번째 기록</string>

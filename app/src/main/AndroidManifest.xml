@@ -16,8 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.view.signup.SignUpActivity"></activity>
-        <activity android:name=".ui.view.SignUpActivity" />
+        <activity android:name=".ui.view.signup.SignUpActivity"
+            android:exported="true"/>
         <activity
             android:name=".ui.view.diary.DiaryWriteActivity"
             android:exported="true"

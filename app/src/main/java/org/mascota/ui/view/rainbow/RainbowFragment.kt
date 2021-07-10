@@ -164,7 +164,6 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
 
     private fun startFarewell() {
         startActivity(Intent(requireContext(), FarewellActivity::class.java))
-        Intent().putExtra()
     }
 
     companion object {
