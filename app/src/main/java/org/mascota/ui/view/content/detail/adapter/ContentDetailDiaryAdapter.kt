@@ -40,7 +40,11 @@ class ContentDetailDiaryAdapter: RecyclerView.Adapter<ContentDetailDiaryAdapter.
         fun onBind(contentDiaryInfoData: ContentDiaryInfoData) {
             binding.contentDiaryInfoData = contentDiaryInfoData
             Glide.with(binding.ivPicture.context).load(contentDiaryInfoData.img).transform(CenterCrop(),
-            RoundedCorners(3.dp)).into(binding.ivPicture)
+            RoundedCorners(IMAGE_RADIUS.dp)).into(binding.ivPicture)
         }
+    }
+
+    companion object {
+        const val IMAGE_RADIUS = 3
     }
 }

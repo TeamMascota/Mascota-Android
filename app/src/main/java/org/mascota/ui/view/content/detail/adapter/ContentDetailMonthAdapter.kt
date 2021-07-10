@@ -51,7 +51,7 @@ class ContentDetailMonthAdapter :
                 binding.rvContentDiary.adapter = this
                 val swipeHelperCallback = SwipeHelperCallback()
                 swipeHelperCallback.apply {
-                    setClamp(144.dp.toFloat()) // swipe fix size
+                    setClamp(SWIPE_FIX_WIDTH.dp.toFloat())
                 }
 
                 val itemTouchHelper = ItemTouchHelper(swipeHelperCallback)
@@ -66,4 +66,9 @@ class ContentDetailMonthAdapter :
             }
         }
     }
+
+    companion object {
+        const val SWIPE_FIX_WIDTH = 144
+    }
 }
+
