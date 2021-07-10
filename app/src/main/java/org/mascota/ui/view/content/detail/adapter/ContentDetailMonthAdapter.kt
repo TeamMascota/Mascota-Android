@@ -1,7 +1,6 @@
 package org.mascota.ui.view.content.detail.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -55,7 +54,7 @@ class ContentDetailMonthAdapter :
                 binding.rvContentDiary.adapter = this
                 val swipeHelperCallback = SwipeHelperCallback()
                 swipeHelperCallback.apply {
-                    setClamp(144.dp.toFloat())
+                    setClamp(SWIPE_FIX_WIDTH.dp.toFloat())
                 }
 
                 val itemTouchHelper = ItemTouchHelper(swipeHelperCallback)
@@ -70,4 +69,9 @@ class ContentDetailMonthAdapter :
             }
         }
     }
+
+    companion object {
+        const val SWIPE_FIX_WIDTH = 144
+    }
 }
+
