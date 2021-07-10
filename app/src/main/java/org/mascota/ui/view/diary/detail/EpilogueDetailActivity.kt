@@ -13,7 +13,7 @@ class EpilogueDetailActivity : BindingActivity<ActivityEpilogueDetailBinding>(R.
 
     private fun initText() {
         binding.apply {
-            tvWriter.text = getString(R.string.soeun)
+            tvName.text = getString(R.string.soeun)
             tvTitle.text = getString(R.string.thanks_cobong)
             tvContent.text = getString(R.string.epilogue_content)
         }
