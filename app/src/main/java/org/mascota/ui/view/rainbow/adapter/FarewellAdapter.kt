@@ -59,6 +59,6 @@ class FarewellAdapter : RecyclerView.Adapter<FarewellAdapter.FarewellViewHolder>
     }
 
     companion object {
-        val NOT_SELECTED = -1
+        const val NOT_SELECTED = -1
     }
 }

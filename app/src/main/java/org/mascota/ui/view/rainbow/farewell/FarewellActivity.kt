@@ -12,6 +12,7 @@ import org.mascota.ui.view.adapter.MascotaViewPagerAdapter
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.FIRST_PAGE
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.SECOND_PAGE
 import org.mascota.util.DialogUtil
+import org.mascota.util.StatusBarUtil.setStatusBarColor
 
 class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activity_farewell) {
     private lateinit var farewellViewPagerAdapter: MascotaViewPagerAdapter
@@ -19,6 +20,7 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
     private lateinit var farewellFinishDialogBinding : LayoutMascotaDialogBinding
 
     override fun initView() {
+        setStatusBarColor(getColor(R.color.maco_blue))
         initDialogDataBinding()
         initDialog()
         initViewPager()
