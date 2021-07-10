@@ -4,104 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="contentDiaryInfoData"
             type="org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_item_diary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@{contentDiaryInfoData.day}"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/date_day" />
-
-        <ImageView
-            android:id="@+id/iv_emotion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="4dp"
-            android:src="@drawable/ic_dog_joy"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_day" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            tools:text="@string/content_title"
-            android:text="@{contentDiaryInfoData.title}"
-            android:textColor="@color/maco_black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/tv_day"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:title="@string/diary_title" />
-
-        <TextView
-            android:id="@+id/tv_content"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="54dp"
-            android:layout_marginBottom="3dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:maxLines="2"
-            android:text="@{contentDiaryInfoData.content}"
-            android:textColor="@color/maco_gray"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_emotion"
-            app:layout_constraintEnd_toStartOf="@id/cl_image_border"
-            app:layout_constraintStart_toStartOf="@id/tv_title"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
-            tools:text="@string/diary_content" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_image_border"
-            android:layout_width="0dp"
+            android:id="@+id/tv_delete"
+            android:layout_width="@dimen/swipe_btn_width"
             android:layout_height="0dp"
-            android:layout_marginStart="86dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/rectangle_red_orange_radius_3"
+            android:background="@color/maco_orange"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:gravity="center"
+            android:paddingHorizontal="15dp"
+            android:paddingTop="34dp"
+            android:paddingBottom="33dp"
+            android:text="@string/delete"
+            android:textColor="@color/maco_white"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@id/bottom_line"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintDimensionRatio="1:1">
+            app:layout_constraintTop_toTopOf="@id/cl_item_diary_top" />
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="@dimen/swipe_btn_width"
+            android:layout_height="0dp"
+            android:background="@color/maco_light_gray"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:gravity="center"
+            android:paddingHorizontal="15dp"
+            android:paddingTop="34dp"
+            android:paddingBottom="33dp"
+            android:text="@string/revise"
+            android:textColor="@color/maco_white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_line"
+            app:layout_constraintEnd_toStartOf="@id/tv_delete"
+            app:layout_constraintTop_toTopOf="@id/cl_item_diary_top" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_item_diary_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/maco_ivory"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_line"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@{contentDiaryInfoData.day}"
+                android:textColor="@color/maco_dark_gray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/date_day" />
 
             <ImageView
-                android:id="@+id/iv_picture"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
-                imgUrl="@{contentDiaryInfoData.img}"/>
+                android:id="@+id/iv_emotion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_dog_joy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_day" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                android:text="@{contentDiaryInfoData.title}"
+                android:textColor="@color/maco_black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/tv_day"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/content_title"
+                tools:title="@string/diary_title" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="54dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                android:maxLines="2"
+                android:text="@{contentDiaryInfoData.content}"
+                android:textColor="@color/maco_gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@id/cl_image_border"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                tools:text="@string/diary_content" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_image_border"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="86dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/rectangle_red_orange_radius_3"
+                app:layout_constraintBottom_toBottomOf="@id/tv_content"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_title"
+                app:layout_constraintTop_toTopOf="@id/tv_title">
+
+                <ImageView
+                    android:id="@+id/iv_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/rectangle_red_orange_radius_3"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <View
             android:id="@+id/bottom_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="9dp"
             android:background="@color/maco_light_gray"
-            app:layout_constraintTop_toBottomOf="@id/iv_emotion" />
-
+            app:layout_constraintTop_toBottomOf="@id/cl_item_diary_top" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
