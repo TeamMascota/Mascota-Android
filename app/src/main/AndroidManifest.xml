@@ -27,6 +27,11 @@
             android:name=".ui.view.profile.ProfileCreateActivity"
             android:exported="true" />
         <activity android:name=".ui.MainActivity">
+
+        </activity>
+        <activity android:name=".ui.view.content.detail.ContentDetailActivity"/>
+        <activity android:name=".ui.view.content.edit.ContentEditActivity"/>
+        <activity android:name=".ui.view.diary.read.DiaryReadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
