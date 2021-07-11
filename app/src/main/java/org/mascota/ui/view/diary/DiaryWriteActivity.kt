@@ -11,6 +11,8 @@ import org.mascota.ui.view.adapter.MascotaViewPagerAdapter
 import org.mascota.ui.view.diary.read.DiaryReadActivity
 import org.mascota.ui.view.profile.ProfileCreateActivity
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.FIRST_PAGE
+import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.SECOND_PAGE
+import org.mascota.ui.view.rainbow.farewell.FarewellActivity.Companion.THIRD_PAGE
 import org.mascota.ui.viewmodel.DiaryViewModel
 import org.mascota.util.AnimationUtil.setProgress100Animation
 import org.mascota.util.AnimationUtil.setProgress50Animation
@@ -33,7 +35,7 @@ class DiaryWriteActivity :
             with(diaryWriteViewPagerAdapter) {
                 fragmentList = when(getPart()) {
                     PART1 -> listOf(DiaryEmotionFragment(), DiaryDetailWriteFragment())
-                    else -> listOf(DiaryWriterEmotionFragment(), DiaryDetailWriteFragment())
+                    else -> listOf(DiaryWriterEmotionFragment(), DiarySolutionFragment(), DiaryDetailWriteFragment())
                 }
 
                 vpDiaryWrite.adapter = this
@@ -47,8 +49,14 @@ class DiaryWriteActivity :
             with(vpDiaryWrite) {
                 btnNext.setOnClickListener {
                     when (currentItem) {
-                        FIRST_PAGE -> setCurrentItem(ProfileCreateActivity.SECOND_PAGE, true)
-                        else -> startDiaryReadActivity()
+                        FIRST_PAGE -> setCurrentItem(SECOND_PAGE, true)
+                        SECOND_PAGE -> {
+                            if(getPart() == PART2)
+                                setCurrentItem(THIRD_PAGE, true)
+                            else
+                                startDiaryReadActivity()
+                        }
+                        else ->
                     }
                 }
 
