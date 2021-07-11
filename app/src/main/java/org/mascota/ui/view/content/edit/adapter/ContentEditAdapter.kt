@@ -5,8 +5,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.databinding.ItemContentEditBinding
 import org.mascota.ui.view.content.edit.data.model.ContentEditInfoData
+import org.mascota.util.StringUtil.makeChapterText
 
 class ContentEditAdapter : RecyclerView.Adapter<ContentEditAdapter.ContentEditViewHolder>() {
+
+    private var deleteClickListener: ((String) -> Unit)? = null
+
+    fun setDeleteClickListener(listener: (String) -> Unit) {
+        deleteClickListener = listener
+    }
+
+    private var editClickLister: ((String, String) -> Unit)? = null
+
+    fun setEditClickListener(listener: (String, String) -> Unit) {
+        editClickLister = listener
+    }
 
     private val _contentEditList = mutableListOf<ContentEditInfoData>()
 
@@ -30,11 +43,20 @@ class ContentEditAdapter : RecyclerView.Adapter<ContentEditAdapter.ContentEditVi
 
     override fun getItemCount(): Int = contentEditList.size
 
-    class ContentEditViewHolder(
+    inner class ContentEditViewHolder(
         private val binding: ItemContentEditBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(contentEditInfoData: ContentEditInfoData) {
             binding.contentEditInfoData = contentEditInfoData
+            binding.tvDelete.setOnClickListener {
+                deleteClickListener?.invoke(makeChapterText(contentEditInfoData.chapter) + " " + contentEditInfoData.title)
+            }
+            binding.tvEdit.setOnClickListener {
+                editClickLister?.invoke(
+                    makeChapterText(contentEditInfoData.chapter),
+                    contentEditInfoData.title
+                )
+            }
         }
     }
 }
