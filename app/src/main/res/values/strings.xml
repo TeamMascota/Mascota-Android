@@ -128,6 +128,7 @@
     <string name="depressed">우울</string>
     <string name="accept">수용</string>
     <string name="writer">"작가 "</string>
+    <string name="writer_select_emo">작가님이 선택한 감정</string>
 
     <!--tools-->
     <string name="soeun">최소은</string>
@@ -171,4 +172,5 @@
     <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
     <string name="thanks_cobong">코봉아 고마웠어</string>
     <string name="epilogue_content">코봉이는 나와 이제 이별하게 됐다. 기분이 이상하다. 어제까지만 해도 내 무릎 위에서 함께 잠들었는데. 코봉이가 보고 싶다.</string>
+    <string name="angry_solution">가나다라마바(와)과 이별했다고 해서 함께 한 추억까지 사라지는 것은 아닙니다. 작가님과 가나다라마바의 추억은 시간이 지나도 영원히 가나다라마바(은)는 작가님의 기억 속에 살아 숨쉬고 있을 거예요.</string>
 </resources>
