@@ -129,6 +129,8 @@
     <string name="accept">수용</string>
     <string name="writer">"작가 "</string>
     <string name="writer_select_emo">작가님이 선택한 감정</string>
+    <string name="help_talk">도움이 되는 말</string>
+    <string name="sad_solution">사랑하는 반려동물과 이별했을 때 슬픔을 느끼는 것은 당연합니다. 급하게 감정을 정리하려 하지 마세요. 지금 느끼는 슬픔 속에서 천천히 마음을 정리하는 것이, 사랑하는 존재를 떠나보내기 위해 해야할 일입니다.</string>
 
     <!--tools-->
     <string name="soeun">최소은</string>
