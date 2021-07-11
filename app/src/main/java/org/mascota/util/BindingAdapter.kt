@@ -168,6 +168,39 @@ object BindingAdapter {
     }
 
     @JvmStatic
+    @BindingAdapter("imgPersonEmo")
+    fun setPersonEmo(image: ImageView, imgPersonEmo: Int?) {
+        with(image) {
+            when (imgPersonEmo) {
+                SAD -> {
+                    setImageResource(R.drawable.ic_human_sad_big)
+                    visibility = View.VISIBLE
+                }
+                ANGRY -> {
+                    setImageResource(R.drawable.ic_human_angry_big)
+                    visibility = View.VISIBLE
+                }
+                DENY -> {
+                    setImageResource(R.drawable.ic_human_deny_big)
+                    visibility = View.VISIBLE
+                }
+                REGRET -> {
+                    setImageResource(R.drawable.ic_human_regret_big)
+                    visibility = View.VISIBLE
+                }
+                LOSS -> {
+                    setImageResource(R.drawable.ic_human_loss_big)
+                    visibility = View.VISIBLE
+                }
+                else -> {
+                    setImageResource(R.drawable.ic_human_accept_big)
+                    visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
+    @JvmStatic
     @BindingAdapter("isEmpty")
     fun setRecordSizeVisibility(textView: TextView, isEmpty: Boolean?) {
         with(textView) {
