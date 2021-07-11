@@ -69,14 +69,16 @@ class ContentEditActivity :
     }
 
     private fun initDialog() {
-        deleteDialog = DialogUtil.makeDialog(this)
-        deleteCompleteDialog = DialogUtil.makeDialog(this)
-        addDialog = DialogUtil.makeDialog(this)
-        editDialog = DialogUtil.makeDialog(this)
-        DialogUtil.setDialog(deleteDialog, deleteDialogBinding.root)
-        DialogUtil.setDialog(deleteCompleteDialog, deleteCompleteDialogBinding.root)
-        DialogUtil.setDialog(addDialog, addDialogBinding.root)
-        DialogUtil.setDialog(editDialog, editDialogBinding.root)
+        DialogUtil.apply{
+            deleteDialog = DialogUtil.makeDialog(this@ContentEditActivity)
+            deleteCompleteDialog = makeDialog(this@ContentEditActivity)
+            addDialog = makeDialog(this@ContentEditActivity)
+            editDialog = makeDialog(this@ContentEditActivity)
+            setDialog(deleteDialog, deleteDialogBinding.root)
+            setDialog(deleteCompleteDialog, deleteCompleteDialogBinding.root)
+            setDialog(addDialog, addDialogBinding.root)
+            setDialog(editDialog, editDialogBinding.root)
+        }
     }
 
     private fun initDialogDataBinding() {
