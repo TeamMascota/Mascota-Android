@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="emo"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_solution"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:background="@color/maco_ivory"
@@ -45,6 +48,7 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_emotion"
             app:layout_constraintStart_toStartOf="@+id/tv_emotion"
             app:layout_constraintTop_toBottomOf="@+id/line"
+            app:imgPersonEmo="@{emo}"
             tools:src="@drawable/ic_human_angry_big" />
 
         <TextView
