@@ -21,6 +21,7 @@
     <string name="nim">님</string>
     <string name="end_ment">회원가입이 완료되었습니다.\n\n작가님, 이제 책을 만들기 위한\n간단한 정보를 등록해 볼까요?</string>
     <string name="register_pet">반려동물 등록하기</string>
+    <string name="agree">가입과 동시에 개인정보취급방침과 이용약관에 동의합니다.</string>
 
     <!--calendar-->
     <string name="past_day">" 작가님의 지나온 날들"</string>
