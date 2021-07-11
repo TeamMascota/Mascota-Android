@@ -157,6 +157,7 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
         } else {
             //권한 있을 경우
+                Log.d("갤러리","잘옴")
            var intent = Intent(Intent.ACTION_PICK)
             //어떤 종류의 데이터를 선택할 수 있는지 정해줌
             intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI

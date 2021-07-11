@@ -18,7 +18,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="98dp"
+            android:layout_marginStart="94dp"
             android:layout_marginEnd="101dp"
             android:textAppearance="@style/TextSub1Style"
             android:textColor="@color/black"
@@ -26,14 +26,14 @@
             app:layout_constraintEnd_toStartOf="@+id/tv_page"
             app:layout_constraintStart_toEndOf="@+id/btn_back"
             app:layout_constraintTop_toTopOf="@+id/btn_back"
-            android:text="@string/title_top" />
+            android:text="@string/write_story" />
 
         <ImageButton
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="13dp"
             android:layout_marginEnd="16dp"
             android:max="100"
             android:progressDrawable="@drawable/rectangle_progress"
@@ -90,12 +90,14 @@
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="704dp"
+            android:layout_marginBottom="58dp"
             android:background="@color/maco_light_gray"
             android:fontFamily="@font/noto_sans_cjk_kr_medium"
             tools:text="작성완료"
             android:textColor="@color/maco_white"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

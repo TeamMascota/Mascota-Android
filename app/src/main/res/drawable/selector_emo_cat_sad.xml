@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--클릭시 -->
+    <item android:state_selected="true" android:drawable="@drawable/ic_emo_cat_sad_sel"/>
+
+    <!--클릭 안했을 때-->
+    <item android:state_selected="false" android:drawable="@drawable/ic_emo_cat_sad"/>
+
+    <!--걍 설정해주는거  -->
+    <item android:drawable="@drawable/ic_emo_cat_sad_sel" />
+
+</selector>

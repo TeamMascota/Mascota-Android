@@ -32,24 +32,23 @@
                         android:text="@string/add_image"
                         android:textColor="@color/maco_gray"
                         android:textSize="17sp"
-                        android:textStyle="bold"
                         android:fontFamily="@font/noto_sans_cjk_kr_medium"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="23dp"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="23dp"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/amount_image"
                         android:textColor="@color/maco_gray"
-                        android:textSize="10sp"
+                        android:textSize="14sp"
                         android:fontFamily="@font/noto_sans_cjk_kr_regular"
                         app:layout_constraintTop_toTopOf="@+id/tv_add_image"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_add_image"
                         app:layout_constraintStart_toEndOf="@+id/tv_add_image"
-                        android:layout_marginStart="3dp"
+                        android:layout_marginStart="6dp"
 
                         />
 
@@ -71,6 +70,7 @@
                                 android:id="@+id/iv_1"
                                 android:layout_width="150dp"
                                 android:layout_height="150dp"
+                                android:layout_marginStart="24dp"
                                 app:layout_constraintDimensionRatio="100:100"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/tv_add_image"
@@ -86,7 +86,7 @@
                                 app:layout_constraintTop_toTopOf="@+id/iv_1"
                                 app:layout_constraintBottom_toBottomOf="@+id/iv_1"
                                 app:layout_constraintStart_toEndOf="@+id/iv_1"
-                                android:layout_marginStart="2dp"
+                                android:layout_marginStart="12dp"
                                 />
 
                             <ImageView
@@ -98,7 +98,7 @@
                                 app:layout_constraintTop_toTopOf="@+id/iv_2"
                                 app:layout_constraintBottom_toBottomOf="@+id/iv_2"
                                 app:layout_constraintStart_toEndOf="@+id/iv_2"
-                                android:layout_marginStart="2dp"
+                                android:layout_marginStart="12dp"
                                 />
 
                             <ImageView
@@ -110,7 +110,7 @@
                                 app:layout_constraintTop_toTopOf="@+id/iv_3"
                                 app:layout_constraintBottom_toBottomOf="@+id/iv_3"
                                 app:layout_constraintStart_toEndOf="@+id/iv_3"
-                                android:layout_marginStart="2dp"
+                                android:layout_marginStart="12dp"
                                 />
 
                             <ImageView
@@ -122,7 +122,7 @@
                                 app:layout_constraintTop_toTopOf="@+id/iv_4"
                                 app:layout_constraintBottom_toBottomOf="@+id/iv_4"
                                 app:layout_constraintStart_toEndOf="@+id/iv_4"
-                                android:layout_marginStart="2dp"
+                                android:layout_marginStart="12dp"
                                 />
 
 
@@ -141,11 +141,10 @@
                         android:textColor="@color/maco_gray"
                         android:fontFamily="@font/noto_sans_cjk_kr_medium"
                         android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="24dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/scv_image"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="28dp"
                         />
 
 
@@ -153,11 +152,13 @@
                         android:id="@+id/spin_select_chapter"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginHorizontal="24dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/spinner_background"
                         android:spinnerMode="dropdown"
                         android:theme="@style/SpinnerTheme"
+                        android:paddingVertical="10dp"
+                        android:paddingStart="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -168,29 +169,26 @@
                         android:id="@+id/tv_picker_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/noto_sans_cjk_kr_medium"
                         android:text="@string/picker_date"
                         android:textColor="@color/maco_gray"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="@font/noto_sans_cjk_kr_medium"
                         android:textSize="17sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/spin_select_chapter"
-                        android:layout_marginTop="20dp"
-                        />
+                        app:layout_constraintStart_toStartOf="@+id/tv_select_chapter"
+                        app:layout_constraintTop_toBottomOf="@id/spin_select_chapter" />
 
                     <TextView
                         android:id="@+id/tv_today"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:background="@color/maco_white"
-                        android:paddingStart="10dp"
-                        android:paddingVertical="5dp"
-                        android:textColor="@color/black"
                         android:layout_marginTop="5dp"
+                        android:background="@color/maco_white"
                         android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                        android:textSize="20sp"
-                        android:layout_marginHorizontal="10dp"
+                        android:paddingVertical="10dp"
+                        android:layout_marginHorizontal="24dp"
+                        android:paddingStart="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_picker_date" />
@@ -202,9 +200,8 @@
                         android:text="@string/title"
                         android:textColor="@color/maco_gray"
                         android:textSize="17sp"
-                        android:textStyle="bold"
                         android:fontFamily="@font/noto_sans_cjk_kr_medium"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="24dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_today"
                         android:layout_marginTop="20dp"
@@ -214,14 +211,16 @@
                         android:id="@+id/et_title"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_marginHorizontal="10dp"
-                        android:background="@color/maco_white"
+                        android:layout_marginHorizontal="24dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
                         android:hint="162화"
+                        android:textSize="14sp"
                         android:fontFamily="@font/noto_sans_cjk_kr_regular"
                         android:paddingStart="10dp"
+                        android:paddingVertical="10dp"
                         android:maxLength="11"
                         android:layout_marginTop="5dp"
-                        android:textColor="#000000"
+                        android:textColor="@color/maco_black"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_titel" />
@@ -230,10 +229,12 @@
                         android:id="@+id/tv_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:textColor="@color/maco_light_gray"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginVertical="10dp"
                         app:layout_constraintBottom_toBottomOf="@+id/et_title"
-                        app:layout_constraintEnd_toEndOf="@+id/tv_today"
+                        app:layout_constraintEnd_toEndOf="@+id/et_title"
                         app:layout_constraintTop_toTopOf="@+id/et_title" />
 
                     <TextView
@@ -245,7 +246,7 @@
                         android:textSize="17sp"
                         android:textStyle="bold"
                         android:fontFamily="@font/noto_sans_cjk_kr_medium"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="24dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/et_title"
                         android:layout_marginTop="20dp"
@@ -255,17 +256,19 @@
                     <EditText
                         android:id="@+id/et_story"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:background="@color/maco_white"
+                        android:layout_height="100dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
                         android:gravity="top"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:hint="@string/story_hint"
-                        android:paddingStart="10dp"
-                        android:paddingTop="20dp"
+                        android:paddingHorizontal="13dp"
+                        android:paddingVertical="10dp"
                         android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="13dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginHorizontal="24dp"
                         app:layout_constraintTop_toBottomOf="@+id/tv_story" />
 
 
