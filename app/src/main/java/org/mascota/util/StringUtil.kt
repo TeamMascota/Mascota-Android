@@ -3,10 +3,7 @@ package org.mascota.util
 import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
-import android.text.style.TypefaceSpan
-import org.mascota.util.extension.getColor
 
 object StringUtil {
     fun makeHeroNumbering(position: Int): String = "주인공 $position"
@@ -43,4 +40,6 @@ object StringUtil {
         resultString.setSpan(StyleSpan(Typeface.BOLD), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return resultString
     }
+
+    fun makeChapterText(chapter: Int) : String = "제 ${chapter}장"
 }
