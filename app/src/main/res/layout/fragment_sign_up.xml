@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="27dp"
-                    android:layout_marginTop="105dp"
+                    android:layout_marginTop="28dp"
                     android:fontFamily="@font/noto_sans_cjk_kr_regular"
                     android:text="@string/ment"
                     android:textColor="@color/maco_dark_gray"
@@ -88,18 +88,18 @@
                         app:layout_constraintStart_toStartOf="@+id/cl_input_id"
                         app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
-                    <Button
+                    <TextView
                         android:id="@+id/btn_check"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/btn_id"
-                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                        android:text="@string/check"
-                        android:textColor="@color/maco_white"
-                        android:textSize="9sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/ic_btn_doublecheck"
                         app:layout_constraintEnd_toEndOf="@+id/et_email"
-                        app:layout_constraintTop_toTopOf="@+id/cl_input_id" />
+                        app:layout_constraintTop_toTopOf="@+id/et_email"
+                        app:layout_constraintBottom_toBottomOf="@+id/et_email"
+                        />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -157,13 +157,16 @@
 
                     <ImageButton
                         android:id="@+id/btn_pwd_check"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:visibility="gone"
+                        android:clickable="false"
+                        android:layout_marginVertical="7dp"
+                        android:layout_marginEnd="5dp"
                         app:layout_constraintEnd_toEndOf="@+id/et_pwd"
                         app:layout_constraintTop_toTopOf="@+id/cl_input_pwd"
-                        android:src="@drawable/check" />
+                        android:background="@drawable/ic_icon_success3" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -221,13 +224,16 @@
 
                     <ImageButton
                         android:id="@+id/btn_re_pwd_check"
-                        android:layout_width="80dp"
-                        android:layout_height="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:visibility="gone"
+                        android:layout_marginVertical="7dp"
+                        android:layout_marginEnd="5dp"
+                        android:clickable="false"
                         app:layout_constraintEnd_toEndOf="@+id/et_re_pwd"
-                        app:layout_constraintTop_toTopOf="@+id/cl_input_re_pwd"
-                        android:src="@drawable/check"  />
+                        app:layout_constraintTop_toTopOf="@+id/et_re_pwd"
+                        android:background="@drawable/ic_icon_success3"  />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

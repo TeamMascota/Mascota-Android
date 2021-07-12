@@ -19,7 +19,7 @@
             android:id="@+id/tv_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="28dp"
             android:text="@string/signup"
             android:layout_marginStart="149dp"
             android:layout_marginEnd="148dp"
