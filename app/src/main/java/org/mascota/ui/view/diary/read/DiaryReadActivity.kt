@@ -14,7 +14,6 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
 
     override fun initView() {
         initPetImagePagerAdapter()
-        connectPagerToIndicator()
         initEmotionImageAdapter()
     }
 
@@ -22,11 +21,8 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
         PetImagePagerAdapter().apply {
             binding.vpPetImg.adapter = this
             petImgUrlList = petImageDataSource.getPetImageUrlData()
+            binding.springDotsIndicator.setViewPager2(binding.vpPetImg)
         }
-    }
-
-    private fun connectPagerToIndicator() {
-        TabLayoutMediator(binding.tabIndicator, binding.vpPetImg) { _, _ -> }.attach()
     }
 
     private fun initEmotionImageAdapter() {
