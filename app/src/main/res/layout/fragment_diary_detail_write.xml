@@ -52,84 +52,56 @@
 
                         />
 
-                    <HorizontalScrollView
-                        android:id="@+id/scv_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/btn_add_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:background="@drawable/rectangle_fill_orange_3"
                         app:layout_constraintTop_toBottomOf="@+id/tv_add_image"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="5dp"
-                        android:scrollbars="none"
+                        android:layout_marginStart="23dp"
                         >
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="wrap_content"
-                            android:layout_height="150dp">
 
-                            <ImageView
-                                android:id="@+id/iv_1"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                android:layout_marginStart="24dp"
-                                app:layout_constraintDimensionRatio="100:100"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_add_image"
-                                app:srcCompat="@drawable/before_add_image"
+                        <ImageView
+                            android:id="@+id/iv_plus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_btn_icon_plus"
+                            android:layout_marginHorizontal="44dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_marginBottom="44dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/btn_add_image"
+                            app:layout_constraintTop_toTopOf="@+id/btn_add_image"
+                            app:layout_constraintEnd_toEndOf="@+id/btn_add_image"
+                            app:layout_constraintStart_toStartOf="@+id/btn_add_image"
                             />
 
-                            <ImageView
-                                android:id="@+id/iv_2"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                app:layout_constraintDimensionRatio="100:100"
-                                app:srcCompat="@drawable/before_add_image"
-                                app:layout_constraintTop_toTopOf="@+id/iv_1"
-                                app:layout_constraintBottom_toBottomOf="@+id/iv_1"
-                                app:layout_constraintStart_toEndOf="@+id/iv_1"
-                                android:layout_marginStart="12dp"
-                                />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="29dp"
+                            android:text="@string/image_upload"
+                            android:textColor="@color/maco_white"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toTopOf="@+id/btn_add_image"
+                            android:layout_marginTop="55dp"
+                            android:layout_marginBottom="27dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/btn_add_image" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                            <ImageView
-                                android:id="@+id/iv_3"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                app:srcCompat="@drawable/before_add_image"
-                                app:layout_constraintDimensionRatio="100:100"
-                                app:layout_constraintTop_toTopOf="@+id/iv_2"
-                                app:layout_constraintBottom_toBottomOf="@+id/iv_2"
-                                app:layout_constraintStart_toEndOf="@+id/iv_2"
-                                android:layout_marginStart="12dp"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_4"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                app:srcCompat="@drawable/before_add_image"
-                                app:layout_constraintDimensionRatio="100:100"
-                                app:layout_constraintTop_toTopOf="@+id/iv_3"
-                                app:layout_constraintBottom_toBottomOf="@+id/iv_3"
-                                app:layout_constraintStart_toEndOf="@+id/iv_3"
-                                android:layout_marginStart="12dp"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_5"
-                                android:layout_width="150dp"
-                                android:layout_height="150dp"
-                                app:layout_constraintDimensionRatio="100:100"
-                                app:srcCompat="@drawable/before_add_image"
-                                app:layout_constraintTop_toTopOf="@+id/iv_4"
-                                app:layout_constraintBottom_toBottomOf="@+id/iv_4"
-                                app:layout_constraintStart_toEndOf="@+id/iv_4"
-                                android:layout_marginStart="12dp"
-                                />
-
-
-
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    </HorizontalScrollView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_image"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="5dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="@+id/btn_add_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_add_image"
+                        app:layout_constraintTop_toTopOf="@+id/btn_add_image"
+                        tools:listitem="@layout/item_image" />
 
 
 
@@ -143,7 +115,7 @@
                         android:textSize="17sp"
                         android:layout_marginStart="24dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/scv_image"
+                        app:layout_constraintTop_toBottomOf="@id/btn_add_image"
                         android:layout_marginTop="28dp"
                         />
 
