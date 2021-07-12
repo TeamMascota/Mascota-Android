@@ -40,6 +40,7 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_chapter"
             app:layout_constraintStart_toEndOf="@id/tv_chapter"
             android:layout_marginStart="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_chapter"
             tools:text="코봉이의 적응"
 
