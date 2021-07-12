@@ -7,6 +7,12 @@ import org.mascota.databinding.FragmentDiaryWriterEmotionBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.viewmodel.DiaryViewModel
 import org.mascota.util.AnimationUtil.getFadeInAnim
+import org.mascota.util.BindingAdapter.ACCEPT
+import org.mascota.util.BindingAdapter.ANGRY
+import org.mascota.util.BindingAdapter.DENY
+import org.mascota.util.BindingAdapter.LOSS
+import org.mascota.util.BindingAdapter.REGRET
+import org.mascota.util.BindingAdapter.SAD
 
 class DiaryWriterEmotionFragment :
     BindingFragment<FragmentDiaryWriterEmotionBinding>(R.layout.fragment_diary_writer_emotion) {
@@ -37,6 +43,7 @@ class DiaryWriterEmotionFragment :
                         tvDenyExplain.startAnimation(getFadeInAnim())
                         setClickEvent(clDeny)
                         diaryViewModel.postBtnEnable(true)
+                        diaryViewModel.postSelectedEmotion(DENY)
                     }
                 }
                 clAngry.setOnClickListener {
@@ -45,6 +52,7 @@ class DiaryWriterEmotionFragment :
                         tvExplainAngry.startAnimation(getFadeInAnim())
                         setClickEvent(clAngry)
                         diaryViewModel.postBtnEnable(true)
+                        diaryViewModel.postSelectedEmotion(ANGRY)
                     }
                 }
                 clRegret.setOnClickListener {
@@ -53,6 +61,7 @@ class DiaryWriterEmotionFragment :
                         tvExplainRegret.startAnimation(getFadeInAnim())
                         setClickEvent(clRegret)
                         diaryViewModel.postBtnEnable(true)
+                        diaryViewModel.postSelectedEmotion(REGRET)
                     }
                 }
                 clLoss.setOnClickListener {
@@ -61,6 +70,7 @@ class DiaryWriterEmotionFragment :
                         tvExplainLoss.startAnimation(getFadeInAnim())
                         setClickEvent(clLoss)
                         diaryViewModel.postBtnEnable(true)
+                        diaryViewModel.postSelectedEmotion(LOSS)
                     }
                 }
                 clSad.setOnClickListener {
@@ -69,6 +79,7 @@ class DiaryWriterEmotionFragment :
                         tvExplainSad.startAnimation(getFadeInAnim())
                         setClickEvent(clSad)
                         diaryViewModel.postBtnEnable(true)
+                        diaryViewModel.postSelectedEmotion(SAD)
                     }
                 }
                 clAccept.setOnClickListener {
@@ -77,6 +88,7 @@ class DiaryWriterEmotionFragment :
                         tvExplainAccept.startAnimation(getFadeInAnim())
                         setClickEvent(clAccept)
                         diaryViewModel.postBtnEnable(true)
+                        diaryViewModel.postSelectedEmotion(ACCEPT)
                     }
                 }
             }

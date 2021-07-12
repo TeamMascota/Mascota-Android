@@ -138,6 +138,9 @@
     <string name="depressed">우울</string>
     <string name="accept">수용</string>
     <string name="writer">"작가 "</string>
+    <string name="writer_select_emo">작가님이 선택한 감정</string>
+    <string name="help_talk">도움이 되는 말</string>
+    <string name="sad_solution">사랑하는 반려동물과 이별했을 때 슬픔을 느끼는 것은 당연합니다. 급하게 감정을 정리하려 하지 마세요. 지금 느끼는 슬픔 속에서 천천히 마음을 정리하는 것이, 사랑하는 존재를 떠나보내기 위해 해야할 일입니다.</string>
 
     <!--tools-->
     <string name="soeun">최소은</string>
@@ -181,4 +184,5 @@
     <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
     <string name="thanks_cobong">코봉아 고마웠어</string>
     <string name="epilogue_content">코봉이는 나와 이제 이별하게 됐다. 기분이 이상하다. 어제까지만 해도 내 무릎 위에서 함께 잠들었는데. 코봉이가 보고 싶다.</string>
+    <string name="angry_solution">가나다라마바(와)과 이별했다고 해서 함께 한 추억까지 사라지는 것은 아닙니다. 작가님과 가나다라마바의 추억은 시간이 지나도 영원히 가나다라마바(은)는 작가님의 기억 속에 살아 숨쉬고 있을 거예요.</string>
 </resources>
