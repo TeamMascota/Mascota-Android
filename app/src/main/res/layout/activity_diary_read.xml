@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
-                app:layout_constraintBottom_toTopOf="@id/tab_indicator"
+                app:layout_constraintBottom_toTopOf="@id/spring_dots_indicator"
                 app:layout_constraintDimensionRatio="343:300"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -159,18 +159,23 @@
                 app:layout_constraintTop_toBottomOf="@id/cl_date"
                 tools:listitem="@layout/item_feeling" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_indicator"
-                android:layout_width="match_parent"
-                android:layout_height="7dp"
-                android:layout_marginTop="13dp"
-                android:background="@color/maco_ivory"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+            <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+                android:id="@+id/spring_dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dampingRatio="0.5"
+                app:dotsColor="@color/maco_orange"
+                app:dotsStrokeColor="@color/maco_orange"
+                app:dotsCornerRadius="4dp"
+                app:dotsSize="7dp"
+                app:dotsSpacing="5dp"
+                app:dotsStrokeWidth="1dp"
+                app:stiffness="300"
                 app:layout_constraintTop_toBottomOf="@id/vp_pet_img"
-                app:tabBackground="@drawable/selector_pet_image_indicator"
-                app:tabGravity="center"
-                app:tabIndicatorHeight="0dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="13dp"
+                />
 
             <TextView
                 android:id="@+id/tv_content"
@@ -180,7 +185,7 @@
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/rectangle_orange_top_radius_3"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tab_indicator" />
+                app:layout_constraintTop_toBottomOf="@id/spring_dots_indicator" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
