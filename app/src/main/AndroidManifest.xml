@@ -39,6 +39,8 @@
             android:exported="true"/>
         <activity android:name=".ui.view.content.edit.ContentEditActivity"/>
         <activity android:name=".ui.view.diary.read.DiaryReadActivity"/>
+        <activity android:name=".ui.view.user.login.LoginActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
