@@ -118,6 +118,20 @@
     <string name="total_content_size">/11)</string>
     <string name="save">저장</string>
 
+    <!--login-->
+    <string name="login">로그인</string>
+    <string name="not_id">아이디를 찾을 수 없습니다</string>
+    <string name="not_pw">비밀번호를 찾을 수 없습니다</string>
+    <string name="sign_up">회원가입</string>
+    <string name="find_id">아이디 찾기</string>
+    <string name="reset_pw">비밀번호 재설정</string>
+    <string name="email_id">이메일 아이디</string>
+    <string name="pw">비밀번호</string>
+    <string name="pw_hint">비밀번호 입력(8자 이상)</string>
+    <string name="id_hint">이메일 아이디 입력</string>
+    <string name="login_fail">로그인 실패</string>
+    <string name="login_fail_msg">아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.</string>
+
     <!--Diary-->
     <string name="story_write">이야기 작성</string>
     <string name="love">사랑</string>
