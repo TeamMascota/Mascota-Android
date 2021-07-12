@@ -64,9 +64,9 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
                             }
                             else ->{
                                 btnSignup.text = getString(R.string.register_pet)
-                                btnBack.visibility = View.GONE
-                                tvAgree.visibility = View.GONE
-                                tvSignup.visibility = View.GONE
+                                btnBack.visibility = View.INVISIBLE
+                                tvAgree.visibility = View.INVISIBLE
+                                tvSignup.visibility = View.INVISIBLE
 
                             }
                         }
