@@ -6,7 +6,6 @@ data class ReqRegisterPet(
     val userId: String
 ) {
     data class Pet(
-        val petImages: String,
         val name: String,
         val kind: Int,
         val startDate: String,
