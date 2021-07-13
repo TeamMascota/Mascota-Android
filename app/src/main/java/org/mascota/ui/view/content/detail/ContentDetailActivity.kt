@@ -5,20 +5,22 @@ import org.mascota.R
 import org.mascota.databinding.ActivityContentDetailBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.adapter.ContentDetailMonthAdapter
-import org.mascota.ui.viewmodel.ContentDetailViewModel
+import org.mascota.ui.viewmodel.ContentViewModel
 
 class ContentDetailActivity : BindingActivity<ActivityContentDetailBinding>(R.layout.activity_content_detail) {
-    private val contentDetailViewModel : ContentDetailViewModel by viewModel()
+    private val contentViewModel : ContentViewModel by viewModel()
     private lateinit var contentDetailMonthAdapter: ContentDetailMonthAdapter
 
     override fun initView() {
         getContentMonthInfo()
         initContentDetailMonthAdapter()
         observeContentDetailMonthInfo()
+
+        test()
     }
 
     private fun getContentMonthInfo() {
-        contentDetailViewModel.getContentDetailMonthInfo()
+        contentViewModel.getContentDetailMonthInfo()
     }
 
     private fun initContentDetailMonthAdapter() {
@@ -27,8 +29,12 @@ class ContentDetailActivity : BindingActivity<ActivityContentDetailBinding>(R.la
     }
 
     private fun observeContentDetailMonthInfo() {
-        contentDetailViewModel.contentDetailMonth.observe(this) {
+        contentViewModel.contentDetailMonth.observe(this) {
             contentDetailMonthAdapter.contentMonthList = it
         }
+    }
+
+    private fun test() {
+
     }
 }

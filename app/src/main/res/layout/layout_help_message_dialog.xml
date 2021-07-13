@@ -16,9 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:text="@string/about_help"
             android:textAppearance="@style/TextSub1Style"
             android:textColor="@color/maco_black"
-            android:text="@string/about_help"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +41,8 @@
             android:layout_marginEnd="28dp"
             android:gravity="center"
             android:text="@string/help_explain"
+            android:textAppearance="@style/TextBody2Style"
+            android:textColor="@color/maco_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/line" />

@@ -2,9 +2,8 @@ package org.mascota
 
 import android.app.Application
 import org.koin.android.ext.android.inject
-import org.mascota.di.dataSourceModule
-import org.mascota.di.singletonModule
-import org.mascota.di.viewModelModule
+import org.mascota.data.local.MascotaSharedPreference
+import org.mascota.di.*
 import org.mascota.util.PixelRatio
 import org.mascota.util.extension.setUpKoin
 
@@ -18,10 +17,13 @@ class MascotaApplication : Application() {
             this,
             viewModelModule,
             dataSourceModule,
-            singletonModule
+            singletonModule,
+            repositoryModule,
+            networkModule
         )
 
         MascotaApplication.pixelRatio = pixelRatio
+        MascotaSharedPreference.init(applicationContext)
     }
 
     companion object {

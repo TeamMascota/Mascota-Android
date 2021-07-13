@@ -17,6 +17,7 @@
     <color name="maco_gray">#7D7D7D</color>
     <color name="maco_dark_gray">#5D5D5D</color>
     <color name="maco_black">#000000</color>
+    <color name="maco_error">#F17B7B</color>
 
     <!--Etc Color-->
     <color name="dark_orange">#D77333</color>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="emo"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_solution"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/maco_ivory"
+        tools:context=".ui.view.diary.DiarySolutionFragment">
+
+        <TextView
+            android:id="@+id/tv_emotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:includeFontPadding="true"
+            android:text="@string/writer_select_emo"
+            android:textAppearance="@style/TextBody2MediumStyle"
+            android:textColor="@color/maco_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/maco_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_emotion"
+            app:layout_constraintEnd_toEndOf="@+id/tv_emotion"
+            app:layout_constraintStart_toStartOf="@+id/tv_emotion"
+            app:layout_constraintTop_toBottomOf="@+id/tv_emotion" />
+
+        <ImageView
+            android:id="@+id/iv_emo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_emotion"
+            app:layout_constraintStart_toStartOf="@+id/tv_emotion"
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            app:imgPersonEmo="@{emo}"
+            tools:src="@drawable/ic_human_angry_big" />
+
+        <TextView
+            android:id="@+id/tv_explain"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="118dp"
+            android:background="@drawable/rectangle_bottom_orange_3"
+            android:lineSpacingExtra="12dp"
+            android:paddingVertical="24dp"
+            android:paddingStart="23dp"
+            android:paddingEnd="25dp"
+            android:textAppearance="@style/TextBody1Style"
+            android:textColor="@color/maco_dark_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_emo"
+            tools:text="@string/angry_solution" />
+
+        <TextView
+            android:id="@+id/tv_emo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="@string/rage"
+            android:textColor="@color/maco_dark_gray"
+            android:textAppearance="@style/TextH1MediumStyle"
+            app:layout_constraintEnd_toEndOf="@+id/iv_emo"
+            app:layout_constraintStart_toStartOf="@+id/iv_emo"
+            app:layout_constraintTop_toBottomOf="@+id/iv_emo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

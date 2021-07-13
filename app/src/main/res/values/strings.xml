@@ -88,6 +88,73 @@
     <string name="content_edit">목차 편집</string>
     <string name="revise">수정</string>
     <string name="delete">삭제</string>
+    <string name="content_delete">목차 삭제</string>
+    <string name="delete_dialog_content">목차와 이야기가 모두 사라집니다.\n</string>
+    <string name="delete_dialog_question">(을)를 삭제하시겠어요? </string>
+    <string name="delete_complete">삭제 완료</string>
+    <string name="delete_complete_msg">" 목차가 삭제됐어요"</string>
+    <string name="check">확인</string>
+    <string name="content_add">목차 추가</string>
+    <string name="add">추가</string>
+    <string name="total_content_size">/11)</string>
+    <string name="save">저장</string>
+
+    <!--login-->
+    <string name="login">로그인</string>
+    <string name="not_id">아이디를 찾을 수 없습니다</string>
+    <string name="not_pw">비밀번호를 찾을 수 없습니다</string>
+    <string name="sign_up">회원가입</string>
+    <string name="find_id">아이디 찾기</string>
+    <string name="reset_pw">비밀번호 재설정</string>
+    <string name="email_id">이메일 아이디</string>
+    <string name="pw">비밀번호</string>
+    <string name="pw_hint">비밀번호 입력(8자 이상)</string>
+    <string name="id_hint">이메일 아이디 입력</string>
+    <string name="login_fail">로그인 실패</string>
+    <string name="login_fail_msg">아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.</string>
+
+    <!--Diary-->
+    <string name="story_write">이야기 작성</string>
+    <string name="love">사랑</string>
+    <string name="joy">기쁨</string>
+    <string name="usual">보통</string>
+    <string name="sad">우울</string>
+    <string name="angry">화남</string>
+    <string name="boring">심심</string>
+    <string name="emotion_delete">기분 삭제</string>
+    <string name="cancel">취소</string>
+    <string name="add_image">사진 첨부</string>
+    <string name="amount_image">(최대 5장)</string>
+    <string name="select_chapter">목차 선택</string>
+    <string name="picker_date">날짜 선택</string>
+    <string name="title">제목</string>
+    <string name="story">이야기 내용</string>
+    <string name="story_hint">오늘 주인공에게 어떤 일이 있었나요?</string>
+    <string name="finish">작성 완료</string>
+    <string name="bottomsheet_add">일기 사진 첨부하기</string>
+    <string name="bottomsheet_select">앨범에서 사진 선택</string>
+    <string name="title_top">162화 작성</string>
+    <string name="select_hero">주인공 및 기분 선택</string>
+    <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
+    <string name="select_writer_emotion">작가의 기분 선택</string>
+    <string name="select_writer_today_emotion">작가님의 오늘 기분을 선택해 주세요</string>
+    <string name="deny_explain">반려동물과 이별했다는 걸 믿을 수 없어요</string>
+    <string name="angry_explain">이별의 원인에 화가 나요</string>
+    <string name="regret_explain">더 잘 해 주지 못 한 게 후회가 돼요</string>
+    <string name="sad_explain">이별 때문에 슬프고 우울해요</string>
+    <string name="loss_explain">반려동물과의 이별에 상실감을 느껴요</string>
+    <string name="accept_explain">이별을 받아들이고 있어요</string>
+    <string name="write_complete">작성 완료</string>
+    <string name="deny">부정</string>
+    <string name="rage">분노</string>
+    <string name="regret">후회</string>
+    <string name="loss">상실</string>
+    <string name="depressed">우울</string>
+    <string name="accept">수용</string>
+    <string name="writer">"작가 "</string>
+    <string name="writer_select_emo">작가님이 선택한 감정</string>
+    <string name="help_talk">도움이 되는 말</string>
+    <string name="sad_solution">사랑하는 반려동물과 이별했을 때 슬픔을 느끼는 것은 당연합니다. 급하게 감정을 정리하려 하지 마세요. 지금 느끼는 슬픔 속에서 천천히 마음을 정리하는 것이, 사랑하는 존재를 떠나보내기 위해 해야할 일입니다.</string>
 
     <!--tools-->
     <string name="soeun">최소은</string>
@@ -120,7 +187,18 @@
     <string name="finish_cobong">코봉의 이야기를 마무리하시겠어요?</string>
     <string name="know_what_hero">어느 주인공과 이별했는지 알려주세요</string>
     <string name="date_story">2020년 5월의 이야기</string>
-
+    <string name="full_date">2021년 7월 8일</string>
+    <string name="together">함께한 지 2021일</string>
+    <string name="with_story">작가님과 함께했던 2318화의 이야기 속에서</string>
+    <string name="brave_cat">가나다라마바(은)는 의젓하고 당당한 고양이로서</string>
+    <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
+    <string name="now_book">지금까지 쓴 책은 총 2318화</string>
+    <string name="with_day">함께 보낸 날은 총 5160일</string>
+    <string name="talk_pet">가나다라마바의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 가나다라마바의 삶이 어땠는지</string>
+    <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
+    <string name="thanks_cobong">코봉아 고마웠어</string>
+    <string name="epilogue_content">코봉이는 나와 이제 이별하게 됐다. 기분이 이상하다. 어제까지만 해도 내 무릎 위에서 함께 잠들었는데. 코봉이가 보고 싶다.</string>
+    <string name="angry_solution">가나다라마바(와)과 이별했다고 해서 함께 한 추억까지 사라지는 것은 아닙니다. 작가님과 가나다라마바의 추억은 시간이 지나도 영원히 가나다라마바(은)는 작가님의 기억 속에 살아 숨쉬고 있을 거예요.</string>
 
     <!--Diary-->
     <string name="love">사랑</string>
@@ -134,7 +212,7 @@
     <string name="add_image">사진 첨부</string>
     <string name="amount_image">(최대 5장)</string>
     <string name="select_chapter">목차 선택</string>
-    <string name="picker_date">작성 날짜</string>
+    <string name="picker_date">날짜 선택</string>
     <string name="title">제목</string>
     <string name="story">이야기 내용</string>
     <string name="story_hint">오늘 주인공에게 어떤 일이 있었나요?</string>
@@ -144,17 +222,7 @@
     <string name="title_top">162화 작성</string>
     <string name="select_hero">주인공 및 기분 선택</string>
     <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
+    <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
     <string name="write_story">이야기 작성</string>
     <string name="image_upload">사진 업로드</string>
-
-
-    <string name="full_date">2021년 7월 8일</string>
-    <string name="together">함께한 지 2021일</string>
-    <string name="with_story">작가님과 함께했던 2318화의 이야기 속에서</string>
-    <string name="brave_cat">가나다라마바(은)는 의젓하고 당당한 고양이로서</string>
-    <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
-    <string name="now_book">지금까지 쓴 책은 총 2318화</string>
-    <string name="with_day">함께 보낸 날은 총 5160일</string>
-    <string name="talk_pet">가나다라마바의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 가나다라마바의 삶이 어땠는지</string>
-    <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
 </resources>

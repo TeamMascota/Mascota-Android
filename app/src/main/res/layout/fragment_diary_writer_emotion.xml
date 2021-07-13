@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="isDenyVisible"
+            type="Boolean" />
+
+        <variable
+            name="isAngryVisible"
+            type="Boolean" />
+
+        <variable
+            name="isRegretVisible"
+            type="Boolean" />
+
+        <variable
+            name="isLossVisible"
+            type="Boolean" />
+
+        <variable
+            name="isSadVisible"
+            type="Boolean" />
+
+        <variable
+            name="isAcceptVisible"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.view.diary.DiaryWriterEmotionFragment">
+
+        <TextView
+            android:id="@+id/tv_select_emotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/select_writer_emotion"
+            android:textAppearance="@style/TextSub1Style"
+            android:textColor="@color/maco_dark_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_select_today_emotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/select_writer_today_emotion"
+            android:textAppearance="@style/TextBody2Style"
+            android:textColor="@color/maco_gray"
+            app:layout_constraintStart_toStartOf="@+id/tv_select_emotion"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select_emotion" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/maco_dark_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select_today_emotion" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="49dp"
+            android:background="@color/maco_dark_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_emotion_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="vertical"
+            android:weightSum="6"
+            app:layout_constraintBottom_toTopOf="@+id/line2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_deny"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_emo_deny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/selector_human_deny"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_deny_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:text="@string/deny"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/selector_human_emotion_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_emo_deny"
+                    app:layout_constraintStart_toEndOf="@+id/iv_emo_deny"
+                    app:layout_constraintTop_toTopOf="@+id/iv_emo_deny" />
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/maco_light_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_deny_explain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:text="@string/deny_explain"
+                    android:textAppearance="@style/TextCaptionStyle"
+                    android:textColor="@color/maco_gray"
+                    android:visibility="@{isDenyVisible? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_deny_title"
+                    app:layout_constraintStart_toEndOf="@+id/tv_deny_title"
+                    app:layout_constraintTop_toTopOf="@+id/tv_deny_title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_angry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_emo_angry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/selector_human_angry"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_title_angry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:text="@string/rage"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/selector_human_emotion_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_emo_angry"
+                    app:layout_constraintStart_toEndOf="@+id/iv_emo_angry"
+                    app:layout_constraintTop_toTopOf="@+id/iv_emo_angry"/>
+
+                <View
+                    android:id="@+id/line5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/maco_light_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_explain_angry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:text="@string/angry_explain"
+                    android:textAppearance="@style/TextCaptionStyle"
+                    android:textColor="@color/maco_gray"
+                    android:visibility="@{isAngryVisible? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_angry"
+                    app:layout_constraintStart_toEndOf="@+id/tv_title_angry"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_angry"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_regret"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_emo_regret"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/selector_human_regret"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_title_regret"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:text="@string/regret"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/selector_human_emotion_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_emo_regret"
+                    app:layout_constraintStart_toEndOf="@+id/iv_emo_regret"
+                    app:layout_constraintTop_toTopOf="@+id/iv_emo_regret" />
+
+                <View
+                    android:id="@+id/line6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/maco_light_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_explain_regret"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:text="@string/regret_explain"
+                    android:textAppearance="@style/TextCaptionStyle"
+                    android:textColor="@color/maco_gray"
+                    android:visibility="@{isRegretVisible? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_regret"
+                    app:layout_constraintStart_toEndOf="@+id/tv_title_regret"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_regret"
+                    tools:text="@string/regret_explain" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_loss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_loss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/selector_human_loss"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_title_loss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/loss"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/selector_human_emotion_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_loss"
+                    app:layout_constraintStart_toEndOf="@+id/iv_loss"
+                    app:layout_constraintTop_toTopOf="@+id/iv_loss" />
+
+                <View
+                    android:id="@+id/line7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/maco_light_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_explain_loss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:text="@string/loss_explain"
+                    android:textAppearance="@style/TextCaptionStyle"
+                    android:textColor="@color/maco_gray"
+                    android:visibility="@{isLossVisible? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_loss"
+                    app:layout_constraintStart_toEndOf="@+id/tv_title_loss"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_loss"
+                    tools:text="@string/regret_explain" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_sad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_sad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/selector_human_sad"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_title_sad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:text="@string/depressed"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/selector_human_emotion_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_sad"
+                    app:layout_constraintStart_toEndOf="@+id/iv_sad"
+                    app:layout_constraintTop_toTopOf="@+id/iv_sad"/>
+
+                <View
+                    android:id="@+id/line8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/maco_light_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_explain_sad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:text="@string/sad_explain"
+                    android:textAppearance="@style/TextCaptionStyle"
+                    android:textColor="@color/maco_gray"
+                    android:visibility="@{isSadVisible? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_sad"
+                    app:layout_constraintStart_toEndOf="@+id/tv_title_sad"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_sad"
+                    tools:text="@string/regret_explain" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_accept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/selector_human_accept"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_title_accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:text="@string/accept"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/selector_human_emotion_text"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_accept"
+                    app:layout_constraintStart_toEndOf="@+id/iv_accept"
+                    app:layout_constraintTop_toTopOf="@+id/iv_accept"
+                    tools:text="@string/deny" />
+
+                <View
+                    android:id="@+id/line9"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/maco_light_gray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_explain_accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:text="@string/accept_explain"
+                    android:textAppearance="@style/TextCaptionStyle"
+                    android:textColor="@color/maco_gray"
+                    android:visibility="@{isAcceptVisible? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title_accept"
+                    app:layout_constraintStart_toEndOf="@+id/tv_title_accept"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title_accept"
+                    tools:text="@string/regret_explain" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

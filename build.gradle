@@ -27,6 +27,9 @@ buildscript {
 
         //circleImageView
         circleImageView_version = "3.1.0"
+
+        //dotsIndicator
+        dotsIndicator_version = "4.2"
     }
     repositories {
         google()

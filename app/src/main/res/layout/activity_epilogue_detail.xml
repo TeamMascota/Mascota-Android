@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/maco_ivory"
+        tools:context=".ui.view.diary.detail.EpilogueDetailActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/maco_orange"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageButton
+                android:id="@+id/ib_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/ic_arrow_back_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_epilogue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ib_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ib_back"
+                app:layout_constraintTop_toTopOf="@+id/ib_back">
+
+                <TextView
+                    android:id="@+id/tv_epilogue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/epilogue"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/maco_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_writer_talk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/writer_talk"
+                    android:textAppearance="@style/TextSub1Style"
+                    android:textColor="@color/maco_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_epilogue"
+                    app:layout_constraintStart_toEndOf="@+id/tv_epilogue"
+                    app:layout_constraintTop_toTopOf="@+id/tv_epilogue" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="43dp"
+            android:textAppearance="@style/TextH1MediumStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_top_bar"
+            tools:text="@string/thanks_cobong" />
+
+        <ImageView
+            android:id="@+id/iv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_top_bar"
+            app:srcCompat="@drawable/ic_label" />
+
+        <TextView
+            android:id="@+id/tv_writer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/writer"
+            android:textAppearance="@style/TextBody1Style"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/soeun"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_writer"
+            app:layout_constraintStart_toEndOf="@+id/tv_writer" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:paddingVertical="15dp"
+            android:paddingHorizontal="22dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="58dp"
+            android:lineSpacingExtra="12dp"
+            android:textAppearance="@style/TextBody1Style"
+            android:textColor="@color/maco_dark_gray"
+            android:background="@drawable/rectangle_bottom_orange_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_writer"
+            tools:text="@string/epilogue_content"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
