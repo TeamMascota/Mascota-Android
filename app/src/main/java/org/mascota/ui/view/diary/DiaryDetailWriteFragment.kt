@@ -41,16 +41,18 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
     private lateinit var spinnerAdapter: SpinnerAdapter
     private lateinit var imageAdapter: ImageAdapter
     private var item_spin = arrayListOf<SpinnerModel>()
+    private val i = 0
 
     val image = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-
+// i 넘어갈떄마다
             activityResult ->
         if(activityResult.resultCode == Activity.RESULT_OK){
             val intent = activityResult.data
             if(intent != null){
                 val fileUri = intent.data
                 Log.d("사진","잘 가져옴")
-                imageAdapter.imageList.add(ImageList(img = fileUri),)
+               imageAdapter.imageList.add(ImageList(img = fileUri),)
+               // imageAdapter.imageList.set(i,ImageList(img = fileUri))
                 imageAdapter.notifyDataSetChanged()
             }
             else{
