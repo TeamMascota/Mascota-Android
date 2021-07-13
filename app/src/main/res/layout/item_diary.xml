@@ -129,6 +129,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="1dp"
+                    remoteRoundedImg="@{contentDiaryInfoData.img}"
                     android:background="@drawable/rectangle_red_orange_radius_3"
                     android:scaleType="fitXY"
                     android:src="@mipmap/ic_launcher"

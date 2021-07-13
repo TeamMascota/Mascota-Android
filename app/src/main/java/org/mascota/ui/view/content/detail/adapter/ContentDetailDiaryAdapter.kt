@@ -55,10 +55,6 @@ class ContentDetailDiaryAdapter :
                 contentDiaryInfoData.date.length,
                 contentDiaryInfoData.date + "\n" + contentDiaryInfoData.weekDay
             )
-            Glide.with(binding.ivPicture.context).load(contentDiaryInfoData.img).transform(
-                CenterCrop(),
-                RoundedCorners(IMAGE_RADIUS.dp)
-            ).into(binding.ivPicture)
             binding.clItemDiary.setOnClickListener {
                 diaryClickListener?.invoke()
             }

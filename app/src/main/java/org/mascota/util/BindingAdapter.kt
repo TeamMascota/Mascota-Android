@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import org.mascota.R
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_ANGRY
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_BORING
@@ -14,6 +16,7 @@ import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_LOVE
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_SAD
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_USUAL
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.EMPTY
+import org.mascota.ui.view.content.detail.adapter.ContentDetailDiaryAdapter
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.CAT
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.DOG
 import org.mascota.util.CalendarUtil.convertCalendarToBeFamilyDateString
@@ -258,6 +261,15 @@ object BindingAdapter {
     fun setYearMonthDayText(textView: TextView, calendar: Calendar?) {
         if (calendar != null)
             textView.text = convertCalendarToBeFamilyDateString(calendar)
+    }
+
+    @JvmStatic
+    @BindingAdapter("remoteRoundedImg")
+    fun setRemoteRoundedImg(imageView: ImageView, url: String?) {
+        Glide.with(imageView.context).load(url).transform(
+            CenterCrop(),
+            RoundedCorners(ContentDetailDiaryAdapter.IMAGE_RADIUS.dp)
+        ).into(imageView)
     }
 
     const val PERSON = 2
