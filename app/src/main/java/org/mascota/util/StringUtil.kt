@@ -22,6 +22,8 @@ object StringUtil {
 
     fun makeTotalText(episode: Int) : String = "총 ${episode}화"
 
+    fun makePartText(part: Int) : String = "${part}부 "
+
     fun makeAuthorText(text : String) : String = "작가 $text"
 
     fun makeWithStoryText(episode: String) : String = "작가님과 함께했던 ${episode}의 이야기속에서"

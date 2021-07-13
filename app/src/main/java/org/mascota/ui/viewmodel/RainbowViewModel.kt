@@ -22,7 +22,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
         get() = _bestMoment
 
 
-    private val _loveMoment =MutableLiveData<RainbowInfoData>()
+    /*private val _loveMoment =MutableLiveData<RainbowInfoData>()
     val loveMoment : MutableLiveData<RainbowInfoData>
             get() = _loveMoment
     
@@ -121,7 +121,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
             .onFailure {
                 it.printStackTrace()
             }
-    }
+    }*/
 
 
     private val _petInfo = MutableLiveData<PetInfoData>()

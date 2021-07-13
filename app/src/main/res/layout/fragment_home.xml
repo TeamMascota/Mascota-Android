@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="homeBookInfoData"
-            type="org.mascota.ui.view.home.data.model.HomeBookInfoData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +28,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                android:text="@{homeBookInfoData.chapter}"
                 android:textColor="@color/maco_orange"
                 android:textSize="23sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +39,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_cjk_kr_regular"
-                android:text="@{homeBookInfoData.title}"
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 app:layout_constraintStart_toEndOf="@id/tv_chapter"
@@ -58,7 +53,6 @@
                 android:layout_marginBottom="2dp"
                 app:civ_border_color="@color/maco_orange"
                 app:civ_border_width="1dp"
-                app:imgUrl="@{homeBookInfoData.bookImage}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -165,7 +159,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:layout_marginTop="9dp"
-                            android:text="@{homeBookInfoData.title}"
                             android:textAppearance="@style/TextBody1Style"
                             android:textColor="@color/maco_black"
                             app:layout_constraintStart_toEndOf="@id/tv_prolog"

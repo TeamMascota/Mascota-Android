@@ -8,13 +8,13 @@ import retrofit2.http.Path
 
 interface HomeService {
     //GET Home Part1
-    @GET("firstPart/main/:{userId}")
+    @GET("firstPart/main/{userId}")
     suspend fun getHomePart1(
         @Path("userId") userId: String
     ): ResHomePart1
 
     //GET Home Part2
-    @GET("secondPart/main/:{userId}")
+    @GET("secondPart/main/{userId}")
     suspend fun getHomePart2(
         @Path("userId") userId: String
     ): ResHomePart2

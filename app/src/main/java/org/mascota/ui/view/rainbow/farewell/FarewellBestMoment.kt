@@ -39,26 +39,6 @@ class FarewellBestMoment :
         observeData()
         setToday()
 
-        observeBestMoment()
-
-    }
-
-    private fun observeBestMoment(){
-        rainbowViewModel.bestMoment.observe(viewLifecycleOwner){
-            it.data.theBestMoments.apply {
-                with(binding){
-
-                }
-            }
-
-            // 감정별로 분기 처리해주기 !!!!
-            //loveAdapter.data = it.data.theBestMoments
-            //joyAdapter.data = it.data.theBestMoments.
-
-
-        }
-
-
     }
 
     private fun setToday() {
@@ -67,17 +47,16 @@ class FarewellBestMoment :
 
 
     private fun initData() {
-        rainbowViewModel.getloveoMent()
+        /*rainbowViewModel.getloveoMent()
         rainbowViewModel.getJoyMent()
         rainbowViewModel.getAngryMoment()
         rainbowViewModel.getUsualMoment()
         rainbowViewModel.getSadMoment()
-        rainbowViewModel.getBoringMoment()
-        rainbowViewModel.getBestMoment()
+        rainbowViewModel.getBoringMoment()*/
     }
 
     private fun observeData() {
-        rainbowViewModel.loveMoment.observe(viewLifecycleOwner) {
+        /*rainbowViewModel.loveMoment.observe(viewLifecycleOwner) {
             loveAdapter.data = it.diaryList
         }
         rainbowViewModel.joyMoment.observe(viewLifecycleOwner) {
@@ -95,7 +74,12 @@ class FarewellBestMoment :
         }
         rainbowViewModel.boringMoment.observe(viewLifecycleOwner){
             boringAdapter.data = it.diaryList
-        }
+        }*/
+
+        // 감정별로 분기 처리해주기 !!!!
+        //loveAdapter.data = it.data.theBestMoments
+        //joyAdapter.data = it.data.theBestMoments.
+
     }
 
     private fun initAdapter() {

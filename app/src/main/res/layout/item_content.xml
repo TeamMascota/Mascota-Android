@@ -17,7 +17,6 @@
 
         <TextView
             android:id="@+id/tv_chapter"
-            chapterText="@{homeContentInfoData.chapter}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -37,7 +36,6 @@
             android:layout_marginTop="9dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:text="@{homeContentInfoData.title}"
             android:textColor="@color/maco_black"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/v_bottom_line"
@@ -47,7 +45,6 @@
 
         <TextView
             android:id="@+id/tv_episode"
-            totalText="@{homeContentInfoData.episode}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
