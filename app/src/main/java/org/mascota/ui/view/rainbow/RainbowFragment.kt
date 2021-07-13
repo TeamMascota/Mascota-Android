@@ -7,10 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
-import org.mascota.databinding.FragmentRainbowBinding
-import org.mascota.databinding.LayoutFarewellDialogBinding
-import org.mascota.databinding.LayoutHelpMessageDialogBinding
-import org.mascota.databinding.LayoutMascotaDialogBinding
+import org.mascota.databinding.*
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter.Companion.NOT_SELECTED
@@ -34,6 +31,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
     private lateinit var farewellDialogBinding: LayoutFarewellDialogBinding
     private lateinit var helpMessageDialogBinding: LayoutHelpMessageDialogBinding
     private lateinit var finishDialogBinding: LayoutMascotaDialogBinding
+    private lateinit var bestMomentBinding: FragmentFarewellBestMomentBinding
 
     override fun initView() {
         initBookView()

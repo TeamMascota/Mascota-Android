@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
 import org.mascota.databinding.DiaogDeleteBinding
 import org.mascota.databinding.FragmentDiaryEmotionBinding
@@ -15,22 +16,60 @@ import org.mascota.ui.view.diary.adpter.SelectEmotionAdapter
 import org.mascota.ui.view.diary.adpter.SelectProfileAdapter
 import org.mascota.ui.view.diary.data.EmotionList
 import org.mascota.ui.view.diary.data.ProfileList
-
+import org.mascota.ui.viewmodel.DiaryViewModel
 
 
 class DiaryEmotionFragment : BindingFragment<FragmentDiaryEmotionBinding>(R.layout.fragment_diary_emotion){
 
 
     private lateinit var diaogDeleteBinding : DiaogDeleteBinding
+    private val diaryViewModel : DiaryViewModel by sharedViewModel()
 
 
 
     val selectEmotionaAdapter = SelectEmotionAdapter()
     val selectProfileAdapter = SelectProfileAdapter()
 
+// 뷰모델 생성 -> 뷰모델 바이 어쩌구 써서,
+    //이닛뷰에서 뷰모델.postbtnenable
+
 
     override fun initView() {
+        initAdapter()
+        initProfileData()
+        clickProfile()
+        showDeleteEmotion()
+        diaryViewModel.postBtnEnable(true)
+    }
 
+
+    private fun showDeleteEmotion(){
+
+        selectEmotionaAdapter.setDeleteButtonClickListener {name, _ ->
+            // 다이얼로그 창 띄우기
+            showDeleteDialog(name)
+        }
+
+    }
+
+    private fun clickProfile(){
+        selectProfileAdapter.setItemClickListenr(object :
+            SelectProfileAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int, item : String) {
+
+                Log.d("아이템명",item)
+
+                selectEmotionaAdapter.emotionList.add(EmotionList(pet_name = item,))
+                selectEmotionaAdapter.notifyDataSetChanged()
+                binding.rcvEmotion.visibility = View.VISIBLE
+
+            }
+        }
+        )
+
+    }
+
+    private fun initAdapter(){
 
         // 리싸이클러뷰에 어댑터 넣어주기
         binding.rcvEmotion.adapter = selectEmotionaAdapter
@@ -40,6 +79,9 @@ class DiaryEmotionFragment : BindingFragment<FragmentDiaryEmotionBinding>(R.layo
         binding.rcvProfile.setHasFixedSize(true)
         binding.rcvEmotion.setHasFixedSize(true)
 
+    }
+
+    private fun initProfileData(){
         selectProfileAdapter.profileList.clear()
 
         //어댑터에 데이터 넣고 갱신하기
@@ -62,28 +104,7 @@ class DiaryEmotionFragment : BindingFragment<FragmentDiaryEmotionBinding>(R.layo
         selectEmotionaAdapter.emotionList.clear()
 
 
-        binding.rcvEmotion.visibility = View.GONE
-
-        selectProfileAdapter.setItemClickListenr(object :
-        SelectProfileAdapter.OnItemClickListener{
-            override fun onClick(v: View, position: Int, item : String) {
-
-                Log.d("아이템명",item)
-
-                selectEmotionaAdapter.emotionList.add(EmotionList(pet_name = item,))
-                selectEmotionaAdapter.notifyDataSetChanged()
-                binding.rcvEmotion.visibility = View.VISIBLE
-
-            }
-        }
-        )
-
-
-        selectEmotionaAdapter.setDeleteButtonClickListener {name, _ ->
-            // 다이얼로그 창 띄우기
-            showDeleteDialog(name)
-
-        }
+        binding.rcvEmotion.visibility = View.INVISIBLE
 
 
     }
