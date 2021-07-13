@@ -4,7 +4,7 @@ import org.mascota.ui.view.rainbow.data.model.HelpInfoData
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
 import java.util.*
 
-class LocalRainbowDataSource : RainbowDataSource {
+class LocalTempRainbowDataSource : TempRainbowDataSource {
     override fun getHelpInfoData(): List<HelpInfoData> = listOf(
         HelpInfoData("펫카드", "무지개다리 건넌 강아지, 방치하지 마세요", "https://github.com/mdb1217"),
         HelpInfoData("펫카드", "무지개다리 건넌 강아지, 방치하지 마세요", "https://github.com/mdb1217"),
