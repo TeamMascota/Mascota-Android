@@ -12,9 +12,9 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
 
     private val _contentList = mutableListOf<ResHomePart1.Data.FirstPartMainPage.TableContent>()
 
-    private var navigateContentDetail: (() -> Unit)? = null
+    private var navigateContentDetail: ((String) -> Unit)? = null
 
-    fun setNavigateContentDetail(setter: () -> Unit) {
+    fun setNavigateContentDetail(setter: (String) -> Unit) {
         navigateContentDetail = setter
     }
 
@@ -50,7 +50,7 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
                 }
             }
             binding.clItemContent.setOnClickListener {
-                navigateContentDetail?.invoke()
+                navigateContentDetail?.invoke(tableContent.chapterId)
             }
         }
     }
