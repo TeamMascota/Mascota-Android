@@ -16,8 +16,8 @@
     <string name="input_pw">비밀번호 입력(8자 이상)</string>
     <string name="input_re_pw">비밀번호를 한 번 더 입력해주세요</string>
     <string name="signup">회원가입</string>
-    <string name="check">중복 확인</string>
-    <string name="email_id">songhun101@naver.com</string>
+    <string name="check_double">중복 확인</string>
+    <string name="songhyun101">songhun101@naver.com</string>
     <string name="nim">님</string>
     <string name="end_ment">회원가입이 완료되었습니다.\n\n작가님, 이제 책을 만들기 위한\n간단한 정보를 등록해 볼까요?</string>
     <string name="register_pet">반려동물 등록하기</string>
@@ -53,13 +53,6 @@
     <string name="help_explain">지금은 먼 훗날의 일이라고 생각될 수 있지만, 언젠가 다가올 이별을 위해 정리했어요. 이별의 과정이 후회로만 기억되지 않도록 도움글을 읽으며 마음을 천천히 준비해 보세요.</string>
     <string name="happy_life">행복한 인생을 보낼 수 있었어요.\n그리고 지금은 작가님보다 한 발 앞서서\n먼저 무지개 다리로 가 친구들과 함께\n작가님을 기다리기로 했습니다.\n\n그동안 행복한 일상을 선물해주셔서 감사합니다.</string>
     <string name="assemble">모아봤어요.</string>
-    <string name="now_book">지금까지 쓴 책은 총 2318화</string>
-    <string name="with_day">함께 보낸 날은 총 5160일</string>
-    <string name="love_explain_1">작가님과 함께하면서</string>
-    <string name="love_explain_2">많은 사랑을 받았고, 또 주었어요.</string>
-    <string name="love_explain_3">(이)가 사랑을 느꼈던 순간들이에요</string>
-    <string name="love_explain_4">에게 사랑을 알려주셔서 감사합니다.</string>
-    <string name="tv_pet_name">가나다라마바</string>
     <string name="finish_farewell">이별의 단계가 초기화됩니다.\n무지개 다리를 나가시겠어요?</string>
     <string name="exit">나가기</string>
     <string name="epilogue">에필로그</string>
@@ -75,22 +68,8 @@
     <string name="love_explain_3">(이)가 사랑을 느꼈던 순간들이에요</string>
     <string name="love_explain_4">에게 사랑을 알려주셔서 감사합니다.</string>
     <string name="tv_pet_name">가나다라마바</string>
-    <string name="joy_explain_1">맛있는 간식을 먹거나 재미있는 놀이를 할 때, </string>
-    <string name="joy_explain_2">작가님은</string>
-    <string name="joy_explain_3">(을)를 행복하게 해 주려고</string>
-    <string name="joy_explain_4">매순간 노력했어요. 이런 작가님과 함께한 매일매일이</string>
-    <string name="joy_explain_5">에게는 기쁜 순간이었습니다.</string>
-    <string name="usual_explain_1">매일 색다른 모험을 하지 않아도 좋아요. 평화롭던\n보통의 날들도 아름다운 추억으로 여기 남아 있습니다.</string>
-    <string name="angry_explin">평화롭고 행복한 날들만이 의미있는 것은 아니죠.\n때로는 화도 냈고, 투정도 부렸어요. 그 과정에서</string>
-    <string name="angry_explin_2">(은)는 다양한 감정을 배우는</string>
-    <string name="angry_explain_3">어른 고양이로 성장할 수 있었습니다.</string>
     <string name="boring_explain_1">매일 즐겁지는 않았지만, 그 덕에 고민 걱정 없는\n심심한 날들을 보낼 수도 있었어요. 평화로운 나날들을\n선물해 주셔서 감사합니다.</string>
     <string name="sad_explain_1">때로는 어두운 그늘에 있던 때도 있었지만, 그 덕분에\n강한 햇볕을 피해 감정의 휴식을 취할 수 있었어요.</string>
-    <string name="best_bottom">의 최고의 순간</string>
-    <string name="end_1">1부를 마치며</string>
-    <string name="sad_com">, 우울</string>
-    <string name="boring_com">, 심심</string>
-    <string name="tv_char">~</string>
     <string name="joy_explain_1">맛있는 간식을 먹거나 재미있는 놀이를 할 때, </string>
     <string name="joy_explain_2">작가님은</string>
     <string name="joy_explain_3">(을)를 행복하게 해 주려고</string>
@@ -264,12 +243,4 @@
     <string name="write_story">이야기 작성</string>
     <string name="image_upload">사진 업로드</string>
 
-
-    <string name="full_date">2021년 7월 8일</string>
-    <string name="together">함께한 지 2021일</string>
-    <string name="with_story">작가님과 함께했던 2318화의 이야기 속에서</string>
-    <string name="brave_cat">가나다라마바(은)는 의젓하고 당당한 고양이로서</string>
-    <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
-    <string name="talk_pet">가나다라마바의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 가나다라마바의 삶이 어땠는지</string>
-    <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
 </resources>
