@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentRainbowBinding
@@ -41,7 +42,6 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         initDialog()
         initAdapter()
         initClickEvent()
-        observeHelpInfo()
         observeRainbowInfo()
     }
 
@@ -136,27 +136,25 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         }
     }
 
-    private fun initData() {
-        rainbowViewModel.getHelpInfo()
-        rainbowViewModel.getRainbowInfo()
-    }
+    private fun initData() { rainbowViewModel.getRainbowHome() }
 
-    private fun observeHelpInfo() {
-        rainbowViewModel.helpInfo.observe(viewLifecycleOwner) {
-            helpAdapter.data = it
-        }
-    }
 
     private fun observeRainbowInfo() {
-        rainbowViewModel.rainbowInfo.observe(viewLifecycleOwner) {
-            it.apply {
+        rainbowViewModel.rainbowHomeInfo.observe(viewLifecycleOwner) {
+            it.data.rainbowMainPage.apply {
                 with(binding) {
-                    for (i in 1..diaryList.size) {
+                    tvRainbow.text = title
+
+                    for (i in 1..memories.size) {
                         if (i == 1) {
-                            bvRainbow.setLeftRainbow(diaryList[i - 1])
+                            bvRainbow.setLeftRainbow(memories[i - 1])
                         } else
-                            bvRainbow.setRightRainbow(diaryList[i - 1])
+                            bvRainbow.setRightRainbow(memories[i - 1])
                     }
+
+                    Glide.with(civProfile).load(bookImg).into(civProfile)
+
+                    helpAdapter.data = help
                 }
             }
         }
