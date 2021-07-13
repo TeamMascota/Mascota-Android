@@ -12,6 +12,7 @@ import org.mascota.ui.view.content.edit.ContentEditActivity
 import org.mascota.ui.view.diary.DiaryWriteActivity.Companion.PART1
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
+import org.mascota.util.StringUtil.makePartText
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val homeViewModel: HomeViewModel by viewModel()
@@ -54,9 +55,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun observeHomePart1() {
         homeViewModel.getResHomePart1()
         homeViewModel.homePart1.observe(viewLifecycleOwner) {
-            homeContentAdapter.contentList = it.data.firstPartMainPage.tableContents
+            homeContentAdapter.contentList = it.data.firstPartMainPage.tableContents.subList(1, it.data.firstPartMainPage.tableContents.size - 1)
             binding.apply {
                 with(it.data.firstPartMainPage) {
+                    tvChapter.text = makePartText(PART)
+                    tvPrologTitle.text = tableContents[0].chapterName
                     tvHomeTitle.text = title
                     Glide.with(civCover.context).load(bookImg).into(civCover)
                     bvHome.setLeftPart1Diary(diary)
@@ -71,5 +74,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     companion object {
         const val IS_HOME = true
+        const val PART = 1
     }
 }
