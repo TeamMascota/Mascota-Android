@@ -9,7 +9,7 @@ import org.mascota.ui.view.profile.data.model.ResHero
 import org.mascota.util.StringUtil.makeHeroNumbering
 
 class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
-    private var itemClickListener: ((Int) -> Unit) ?= null
+    private var itemClickListener: ((Int, Boolean) -> Unit) ?= null
     private var quitBtnClickListener: ((Int) -> Unit) ?= null
     private var isSelectedViewType = 0
     private val _data = mutableListOf<ResHero>()
@@ -29,7 +29,7 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
         return isSelectedViewType
     }
 
-    fun setItemClickListener(listener : (Int)-> Unit) {
+    fun setItemClickListener(listener : (Int, Boolean)-> Unit) {
         this.itemClickListener = listener
     }
 
@@ -59,13 +59,18 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
                 if(position == FIRST_HERO)
                     layoutEmptyImage.ibQuit.visibility = View.INVISIBLE
 
-                isEmptyImgVisible = resHero.type
+                if(position == isSelectedViewType)
+                    isEmptyImgVisible = true
 
                 clItem.isSelected = position == isSelectedViewType
 
                 tvHero.text = makeHeroNumbering(position + 1)
                 clItem.setOnClickListener {
-                    itemClickListener?.invoke(position)
+                    itemClickListener?.invoke(position, clItem.isSelected)
+                }
+
+                layoutEmptyImage.ibQuit.setOnClickListener {
+                    quitBtnClickListener?.invoke(position)
                 }
             }
         }
