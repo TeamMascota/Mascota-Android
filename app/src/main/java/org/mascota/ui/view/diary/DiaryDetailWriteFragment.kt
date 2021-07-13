@@ -17,7 +17,9 @@ import androidx.core.content.ContextCompat
 import org.mascota.R
 import org.mascota.databinding.FragmentDiaryDetailWriteBinding
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.diary.adpter.ImageAdapter
 import org.mascota.ui.view.diary.adpter.SpinnerAdapter
+import org.mascota.ui.view.diary.data.ImageList
 import org.mascota.ui.view.diary.data.SpinnerModel
 import java.time.LocalDate
 import java.time.LocalDate.now
@@ -37,16 +39,21 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
     val tv_today = current_date.format(formatter).toString()
 
     private lateinit var spinnerAdapter: SpinnerAdapter
+    private lateinit var imageAdapter: ImageAdapter
     private var item_spin = arrayListOf<SpinnerModel>()
+    private val i = 0
 
     val image = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-
+// i 넘어갈떄마다
             activityResult ->
         if(activityResult.resultCode == Activity.RESULT_OK){
             val intent = activityResult.data
             if(intent != null){
                 val fileUri = intent.data
-                binding.iv1.setImageURI(fileUri)
+                Log.d("사진","잘 가져옴")
+               imageAdapter.imageList.add(ImageList(img = fileUri),)
+               // imageAdapter.imageList.set(i,ImageList(img = fileUri))
+                imageAdapter.notifyDataSetChanged()
             }
             else{
                 Log.d("reusltcode","못함")
@@ -58,6 +65,7 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
 
     override fun initView() {
+        initImageAdapter()
         setupSpinner()
         initClickSelectImage()
         binding.tvToday.setText(tv_today)
@@ -65,6 +73,12 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
 
 
+    }
+
+    private fun initImageAdapter(){
+        imageAdapter = ImageAdapter()
+        binding.rcvImage.adapter = imageAdapter
+        binding.rcvImage.setHasFixedSize(true)
     }
 
     private fun initList(){
@@ -86,34 +100,15 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
     }
 
 
-
-
     private fun initClickSelectImage() {
-
-
-        with(binding) {
-            iv1.setOnClickListener {
-                showBottomSheet()
-            }
-
-            iv2.setOnClickListener {
-                showBottomSheet()
-            }
-            iv3.setOnClickListener {
-                showBottomSheet()
-            }
-
-            iv4.setOnClickListener {
-                showBottomSheet()
-            }
-            iv5.setOnClickListener {
-                showBottomSheet()
-            }
+        binding.btnAddImage.setOnClickListener{
+            showBottomSheet()
         }
 
     }
 
     private fun showBottomSheet() {
+        Log.d("바텀시트","열리기")
         val bottomSheet = BottomSheet()
         bottomSheet.setCallbackButtonClickListener {
             // 카메라 함수 실행하기
@@ -157,6 +152,7 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
         } else {
             //권한 있을 경우
+                Log.d("갤러리","잘옴")
            var intent = Intent(Intent.ACTION_PICK)
             //어떤 종류의 데이터를 선택할 수 있는지 정해줌
             intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -177,28 +173,7 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
     //인탠트로 이미지가 넘어옴
 
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == RESULT_OK){
-            Log.d("requsetCode","RESULT_OK")
-            when(requestCode){
-                REQ_GALLERY->{
-                    // 이미지가 nullable함. null일 경우 처리해야함
-                    data?.data?.let {
-                        uri ->
-                        binding.iv1.setImageURI(uri)
-
-                    }
-                }
-
-            }
-        }
-        else{
-            Log.d("requsetCode","Nope")
-        }
-
-    }*/
 
     private fun WriteTitle() {
         binding.etTitle.addTextChangedListener(object : TextWatcher{

@@ -11,9 +11,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import org.mascota.R
 import org.mascota.R.styleable.CustomBookView
+import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.databinding.ViewCustomBookBinding
 import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
+import org.mascota.util.CalendarUtil.convertCalendarToBeFamilyDateString
+import org.mascota.util.CalendarUtil.convertCalendarToStoryDateString
+import org.mascota.util.CalendarUtil.convertStringToCalendar
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
 import org.mascota.util.StringUtil.makeChapterText
 import org.mascota.util.StringUtil.makeEpisodeText
@@ -63,19 +67,18 @@ class BookView @JvmOverloads constructor(
         }
     }
 
-    fun setPart2LeftDiary(){
-
-    }
-
-    fun setLeftRainbow(rainbowDiaryInfoData: RainbowInfoData.Data) {
-        viewCustomBookBinding.layoutRainbowLeftPage.apply{
+    fun setLeftRainbow(rainbowDiaryInfoData: ResRainbowHome.Data.RainbowMainPage.Memory) {
+        viewCustomBookBinding.layoutRainbowLeftPage.apply {
             rainbowDiaryInfo = rainbowDiaryInfoData
+            val calendar = convertStringToCalendar(rainbowDiaryInfoData.date)
+            tvStory.text = convertCalendarToStoryDateString(calendar)
+            tvDate.text = convertCalendarToBeFamilyDateString(calendar)
             clDiary.visibility = View.VISIBLE
             ivLogo.visibility = View.GONE
         }
     }
 
-    fun setRightRainbow(rainbowDiaryInfoData: RainbowInfoData.Data) {
+    fun setRightRainbow(rainbowDiaryInfoData: ResRainbowHome.Data.RainbowMainPage.Memory) {
         viewCustomBookBinding.layoutRainbowRightPage.apply {
             rainbowDiaryInfo = rainbowDiaryInfoData
             clDiary.visibility = View.VISIBLE

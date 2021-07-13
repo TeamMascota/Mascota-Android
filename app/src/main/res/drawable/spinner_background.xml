@@ -12,7 +12,7 @@
                 </shape>
             </item>
             <item
-                android:drawable="@drawable/icon_down"
+                android:drawable="@drawable/ic_dropdown"
                 android:width="20dp"
                 android:height="20dp"
                 android:top="8dp"
