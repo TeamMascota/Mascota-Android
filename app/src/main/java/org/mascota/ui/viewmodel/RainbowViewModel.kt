@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getUserId
+import org.mascota.data.remote.model.response.rainbow.ResBestMoment
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.data.repository.rainbow.RainbowRepository
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
@@ -16,6 +17,9 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     val rainbowHomeInfo: LiveData<ResRainbowHome>
         get() = _rainbowHomeInfo
 
+    private val _bestMoment =MutableLiveData<ResBestMoment>()
+    val bestMoment : MutableLiveData<ResBestMoment>
+        get() = _bestMoment
 
 
     private val _loveMoment =MutableLiveData<RainbowInfoData>()
@@ -44,6 +48,17 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     private val _boringMoment = MutableLiveData<RainbowInfoData>()
     val boringMoment : MutableLiveData<RainbowInfoData>
     get() = _boringMoment
+
+    fun getBestMoment() = viewModelScope.launch {
+        kotlin.runCatching { rainbowRepository.getRainbowBestMoment(getUserId(), "60ed4359e5003a744892ce2b")}
+            .onSuccess {
+                _bestMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
 
     fun getSadMoment() = viewModelScope.launch {
         kotlin.runCatching { tempRainbowDataSource.getSadMomentData() }

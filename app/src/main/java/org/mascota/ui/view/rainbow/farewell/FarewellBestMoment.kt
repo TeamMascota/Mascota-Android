@@ -39,6 +39,26 @@ class FarewellBestMoment :
         observeData()
         setToday()
 
+        observeBestMoment()
+
+    }
+
+    private fun observeBestMoment(){
+        rainbowViewModel.bestMoment.observe(viewLifecycleOwner){
+            it.data.theBestMoments.apply {
+                with(binding){
+
+                }
+            }
+
+            // 감정별로 분기 처리해주기 !!!!
+            //loveAdapter.data = it.data.theBestMoments
+            //joyAdapter.data = it.data.theBestMoments.
+
+
+        }
+
+
     }
 
     private fun setToday() {
@@ -53,6 +73,7 @@ class FarewellBestMoment :
         rainbowViewModel.getUsualMoment()
         rainbowViewModel.getSadMoment()
         rainbowViewModel.getBoringMoment()
+        rainbowViewModel.getBestMoment()
     }
 
     private fun observeData() {

@@ -3,12 +3,12 @@ package org.mascota.ui.view.rainbow.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.koin.androidx.viewmodel.compat.ViewModelCompat.viewModel
 import org.mascota.databinding.ItemMomentBinding
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
+import org.mascota.ui.viewmodel.RainbowViewModel
 
 class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewHolder>() {
-
-
 
     private val _lovedata = mutableListOf<RainbowInfoData.Data>()
     var data: List<RainbowInfoData.Data> = _lovedata
