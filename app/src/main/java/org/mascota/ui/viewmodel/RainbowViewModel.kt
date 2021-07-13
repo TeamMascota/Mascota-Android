@@ -50,7 +50,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     get() = _boringMoment
 
     fun getSadMoment() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getSadMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getSadMomentData() }
             .onSuccess {
                 _sadMoment.postValue(it)
             }
@@ -60,7 +60,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     }
 
     fun getBoringMoment() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getBoringMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getBoringMomentData() }
             .onSuccess {
                 _boringMoment.postValue(it)
             }
@@ -70,7 +70,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     }
 
     fun getUsualMoment() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getUsualMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getUsualMomentData() }
             .onSuccess {
                 _usualMoment.postValue(it)
             }
@@ -81,7 +81,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
 
 
     fun getAngryMoment() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getAngryBestMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getAngryBestMomentData() }
             .onSuccess {
                 _angryMoment.postValue(it)
             }
@@ -92,7 +92,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
 
     }
     fun getJoyMent() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getJoyBestMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getJoyBestMomentData() }
             .onSuccess {
                 _joyMoment.postValue(it)
             }
@@ -103,7 +103,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
 
 
     fun getloveoMent() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getLoveBestMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getLoveBestMomentData() }
             .onSuccess {
                 _loveMoment.postValue(it)
             }
