@@ -13,7 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="wrap_content">
 
 
         <TextView
@@ -57,7 +57,7 @@
             android:id="@+id/iv_dog_love"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="27dp"
             android:layout_marginTop="15dp"
             android:contentDescription="@string/love"
             android:src="@drawable/selector_emodog_love"
@@ -68,7 +68,7 @@
             android:id="@+id/iv_dog_joy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="9dp"
             android:contentDescription="@string/joy"
             android:src="@drawable/selector_emodog_joy"
             app:layout_constraintBottom_toBottomOf="@id/iv_dog_love"
@@ -79,7 +79,7 @@
             android:id="@+id/iv_dog_usual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="9dp"
             android:contentDescription="@string/usual"
             android:src="@drawable/selector_emodog_usual"
             app:layout_constraintBottom_toBottomOf="@id/iv_dog_joy"
@@ -90,7 +90,7 @@
             android:id="@+id/iv_dog_sad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="9dp"
             android:contentDescription="@string/sad"
             android:src="@drawable/selector_emodog_sad"
             app:layout_constraintBottom_toBottomOf="@id/iv_dog_usual"
@@ -101,7 +101,7 @@
             android:id="@+id/iv_dog_angry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="9dp"
             android:contentDescription="@string/angry"
             android:src="@drawable/selector_emodog_angry"
             app:layout_constraintBottom_toBottomOf="@+id/iv_dog_sad"
@@ -112,7 +112,7 @@
             android:id="@+id/iv_dog_boring"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="9dp"
             android:contentDescription="@string/boring"
             android:src="@drawable/seletor_emodog_boring"
             app:layout_constraintBottom_toBottomOf="@id/iv_dog_angry"
@@ -124,13 +124,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="5dp"
             android:text="@string/love"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textColor="@color/maco_gray"
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@id/iv_dog_love"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_dog_love" />
 
         <TextView
@@ -142,6 +144,8 @@
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textColor="@color/maco_gray"
             android:textSize="15sp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/iv_dog_joy"
             app:layout_constraintTop_toBottomOf="@id/iv_dog_joy" />
 
@@ -154,6 +158,8 @@
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textColor="@color/maco_gray"
             android:textSize="15sp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/iv_dog_usual"
             app:layout_constraintTop_toBottomOf="@id/iv_dog_usual" />
 
@@ -166,6 +172,8 @@
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textColor="@color/maco_gray"
             android:textSize="15sp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/iv_dog_sad"
             app:layout_constraintTop_toBottomOf="@id/iv_dog_sad" />
 
@@ -178,6 +186,8 @@
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textColor="@color/maco_gray"
             android:textSize="15sp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/iv_dog_angry"
             app:layout_constraintTop_toBottomOf="@id/iv_dog_angry" />
 
@@ -190,6 +200,8 @@
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textColor="@color/maco_gray"
             android:textSize="15sp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/iv_dog_boring"
             app:layout_constraintTop_toBottomOf="@id/iv_dog_boring" />
 
