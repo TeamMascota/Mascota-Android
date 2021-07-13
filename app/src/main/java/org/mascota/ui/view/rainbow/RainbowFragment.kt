@@ -110,6 +110,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
             tvNext.setOnClickListener {
                 finishDialog.dismiss()
                 startFarewell()
+
             }
         }
     }
@@ -130,6 +131,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
             setHeroClickListener {  name, position ->
                 finishDialogBinding.tvContent.text = setTextPartialBold(0, name.length, "${name}의 이야기를 마무리하시겠어요?")
                 setItemViewType(position)
+
             }
         }
     }

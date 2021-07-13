@@ -32,6 +32,8 @@ object StringUtil {
 
     fun makeBestMomentText(name : String) : String = "${name}(이)가 느꼈던 최고의 순간들을"
 
+    fun makPetNameText(name: String) : String = name
+
     fun makeNowEpisode(text : String) : String = "지금까지 쓴 책은 $text"
 
     fun makeNowDay(text : String) : String = "함께 보낸 날은 $text"

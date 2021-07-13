@@ -7,6 +7,22 @@
     <string name="home">홈</string>
     <string name="rainbow">무지개</string>
 
+    <!--회원가입-->
+    <string name="ment">환영합니다! 작가님이 어떤 책을\n만들게 될지 기대됩니다.</string>
+    <string name="email">이메일 아이디</string>
+    <string name="pwd">비밀번호</string>
+    <string name="re_pwe">비밀번호 확인</string>
+    <string name="input_id">이메일 아이디 입력</string>
+    <string name="input_pw">비밀번호 입력(8자 이상)</string>
+    <string name="input_re_pw">비밀번호를 한 번 더 입력해주세요</string>
+    <string name="signup">회원가입</string>
+    <string name="check_double">중복 확인</string>
+    <string name="songhyun101">songhun101@naver.com</string>
+    <string name="nim">님</string>
+    <string name="end_ment">회원가입이 완료되었습니다.\n\n작가님, 이제 책을 만들기 위한\n간단한 정보를 등록해 볼까요?</string>
+    <string name="register_pet">반려동물 등록하기</string>
+    <string name="agree">가입과 동시에 개인정보취급방침과 이용약관에 동의합니다.</string>
+
     <!--calendar-->
     <string name="past_day">" 작가님의 지나온 날들"</string>
     <string name="num_record">번째 기록</string>
@@ -52,6 +68,8 @@
     <string name="love_explain_3">(이)가 사랑을 느꼈던 순간들이에요</string>
     <string name="love_explain_4">에게 사랑을 알려주셔서 감사합니다.</string>
     <string name="tv_pet_name">가나다라마바</string>
+    <string name="boring_explain_1">매일 즐겁지는 않았지만, 그 덕에 고민 걱정 없는\n심심한 날들을 보낼 수도 있었어요. 평화로운 나날들을\n선물해 주셔서 감사합니다.</string>
+    <string name="sad_explain_1">때로는 어두운 그늘에 있던 때도 있었지만, 그 덕분에\n강한 햇볕을 피해 감정의 휴식을 취할 수 있었어요.</string>
     <string name="joy_explain_1">맛있는 간식을 먹거나 재미있는 놀이를 할 때, </string>
     <string name="joy_explain_2">작가님은</string>
     <string name="joy_explain_3">(을)를 행복하게 해 주려고</string>
@@ -61,8 +79,6 @@
     <string name="angry_explin">평화롭고 행복한 날들만이 의미있는 것은 아니죠.\n때로는 화도 냈고, 투정도 부렸어요. 그 과정에서</string>
     <string name="angry_explin_2">(은)는 다양한 감정을 배우는</string>
     <string name="angry_explain_3">어른 고양이로 성장할 수 있었습니다.</string>
-    <string name="boring_explain_1">매일 즐겁지는 않았지만, 그 덕에 고민 걱정 없는\n심심한 날들을 보낼 수도 있었어요. 평화로운 나날들을\n선물해 주셔서 감사합니다.</string>
-    <string name="sad_explain_1">때로는 어두운 그늘에 있던 때도 있었지만, 그 덕분에\n강한 햇볕을 피해 감정의 휴식을 취할 수 있었어요.</string>
     <string name="best_bottom">의 최고의 순간</string>
     <string name="end_1">1부를 마치며</string>
     <string name="sad_com">, 우울</string>
@@ -226,4 +242,5 @@
     <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
     <string name="write_story">이야기 작성</string>
     <string name="image_upload">사진 업로드</string>
+
 </resources>
