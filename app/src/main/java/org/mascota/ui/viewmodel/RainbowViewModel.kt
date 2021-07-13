@@ -21,6 +21,98 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     val helpInfo: LiveData<List<HelpInfoData>>
         get() = _helpInfo
 
+
+    private val _loveMoment =MutableLiveData<RainbowInfoData>()
+    val loveMoment : MutableLiveData<RainbowInfoData>
+            get() = _loveMoment
+    
+    private val _joyMoment = MutableLiveData<RainbowInfoData>()
+    val joyMoment : MutableLiveData<RainbowInfoData>
+    get() = _joyMoment
+
+
+    private val _angryMoment = MutableLiveData<RainbowInfoData>()
+    val angryMoment : MutableLiveData<RainbowInfoData>
+    get() = _angryMoment
+
+
+    private val _usualMoment = MutableLiveData<RainbowInfoData>()
+    val usualMoment : MutableLiveData<RainbowInfoData>
+    get() = _usualMoment
+
+
+    private val _sadMoment = MutableLiveData<RainbowInfoData>()
+    val sadMoment : MutableLiveData<RainbowInfoData>
+    get() = _sadMoment
+
+    private val _boringMoment = MutableLiveData<RainbowInfoData>()
+    val boringMoment : MutableLiveData<RainbowInfoData>
+    get() = _boringMoment
+
+    fun getSadMoment() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getSadMomentData() }
+            .onSuccess {
+                _sadMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    fun getBoringMoment() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getBoringMomentData() }
+            .onSuccess {
+                _boringMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    fun getUsualMoment() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getUsualMomentData() }
+            .onSuccess {
+                _usualMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+
+    fun getAngryMoment() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getAngryBestMomentData() }
+            .onSuccess {
+                _angryMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+
+
+    }
+    fun getJoyMent() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getJoyBestMomentData() }
+            .onSuccess {
+                _joyMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+
+    fun getloveoMent() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getLoveBestMomentData() }
+            .onSuccess {
+                _loveMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+
     private val _petInfo = MutableLiveData<PetInfoData>()
     val petInfo: LiveData<PetInfoData>
         get() = _petInfo
