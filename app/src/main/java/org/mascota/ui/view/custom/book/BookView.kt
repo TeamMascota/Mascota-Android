@@ -3,6 +3,7 @@ package org.mascota.ui.view.custom.book
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.GradientDrawable
+import android.provider.Settings.Global.getString
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +11,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import org.mascota.R
 import org.mascota.R.styleable.CustomBookView
+import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.databinding.ViewCustomBookBinding
 import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
+import org.mascota.util.StringUtil.makeChapterText
+import org.mascota.util.StringUtil.makeEpisodeText
 import org.mascota.util.extension.px
 
 class BookView @JvmOverloads constructor(
@@ -47,8 +51,20 @@ class BookView @JvmOverloads constructor(
         }
     }
 
-    fun setLeftDiary(homeDiaryInfoData: HomeDiaryInfoData) {
-        viewCustomBookBinding.layoutLeftPage.homeDiaryInfoData = homeDiaryInfoData
+    fun setLeftPart1Diary(diaryPart1Info: ResHomePart1.Diary) {
+        diaryPart1Info.apply {
+            var chapterDiary : String = R.string.prolog.toString()
+            if(chapter != 0){
+                chapterDiary = makeChapterText(chapter) + " " + makeEpisodeText(episode)
+            }
+            viewCustomBookBinding.layoutLeftPage.homeDiaryInfoData = HomeDiaryInfoData(
+                chapterDiary, title, contents, date
+            )
+        }
+    }
+
+    fun setPart2LeftDiary(){
+
     }
 
     fun setLeftRainbow(rainbowDiaryInfoData: RainbowInfoData.Data) {
