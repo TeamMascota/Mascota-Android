@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.data.repository.home.HomeRepository
 import org.mascota.ui.view.home.data.datasource.HomeBookDataSource
 import org.mascota.ui.view.home.data.model.HomeBookInfoData
@@ -23,6 +24,10 @@ class HomeViewModel(private val homeRepository: HomeRepository, private val home
     private val _homeContent = MutableLiveData<List<HomeContentInfoData>>()
     val homeContent: LiveData<List<HomeContentInfoData>>
         get() = _homeContent
+
+    private val _homePart1 = MutableLiveData<ResHomePart1>()
+    val homePart1: LiveData<ResHomePart1>
+        get() = _homePart1
 
     fun getHomeBookInfo() = viewModelScope.launch {
         runCatching { homeBookDataSource.getHomeBookInfoData() }
@@ -53,4 +58,15 @@ class HomeViewModel(private val homeRepository: HomeRepository, private val home
                 it.printStackTrace()
             }
     }
+
+    fun getResHomePart1() = viewModelScope.launch {
+        runCatching { homeRepository.getHomePart1()}
+            .onSuccess {
+                _homePart1.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
 }
