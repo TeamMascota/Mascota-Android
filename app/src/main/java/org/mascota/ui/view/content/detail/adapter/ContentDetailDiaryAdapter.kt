@@ -3,13 +3,9 @@ package org.mascota.ui.view.content.detail.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import org.mascota.databinding.ItemDiaryBinding
 import org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData
 import org.mascota.util.StringUtil.setTextPartialBold
-import org.mascota.util.dp
 
 class ContentDetailDiaryAdapter :
     RecyclerView.Adapter<ContentDetailDiaryAdapter.ContentDetailDiaryViewHolder>() {

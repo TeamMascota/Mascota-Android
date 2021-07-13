@@ -1,12 +1,15 @@
 package org.mascota.ui.view.home
 
 import android.content.Intent
+import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
+import org.mascota.data.local.MascotaSharedPreference
 import org.mascota.databinding.FragmentHomeBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.content.detail.ContentDetailActivity
 import org.mascota.ui.view.content.edit.ContentEditActivity
+import org.mascota.ui.view.diary.DiaryWriteActivity.Companion.PART1
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
 
@@ -16,38 +19,17 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     override fun initView() {
         initBookView()
-        getHomeBookInfo()
-        observeHomeBookInfo()
-        getHomeDiaryInfo()
-        observeHomeDiaryInfo()
-        getHomeContentInfo()
         initHomeContentAdapter()
-        observeHomeContentInfo()
         setEditBtnClickListener()
+        observeHomePart1()
+        checkPartData()
     }
 
-    private fun getHomeBookInfo() {
-        homeViewModel.getHomeBookInfo()
-    }
-
-    private fun observeHomeBookInfo() {
-        homeViewModel.homeBookInfo.observe(viewLifecycleOwner) {
-            binding.homeBookInfoData = it
+    private fun checkPartData() {
+        when (MascotaSharedPreference.getPart()) {
+            PART1 -> observeHomePart1()
+            else -> observeHomePart2()
         }
-    }
-
-    private fun getHomeDiaryInfo() {
-        homeViewModel.getHomeDiaryInfo()
-    }
-
-    private fun observeHomeDiaryInfo() {
-        homeViewModel.homeDiaryInfo.observe(viewLifecycleOwner) {
-            binding.bvHome.setLeftDiary(it)
-        }
-    }
-
-    private fun getHomeContentInfo() {
-        homeViewModel.getHomeContentInfo()
     }
 
     private fun initHomeContentAdapter() {
@@ -59,12 +41,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         binding.rvContent.isNestedScrollingEnabled = false
     }
 
-    private fun observeHomeContentInfo() {
-        homeViewModel.homeContent.observe(viewLifecycleOwner) {
-            homeContentAdapter.contentList = it
-        }
-    }
-
     private fun initBookView() {
         binding.bvHome.setWhereBookView(IS_HOME)
     }
@@ -73,6 +49,24 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         binding.tvEdit.setOnClickListener {
             startActivity(Intent(requireContext(), ContentEditActivity::class.java))
         }
+    }
+
+    private fun observeHomePart1() {
+        homeViewModel.getResHomePart1()
+        homeViewModel.homePart1.observe(viewLifecycleOwner) {
+            homeContentAdapter.contentList = it.data.firstPartMainPage.tableContents
+            binding.apply {
+                with(it.data.firstPartMainPage) {
+                    tvHomeTitle.text = title
+                    Glide.with(civCover.context).load(bookImg).into(civCover)
+                    bvHome.setLeftPart1Diary(diary)
+                }
+            }
+        }
+    }
+
+    private fun observeHomePart2() {
+
     }
 
     companion object {

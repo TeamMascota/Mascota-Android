@@ -15,7 +15,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tv_episode"
@@ -25,8 +25,8 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="15dp"
             android:layout_marginStart="16dp"
-            tools:text="@string/episode"
-            android:text="@{homeDiaryInfoData.episode}"
+            tools:text="@string/prolog"
+            android:text="@string/prolog"
             android:fontFamily="@font/noto_sans_cjk_kr_medium"
             android:textSize="14sp"
             android:textColor="@color/maco_dark_gray"/>
@@ -48,10 +48,11 @@
         <TextView
             android:id="@+id/tv_content"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_date"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="15dp"
             tools:text="@string/diary_content"
@@ -66,10 +67,8 @@
             android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="19dp"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="15dp"
             tools:text="@string/diary_date"
