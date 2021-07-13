@@ -53,6 +53,7 @@ class BookView @JvmOverloads constructor(
         }
     }
 
+
     fun setLeftPart1Diary(diaryPart1Info: ResHomePart1.Data.FirstPartMainPage.Diary) {
         diaryPart1Info.apply {
             var chapterDiary: String = R.string.prolog.toString()
@@ -66,6 +67,23 @@ class BookView @JvmOverloads constructor(
         }
     }
 
+    /*fun setLeftBestMoment(bestMoment: ResBestMoment.Data.TheBestMoment.Diary){
+        bestMoment.apply {
+            viewCustomBookBinding.layoutLeftPage.apply {
+                
+            }
+
+
+
+            }
+
+            /*bestMoment = BestMomentData(
+                BestMomentData.TheBestMoment.Diary(
+                    chapter, episode, title, contents, date)
+                )
+        }*/
+
+        }*/
     fun setLeftRainbow(rainbowDiaryInfoData: ResRainbowHome.Data.RainbowMainPage.Memory) {
         viewCustomBookBinding.layoutRainbowLeftPage.apply {
             rainbowDiaryInfo = rainbowDiaryInfoData

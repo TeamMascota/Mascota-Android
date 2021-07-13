@@ -77,6 +77,7 @@ class FarewellBestMoment :
         }*/
 
         // 감정별로 분기 처리해주기 !!!!
+
         //loveAdapter.data = it.data.theBestMoments
         //joyAdapter.data = it.data.theBestMoments.
 

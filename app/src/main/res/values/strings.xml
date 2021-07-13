@@ -84,6 +84,9 @@
     <string name="sad_com">, 우울</string>
     <string name="boring_com">, 심심</string>
     <string name="tv_char">~</string>
+    <string name="tv_jae">제</string>
+    <string name="tv_jang">장</string>
+    <string name="tv_hwa">화</string>
 
     <!--profile_create-->
     <string name="total_page">/2</string>
@@ -212,7 +215,9 @@
     <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
     <string name="now_book">지금까지 쓴 책은 총 2318화</string>
     <string name="with_day">함께 보낸 날은 총 5160일</string>
-    <string name="talk_pet">가나다라마바의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 가나다라마바의 삶이 어땠는지</string>
+    <string name="talk_pet">의 행복한 시간들을 잘 보셨나요?</string>
+    <string name="talk_pet2">작가님과 함께했던</string>
+    <string name="talk_pet3">의 삶이 어땠는지</string>
     <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
     <string name="thanks_cobong">코봉아 고마웠어</string>
     <string name="epilogue_content">코봉이는 나와 이제 이별하게 됐다. 기분이 이상하다. 어제까지만 해도 내 무릎 위에서 함께 잠들었는데. 코봉이가 보고 싶다.</string>
