@@ -1,5 +1,6 @@
 package org.mascota.ui
 
+import android.util.Log
 import org.mascota.R
 import org.mascota.databinding.ActivityMainBinding
 import org.mascota.ui.base.BindingActivity
@@ -17,6 +18,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         initSelectMenu()
         replaceHomeFragment()
         initBottomNavigation()
+
+        Log.d("앙앙","dkd")
     }
 
     private fun initBottomNavigation() {
