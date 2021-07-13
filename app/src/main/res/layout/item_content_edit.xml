@@ -16,11 +16,11 @@
 
         <ImageView
             android:id="@+id/iv_move"
-            android:layout_width="16dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
             android:layout_marginTop="16dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_hold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +29,7 @@
             chapterText="@{contentEditInfoData.chapter}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
+            android:layout_marginStart="14dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/noto_sans_cjk_kr_regular"
             android:textColor="@color/maco_dark_gray"
