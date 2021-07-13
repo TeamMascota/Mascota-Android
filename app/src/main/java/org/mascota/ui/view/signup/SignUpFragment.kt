@@ -13,14 +13,21 @@ import org.mascota.ui.viewmodel.UserViewModel
 
 
 class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_sign_up) {
-
+    private var isValidId = false
+    private var isCountEnable = false
+    private var isPwEqual = false
     private val userViewModel : UserViewModel by sharedViewModel()
 
 
     override fun initView() {
+        postBtnEnable()
         checkId()
         checkRePwd()
         checkPwd()
+    }
+
+    private fun postBtnEnable() {
+        userViewModel.postBtnEnable(isValidSignUp())
     }
 
     private fun checkId(){
@@ -29,6 +36,8 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
             etEmail.addTextChangedListener(object : TextWatcher{
                 override fun afterTextChanged(p0: Editable?) {
                     vaildcheckId()
+                    postBtnEnable()
+                    postId(etEmail.text.toString())
                 }
 
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -38,6 +47,8 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     vaildcheckId()
+                    postBtnEnable()
+                    postId(etEmail.text.toString())
                 }
 
             })
@@ -53,10 +64,12 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
             if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 tvMsg.setTextColor(ContextCompat.getColor(requireContext(),R.color.maco_blue))
                 tvMsg.setText("사용할 수 있는 아이디입니다")
+                isValidId = true
             }
             else{
                 tvMsg.setTextColor(ContextCompat.getColor(requireContext(),R.color.maco_error))
                 tvMsg.setText("사용할 수 없는 아이디입니다")
+                isValidId = false
             }
         }
 
@@ -69,6 +82,7 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
             etRePwd.addTextChangedListener(object :TextWatcher{
                 override fun afterTextChanged(p0: Editable?) {
                     equalsPwd()
+                    postBtnEnable()
                 }
 
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -78,6 +92,7 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     equalsPwd()
+                    postBtnEnable()
                 }
             })
 
@@ -92,6 +107,8 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
                 val pwd  = etPwd.text.toString()
                 override fun afterTextChanged(p0: Editable?) {
                     countPwd()
+                    postBtnEnable()
+                    postPass(etPwd.text.toString())
                 }
 
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -100,6 +117,8 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     countPwd()
+                    postBtnEnable()
+                    postPass(etPwd.text.toString())
                 }
 
             })
@@ -114,10 +133,12 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
                 btnPwdCheck.visibility = View.GONE
                 tvPwdMsg.setTextColor(ContextCompat.getColor(requireContext(),R.color.maco_error))
                 tvPwdMsg.setText("비밀번호는 8자 이상이어야 합니다")
+                isCountEnable = false
             }
             else{
                 tvPwdMsg.setText("")
                 btnPwdCheck.visibility = View.VISIBLE
+                isCountEnable = true
             }
         }
 
@@ -133,19 +154,26 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
                 btnRePwdCheck.visibility = View.GONE
                 tvRePwdMsg.setTextColor(ContextCompat.getColor(requireContext(),R.color.maco_error))
                 tvRePwdMsg.setText("비밀번호가 일치하지 않습니다")
+                isPwEqual = false
             }
 
             else{
                 btnRePwdCheck.visibility = View.VISIBLE
                 tvRePwdMsg.setText("")
+                isPwEqual = true
             }
         }
 
     }
 
-    private fun postEmail(){
+    private fun isValidSignUp() = isValidId && isPwEqual && isCountEnable
 
+    private fun postId(id: String) {
+        userViewModel.postId(id)
+    }
 
+    private fun postPass(pass: String) {
+        userViewModel.postPass(pass)
     }
 
 }

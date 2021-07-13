@@ -4,18 +4,23 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.ActivitySignUpBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.adapter.MascotaViewPagerAdapter
 import org.mascota.ui.view.profile.ProfileCreateActivity
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.FIRST_PAGE
-import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.SECOND_PAGE
+import org.mascota.ui.viewmodel.UserViewModel
+import org.mascota.util.EventObserver
 
 class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
     private lateinit var mascotaViewPagerAdapter: MascotaViewPagerAdapter
+    private val userViewModel : UserViewModel by viewModel()
 
     override fun initView() {
+        observeSignUp()
+        observeBtnEnable()
         initViewPager()
         initClick()
     }
@@ -32,6 +37,18 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
         }
     }
 
+    private fun observeSignUp() {
+        userViewModel.signUpEvent.observe(this, EventObserver {
+            binding.vpSignup.setCurrentItem(ProfileCreateActivity.SECOND_PAGE, true)
+        })
+    }
+
+    private fun observeBtnEnable() {
+        userViewModel.nextBtnEnableEvent.observe(this, EventObserver{
+            binding.btnSignup.isEnabled = it
+        })
+    }
+
 
     private fun initClick(){
 
@@ -39,8 +56,10 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
             with(vpSignup){
                 btnSignup.setOnClickListener {
                     when(currentItem){
-                        FIRST_PAGE ->setCurrentItem(SECOND_PAGE,true)
-                        else -> startCreateProfileActivity()
+                        FIRST_PAGE -> {
+                            userViewModel.postSignUp()
+                        }
+                        else -> finish()
                     }
                 }
 
