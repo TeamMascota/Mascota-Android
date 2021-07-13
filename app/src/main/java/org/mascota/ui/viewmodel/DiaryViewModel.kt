@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.mascota.data.repository.diary.DiaryRepository
 import org.mascota.util.Event
 
-class DiaryViewModel : ViewModel() {
+class DiaryViewModel(private val diaryRepository: DiaryRepository) : ViewModel() {
     private val _selectedEmotion = MutableLiveData<Int>()
     val selectedEmotion: LiveData<Int>
         get() = _selectedEmotion

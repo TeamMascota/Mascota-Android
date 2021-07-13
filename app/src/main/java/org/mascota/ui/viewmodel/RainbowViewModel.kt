@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.mascota.ui.view.rainbow.data.datasource.RainbowDataSource
+import org.mascota.data.repository.rainbow.RainbowRepository
+import org.mascota.ui.view.rainbow.data.datasource.TempRainbowDataSource
 import org.mascota.ui.view.rainbow.data.model.HelpInfoData
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
 import org.mascota.ui.view.rainbow.farewell.data.model.PetInfoData
 
-class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private val farewellDataSource: FarewellDataSource) : ViewModel() {
+class RainbowViewModel(private val rainbowRepository: RainbowRepository, private val tempRainbowDataSource: TempRainbowDataSource, private val farewellDataSource: FarewellDataSource) : ViewModel() {
     private val _rainbowInfo = MutableLiveData<RainbowInfoData>()
     val rainbowInfo: LiveData<RainbowInfoData>
         get() = _rainbowInfo
@@ -117,7 +118,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
         get() = _petInfo
 
     fun getHelpInfo() = viewModelScope.launch {
-        runCatching { rainbowDataSource.getHelpInfoData() }
+        runCatching { tempRainbowDataSource.getHelpInfoData() }
             .onSuccess {
                 _helpInfo.postValue(it)
             }
@@ -127,7 +128,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
     }
 
     fun getRainbowInfo() = viewModelScope.launch {
-        runCatching { rainbowDataSource.getRainbowInfoData() }
+        runCatching { tempRainbowDataSource.getRainbowInfoData() }
             .onSuccess {
                 _rainbowInfo.postValue(it)
             }

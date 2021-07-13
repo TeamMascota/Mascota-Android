@@ -119,6 +119,8 @@
     <string name="add">추가</string>
     <string name="total_content_size">/11)</string>
     <string name="save">저장</string>
+    <string name="new_line">\n</string>
+    <string name="prolog_name">코봉이와의 7년</string>
 
     <!--login-->
     <string name="login">로그인</string>
@@ -134,29 +136,8 @@
     <string name="login_fail">로그인 실패</string>
     <string name="login_fail_msg">아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.</string>
 
-    <!--Diary-->
+    <!--User Diary-->
     <string name="story_write">이야기 작성</string>
-    <string name="love">사랑</string>
-    <string name="joy">기쁨</string>
-    <string name="usual">보통</string>
-    <string name="sad">우울</string>
-    <string name="angry">화남</string>
-    <string name="boring">심심</string>
-    <string name="emotion_delete">기분 삭제</string>
-    <string name="cancel">취소</string>
-    <string name="add_image">사진 첨부</string>
-    <string name="amount_image">(최대 5장)</string>
-    <string name="select_chapter">목차 선택</string>
-    <string name="picker_date">날짜 선택</string>
-    <string name="title">제목</string>
-    <string name="story">이야기 내용</string>
-    <string name="story_hint">오늘 주인공에게 어떤 일이 있었나요?</string>
-    <string name="finish">작성 완료</string>
-    <string name="bottomsheet_add">일기 사진 첨부하기</string>
-    <string name="bottomsheet_select">앨범에서 사진 선택</string>
-    <string name="title_top">162화 작성</string>
-    <string name="select_hero">주인공 및 기분 선택</string>
-    <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
     <string name="select_writer_emotion">작가의 기분 선택</string>
     <string name="select_writer_today_emotion">작가님의 오늘 기분을 선택해 주세요</string>
     <string name="deny_explain">반려동물과 이별했다는 걸 믿을 수 없어요</string>
@@ -187,8 +168,8 @@
     <string name="diary_title">코봉이의 중성화날</string>
     <string name="diary_date">2020.03.03</string>
     <string name="day">17일</string>
-    <string name="write">162화 기록하기</string>
-    <string name="how_today">오늘 코봉이는 어떤</string>
+    <string name="write">이야기 기록하기</string>
+    <string name="how_today">오늘 주인공은 어떤</string>
     <string name="question">하루를 보냈나요?</string>
     <string name="date">2021년 6월</string>
     <string name="one">1</string>
@@ -201,7 +182,7 @@
     <string name="author_soeun">작가 최소은</string>
     <string name="now_cobong_what_life">Q.지금까지 코봉이는 어떤 삶을 살았나요?\n\n</string>
     <string name="date_day">"13일\n금요일"</string>
-    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타</string>
+    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아</string>
     <string name="content_title">코봉이와의 첫만남</string>
     <string name="month7">7월</string>
     <string name="help_message">[블로그] 반려동물 장례식장 처음이라면, 보호자가 알고 있어야 하는 내용</string>
@@ -220,4 +201,29 @@
     <string name="thanks_cobong">코봉아 고마웠어</string>
     <string name="epilogue_content">코봉이는 나와 이제 이별하게 됐다. 기분이 이상하다. 어제까지만 해도 내 무릎 위에서 함께 잠들었는데. 코봉이가 보고 싶다.</string>
     <string name="angry_solution">가나다라마바(와)과 이별했다고 해서 함께 한 추억까지 사라지는 것은 아닙니다. 작가님과 가나다라마바의 추억은 시간이 지나도 영원히 가나다라마바(은)는 작가님의 기억 속에 살아 숨쉬고 있을 거예요.</string>
+
+    <!--Pet Diary-->
+    <string name="love">사랑</string>
+    <string name="joy">기쁨</string>
+    <string name="usual">보통</string>
+    <string name="sad">우울</string>
+    <string name="angry">화남</string>
+    <string name="boring">심심</string>
+    <string name="emotion_delete">기분 삭제</string>
+    <string name="cancel">취소</string>
+    <string name="add_image">사진 첨부</string>
+    <string name="amount_image">(최대 5장)</string>
+    <string name="select_chapter">목차 선택</string>
+    <string name="picker_date">날짜 선택</string>
+    <string name="title">제목</string>
+    <string name="story">이야기 내용</string>
+    <string name="story_hint">오늘 주인공에게 어떤 일이 있었나요?</string>
+    <string name="finish">작성 완료</string>
+    <string name="bottomsheet_add">일기 사진 첨부하기</string>
+    <string name="bottomsheet_select">앨범에서 사진 선택</string>
+    <string name="title_top">162화 작성</string>
+    <string name="select_hero">주인공 및 기분 선택</string>
+    <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
+    <string name="write_story">이야기 작성</string>
+    <string name="image_upload">사진 업로드</string>
 </resources>
