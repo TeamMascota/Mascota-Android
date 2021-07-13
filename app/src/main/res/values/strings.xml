@@ -98,6 +98,8 @@
     <string name="add">추가</string>
     <string name="total_content_size">/11)</string>
     <string name="save">저장</string>
+    <string name="new_line">\n</string>
+    <string name="prolog_name">코봉이와의 7년</string>
 
     <!--login-->
     <string name="login">로그인</string>
@@ -166,8 +168,8 @@
     <string name="diary_title">코봉이의 중성화날</string>
     <string name="diary_date">2020.03.03</string>
     <string name="day">17일</string>
-    <string name="write">162화 기록하기</string>
-    <string name="how_today">오늘 코봉이는 어떤</string>
+    <string name="write">이야기 기록하기</string>
+    <string name="how_today">오늘 주인공은 어떤</string>
     <string name="question">하루를 보냈나요?</string>
     <string name="date">2021년 6월</string>
     <string name="one">1</string>
@@ -180,7 +182,7 @@
     <string name="author_soeun">작가 최소은</string>
     <string name="now_cobong_what_life">Q.지금까지 코봉이는 어떤 삶을 살았나요?\n\n</string>
     <string name="date_day">"13일\n금요일"</string>
-    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타</string>
+    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아</string>
     <string name="content_title">코봉이와의 첫만남</string>
     <string name="month7">7월</string>
     <string name="help_message">[블로그] 반려동물 장례식장 처음이라면, 보호자가 알고 있어야 하는 내용</string>
