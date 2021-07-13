@@ -4,6 +4,7 @@ import android.text.SpannableString
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.databinding.ItemHelpMessageBinding
 import org.mascota.ui.view.rainbow.data.model.HelpInfoData
 import org.mascota.util.StringUtil.makeOrganizationText
@@ -11,8 +12,8 @@ import org.mascota.util.StringUtil.makeOrganizationText
 class HelpAdapter: RecyclerView.Adapter<HelpAdapter.HelpViewHolder>() {
     private var helpMessageClickListener: ((String) -> Unit) ?= null
     private var stringColorConverter: ((String, Int) -> SpannableString) ?= null
-    private val _data = mutableListOf<HelpInfoData>()
-    var data: List<HelpInfoData> = _data
+    private val _data = mutableListOf<ResRainbowHome.Data.RainbowMainPage.Help>()
+    var data: List<ResRainbowHome.Data.RainbowMainPage.Help> = _data
         set(value) {
             _data.clear()
             _data.addAll(value)
@@ -44,10 +45,10 @@ class HelpAdapter: RecyclerView.Adapter<HelpAdapter.HelpViewHolder>() {
 
     inner class HelpViewHolder(private val binding: ItemHelpMessageBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(helpInfoData : HelpInfoData) {
+        fun bind(helpInfoData : ResRainbowHome.Data.RainbowMainPage.Help) {
             binding.apply {
-                val organization = makeOrganizationText(helpInfoData.organization)
-                val spannableText = stringColorConverter?.invoke(organization + helpInfoData.content, organization.length)
+                val organization = makeOrganizationText(helpInfoData.classification)
+                val spannableText = stringColorConverter?.invoke(organization + helpInfoData.title, organization.length)
                 tvContent.text = spannableText
                 clHelp.setOnClickListener { helpMessageClickListener?.invoke(helpInfoData.url) }
             }
