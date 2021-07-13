@@ -20,6 +20,8 @@ object StringUtil {
 
     fun makeAllText(text : String) : String = "총 $text"
 
+    fun makeTotalText(episode: Int) : String = "총 ${episode}화"
+
     fun makeAuthorText(text : String) : String = "작가 $text"
 
     fun makeWithStoryText(episode: String) : String = "작가님과 함께했던 ${episode}의 이야기속에서"
@@ -31,6 +33,8 @@ object StringUtil {
     fun makeNowEpisode(text : String) : String = "지금까지 쓴 책은 $text"
 
     fun makeNowDay(text : String) : String = "함께 보낸 날은 $text"
+
+    fun makeTogetherDay(day: Int) : String = "함께한 지 ${day}일"
 
     fun makePetLifeText(text : String) : String = "${text}의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 ${text}의 삶이 어땠는지"
 

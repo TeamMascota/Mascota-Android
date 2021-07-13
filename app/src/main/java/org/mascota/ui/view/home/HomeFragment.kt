@@ -1,9 +1,12 @@
 package org.mascota.ui.view.home
 
+import android.content.Intent
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentHomeBinding
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.content.detail.ContentDetailActivity
+import org.mascota.ui.view.content.edit.ContentEditActivity
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
 
@@ -20,6 +23,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         getHomeContentInfo()
         initHomeContentAdapter()
         observeHomeContentInfo()
+        setEditBtnClickListener()
     }
 
     private fun getHomeBookInfo() {
@@ -49,7 +53,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun initHomeContentAdapter() {
         homeContentAdapter = HomeContentAdapter()
         binding.rvContent.adapter = homeContentAdapter
-
+        homeContentAdapter.setNavigateContentDetail {
+            startActivity(Intent(requireContext(), ContentDetailActivity::class.java))
+        }
         binding.rvContent.isNestedScrollingEnabled = false
     }
 
@@ -59,7 +65,15 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         }
     }
 
-    private fun initBookView() { binding.bvHome.setWhereBookView(IS_HOME) }
+    private fun initBookView() {
+        binding.bvHome.setWhereBookView(IS_HOME)
+    }
+
+    private fun setEditBtnClickListener() {
+        binding.tvEdit.setOnClickListener {
+            startActivity(Intent(requireContext(), ContentEditActivity::class.java))
+        }
+    }
 
     companion object {
         const val IS_HOME = true

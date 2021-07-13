@@ -5,15 +5,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import org.mascota.R
 import org.mascota.databinding.ItemDiaryMonthBinding
 import org.mascota.ui.view.content.detail.SwipeHelperCallback
 import org.mascota.ui.view.content.detail.data.model.ContentMonthInfoData
+import org.mascota.util.StringUtil.makeTotalText
 import org.mascota.util.dp
+import org.mascota.util.extension.setTextPartialColor
 
 class ContentDetailMonthAdapter :
     RecyclerView.Adapter<ContentDetailMonthAdapter.ContentDetailMonthViewHolder>() {
 
     private val _contentMonthList = mutableListOf<ContentMonthInfoData>()
+
+    private var navigateDiaryReadListener: (() -> Unit)? = null
+
+    fun setNavigateDiaryReadListener(listener: () -> Unit) {
+        navigateDiaryReadListener = listener
+    }
 
     var contentMonthList: List<ContentMonthInfoData> = _contentMonthList
         set(value) {
@@ -46,9 +55,12 @@ class ContentDetailMonthAdapter :
         @SuppressLint("ClickableViewAccessibility")
         fun onBind(contentMonthInfoData: ContentMonthInfoData) {
             binding.contentMonthDataInfo = contentMonthInfoData
-
-
-
+            binding.tvTotal.text = binding.tvTotal.setTextPartialColor(
+                R.color.maco_orange,
+                2,
+                2 + contentMonthInfoData.total.toString().length,
+                makeTotalText(contentMonthInfoData.total)
+            )
             ContentDetailDiaryAdapter().apply {
                 contentDiaryList = contentMonthInfoData.diaryList
                 binding.rvContentDiary.adapter = this
@@ -64,6 +76,10 @@ class ContentDetailMonthAdapter :
                         swipeHelperCallback.removePreviousClamp(this)
                         false
                     }
+                }
+
+                setDiaryClickListener {
+                    navigateDiaryReadListener?.invoke()
                 }
 
             }

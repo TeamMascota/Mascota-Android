@@ -26,10 +26,10 @@
 
             <ImageView
                 android:id="@+id/btn_back"
-                android:layout_width="26dp"
-                android:layout_height="27dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_arrow_back" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="0dp"
@@ -38,13 +38,13 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/tv_chapter"
+                    android:id="@+id/tv_episode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/chapter1"
                     android:textAppearance="@style/TextBody2Style"
                     android:textColor="@color/maco_dark_gray"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    tools:text="@string/episode" />
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -78,6 +78,8 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/ic_bg_grid"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,20 +122,20 @@
 
             <ImageView
                 android:id="@+id/btn_left"
-                android:layout_width="19dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="17dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/ic_back_small"
                 app:layout_constraintEnd_toStartOf="@id/btn_right"
                 app:layout_constraintTop_toBottomOf="@id/cl_date" />
 
             <ImageView
                 android:id="@+id/btn_right"
-                android:layout_width="19dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/ic_next_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/btn_left" />
 
@@ -147,6 +149,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_left" />
+
+            <ImageView
+                android:id="@+id/iv_pictures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/vp_pet_img"
+                app:layout_constraintEnd_toEndOf="@id/vp_pet_img" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_emotion"
@@ -163,26 +174,24 @@
                 android:id="@+id/spring_dots_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
                 app:dampingRatio="0.5"
                 app:dotsColor="@color/maco_orange"
-                app:dotsStrokeColor="@color/maco_orange"
                 app:dotsCornerRadius="4dp"
                 app:dotsSize="7dp"
                 app:dotsSpacing="5dp"
+                app:dotsStrokeColor="@color/maco_orange"
                 app:dotsStrokeWidth="1dp"
-                app:stiffness="300"
-                app:layout_constraintTop_toBottomOf="@id/vp_pet_img"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="13dp"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vp_pet_img"
+                app:stiffness="300" />
 
             <TextView
                 android:id="@+id/tv_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="24dp"
                 android:background="@drawable/rectangle_orange_top_radius_3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spring_dots_indicator" />

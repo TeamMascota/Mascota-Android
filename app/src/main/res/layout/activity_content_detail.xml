@@ -14,11 +14,11 @@
 
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="26dp"
-            android:layout_height="27dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="22dp"
             android:layout_marginTop="32dp"
-            android:src="@mipmap/ic_launcher_round"
+            android:src="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,7 +56,7 @@
             android:layout_height="18dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="36dp"
-            android:src="@mipmap/ic_launcher_round"
+            android:src="@drawable/ic_arrow_bottom"
             app:layout_constraintStart_toEndOf="@id/tv_title"
             app:layout_constraintTop_toTopOf="parent" />
 
