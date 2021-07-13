@@ -5,13 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.databinding.ItemContentBinding
-import org.mascota.ui.view.home.data.model.HomeContentInfoData
 import org.mascota.util.StringUtil.makePartText
 import org.mascota.util.StringUtil.makeTotalText
 
 class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>() {
 
-    private val _contentList = mutableListOf<ResHomePart1.TableContent>()
+    private val _contentList = mutableListOf<ResHomePart1.Data.FirstPartMainPage.TableContent>()
 
     private var navigateContentDetail: (() -> Unit)? = null
 
@@ -19,7 +18,7 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
         navigateContentDetail = setter
     }
 
-    var contentList: List<ResHomePart1.TableContent> = _contentList
+    var contentList: List<ResHomePart1.Data.FirstPartMainPage.TableContent> = _contentList
         set(value) {
             _contentList.clear()
             _contentList.addAll(value)
@@ -42,7 +41,7 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
     inner class HomeContentViewHolder(
         private val binding: ItemContentBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(tableContent: ResHomePart1.TableContent) {
+        fun onBind(tableContent: ResHomePart1.Data.FirstPartMainPage.TableContent) {
             binding.apply {
                 with(tableContent) {
                     tvChapter.text = makePartText(chapter)
