@@ -49,19 +49,21 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_signup" />
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:textColor="@color/maco_white"
+            android:textColor="@color/selector_btn_text"
             android:textSize="20sp"
+            android:background="@drawable/selector_maco_btn"
             android:paddingVertical="10dp"
             android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="90dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:enabled="false"
             tools:text="@string/signup" />
 
 
