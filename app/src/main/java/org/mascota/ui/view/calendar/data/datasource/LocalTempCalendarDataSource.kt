@@ -9,7 +9,7 @@ import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_USUAL
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.EMPTY
 import org.mascota.ui.view.calendar.data.model.CalendarData
 
-class LocalCalendarDataSource : CalendarDataSource {
+class LocalTempCalendarDataSource : TempCalendarDataSource {
     override fun getCalendarData(): List<CalendarData> = listOf(
         CalendarData(DOG_ANGRY, "3", false),
         CalendarData(DOG_SAD, "0", true),

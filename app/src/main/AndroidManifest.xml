@@ -14,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.view.diary.detail.EpilogueDetailActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".ui.view.diary.detail.EpilogueDetailActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.view.diary.DiaryWriteActivity"
             android:exported="true"
@@ -35,13 +36,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.view.content.detail.ContentDetailActivity"
-            android:exported="true"/>
-        <activity android:name=".ui.view.content.edit.ContentEditActivity"/>
-        <activity android:name=".ui.view.diary.read.DiaryReadActivity"
-            android:exported="true"/>
-        <activity android:name=".ui.view.user.login.LoginActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".ui.view.content.detail.ContentDetailActivity"
+            android:exported="true" />
+        <activity android:name=".ui.view.content.edit.ContentEditActivity" />
+        <activity
+            android:name=".ui.view.diary.read.DiaryReadActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.user.login.LoginActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

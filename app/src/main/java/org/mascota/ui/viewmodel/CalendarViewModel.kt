@@ -5,14 +5,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.mascota.data.repository.calendar.CalendarRepository
 import org.mascota.ui.view.calendar.data.datasource.AuthorDataSource
-import org.mascota.ui.view.calendar.data.datasource.CalendarDataSource
+import org.mascota.ui.view.calendar.data.datasource.TempCalendarDataSource
 import org.mascota.ui.view.calendar.data.model.AuthorInfoData
 import org.mascota.ui.view.calendar.data.model.CalendarData
 import org.mascota.util.CalendarUtil.initCalendar
 import java.util.*
 
-class CalendarViewModel(private val authorDataSource: AuthorDataSource, private val calendarDataSource: CalendarDataSource) : ViewModel() {
+class CalendarViewModel(
+    private val calendarRepository: CalendarRepository,
+    private val authorDataSource: AuthorDataSource,
+    private val tempCalendarDataSource: TempCalendarDataSource
+) : ViewModel() {
     private val nowCalendar = initCalendar(Calendar.getInstance(Locale.KOREA))
     private val _authorInfo = MutableLiveData<AuthorInfoData>()
     val authorInfo: LiveData<AuthorInfoData>
@@ -37,7 +42,7 @@ class CalendarViewModel(private val authorDataSource: AuthorDataSource, private 
     }
 
     fun getDateItem() = viewModelScope.launch {
-        runCatching { calendarDataSource.getCalendarData() }
+        runCatching { tempCalendarDataSource.getCalendarData() }
             .onSuccess {
                 _dateItem.postValue(it)
             }

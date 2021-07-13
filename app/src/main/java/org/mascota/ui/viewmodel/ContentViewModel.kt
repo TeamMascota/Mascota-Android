@@ -5,11 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.mascota.data.repository.content.ContentRepository
 import org.mascota.ui.view.content.detail.data.datasource.ContentDetailDataSource
 import org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData
 import org.mascota.ui.view.content.detail.data.model.ContentMonthInfoData
 
-class ContentDetailViewModel(private val contentDetailDataSource: ContentDetailDataSource) : ViewModel() {
+class ContentViewModel(private val contentRepository: ContentRepository, private val contentDetailDataSource: ContentDetailDataSource) : ViewModel() {
     private val _contentDetail = MutableLiveData<List<ContentDiaryInfoData>>()
     val contentDetail: LiveData<List<ContentDiaryInfoData>>
         get() = _contentDetail
