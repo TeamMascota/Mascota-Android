@@ -71,7 +71,7 @@ class ContentEditActivity :
 
     private fun initDialog() {
         DialogUtil.apply {
-            deleteDialog = DialogUtil.makeDialog(this@ContentEditActivity)
+            deleteDialog = makeDialog(this@ContentEditActivity)
             deleteCompleteDialog = makeDialog(this@ContentEditActivity)
             addDialog = makeDialog(this@ContentEditActivity)
             editDialog = makeDialog(this@ContentEditActivity)
