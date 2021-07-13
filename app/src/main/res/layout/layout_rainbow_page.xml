@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="rainbowDiaryInfo" type="org.mascota.ui.view.rainbow.data.model.RainbowInfoData.Data" />
+            name="rainbowDiaryInfo" type="org.mascota.data.remote.model.response.rainbow.ResRainbowHome.Data.RainbowMainPage.Memory" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,6 @@
                 android:layout_marginTop="15dp"
                 android:textAppearance="@style/TextBody2MediumStyle"
                 android:textColor="@color/maco_dark_gray"
-                app:yearMonthStory="@{rainbowDiaryInfo.date}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/date_story" />
@@ -52,7 +51,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="16dp"
-                android:text="@{rainbowDiaryInfo.content}"
+                android:text="@{rainbowDiaryInfo.contents}"
                 android:maxLines="4"
                 android:ellipsize="end"
                 android:textAppearance="@style/TextBody2Style"
@@ -71,7 +70,6 @@
                 android:layout_marginBottom="15dp"
                 android:textColor="@color/maco_gray"
                 android:textAppearance="@style/TextBody2Style"
-                app:yearMonthDay="@{rainbowDiaryInfo.date}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="@string/diary_date" />
@@ -82,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                app:imgEmo="@{rainbowDiaryInfo.emo}"
+                app:imgEmo="@{rainbowDiaryInfo.feeling}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:src="@drawable/ic_dog_usual" />
