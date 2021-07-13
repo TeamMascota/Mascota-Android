@@ -5,6 +5,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.ActivityContentEditBinding
 import org.mascota.databinding.LayoutContentEditDialogBinding
@@ -13,6 +14,9 @@ import org.mascota.databinding.LayoutMascotaDialogBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.edit.adapter.ContentEditAdapter
 import org.mascota.ui.view.content.edit.data.datasource.LocalContentEditDataSource
+import org.mascota.ui.view.home.adapter.HomeContentAdapter
+import org.mascota.ui.viewmodel.ContentViewModel
+import org.mascota.ui.viewmodel.HomeViewModel
 import org.mascota.util.DialogUtil
 import org.mascota.util.StringUtil
 import org.mascota.util.StringUtil.setTextPartialBold
@@ -29,6 +33,9 @@ class ContentEditActivity :
     private lateinit var addDialogBinding: LayoutContentEditDialogBinding
     private lateinit var editDialogBinding: LayoutContentEditDialogBinding
 
+    private val contentViewModel: ContentViewModel by viewModel()
+    private lateinit var contentEditAdapter: ContentEditAdapter
+
     override fun initView() {
         initDialogDataBinding()
         initDialog()
@@ -37,13 +44,25 @@ class ContentEditActivity :
         initDialogClickEvent()
         setAddClickListener()
         setBackBtnClickListener()
+        getResContentList()
+        observeResContentList()
+    }
+
+    private fun getResContentList() {
+        contentViewModel.getResContentList()
+    }
+
+    private fun observeResContentList() {
+        contentViewModel.resContentList.observe(this) {
+            contentEditAdapter.contentEditList = it.tableContents.subList(1, it.tableContents.size - 1)
+            binding.tvPrologTitle.text = it.tableContents[0].chapterTitle
+        }
     }
 
     private fun initContentEditAdapter() {
-        ContentEditAdapter().apply {
+        contentEditAdapter = ContentEditAdapter()
+        contentEditAdapter.apply {
             binding.rvContent.adapter = this
-            val localContentEditDataSource = LocalContentEditDataSource()
-            contentEditList = localContentEditDataSource.getContentEditInfoData()
             setDeleteClickListener {
                 val prefixWord = getString(R.string.delete_dialog_content)
                 deleteDialogBinding.tvContent.apply {
