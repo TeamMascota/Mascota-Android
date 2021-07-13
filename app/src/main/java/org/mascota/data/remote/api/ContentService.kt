@@ -14,13 +14,13 @@ interface ContentService {
     ): ResContentDetail
 
     //GET Content List
-    @GET("chapter/chapter/:{userId}")
+    @GET("chapter/chapter/{userId}")
     suspend fun getContentList(
         @Path("userId") userId: String
     ): ResContentList
 
     //POST Content Add
-    @POST("chapter/:{userId}")
+    @POST("chapter/{userId}")
     suspend fun postContentAdd(
         @Path("userId") userId: String,
         @Body body: ReqContent
