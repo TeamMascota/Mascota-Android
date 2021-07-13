@@ -4,7 +4,7 @@ data class ResHomePart2(
     val status: Int,
     val message: String,
     val success: Boolean,
-    val `data`: Data
+    val data: Data
 ) {
     data class Data(
         val part: Int,
