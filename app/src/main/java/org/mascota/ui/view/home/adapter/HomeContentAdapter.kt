@@ -10,6 +10,12 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
 
     private val _contentList = mutableListOf<HomeContentInfoData>()
 
+    private var navigateContentDetail: (() -> Unit)? = null
+
+    fun setNavigateContentDetail(setter: () -> Unit) {
+        navigateContentDetail = setter
+    }
+
     var contentList: List<HomeContentInfoData> = _contentList
         set(value) {
             _contentList.clear()
@@ -30,11 +36,14 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
 
     override fun getItemCount(): Int = contentList.size
 
-    class HomeContentViewHolder(
+    inner class HomeContentViewHolder(
         private val binding: ItemContentBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(homeContentData: HomeContentInfoData) {
             binding.homeContentInfoData = homeContentData
+            binding.clItemContent.setOnClickListener {
+                navigateContentDetail?.invoke()
+            }
         }
     }
 }

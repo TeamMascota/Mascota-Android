@@ -29,11 +29,11 @@
                     android:id="@+id/iv_dog_love"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/emo_dog_love_sel"
+                    android:src="@drawable/ic_emo_dog_love_sel"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="23dp"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
                     />
 
                 <TextView
@@ -46,7 +46,7 @@
                     app:layout_constraintTop_toTopOf="@id/iv_dog_love"
                     app:layout_constraintBottom_toBottomOf="@id/iv_dog_love"
                     app:layout_constraintStart_toEndOf="@id/iv_dog_love"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/maco_white"
                     />
 
@@ -60,7 +60,7 @@
                     android:fontFamily="@font/noto_sans_cjk_kr_medium"
                     app:layout_constraintStart_toStartOf="@id/iv_dog_love"
                     app:layout_constraintTop_toBottomOf="@id/iv_dog_love"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="8dp"
                     />
 
 
@@ -148,9 +148,8 @@
                     android:id="@+id/rcv_love"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="21dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="21dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="20dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -163,9 +162,9 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/rcv_love"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/emo_dog_joy_sel"
-                    android:layout_marginStart="23dp"
-                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_emo_dog_joy_sel"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
                     />
 
                 <TextView
@@ -178,7 +177,7 @@
                     app:layout_constraintTop_toTopOf="@id/iv_dog_joy"
                     app:layout_constraintBottom_toBottomOf="@id/iv_dog_joy"
                     app:layout_constraintStart_toEndOf="@id/iv_dog_joy"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/maco_white"
                     />
 
@@ -193,7 +192,7 @@
                     android:fontFamily="@font/noto_sans_cjk_kr_medium"
                     app:layout_constraintStart_toStartOf="@id/iv_dog_joy"
                     app:layout_constraintTop_toBottomOf="@id/iv_dog_joy"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="8dp"
                     />
 
 
@@ -282,9 +281,8 @@
                     android:id="@+id/rcv_joy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="21dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="21dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="16dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -297,9 +295,9 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/rcv_joy"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/emo_dog_usual_sel"
-                    android:layout_marginStart="23dp"
-                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_emo_dog_usual_sel"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
                     />
 
                 <TextView
@@ -312,7 +310,7 @@
                     app:layout_constraintTop_toTopOf="@id/iv_dog_usual"
                     app:layout_constraintBottom_toBottomOf="@id/iv_dog_usual"
                     app:layout_constraintStart_toEndOf="@id/iv_dog_usual"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/maco_white"
                     />
 
@@ -326,7 +324,7 @@
                     android:fontFamily="@font/noto_sans_cjk_kr_medium"
                     app:layout_constraintStart_toStartOf="@id/iv_dog_usual"
                     app:layout_constraintTop_toBottomOf="@id/iv_dog_usual"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="8dp"
                     />
 
 
@@ -334,9 +332,8 @@
                     android:id="@+id/rcv_usual"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="21dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="21dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="16dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -350,32 +347,11 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/rcv_usual"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/emo_dog_angry_sel"
-                    android:layout_marginStart="23dp"
-                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_emo_dog_angry_sel"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
                     />
 
-                <ImageView
-                    android:id="@id/iv_dog_sad"
-                    android:src="@drawable/emo_dog_sad_sel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/iv_dog_angry"
-                    app:layout_constraintTop_toTopOf="@id/iv_dog_angry"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_dog_angry"
-                    android:layout_marginStart="4dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/iv_dog_boring"
-                    android:src="@drawable/emo_dog_boring_sel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/iv_dog_sad"
-                    app:layout_constraintTop_toTopOf="@id/iv_dog_sad"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_dog_sad"
-                    android:layout_marginStart="4dp"
-                    />
 
                 <TextView
                     android:id="@+id/tv_angry"
@@ -384,36 +360,10 @@
                     android:text="@string/angry"
                     android:textSize="20sp"
                     android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                    app:layout_constraintTop_toTopOf="@id/iv_dog_boring"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_dog_boring"
-                    app:layout_constraintStart_toEndOf="@id/iv_dog_boring"
-                    android:layout_marginStart="10dp"
-                    android:textColor="@color/maco_white"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_sad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sad_com"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                    app:layout_constraintTop_toTopOf="@id/tv_angry"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_angry"
-                    app:layout_constraintStart_toEndOf="@id/tv_angry"
-                    android:textColor="@color/maco_white"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_boring"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/boring_com"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
-                    app:layout_constraintTop_toTopOf="@id/tv_sad"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_sad"
-                    app:layout_constraintStart_toEndOf="@id/tv_sad"
+                    app:layout_constraintTop_toTopOf="@id/iv_dog_angry"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_dog_angry"
+                    app:layout_constraintStart_toEndOf="@id/iv_dog_angry"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/maco_white"
                     />
 
@@ -427,7 +377,7 @@
                     android:fontFamily="@font/noto_sans_cjk_kr_medium"
                     app:layout_constraintStart_toStartOf="@id/iv_dog_angry"
                     app:layout_constraintTop_toBottomOf="@id/iv_dog_angry"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="8dp"
                     />
 
                 <TextView
@@ -475,14 +425,120 @@
                     android:id="@+id/rcv_angry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="21dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="21dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="16dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_angry_explain_3"
                     tools:listitem="@layout/item_moment" />
+
+
+                <ImageView
+                    android:id="@+id/iv_dog_sad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rcv_angry"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_emo_dog_sad_sel"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tv_sad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sad"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    app:layout_constraintTop_toTopOf="@id/iv_dog_sad"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_dog_sad"
+                    app:layout_constraintStart_toEndOf="@id/iv_dog_sad"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/maco_white"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tv_sad_explain_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sad_explain_1"
+                    android:textColor="@color/maco_white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    app:layout_constraintStart_toStartOf="@id/iv_dog_sad"
+                    app:layout_constraintTop_toBottomOf="@id/iv_dog_sad"
+                    android:layout_marginTop="5dp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_sad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_sad_explain_3"
+                    tools:listitem="@layout/item_moment" />
+
+                <ImageView
+                    android:id="@+id/iv_dog_boring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/rcv_sad"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_emo_dog_boring_sel"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="22dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tv_boring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/boring"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_bold"
+                    app:layout_constraintTop_toTopOf="@id/iv_dog_boring"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_dog_boring"
+                    app:layout_constraintStart_toEndOf="@id/iv_dog_boring"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/maco_white"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tv_boring_explain_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/boring_explain_1"
+                    android:textColor="@color/maco_white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    app:layout_constraintStart_toStartOf="@id/iv_dog_boring"
+                    app:layout_constraintTop_toBottomOf="@id/iv_dog_boring"
+                    android:layout_marginTop="8dp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_boring"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_boring_explain_3"
+                    tools:listitem="@layout/item_moment" />
+
+
 
                 <ImageView
                     android:id="@+id/iv_rainbow"
@@ -490,9 +546,9 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/rainbow"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="80dp"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintTop_toBottomOf="@+id/rcv_angry" />
+                    android:layout_marginStart="92dp"
+                    android:layout_marginTop="59dp"
+                    app:layout_constraintTop_toBottomOf="@+id/rcv_boring" />
 
                 <TextView
                     android:id="@+id/pet_name_7"
@@ -500,6 +556,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="23dp"
+                    android:layout_marginTop="32dp"
                     app:layout_constraintTop_toBottomOf="@+id/iv_rainbow"
                     android:text="@string/tv_pet_name"
                     android:textColor="@color/maco_white"
@@ -508,6 +565,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_best_bottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/best_bottom"
@@ -526,6 +584,8 @@
                     android:textColor="@color/maco_white"
                     android:textSize="14sp"
                     android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="54dp"
                     app:layout_constraintStart_toStartOf="@id/pet_name_7"
                     app:layout_constraintTop_toBottomOf="@id/pet_name_7"
                     />
@@ -560,15 +620,16 @@
                     android:id="@+id/tv_end"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/maco_white"
-                    android:text="@string/end_1"
-                    android:textSize="14sp"
                     android:fontFamily="@font/noto_sans_cjk_kr_medium"
-                    app:layout_constraintTop_toTopOf="@+id/tv_birthday"
+                    android:text="@string/end_1"
+                    android:textColor="@color/maco_white"
+                    android:textSize="14sp"
+                    android:layout_marginStart="69dp"
+                    android:layout_marginEnd="31dp"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_birthday"
-                    app:layout_constraintStart_toEndOf="@+id/tv_birthday"
-                    android:layout_marginStart="300dp"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_best_bottom"
+                    app:layout_constraintTop_toTopOf="@+id/tv_birthday" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

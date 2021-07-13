@@ -9,40 +9,55 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/list_view"
-        android:layout_width="100dp"
-        android:layout_height="132dp"
-        android:background="@drawable/layout_bolder"
-
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="12dp"
         >
 
-        <ImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/list_view"
-            app:layout_constraintTop_toTopOf="@+id/list_view" />
 
-        <TextView
-            android:id="@+id/tv_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/list_view"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/list_view"
-            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
-            app:layout_constraintStart_toStartOf="@+id/iv_profile"
-            app:layout_constraintTop_toBottomOf="@+id/iv_profile"
-            android:textColor="@color/maco_white"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:paddingTop="4dp"
-            android:paddingBottom="11dp"
-            android:background="@drawable/selector_profile" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/layout_bolder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@+id/tv_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_name"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/cat2" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_profile"
+                android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                android:gravity="center"
+                android:paddingHorizontal="27dp"
+                android:text="코봉이"
+                android:textColor="@color/maco_white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

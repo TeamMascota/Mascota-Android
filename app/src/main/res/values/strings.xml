@@ -70,6 +70,27 @@
     <string name="hear">들려주세요.</string>
     <string name="epilogue_title">에필로그 제목</string>
     <string name="to_be_continue">에서 계속</string>
+    <string name="love_explain_1">작가님과 함께하면서</string>
+    <string name="love_explain_2">많은 사랑을 받았고, 또 주었어요.</string>
+    <string name="love_explain_3">(이)가 사랑을 느꼈던 순간들이에요</string>
+    <string name="love_explain_4">에게 사랑을 알려주셔서 감사합니다.</string>
+    <string name="tv_pet_name">가나다라마바</string>
+    <string name="joy_explain_1">맛있는 간식을 먹거나 재미있는 놀이를 할 때, </string>
+    <string name="joy_explain_2">작가님은</string>
+    <string name="joy_explain_3">(을)를 행복하게 해 주려고</string>
+    <string name="joy_explain_4">매순간 노력했어요. 이런 작가님과 함께한 매일매일이</string>
+    <string name="joy_explain_5">에게는 기쁜 순간이었습니다.</string>
+    <string name="usual_explain_1">매일 색다른 모험을 하지 않아도 좋아요. 평화롭던\n보통의 날들도 아름다운 추억으로 여기 남아 있습니다.</string>
+    <string name="angry_explin">평화롭고 행복한 날들만이 의미있는 것은 아니죠.\n때로는 화도 냈고, 투정도 부렸어요. 그 과정에서</string>
+    <string name="angry_explin_2">(은)는 다양한 감정을 배우는</string>
+    <string name="angry_explain_3">어른 고양이로 성장할 수 있었습니다.</string>
+    <string name="boring_explain_1">매일 즐겁지는 않았지만, 그 덕에 고민 걱정 없는\n심심한 날들을 보낼 수도 있었어요. 평화로운 나날들을\n선물해 주셔서 감사합니다.</string>
+    <string name="sad_explain_1">때로는 어두운 그늘에 있던 때도 있었지만, 그 덕분에\n강한 햇볕을 피해 감정의 휴식을 취할 수 있었어요.</string>
+    <string name="best_bottom">의 최고의 순간</string>
+    <string name="end_1">1부를 마치며</string>
+    <string name="sad_com">, 우울</string>
+    <string name="boring_com">, 심심</string>
+    <string name="tv_char">~</string>
     <string name="joy_explain_1">맛있는 간식을 먹거나 재미있는 놀이를 할 때, </string>
     <string name="joy_explain_2">작가님은</string>
     <string name="joy_explain_3">(을)를 행복하게 해 주려고</string>
@@ -125,6 +146,54 @@
     <string name="content_edit">목차 편집</string>
     <string name="revise">수정</string>
     <string name="delete">삭제</string>
+    <string name="content_delete">목차 삭제</string>
+    <string name="delete_dialog_content">목차와 이야기가 모두 사라집니다.\n</string>
+    <string name="delete_dialog_question">(을)를 삭제하시겠어요? </string>
+    <string name="delete_complete">삭제 완료</string>
+    <string name="delete_complete_msg">" 목차가 삭제됐어요"</string>
+    <string name="check">확인</string>
+    <string name="content_add">목차 추가</string>
+    <string name="add">추가</string>
+    <string name="total_content_size">/11)</string>
+    <string name="save">저장</string>
+    <string name="new_line">\n</string>
+    <string name="prolog_name">코봉이와의 7년</string>
+
+    <!--login-->
+    <string name="login">로그인</string>
+    <string name="not_id">아이디를 찾을 수 없습니다</string>
+    <string name="not_pw">비밀번호를 찾을 수 없습니다</string>
+    <string name="sign_up">회원가입</string>
+    <string name="find_id">아이디 찾기</string>
+    <string name="reset_pw">비밀번호 재설정</string>
+    <string name="email_id">이메일 아이디</string>
+    <string name="pw">비밀번호</string>
+    <string name="pw_hint">비밀번호 입력(8자 이상)</string>
+    <string name="id_hint">이메일 아이디 입력</string>
+    <string name="login_fail">로그인 실패</string>
+    <string name="login_fail_msg">아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.</string>
+
+    <!--User Diary-->
+    <string name="story_write">이야기 작성</string>
+    <string name="select_writer_emotion">작가의 기분 선택</string>
+    <string name="select_writer_today_emotion">작가님의 오늘 기분을 선택해 주세요</string>
+    <string name="deny_explain">반려동물과 이별했다는 걸 믿을 수 없어요</string>
+    <string name="angry_explain">이별의 원인에 화가 나요</string>
+    <string name="regret_explain">더 잘 해 주지 못 한 게 후회가 돼요</string>
+    <string name="sad_explain">이별 때문에 슬프고 우울해요</string>
+    <string name="loss_explain">반려동물과의 이별에 상실감을 느껴요</string>
+    <string name="accept_explain">이별을 받아들이고 있어요</string>
+    <string name="write_complete">작성 완료</string>
+    <string name="deny">부정</string>
+    <string name="rage">분노</string>
+    <string name="regret">후회</string>
+    <string name="loss">상실</string>
+    <string name="depressed">우울</string>
+    <string name="accept">수용</string>
+    <string name="writer">"작가 "</string>
+    <string name="writer_select_emo">작가님이 선택한 감정</string>
+    <string name="help_talk">도움이 되는 말</string>
+    <string name="sad_solution">사랑하는 반려동물과 이별했을 때 슬픔을 느끼는 것은 당연합니다. 급하게 감정을 정리하려 하지 마세요. 지금 느끼는 슬픔 속에서 천천히 마음을 정리하는 것이, 사랑하는 존재를 떠나보내기 위해 해야할 일입니다.</string>
 
     <!--tools-->
     <string name="soeun">최소은</string>
@@ -136,8 +205,8 @@
     <string name="diary_title">코봉이의 중성화날</string>
     <string name="diary_date">2020.03.03</string>
     <string name="day">17일</string>
-    <string name="write">162화 기록하기</string>
-    <string name="how_today">오늘 코봉이는 어떤</string>
+    <string name="write">이야기 기록하기</string>
+    <string name="how_today">오늘 주인공은 어떤</string>
     <string name="question">하루를 보냈나요?</string>
     <string name="date">2021년 6월</string>
     <string name="one">1</string>
@@ -150,16 +219,27 @@
     <string name="author_soeun">작가 최소은</string>
     <string name="now_cobong_what_life">Q.지금까지 코봉이는 어떤 삶을 살았나요?\n\n</string>
     <string name="date_day">"13일\n금요일"</string>
-    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타</string>
+    <string name="diary_content">가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아</string>
     <string name="content_title">코봉이와의 첫만남</string>
     <string name="month7">7월</string>
     <string name="help_message">[블로그] 반려동물 장례식장 처음이라면, 보호자가 알고 있어야 하는 내용</string>
     <string name="finish_cobong">코봉의 이야기를 마무리하시겠어요?</string>
     <string name="know_what_hero">어느 주인공과 이별했는지 알려주세요</string>
     <string name="date_story">2020년 5월의 이야기</string>
+    <string name="full_date">2021년 7월 8일</string>
+    <string name="together">함께한 지 2021일</string>
+    <string name="with_story">작가님과 함께했던 2318화의 이야기 속에서</string>
+    <string name="brave_cat">가나다라마바(은)는 의젓하고 당당한 고양이로서</string>
+    <string name="feel_moment">가나다라마바(이)가 느꼈던 최고의 순간들을</string>
+    <string name="now_book">지금까지 쓴 책은 총 2318화</string>
+    <string name="with_day">함께 보낸 날은 총 5160일</string>
+    <string name="talk_pet">가나다라마바의 행복한 시간들을 잘 보셨나요?\n작가님과 함께했던 가나다라마바의 삶이 어땠는지</string>
+    <string name="end_story">가나다라마바의 이야기를 마무리하는 글을 적어주세요\n\n\n\n\n</string>
+    <string name="thanks_cobong">코봉아 고마웠어</string>
+    <string name="epilogue_content">코봉이는 나와 이제 이별하게 됐다. 기분이 이상하다. 어제까지만 해도 내 무릎 위에서 함께 잠들었는데. 코봉이가 보고 싶다.</string>
+    <string name="angry_solution">가나다라마바(와)과 이별했다고 해서 함께 한 추억까지 사라지는 것은 아닙니다. 작가님과 가나다라마바의 추억은 시간이 지나도 영원히 가나다라마바(은)는 작가님의 기억 속에 살아 숨쉬고 있을 거예요.</string>
 
-
-    <!--Diary-->
+    <!--Pet Diary-->
     <string name="love">사랑</string>
     <string name="joy">기쁨</string>
     <string name="usual">보통</string>
@@ -181,6 +261,8 @@
     <string name="title_top">162화 작성</string>
     <string name="select_hero">주인공 및 기분 선택</string>
     <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
+    <string name="write_story">이야기 작성</string>
+    <string name="image_upload">사진 업로드</string>
 
 
     <string name="full_date">2021년 7월 8일</string>

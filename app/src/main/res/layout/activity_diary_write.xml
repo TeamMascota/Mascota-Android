@@ -5,7 +5,9 @@
 
 
     <data>
-
+        <variable
+            name="isWhite"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,29 +16,59 @@
         android:background="@color/maco_ivory"
         >
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="98dp"
-            android:layout_marginEnd="101dp"
-            android:textAppearance="@style/TextSub1Style"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
-            app:layout_constraintEnd_toStartOf="@+id/tv_page"
-            app:layout_constraintStart_toEndOf="@+id/btn_back"
-            app:layout_constraintTop_toTopOf="@+id/btn_back"
-            android:text="@string/title_top" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_diary_write"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
+            app:layout_constraintTop_toBottomOf="@+id/cl_top_bar"/>
 
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="65dp"
-            android:background="@drawable/ic_arrow_back"
+            style="@style/MascotaButtonStyle"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="24dp"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:text="@string/write_complete" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/story_write"
+                android:textAppearance="@style/TextSub1Style"
+                android:textColor="@{isWhite? @color/maco_white : @color/maco_dark_gray}"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+                app:layout_constraintEnd_toStartOf="@+id/tv_page"
+                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintTop_toTopOf="@+id/btn_back" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/ic_arrow_back"
+                android:backgroundTint="@{isWhite? @color/maco_white : @color/maco_dark_gray}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_total_page"
@@ -56,54 +88,26 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextBody2Style"
             android:textColor="@color/maco_dark_gray"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/tv_total_page"
             app:layout_constraintEnd_toStartOf="@+id/tv_total_page"
             tools:text="@string/one" />
 
-        <ProgressBar
-            android:id="@+id/pb_profile"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="16dp"
-            android:max="100"
-            android:progressDrawable="@drawable/rectangle_progress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+            <ProgressBar
+                android:id="@+id/pb_diary_write"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:max="100"
+                android:progressDrawable="@drawable/rectangle_progress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/frg_profile"
-            android:name="org.mascota.ui.view.diary.DiaryEmotionFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_next"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pb_profile" />
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="28dp"
-            android:layout_marginTop="704dp"
-            android:layout_marginBottom="58dp"
-            android:background="@color/maco_light_gray"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:textColor="@color/maco_white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="작성완료" />
-
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

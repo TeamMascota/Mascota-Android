@@ -20,6 +20,8 @@ class FarewellBestMoment :
     private lateinit var joyAdapter: BestMomentAdapter
     private lateinit var angryAdapter: BestMomentAdapter
     private lateinit var usualAdapter: BestMomentAdapter
+    private lateinit var sadAdapter: BestMomentAdapter
+    private lateinit var boringAdapter: BestMomentAdapter
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -49,6 +51,8 @@ class FarewellBestMoment :
         rainbowViewModel.getJoyMent()
         rainbowViewModel.getAngryMoment()
         rainbowViewModel.getUsualMoment()
+        rainbowViewModel.getSadMoment()
+        rainbowViewModel.getBoringMoment()
     }
 
     private fun observeData() {
@@ -65,6 +69,12 @@ class FarewellBestMoment :
         rainbowViewModel.usualMoment.observe(viewLifecycleOwner) {
             usualAdapter.data = it.diaryList
         }
+        rainbowViewModel.sadMoment.observe(viewLifecycleOwner){
+            sadAdapter.data = it.diaryList
+        }
+        rainbowViewModel.boringMoment.observe(viewLifecycleOwner){
+            boringAdapter.data = it.diaryList
+        }
     }
 
     private fun initAdapter() {
@@ -73,11 +83,18 @@ class FarewellBestMoment :
         joyAdapter = BestMomentAdapter()
         angryAdapter = BestMomentAdapter()
         usualAdapter = BestMomentAdapter()
+        sadAdapter = BestMomentAdapter()
+        boringAdapter = BestMomentAdapter()
 
-        binding.rcvLove.adapter = loveAdapter
-        binding.rcvJoy.adapter = joyAdapter
-        binding.rcvAngry.adapter = angryAdapter
-        binding.rcvUsual.adapter = usualAdapter
+        binding.apply {
+            rcvLove.adapter = loveAdapter
+            rcvJoy.adapter = joyAdapter
+            rcvAngry.adapter = angryAdapter
+            rcvUsual.adapter = usualAdapter
+            rcvSad.adapter = sadAdapter
+            rcvBoring.adapter = boringAdapter
+
+        }
 
     }
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="isEmpty"
             type="Boolean" />
@@ -19,74 +20,84 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
             android:text="@string/write"
-            titleText=""
+            android:textColor="@color/maco_dark_gray"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/write"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:textSize="14sp"
-            android:textColor="@color/maco_dark_gray"/>
+            tools:text="@string/write" />
+
+        <ImageView
+            android:id="@+id/iv_dog_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_dog_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_episode" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_text_field"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_episode"
-            android:layout_marginTop="38dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="17dp">
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_dog_list">
 
             <TextView
                 android:id="@+id/tv_first_line"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:text = "@string/how_today"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="@id/cl_second_line"
-                app:layout_constraintEnd_toEndOf="@id/cl_second_line"
-                android:autoSizeTextType="uniform"
-                android:autoSizeMinTextSize="10sp"
                 android:autoSizeMaxTextSize="14sp"
+                android:autoSizeMinTextSize="10sp"
                 android:autoSizeStepGranularity="1dp"
+                android:autoSizeTextType="uniform"
                 android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                android:maxLines="1"
+                android:text="@string/how_today"
                 android:textColor="@color/maco_light_gray"
                 android:textSize="14sp"
-                tools:targetApi="o"/>
+                app:layout_constraintEnd_toEndOf="@id/cl_second_line"
+                app:layout_constraintStart_toStartOf="@id/cl_second_line"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="o" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_second_line"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="1dp"
-                android:paddingBottom="2dp"
                 android:layout_marginTop="2dp"
                 android:background="@drawable/rectangle_orange_radius_0"
-                app:layout_constraintTop_toBottomOf="@id/tv_first_line"
+                android:paddingTop="1dp"
+                android:paddingBottom="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/tv_first_line">
+
                 <TextView
                     android:id="@+id/tv_second_line"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="@string/question"
-                    tools:text="@string/question"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMinTextSize="10sp"
                     android:autoSizeMaxTextSize="14sp"
+                    android:autoSizeMinTextSize="10sp"
                     android:autoSizeStepGranularity="1dp"
-                    android:textSize="14sp"
+                    android:autoSizeTextType="uniform"
                     android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:maxLines="1"
+                    android:text="@string/question"
                     android:textColor="@color/maco_light_gray"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:targetApi="o" />
+                    tools:targetApi="o"
+                    tools:text="@string/question" />
 
                 <!-- @{isEmpty? @string/edit : @string/write} -->
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -97,26 +108,24 @@
             android:id="@+id/cl_bottom_line"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:layout_marginTop="26dp"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="37dp"
+            android:layout_marginTop="26dp"
             android:layout_marginEnd="7dp"
             android:background="@drawable/rectangle_orange_radius_0"
-            app:layout_constraintTop_toBottomOf="@id/cl_text_field"
-            app:layout_constraintStart_toStartOf="parent"
+            android:paddingTop="5dp"
             app:layout_constraintEnd_toStartOf="@id/iv_pencil"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_text_field">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/noto_sans_cjk_kr_regular"
                 android:text=""
                 android:textSize="14sp"
-                android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -124,18 +133,16 @@
             android:id="@+id/iv_pencil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_text_field"
-            android:src="@drawable/ic_pencil"
-            android:background="@drawable/oval_white"
-            android:paddingTop="7dp"
-            android:paddingStart="5dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="12dp"
             android:layout_marginTop="11dp"
             android:layout_marginEnd="14dp"
-            android:layout_marginBottom="15dp"/>
+            android:background="@drawable/oval_white"
+            android:paddingStart="5dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="12dp"
+            android:src="@drawable/ic_pencil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_text_field" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

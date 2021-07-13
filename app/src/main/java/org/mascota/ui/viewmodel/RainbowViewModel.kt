@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.mascota.ui.view.rainbow.data.datasource.RainbowDataSource
+import org.mascota.data.repository.rainbow.RainbowRepository
+import org.mascota.ui.view.rainbow.data.datasource.TempRainbowDataSource
 import org.mascota.ui.view.rainbow.data.model.HelpInfoData
 import org.mascota.ui.view.rainbow.data.model.RainbowInfoData
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
 import org.mascota.ui.view.rainbow.farewell.data.model.PetInfoData
 
-class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private val farewellDataSource: FarewellDataSource) : ViewModel() {
+class RainbowViewModel(private val rainbowRepository: RainbowRepository, private val tempRainbowDataSource: TempRainbowDataSource, private val farewellDataSource: FarewellDataSource) : ViewModel() {
     private val _rainbowInfo = MutableLiveData<RainbowInfoData>()
     val rainbowInfo: LiveData<RainbowInfoData>
         get() = _rainbowInfo
@@ -19,6 +20,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
     private val _helpInfo = MutableLiveData<List<HelpInfoData>>()
     val helpInfo: LiveData<List<HelpInfoData>>
         get() = _helpInfo
+
 
     private val _loveMoment =MutableLiveData<RainbowInfoData>()
     val loveMoment : MutableLiveData<RainbowInfoData>
@@ -38,8 +40,37 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
     val usualMoment : MutableLiveData<RainbowInfoData>
     get() = _usualMoment
 
+
+    private val _sadMoment = MutableLiveData<RainbowInfoData>()
+    val sadMoment : MutableLiveData<RainbowInfoData>
+    get() = _sadMoment
+
+    private val _boringMoment = MutableLiveData<RainbowInfoData>()
+    val boringMoment : MutableLiveData<RainbowInfoData>
+    get() = _boringMoment
+
+    fun getSadMoment() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getSadMomentData() }
+            .onSuccess {
+                _sadMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    fun getBoringMoment() = viewModelScope.launch {
+        kotlin.runCatching { tempRainbowDataSource.getBoringMomentData() }
+            .onSuccess {
+                _boringMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
     fun getUsualMoment() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getUsualMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getUsualMomentData() }
             .onSuccess {
                 _usualMoment.postValue(it)
             }
@@ -50,7 +81,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
 
 
     fun getAngryMoment() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getAngryBestMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getAngryBestMomentData() }
             .onSuccess {
                 _angryMoment.postValue(it)
             }
@@ -61,7 +92,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
 
     }
     fun getJoyMent() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getJoyBestMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getJoyBestMomentData() }
             .onSuccess {
                 _joyMoment.postValue(it)
             }
@@ -72,7 +103,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
 
 
     fun getloveoMent() = viewModelScope.launch {
-        kotlin.runCatching { rainbowDataSource.getLoveBestMomentData() }
+        kotlin.runCatching { tempRainbowDataSource.getLoveBestMomentData() }
             .onSuccess {
                 _loveMoment.postValue(it)
             }
@@ -87,7 +118,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
         get() = _petInfo
 
     fun getHelpInfo() = viewModelScope.launch {
-        runCatching { rainbowDataSource.getHelpInfoData() }
+        runCatching { tempRainbowDataSource.getHelpInfoData() }
             .onSuccess {
                 _helpInfo.postValue(it)
             }
@@ -97,7 +128,7 @@ class RainbowViewModel(private val rainbowDataSource: RainbowDataSource, private
     }
 
     fun getRainbowInfo() = viewModelScope.launch {
-        runCatching { rainbowDataSource.getRainbowInfoData() }
+        runCatching { tempRainbowDataSource.getRainbowInfoData() }
             .onSuccess {
                 _rainbowInfo.postValue(it)
             }

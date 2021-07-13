@@ -1,6 +1,5 @@
 package org.mascota.ui.view.diary.read
 
-import com.google.android.material.tabs.TabLayoutMediator
 import org.mascota.R
 import org.mascota.databinding.ActivityDiaryReadBinding
 import org.mascota.ui.base.BindingActivity
@@ -14,25 +13,28 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
 
     override fun initView() {
         initPetImagePagerAdapter()
-        connectPagerToIndicator()
         initEmotionImageAdapter()
+        setBackBtnClickListener()
     }
 
     private fun initPetImagePagerAdapter() {
         PetImagePagerAdapter().apply {
             binding.vpPetImg.adapter = this
             petImgUrlList = petImageDataSource.getPetImageUrlData()
+            binding.springDotsIndicator.setViewPager2(binding.vpPetImg)
         }
-    }
-
-    private fun connectPagerToIndicator() {
-        TabLayoutMediator(binding.tabIndicator, binding.vpPetImg) { _, _ -> }.attach()
     }
 
     private fun initEmotionImageAdapter() {
         EmotionImageAdapter().apply {
             binding.rvEmotion.adapter = this
             emotionNumList = petImageDataSource.getEmotionImageData()
+        }
+    }
+
+    private fun setBackBtnClickListener() {
+        binding.btnBack.setOnClickListener {
+            finish()
         }
     }
 }
