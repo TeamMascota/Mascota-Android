@@ -47,16 +47,16 @@ class FarewellBestMoment :
 
 
     private fun initData() {
-        rainbowViewModel.getloveoMent()
+        /*rainbowViewModel.getloveoMent()
         rainbowViewModel.getJoyMent()
         rainbowViewModel.getAngryMoment()
         rainbowViewModel.getUsualMoment()
         rainbowViewModel.getSadMoment()
-        rainbowViewModel.getBoringMoment()
+        rainbowViewModel.getBoringMoment()*/
     }
 
     private fun observeData() {
-        rainbowViewModel.loveMoment.observe(viewLifecycleOwner) {
+        /*rainbowViewModel.loveMoment.observe(viewLifecycleOwner) {
             loveAdapter.data = it.diaryList
         }
         rainbowViewModel.joyMoment.observe(viewLifecycleOwner) {
@@ -74,7 +74,7 @@ class FarewellBestMoment :
         }
         rainbowViewModel.boringMoment.observe(viewLifecycleOwner){
             boringAdapter.data = it.diaryList
-        }
+        }*/
     }
 
     private fun initAdapter() {
