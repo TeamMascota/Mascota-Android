@@ -139,9 +139,10 @@
             android:paddingStart="5dp"
             android:paddingTop="7dp"
             android:paddingEnd="10dp"
-            android:paddingBottom="12dp"
+            android:paddingBottom="16dp"
             android:src="@drawable/ic_pencil"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_text_field" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
