@@ -7,6 +7,7 @@ object CalendarUtil {
     private val simpleDateFormat = SimpleDateFormat("yyyy년 M월", Locale.KOREA)
     private val simpleToBeFamilyDateFormat = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA)
     private val simpleStoryDateFormat = SimpleDateFormat("yyyy년 M월의 이야기", Locale.KOREA)
+    private val remoteDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.KOREA)
 
     fun convertCalendarToString(calendar: Calendar): String = simpleDateFormat.format(calendar.time)
 
@@ -24,7 +25,8 @@ object CalendarUtil {
 
     fun convertStringToCalendar(date: String): Calendar {
         val calendar = Calendar.getInstance()
-        calendar.time = requireNotNull(simpleToBeFamilyDateFormat.parse(date))
+
+        calendar.time = requireNotNull(remoteDateFormat.parse(date))
         return calendar
     }
 

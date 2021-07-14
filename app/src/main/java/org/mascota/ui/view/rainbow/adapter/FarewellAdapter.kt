@@ -3,13 +3,15 @@ package org.mascota.ui.view.rainbow.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import org.mascota.data.remote.model.response.rainbow.ResFarewellSelect
 import org.mascota.databinding.ItemFarewellBinding
 
 class FarewellAdapter : RecyclerView.Adapter<FarewellAdapter.FarewellViewHolder>() {
     private var heroClickListener: ((String, Int) -> Unit)? = null
     private var isSelectedViewType = NOT_SELECTED
-    private val _data = mutableListOf<String>()
-    var data: List<String> = _data
+    private val _data = mutableListOf<ResFarewellSelect.Data>()
+    var data: List<ResFarewellSelect.Data> = _data
         set(value) {
             _data.clear()
             _data.addAll(value)
@@ -46,13 +48,14 @@ class FarewellAdapter : RecyclerView.Adapter<FarewellAdapter.FarewellViewHolder>
 
     inner class FarewellViewHolder(private val binding: ItemFarewellBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(name: String, position: Int) {
+        fun bind(data: ResFarewellSelect.Data, position: Int) {
             binding.apply {
-                tvName.text = name
+                tvName.text = data.name
+                Glide.with(ivHero).load(data.img).into(ivHero)
                 clFarewell.isSelected = (position == isSelectedViewType)
                 clFarewell.setOnClickListener {
                     it.isSelected = !it.isSelected
-                    heroClickListener?.invoke(name, position)
+                    heroClickListener?.invoke(data.name, position)
                 }
             }
         }

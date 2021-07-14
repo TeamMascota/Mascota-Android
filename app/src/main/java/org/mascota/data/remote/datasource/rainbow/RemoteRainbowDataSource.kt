@@ -7,7 +7,7 @@ import org.mascota.data.remote.model.response.rainbow.*
 class RemoteRainbowDataSource(private val service : RainbowService) : RainbowDataSource {
     override suspend fun getRainbowHome(userId: String, petId: String): ResRainbowHome = service.getRainbowHome(userId, petId)
 
-    override suspend fun getFarewellSelect(id: String): ResFarewellSelect = service.getFarewellSelect(id)
+    override suspend fun getFarewellSelect(): ResFarewellSelect = service.getFarewellSelect()
 
     override suspend fun putRainbowContent(path: String): ResRainbowContent = service.putRainbowContent(path)
 

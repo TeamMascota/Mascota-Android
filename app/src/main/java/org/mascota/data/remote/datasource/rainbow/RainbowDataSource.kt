@@ -8,7 +8,7 @@ interface RainbowDataSource {
     suspend fun getRainbowHome(userId: String, petId: String): ResRainbowHome
 
     //GET Rainbow Pet Select
-    suspend fun getFarewellSelect(id: String): ResFarewellSelect
+    suspend fun getFarewellSelect(): ResFarewellSelect
 
     //PUT Rainbow Content
     suspend fun putRainbowContent(path: String): ResRainbowContent
