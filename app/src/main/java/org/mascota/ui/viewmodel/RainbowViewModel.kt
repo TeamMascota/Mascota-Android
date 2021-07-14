@@ -5,9 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.mascota.data.local.MascotaSharedPreference.getPetId
 import org.mascota.data.local.MascotaSharedPreference.getUserId
 import org.mascota.data.remote.model.response.rainbow.ResBestMoment
 import org.mascota.data.remote.model.response.rainbow.ResPetName
+import org.mascota.data.remote.model.response.rainbow.ResFarewellSelect
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.data.repository.rainbow.RainbowRepository
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
@@ -26,6 +28,9 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     val petName : MutableLiveData<ResPetName>
     get() = _petName
 
+    private val _farewellAnimalList = MutableLiveData<List<ResFarewellSelect.Data>>()
+    val farewellAnimalList: LiveData<List<ResFarewellSelect.Data>>
+        get() = _farewellAnimalList
 
     /*private val _loveMoment =MutableLiveData<RainbowInfoData>()
     val loveMoment : MutableLiveData<RainbowInfoData>
@@ -53,8 +58,6 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     private val _boringMoment = MutableLiveData<RainbowInfoData>()
     val boringMoment : MutableLiveData<RainbowInfoData>
     get() = _boringMoment
-
-
 
     fun getSadMoment() = viewModelScope.launch {
         kotlin.runCatching { tempRainbowDataSource.getSadMomentData() }
@@ -148,6 +151,15 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     val petInfo: LiveData<PetInfoData>
         get() = _petInfo
 
+    fun getFarewellSelect() = viewModelScope.launch {
+        runCatching { rainbowRepository.getFarewellSelect() }
+            .onSuccess {
+                _farewellAnimalList.postValue(it.data)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
 
     fun getPetInfo() = viewModelScope.launch {
         runCatching { farewellDataSource.getPetInfoData() }
@@ -160,7 +172,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     }
 
     fun getRainbowHome() = viewModelScope.launch {
-        runCatching { rainbowRepository.getRainbowHome(getUserId(), "60ed4359e5003a744892ce2b") }
+        runCatching { rainbowRepository.getRainbowHome(getUserId(), getPetId()) }
             .onSuccess {
                 _rainbowHomeInfo.postValue(it)
             }

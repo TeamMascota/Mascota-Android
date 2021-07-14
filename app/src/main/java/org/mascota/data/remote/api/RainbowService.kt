@@ -14,9 +14,7 @@ interface RainbowService {
 
     //GET Rainbow Pet Select
     @GET("rainbow/pet")
-    suspend fun getFarewellSelect(
-        @Path("id") id: String
-    ): ResFarewellSelect
+    suspend fun getFarewellSelect(): ResFarewellSelect
 
     //PUT Rainbow Content
     @PUT("rainbow/pet/{petId}")

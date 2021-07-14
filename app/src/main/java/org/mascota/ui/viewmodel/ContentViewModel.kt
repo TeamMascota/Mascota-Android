@@ -1,6 +1,5 @@
 package org.mascota.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,7 +18,7 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
         get() = _contentDetail
 
     private val _resContentDetail = MutableLiveData<ResContentDetail>()
-    val resContentDetail : LiveData<ResContentDetail>
+    val resContentDetail: LiveData<ResContentDetail>
         get() = _resContentDetail
 
     private val _resContentList = MutableLiveData<ResContentList>()
@@ -48,15 +47,25 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
     }
 
     fun putContentEdit() = viewModelScope.launch {
-        runCatching { contentRepository.putContentEdit(requireNotNull(_chapterId.value), ReqContent(requireNotNull(_chapterTitle.value)))}
-            .onSuccess {  }
+        runCatching {
+            contentRepository.putContentEdit(
+                requireNotNull(_chapterId.value),
+                ReqContent(requireNotNull(_chapterTitle.value))
+            )
+        }
+            .onSuccess { }
             .onFailure {
                 it.printStackTrace()
             }
     }
 
     fun postContentAdd() = viewModelScope.launch {
-        runCatching { contentRepository.postContentAdd(getUserId(), ReqContent(requireNotNull(_chapterTitle.value)))}
+        runCatching {
+            contentRepository.postContentAdd(
+                getUserId(),
+                ReqContent(requireNotNull(_chapterTitle.value))
+            )
+        }
             .onSuccess {
             }
             .onFailure {
