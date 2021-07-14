@@ -6,6 +6,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.data.local.MascotaSharedPreference
 import org.mascota.databinding.ActivityHome2Binding
+import org.mascota.ui.MainActivity
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.ContentDetailActivity
 import org.mascota.ui.view.content.edit.ContentEditActivity
@@ -25,6 +26,8 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
         checkPartData()
         initHomeContentAdapter()
         initBookView()
+        setEditBtnClickListener()
+        movePartTwo()
     }
 
 
@@ -68,12 +71,23 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
             binding.apply {
                 with(it.data.firstPartMainPage) {
                     tvChapter.text = makePartText(PART)
-                    tvPrologTitle.text = tableContents[0].chapterName
+                    tvPrologTitle.text = tableContents[0].chapterTitle
                     tvHomeTitle.text = title
                     Glide.with(civCover.context).load(bookImg).into(civCover)
                     bvHome.setLeftPart1Diary(diary)
+                    tvWriterName.text = secondPartBook.author
+                    tvFullDate.text = secondPartBook.date
+                    // 사진 넣기! 서버 다시 완성되면 넣기
+                 //   ivBookImg.setImageResource(secondPartBook.imgs.toInt())
+
                 }
             }
+        }
+    }
+
+    private fun movePartTwo(){
+        binding.clBook.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

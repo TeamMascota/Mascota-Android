@@ -28,7 +28,7 @@ data class ResHomePart1(
             data class TableContent(
                 val chapterId: String,
                 val chapter: Int,
-                val chapterName: String,
+                val chapterTitle: String,
                 val episodePerchapterCount: Int
             )
 

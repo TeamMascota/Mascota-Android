@@ -45,7 +45,7 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
             binding.apply {
                 with(tableContent) {
                     tvChapter.text = makeChapterText(chapter)
-                    tvTitle.text = chapterName
+                    tvTitle.text = chapterTitle
                     tvEpisode.text = makeTotalText(episodePerchapterCount)
                 }
             }

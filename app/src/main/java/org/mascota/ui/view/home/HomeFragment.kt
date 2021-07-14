@@ -61,7 +61,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             binding.apply {
                 with(it.data.firstPartMainPage) {
                     tvChapter.text = makePartText(PART)
-                    tvPrologTitle.text = tableContents[0].chapterName
+                    tvPrologTitle.text = tableContents[0].chapterTitle
                     tvHomeTitle.text = title
                     Glide.with(civCover.context).load(bookImg).into(civCover)
                     bvHome.setLeftPart1Diary(diary)
