@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MascotaApplication"
@@ -16,29 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
+        <activity android:name=".ui.view.home.Home2Activity"
             android:exported="true"/>
-
+        <activity
+            android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.view.diary.detail.EpilogueDetailActivity"
             android:exported="true" />
-
-        <activity android:name=".ui.view.signup.SignUpActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".ui.view.signup.SignUpActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.view.diary.DiaryWriteActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" />
-
-
         <activity android:name=".ui.view.rainbow.farewell.FarewellActivity" />
-            android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".ui.view.profile.ProfileCreateActivity"
             android:exported="true" />
-
         <activity
             android:name=".ui.view.profile.BookCompleteActivity"
             android:exported="true" />
@@ -59,7 +55,6 @@
         <activity
             android:name=".ui.view.user.login.LoginActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>
