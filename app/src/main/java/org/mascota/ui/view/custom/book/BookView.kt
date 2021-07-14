@@ -59,7 +59,6 @@ class BookView @JvmOverloads constructor(
             if (chapter != 0) {
                 chapterDiary = makeChapterText(chapter) + " " + makeEpisodeText(episode)
             }
-
             viewCustomBookBinding.layoutLeftPage.homeDiaryInfoData = HomeDiaryInfoData(
                 chapterDiary, title, contents, date
             )

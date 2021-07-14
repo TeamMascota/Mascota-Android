@@ -37,7 +37,6 @@ interface ContentService {
     @DELETE("chapter/{chapterId}")
     suspend fun deleteContent(
         @Path("chapterId") chapterId: String,
-        @Body body: ReqContentDelete
     ) : ResContentDelete
 
     //GET Content Detail Part2
