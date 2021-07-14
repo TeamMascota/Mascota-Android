@@ -10,15 +10,15 @@ import org.mascota.util.StringUtil.makeChapterText
 
 class ContentEditAdapter : RecyclerView.Adapter<ContentEditAdapter.ContentEditViewHolder>() {
 
-    private var deleteClickListener: ((String) -> Unit)? = null
+    private var deleteClickListener: ((String, String) -> Unit)? = null
 
-    fun setDeleteClickListener(listener: (String) -> Unit) {
+    fun setDeleteClickListener(listener: (String, String) -> Unit) {
         deleteClickListener = listener
     }
 
-    private var editClickLister: ((String, String) -> Unit)? = null
+    private var editClickLister: ((String, String, String) -> Unit)? = null
 
-    fun setEditClickListener(listener: (String, String) -> Unit) {
+    fun setEditClickListener(listener: (String, String, String) -> Unit) {
         editClickLister = listener
     }
 
@@ -51,12 +51,13 @@ class ContentEditAdapter : RecyclerView.Adapter<ContentEditAdapter.ContentEditVi
             content.apply {
                 binding.contentEditInfoData = ContentEditInfoData(chapter, chapterTitle)
                 binding.tvDelete.setOnClickListener {
-                    deleteClickListener?.invoke(makeChapterText(chapter) + " " + chapterTitle)
+                    deleteClickListener?.invoke(makeChapterText(chapter) + " " + chapterTitle, chapterId)
                 }
                 binding.tvEdit.setOnClickListener {
                     editClickLister?.invoke(
                         makeChapterText(chapter),
-                        chapterTitle
+                        chapterTitle,
+                        chapterId
                     )
                 }
             }

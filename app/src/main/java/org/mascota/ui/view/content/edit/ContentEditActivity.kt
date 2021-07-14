@@ -18,6 +18,7 @@ import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.ContentViewModel
 import org.mascota.ui.viewmodel.HomeViewModel
 import org.mascota.util.DialogUtil
+import org.mascota.util.EventObserver
 import org.mascota.util.StringUtil
 import org.mascota.util.StringUtil.setTextPartialBold
 
@@ -63,25 +64,27 @@ class ContentEditActivity :
         contentEditAdapter = ContentEditAdapter()
         contentEditAdapter.apply {
             binding.rvContent.adapter = this
-            setDeleteClickListener {
+            setDeleteClickListener { chapter, chapterId ->
                 val prefixWord = getString(R.string.delete_dialog_content)
                 deleteDialogBinding.tvContent.apply {
                     text = setTextPartialBold(
                         prefixWord.length,
-                        prefixWord.length + it.length,
-                        prefixWord + it + getString(R.string.delete_dialog_question)
+                        prefixWord.length + chapter.length,
+                        prefixWord + chapter + getString(R.string.delete_dialog_question)
                     )
                     gravity = Gravity.CENTER
                 }
                 deleteCompleteDialogBinding.tvExplain.text = setTextPartialBold(
-                    0, it.length, it + getString(R.string.delete_complete_msg)
+                    0, chapter.length, chapter + getString(R.string.delete_complete_msg)
                 )
+                contentViewModel.postChapterId(chapterId)
                 deleteDialog.show()
             }
-            setEditClickListener { chapter, title ->
+            setEditClickListener { chapter, title, chapterId ->
                 editDialogBinding.apply {
                     tvTitle.text = chapter
                     etContent.setText(title)
+                    contentViewModel.postChapterId(chapterId)
                 }
                 editDialog.show()
             }
@@ -153,6 +156,7 @@ class ContentEditActivity :
                 deleteDialog.dismiss()
             }
             tvNext.setOnClickListener {
+                contentViewModel.deleteContent()
                 deleteDialog.dismiss()
                 deleteCompleteDialog.show()
             }
@@ -170,6 +174,8 @@ class ContentEditActivity :
                 addDialog.dismiss()
             }
             tvAdd.setOnClickListener {
+                contentViewModel.postChapterTitle(etContent.text.toString())
+                contentViewModel.postContentAdd()
                 addDialog.dismiss()
             }
         }
@@ -182,6 +188,8 @@ class ContentEditActivity :
                 editDialog.dismiss()
             }
             tvAdd.setOnClickListener {
+                contentViewModel.postChapterTitle(etContent.text.toString())
+                contentViewModel.putContentEdit()
                 editDialog.dismiss()
             }
         }
