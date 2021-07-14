@@ -27,7 +27,8 @@ import org.mascota.util.extension.px
 class BookView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-
+    private var rainbowLeftPageClickListener : (() -> Unit) ?= null
+    private var rainbowRightPageClickListener : (() -> Unit) ?= null
     private lateinit var viewCustomBookBinding: ViewCustomBookBinding
 
     private lateinit var bgBookView: View
