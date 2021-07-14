@@ -8,12 +8,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getUserId
 import org.mascota.data.remote.model.request.content.ReqContent
-import org.mascota.data.remote.model.response.content.ResContentList
 import org.mascota.data.remote.model.response.content.ResContentDetail
+import org.mascota.data.remote.model.response.content.ResContentList
 import org.mascota.data.repository.content.ContentRepository
 import org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData
-import org.mascota.ui.view.content.detail.data.model.ContentMonthInfoData
-import org.mascota.util.Event
 
 class ContentViewModel(private val contentRepository: ContentRepository) : ViewModel() {
     private val _contentDetail = MutableLiveData<List<ContentDiaryInfoData>>()
@@ -69,9 +67,11 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
     fun getResContentList() = viewModelScope.launch {
         runCatching { contentRepository.getContentList(getUserId()) }
             .onSuccess {
+                Log.d("list", "success")
                 _resContentList.postValue(it)
             }
             .onFailure {
+                Log.d("list", "fail")
                 it.printStackTrace()
             }
     }
