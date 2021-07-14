@@ -1,9 +1,11 @@
 package org.mascota.ui.view.rainbow.epilogue
 
 import androidx.core.widget.addTextChangedListener
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.ActivityEpilogueWriteBinding
 import org.mascota.ui.base.BindingActivity
+import org.mascota.ui.viewmodel.RainbowViewModel
 import org.mascota.util.StatusBarUtil.setStatusBarColor
 import org.mascota.util.StringUtil.makePetLifeText
 import org.mascota.util.StringUtil.makeTextLength
@@ -13,10 +15,23 @@ class EpilogueWriteActivity :
     private var isNotTitleEmpty = false
     private var isNotContentEmpty = false
 
+    private val rainbowViewModel: RainbowViewModel by viewModel()
+
     override fun initView() {
         setStatusBarColor(getColor(R.color.maco_blue))
         initPetName()
         initTextChangeEvent()
+        getPetName()
+    }
+
+    private fun getPetName(){
+        rainbowViewModel.getPetName()
+        rainbowViewModel.petName.observe(this){
+            binding.tvPet.text = it.data.name
+            binding.tvPet2.text = it.data.name
+           binding.petname  = it
+                    //petnameinfo.data.name = it.data.name
+        }
     }
 
     private fun initTextChangeEvent() {

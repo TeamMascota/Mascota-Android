@@ -1,17 +1,30 @@
 package org.mascota.ui.view.custom.adapter
 
+import android.util.Log
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
+import org.mascota.data.remote.model.response.calendar.ResCalendar
 import org.mascota.ui.view.calendar.data.model.CalendarData
 import org.mascota.ui.view.custom.calendar.CalendarView.Companion.FIRST_POSITION
 import org.mascota.ui.view.custom.calendar.MonthView
 import java.util.*
 
-class CalendarViewPagerAdapter(private val dateItem: List<CalendarData>) :
+class CalendarViewPagerAdapter(
+    private val lifecycleOwner: LifecycleOwner
+) :
     RecyclerView.Adapter<CalendarViewPagerAdapter.CalendarViewHolder>() {
     //리스너 달기
+    private val dateData = MutableLiveData<ResCalendar>()
+
+    fun setDateData(data : ResCalendar) {
+        dateData.value = data
+    }
+
     override fun getItemCount(): Int = MAX_ITEM_COUNT
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
@@ -39,8 +52,10 @@ class CalendarViewPagerAdapter(private val dateItem: List<CalendarData>) :
                     add(Calendar.MONTH, position - FIRST_POSITION)
                 }
             }
-            view.setDateItemGetter {
-                return@setDateItemGetter dateItem
+            dateData.observe(lifecycleOwner) {
+                view.setDateItemGetter {
+                    return@setDateItemGetter it.data.calendar.date
+                }
             }
         }
     }

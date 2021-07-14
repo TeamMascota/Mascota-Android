@@ -3,18 +3,15 @@ package org.mascota.ui.view.content.detail.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import org.mascota.data.remote.model.response.content.ResContentDetail
 import org.mascota.databinding.ItemDiaryBinding
 import org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData
 import org.mascota.util.StringUtil.setTextPartialBold
-import org.mascota.util.dp
 
 class ContentDetailDiaryAdapter :
     RecyclerView.Adapter<ContentDetailDiaryAdapter.ContentDetailDiaryViewHolder>() {
 
-    private val _contentDiaryList = mutableListOf<ContentDiaryInfoData>()
+    private val _contentDiaryList = mutableListOf<ResContentDetail.Data.PetChapterDiary.Monthly.Diary>()
 
     private var diaryClickListener: (() -> Unit)? = null
 
@@ -22,7 +19,7 @@ class ContentDetailDiaryAdapter :
         diaryClickListener = listener
     }
 
-    var contentDiaryList: List<ContentDiaryInfoData> = _contentDiaryList
+    var contentDiaryList: List<ResContentDetail.Data.PetChapterDiary.Monthly.Diary> = _contentDiaryList
         set(value) {
             _contentDiaryList.clear()
             _contentDiaryList.addAll(value)
@@ -48,13 +45,17 @@ class ContentDetailDiaryAdapter :
     inner class ContentDetailDiaryViewHolder(
         val binding: ItemDiaryBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(contentDiaryInfoData: ContentDiaryInfoData) {
-            binding.contentDiaryInfoData = contentDiaryInfoData
-            binding.tvDay.text = setTextPartialBold(
-                0,
-                contentDiaryInfoData.date.length,
-                contentDiaryInfoData.date + "\n" + contentDiaryInfoData.weekDay
-            )
+        fun onBind(diary: ResContentDetail.Data.PetChapterDiary.Monthly.Diary) {
+            diary.apply{
+                binding.contentDiaryInfoData = ContentDiaryInfoData(
+                    date, weekday, feeling, title, contents, image
+                )
+                binding.tvDay.text = setTextPartialBold(
+                    0,
+                    date.length,
+                    date + "\n" + weekday
+                )
+            }
             binding.clItemDiary.setOnClickListener {
                 diaryClickListener?.invoke()
             }

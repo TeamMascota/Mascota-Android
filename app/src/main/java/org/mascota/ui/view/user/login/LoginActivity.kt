@@ -1,23 +1,31 @@
 package org.mascota.ui.view.user.login
 
 import android.app.Dialog
+import android.content.Intent
 import android.view.LayoutInflater
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.ActivityLoginBinding
 import org.mascota.databinding.LayoutHelpMessageDialogBinding
+import org.mascota.ui.MainActivity
 import org.mascota.ui.base.BindingActivity
+import org.mascota.ui.viewmodel.UserViewModel
 import org.mascota.util.DialogUtil
+import org.mascota.util.EventObserver
 
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
     private lateinit var loginFailDialog: Dialog
     private lateinit var loginFailDialogBinding: LayoutHelpMessageDialogBinding
     private var isNotIdEmpty = false
     private var isNotPwEmpty = false
+    private val userViewModel : UserViewModel by viewModel()
+
 
     override fun initView() {
         initFocusChangeEvent()
+        observeBtnEnable()
         initDialogDataBinding()
         initDialog()
         setDialog()
@@ -29,7 +37,10 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         binding.apply {
             etId.setOnFocusChangeListener { _, hasFocus ->
                 when (hasFocus) {
-                    true -> clId.isSelected = true
+                    true -> {
+                        clId.isSelected = true
+
+                    }
                     else -> if (!isNotIdEmpty) {
                         clId.isSelected = false
                     }
@@ -37,7 +48,9 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             }
             etPw.setOnFocusChangeListener { _, hasFocus ->
                 when (hasFocus) {
-                    true -> clPw.isSelected = true
+                    true -> {
+                        clPw.isSelected = true
+                    }
                     else -> if (!isNotPwEmpty) {
                         clPw.isSelected = false
                     }
@@ -46,10 +59,28 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         }
     }
 
+    private fun observeSignIn() {
+        userViewModel.signInEvent.observe(this, EventObserver {
+            when(it) {
+                true -> startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                false -> loginFailDialog.show()
+            }
+            //binding.vpSignup.setCurrentItem(ProfileCreateActivity.SECOND_PAGE, true)
+        })
+    }
+
+    private fun observeBtnEnable() {
+        userViewModel.nextSignInEnaleEvent.observe(this, EventObserver{
+            binding.btnLogin.isEnabled = it
+        })
+    }
+
     private fun setLoginBtnClickListener() {
         binding.btnLogin.setOnClickListener {
             //아이디, 비밀번호 보내고 bool값 받아오기
-            loginFailDialog.show()
+            userViewModel.postSignIn()
+            observeSignIn()
+            //loginFailDialog.show()
         }
     }
 
@@ -94,11 +125,24 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             etId.addTextChangedListener {
                 isNotIdEmpty = !it.isNullOrEmpty()
                 enableLoginButton()
+                userViewModel.postLoginId(binding.etId.text.toString())
             }
             etPw.addTextChangedListener {
                 isNotPwEmpty = !it.isNullOrEmpty()
                 enableLoginButton()
+                userViewModel.postLoginPwd((binding.etPw.text.toString()))
             }
         }
     }
+
+
+    private fun postLoginId(id: String) {
+        userViewModel.postLoginId(id)
+
+    }
+
+    private fun postPwd(pass: String) {
+        userViewModel.postLoginPwd(pass)
+    }
+
 }

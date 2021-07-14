@@ -22,6 +22,8 @@ object StringUtil {
 
     fun makeTotalText(episode: Int) : String = "총 ${episode}화"
 
+    fun makePartText(part: Int) : String = "${part}부 "
+
     fun makeAuthorText(text : String) : String = "작가 $text"
 
     fun makeWithStoryText(episode: String) : String = "작가님과 함께했던 ${episode}의 이야기속에서"
@@ -29,6 +31,8 @@ object StringUtil {
     fun makePetInfoText(name : String, species : String) : String = "${name}(은)는 의젓하고 당당한 ${species}로서"
 
     fun makeBestMomentText(name : String) : String = "${name}(이)가 느꼈던 최고의 순간들을"
+
+    fun makPetNameText(name: String) : String = name
 
     fun makeNowEpisode(text : String) : String = "지금까지 쓴 책은 $text"
 
@@ -54,4 +58,6 @@ object StringUtil {
     }
 
     fun makeChapterText(chapter: Int) : String = "제 ${chapter}장"
+
+    fun makeMonthText(month: Int) : String = "${month}월"
 }

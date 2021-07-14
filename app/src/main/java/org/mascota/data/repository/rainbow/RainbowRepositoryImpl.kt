@@ -8,8 +8,8 @@ class RainbowRepositoryImpl(private val remoteDataSource: RainbowDataSource) : R
     override suspend fun getRainbowHome(userId: String, petId: String): ResRainbowHome =
         remoteDataSource.getRainbowHome(userId, petId)
 
-    override suspend fun getFarewellSelect(id: String): ResFarewellSelect =
-        remoteDataSource.getFarewellSelect(id)
+    override suspend fun getFarewellSelect(): ResFarewellSelect =
+        remoteDataSource.getFarewellSelect()
 
     override suspend fun putRainbowContent(path: String): ResRainbowContent =
         remoteDataSource.putRainbowContent(path)
@@ -23,8 +23,8 @@ class RainbowRepositoryImpl(private val remoteDataSource: RainbowDataSource) : R
     override suspend fun getRainbowBestMoment(userId: String, petId: String): ResBestMoment =
         remoteDataSource.getRainbowBestMoment(userId, petId)
 
-    override suspend fun getRainbowPetName(path: String): ResPetName =
-        remoteDataSource.getRainbowPetName(path)
+    override suspend fun getRainbowPetName(petId: String): ResPetName =
+        remoteDataSource.getRainbowPetName(petId)
 
     override suspend fun postRainbowEpilogue(body: ReqRainbowEpilogue): ResRainbowEpilogue =
         remoteDataSource.postRainbowEpilogue(body)

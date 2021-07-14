@@ -16,20 +16,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
+
+        <activity android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
+            android:exported="true"/>
+
         <activity
             android:name=".ui.view.diary.detail.EpilogueDetailActivity"
             android:exported="true" />
+
+        <activity android:name=".ui.view.signup.SignUpActivity"
+            android:exported="true"/>
         <activity
             android:name=".ui.view.diary.DiaryWriteActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ui.view.profile.BookCompleteActivity" />
-        <activity
-            android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
-            android:exported="true" />
+
+
         <activity android:name=".ui.view.rainbow.farewell.FarewellActivity" />
+            android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".ui.view.profile.ProfileCreateActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.view.profile.BookCompleteActivity"
             android:exported="true" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>

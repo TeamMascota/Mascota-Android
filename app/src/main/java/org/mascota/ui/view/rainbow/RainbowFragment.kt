@@ -4,13 +4,12 @@ import android.app.Dialog
 import android.content.Intent
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.bumptech.glide.Glide
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
-import org.mascota.databinding.FragmentRainbowBinding
-import org.mascota.databinding.LayoutFarewellDialogBinding
-import org.mascota.databinding.LayoutHelpMessageDialogBinding
-import org.mascota.databinding.LayoutMascotaDialogBinding
+import org.mascota.databinding.*
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.diary.read.DiaryReadActivity
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter.Companion.NOT_SELECTED
 import org.mascota.ui.view.rainbow.adapter.HelpAdapter
@@ -23,10 +22,10 @@ import org.mascota.util.extension.setTextPartialColor
 import org.mascota.util.extension.urlIntent
 
 class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragment_rainbow) {
-    private val rainbowViewModel: RainbowViewModel by viewModel()
+    private val rainbowViewModel: RainbowViewModel by sharedViewModel()
 
-    private lateinit var helpAdapter: HelpAdapter
-    private lateinit var farewellAdapter: FarewellAdapter
+    private val helpAdapter = HelpAdapter()
+    private val farewellAdapter = FarewellAdapter()
     private lateinit var farewellDialog: Dialog
     private lateinit var helpDialog: Dialog
     private lateinit var finishDialog: Dialog
@@ -41,8 +40,8 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         initDialog()
         initAdapter()
         initClickEvent()
-        observeHelpInfo()
         observeRainbowInfo()
+        observeFarewellSelect()
     }
 
     private fun initBookView() {
@@ -105,58 +104,87 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         }
 
         finishDialogBinding.apply {
-            tvContent.text = getString(R.string.finish_cobong)
             tvQuit.setOnClickListener {
                 finishDialog.dismiss()
             }
             tvNext.setOnClickListener {
                 finishDialog.dismiss()
                 startFarewell()
+
             }
         }
     }
 
     private fun initAdapter() {
-        helpAdapter = HelpAdapter()
-        farewellAdapter = FarewellAdapter()
-
         helpAdapter.apply {
             binding.rvHelp.adapter = this
             setHelpMessageClickListener { requireContext().urlIntent(it) }
-            setColorConverter { text, length -> setTextPartialColor(R.color.maco_gray, 0, length, text) }
+            setColorConverter { text, length ->
+                setTextPartialColor(
+                    R.color.maco_gray,
+                    0,
+                    length,
+                    text
+                )
+            }
         }
 
         farewellAdapter.apply {
             farewellDialogBinding.rvPet.adapter = this
-            data = listOf("코봉", "녹차")
-            setHeroClickListener {  name, position ->
-                finishDialogBinding.tvContent.text = setTextPartialBold(0, name.length, "${name}의 이야기를 마무리하시겠어요?")
+            setHeroClickListener { name, position ->
+                finishDialogBinding.tvContent.text =
+                    setTextPartialBold(0, name.length, "${name}의 이야기를 마무리하시겠어요?")
                 setItemViewType(position)
             }
         }
     }
 
     private fun initData() {
-        rainbowViewModel.getHelpInfo()
-        rainbowViewModel.getRainbowInfo()
+        rainbowViewModel.getRainbowHome()
+        rainbowViewModel.getFarewellSelect()
     }
 
-    private fun observeHelpInfo() {
-        rainbowViewModel.helpInfo.observe(viewLifecycleOwner) {
-            helpAdapter.data = it
+    private fun observeFarewellSelect() {
+        rainbowViewModel.farewellAnimalList.observe(viewLifecycleOwner) {
+            farewellAdapter.data = it
         }
     }
 
     private fun observeRainbowInfo() {
-        rainbowViewModel.rainbowInfo.observe(viewLifecycleOwner) {
-            it.apply {
+        rainbowViewModel.rainbowHomeInfo.observe(viewLifecycleOwner) {
+            it.data.rainbowMainPage.apply {
                 with(binding) {
-                    for (i in 1..diaryList.size) {
-                        if (i == 1) {
-                            bvRainbow.setLeftRainbow(diaryList[i - 1])
-                        } else
-                            bvRainbow.setRightRainbow(diaryList[i - 1])
+                    tvRainbow.text = title
+
+                    for (i in 1..memories.size) {
+                        if(memories[i - 1] != null) {
+                            if (i == 1) {
+                                bvRainbow.setLeftRainbow(memories[i - 1])
+                                bvRainbow.setLeftPageClickListener {
+                                    startActivity(
+                                        Intent(
+                                            requireContext(),
+                                            DiaryReadActivity::class.java
+                                        )
+                                    )
+                                }
+                            } else {
+                                bvRainbow.setRightRainbow(memories[i - 1])
+                                bvRainbow.setRightPageClickListener {
+                                    startActivity(
+                                        Intent(
+                                            requireContext(),
+                                            DiaryReadActivity::class.java
+                                        )
+                                    )
+                                }
+                            }
+                        }
                     }
+
+                    Glide.with(civProfile).load(bookImg).into(civProfile)
+
+                    helpAdapter.data = help
                 }
             }
         }

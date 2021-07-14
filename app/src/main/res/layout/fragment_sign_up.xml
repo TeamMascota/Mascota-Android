@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.view.signup.SignUpFragment">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_ment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="28dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/ment"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="59dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="24dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    android:text="@string/email"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ment" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_input_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_email"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_email"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:hint="@string/input_id"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="10dp"
+                        android:paddingVertical="10dp"
+                        android:textColor="@color/maco_black"
+                        android:textColorHint="@color/maco_light_gray"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_id"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_id"
+                        app:layout_constraintTop_toBottomOf="@+id/et_email" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="24dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    android:text="@string/pwd"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_input_id" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_input_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginHorizontal="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_pwd"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/et_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:hint="@string/input_pw"
+                        android:inputType="textPassword"
+                        android:paddingStart="10dp"
+                        android:paddingVertical="10dp"
+                        android:textColor="@color/maco_black"
+                        android:textColorHint="@color/maco_light_gray"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_pwd_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
+                        app:layout_constraintTop_toBottomOf="@+id/et_pwd"
+                        tools:textColor="@color/maco_blue" />
+
+                    <ImageButton
+                        android:id="@+id/btn_pwd_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:visibility="gone"
+                        android:clickable="false"
+                        android:layout_marginVertical="7dp"
+                        android:layout_marginEnd="5dp"
+                        app:layout_constraintEnd_toEndOf="@+id/et_pwd"
+                        app:layout_constraintTop_toTopOf="@+id/cl_input_pwd"
+                        android:background="@drawable/ic_icon_success3" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_re_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    android:text="@string/re_pwe"
+                    android:textColor="@color/maco_dark_gray"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/cl_input_pwd"
+                    app:layout_constraintTop_toBottomOf="@+id/cl_input_pwd" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_input_re_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginHorizontal="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_re_pwd"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/et_re_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rectangle_bottom_orange_3"
+                        android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                        android:hint="@string/re_pwe"
+                        android:inputType="textPassword"
+                        android:paddingStart="10dp"
+                        android:paddingVertical="10dp"
+                        android:textColor="@color/maco_black"
+                        android:textColorHint="@color/maco_light_gray"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_re_pwd"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_re_pwd_msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@+id/cl_input_re_pwd"
+                        app:layout_constraintTop_toBottomOf="@+id/et_re_pwd"
+                        tools:textColor="@color/maco_blue" />
+
+                    <ImageButton
+                        android:id="@+id/btn_re_pwd_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:visibility="gone"
+                        android:layout_marginVertical="7dp"
+                        android:layout_marginEnd="5dp"
+                        android:clickable="false"
+                        app:layout_constraintEnd_toEndOf="@+id/et_re_pwd"
+                        app:layout_constraintTop_toTopOf="@+id/et_re_pwd"
+                        android:background="@drawable/ic_icon_success3"  />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

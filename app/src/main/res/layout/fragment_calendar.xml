@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="authorInfoData"
-            type="org.mascota.ui.view.calendar.data.model.AuthorInfoData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +20,6 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="26dp"
             android:fontFamily="@font/noto_sans_cjk_kr_bold"
-            android:text="@{authorInfoData.name}"
             android:textColor="@color/maco_orange"
             android:textSize="23sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,23 +53,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="18dp"
             android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:text="@{authorInfoData.recordNum}"
+            android:text="@string/start_story_record"
             android:textColor="@color/maco_dark_gray"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/iv_pencil"
-            app:layout_constraintTop_toBottomOf="@+id/tv_past_day"
-            tools:text="@string/day162" />
-
-        <TextView
-            android:id="@+id/tv_record"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:text="@string/num_record"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_num"
-            app:layout_constraintStart_toEndOf="@+id/tv_num" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_past_day" />
 
         <TextView
             android:id="@+id/tv_switch_part_1"
@@ -111,7 +95,7 @@
             android:id="@+id/cl_record"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectangle_bottom_orange_3"
             android:paddingHorizontal="9dp"
@@ -134,11 +118,10 @@
                 android:id="@+id/tv_pet_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{authorInfoData.petName}"
+                android:text="@string/hero_pet"
                 android:textAppearance="@style/CalendarRecordTextStyle"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_today"
-                app:layout_constraintStart_toEndOf="@+id/tv_today"
-                tools:text="@string/cobong" />
+                app:layout_constraintStart_toEndOf="@+id/tv_today" />
 
             <TextView
                 android:id="@+id/tv_what_day"
