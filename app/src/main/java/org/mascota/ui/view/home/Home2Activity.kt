@@ -10,6 +10,7 @@ import org.mascota.ui.MainActivity
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.ContentDetailActivity
 import org.mascota.ui.view.content.edit.ContentEditActivity
+import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.diary.DiaryWriteActivity.Companion.PART1
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
@@ -28,8 +29,14 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
         initBookView()
         setEditBtnClickListener()
         movePartTwo()
+        navigateDiaryWriteActivity()
     }
 
+    private fun navigateDiaryWriteActivity() {
+        binding.bvHome.setWriteBtnClickListener{
+            startActivity(Intent(this, DiaryWriteActivity::class.java))
+        }
+    }
 
     private fun initColorFilter() {
         binding.ivBookImg.setImgBackgroundFilter()

@@ -9,6 +9,7 @@ import org.mascota.databinding.FragmentHomeBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.content.detail.ContentDetailActivity
 import org.mascota.ui.view.content.edit.ContentEditActivity
+import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.diary.DiaryWriteActivity.Companion.PART1
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
@@ -24,6 +25,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         setEditBtnClickListener()
         observeHomePart1()
         checkPartData()
+        navigateDiaryWriteActivity()
     }
 
     private fun checkPartData() {
@@ -72,6 +74,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun observeHomePart2() {
 
+    }
+
+    private fun navigateDiaryWriteActivity() {
+        binding.bvHome.setWriteBtnClickListener{
+            startActivity(Intent(requireContext(), DiaryWriteActivity::class.java))
+        }
     }
 
     companion object {

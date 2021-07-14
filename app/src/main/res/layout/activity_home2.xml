@@ -95,7 +95,7 @@
                     android:layout_marginBottom="37dp"
                     app:bookStrokeColor="@color/maco_orange"
                     app:layout_constraintBottom_toTopOf="@id/cl_content"
-                    app:layout_constraintDimensionRatio="343:220"
+                    app:layout_constraintDimensionRatio="328:212"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
