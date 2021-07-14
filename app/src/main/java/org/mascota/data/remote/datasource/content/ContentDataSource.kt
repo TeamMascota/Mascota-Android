@@ -18,7 +18,7 @@ interface ContentDataSource {
     suspend fun putContentEdit(path: String, body: ReqContent): ResContentEdit
 
     //DELETE Content Delete
-    suspend fun deleteContent(path: String, body: ReqContentDelete): ResContentDelete
+    suspend fun deleteContent(path: String): ResContentDelete
 
     //GET Content Detail Part2
     suspend fun getContentDetailPart2(path: String): ResContentDetail

@@ -8,7 +8,7 @@ import retrofit2.http.*
 
 interface ContentService {
     //GET Content Detail
-    @GET("chapter/pet/:{chapterId}")
+    @GET("chapter/pet/{chapterId}")
     suspend fun getContentDetail(
         @Path("chapterId") chapterId: String
     ): ResContentDetail
@@ -27,17 +27,16 @@ interface ContentService {
     ): ResContentAdd
 
     //PUT Content Edit
-    @PUT("chapter/:{chapterId}")
+    @PUT("chapter/{chapterId}")
     suspend fun putContentEdit(
         @Path("chapterId") chapterId: String,
         @Body body: ReqContent
     ) : ResContentEdit
 
     //DELETE Content Delete
-    @DELETE("chapter/:{chapterId}")
+    @DELETE("chapter/{chapterId}")
     suspend fun deleteContent(
         @Path("chapterId") chapterId: String,
-        @Body body: ReqContentDelete
     ) : ResContentDelete
 
     //GET Content Detail Part2
