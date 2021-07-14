@@ -7,6 +7,7 @@
         <variable
             name="isHome"
             type="Boolean" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="petname"
+            type="org.mascota.data.remote.model.response.rainbow.ResPetName" />
 
     </data>
 
@@ -111,7 +114,22 @@
                     android:textColor="@color/maco_gray"
                     app:layout_constraintStart_toStartOf="@+id/tv_farewell_last"
                     app:layout_constraintTop_toBottomOf="@+id/tv_farewell_last"
+                    tools:text="@{petname.Data.name}" />
+
+
+                <TextView
+                    android:id="@+id/tv_talk_pet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="6dp"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/maco_gray"
+                    app:layout_constraintTop_toTopOf="@+id/tv_pet"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_pet"
+                    app:layout_constraintStart_toEndOf="@+id/tv_pet"
                     tools:text="@string/talk_pet" />
+
+
 
                 <TextView
                     android:id="@+id/tv_writer_story"
@@ -119,11 +137,36 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/talk_writer_story"
+                    android:text="@string/talk_pet2"
                     android:textAppearance="@style/TextBody2Style"
                     android:textColor="@color/maco_gray"
                     app:layout_constraintStart_toStartOf="@+id/tv_pet"
                     app:layout_constraintTop_toBottomOf="@+id/tv_pet" />
+
+                <TextView
+                    android:id="@+id/tv_pet2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/maco_gray"
+                    app:layout_constraintTop_toTopOf="@+id/tv_writer_story"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_writer_story"
+                    app:layout_constraintStart_toEndOf="@+id/tv_writer_story"
+                    tools:text="@{petname.Data.name}" />
+
+
+                <TextView
+                    android:id="@+id/tv_talk_pet3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="6dp"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/maco_gray"
+                    app:layout_constraintTop_toTopOf="@+id/tv_pet2"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_pet2"
+                    app:layout_constraintStart_toEndOf="@+id/tv_pet2"
+                    tools:text="@string/talk_pet3" />
 
                 <TextView
                     android:id="@+id/tv_epilogue_title"
