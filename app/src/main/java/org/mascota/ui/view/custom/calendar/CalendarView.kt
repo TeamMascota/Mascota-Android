@@ -2,18 +2,22 @@ package org.mascota.ui.view.custom.calendar
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.transition.TransitionManager
 import androidx.viewpager2.widget.ViewPager2
+import kotlinx.coroutines.*
 import org.mascota.R
+import org.mascota.data.remote.model.response.calendar.ResCalendar
 import org.mascota.databinding.LayoutCalendarTopBinding
-import org.mascota.ui.view.calendar.CalendarFragment
-import org.mascota.ui.view.calendar.data.model.CalendarData
 import org.mascota.ui.view.custom.adapter.CalendarViewPagerAdapter
 import org.mascota.ui.view.custom.adapter.CalendarViewPagerAdapter.Companion.MAX_ITEM_COUNT
 import org.mascota.util.CalendarUtil.convertCalendarToString
@@ -23,58 +27,44 @@ import java.util.*
 class CalendarView(
     context: Context, attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
-    private val _dateData = mutableListOf<CalendarData>()
-    var dateData: List<CalendarData> = _dateData
-        set(value) {
-            _dateData.clear()
-            _dateData.addAll(value)
-        }
-
-
     private val _curCalendar = MutableLiveData<Calendar>()
     private val curCalendar: LiveData<Calendar>
         get() = _curCalendar
 
+    private val calendarData = MutableLiveData<ResCalendar>()
+
+    fun setCalendarData(data: ResCalendar) {
+        calendarData.postValue(data)
+    }
+
+    private fun setAdapterData(data : ResCalendar) {
+        calendarViewPagerAdapter.setDateData(data)
+        calendarViewPagerAdapter.notifyDataSetChanged()
+    }
+
     fun setCurCalendar(calendar: Calendar) {
         _curCalendar.postValue(calendar)
     }
+
+    private val fragmentViewLifecycleOwner
+        get() = findFragment<Fragment>().viewLifecycleOwner
 
     private var monthNextButtonClickListener: (() -> Unit)? = null
     private var monthPrevButtonClickListener: (() -> Unit)? = null
     private var yearNextButtonClickListener: (() -> Unit)? = null
     private var yearPrevButtonClickListener: (() -> Unit)? = null
 
-    private val calendarViewPagerAdapter = CalendarViewPagerAdapter(
-        listOf(
-            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-            CalendarData(CalendarFragment.DOG_SAD, "0", true),
-            CalendarData(CalendarFragment.DOG_USUAL, "0", true),
-            CalendarData(CalendarFragment.EMPTY, "0", true),
-            CalendarData(CalendarFragment.DOG_LOVE, "4", false),
-            CalendarData(CalendarFragment.EMPTY, "0", true),
-            CalendarData(CalendarFragment.DOG_BORING, "0", true),
-            CalendarData(CalendarFragment.DOG_JOY, "3", false),
-            CalendarData(CalendarFragment.EMPTY, "0", true),
-            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-            CalendarData(CalendarFragment.EMPTY, "0", true),
-            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-            CalendarData(CalendarFragment.DOG_ANGRY, "3", false),
-            CalendarData(CalendarFragment.EMPTY, "0", true),
-            CalendarData(CalendarFragment.DOG_LOVE, "0", true),
-            CalendarData(CalendarFragment.DOG_ANGRY, "3", false)
-        )
-    )
+    private lateinit var calendarViewPagerAdapter : CalendarViewPagerAdapter
 
     private val calendarTopView
         get() = createCalendarTopView()
-    private val calendarViewPager = createViewPager()
+    private lateinit var calendarViewPager : ViewPager2
 
     private lateinit var layoutCalendarTopBinding: LayoutCalendarTopBinding
 
     init {
         orientation = VERTICAL
         addView(calendarTopView)
-        addView(calendarViewPager)
     }
 
     private fun createCalendarTopView(): View {
@@ -100,24 +90,28 @@ class CalendarView(
                 monthNextButtonClickListener?.invoke()
                 newPosition = calendarViewPager.currentItem + 1
                 calendarViewPager.currentItem = newPosition
+                //setAdapterData(requireNotNull(calendarData))
                 setCalendar(requireNotNull(curCalendar.value))
             }
             ibMonthPrev.setOnClickListener {
                 monthPrevButtonClickListener?.invoke()
                 newPosition = calendarViewPager.currentItem - 1
                 calendarViewPager.currentItem = newPosition
+                //setAdapterData(requireNotNull(calendarData))
                 setCalendar(requireNotNull(curCalendar.value))
             }
             ibYearNext.setOnClickListener {
                 yearNextButtonClickListener?.invoke()
                 newPosition = calendarViewPager.currentItem + 12
                 calendarViewPager.currentItem = newPosition
+                //setAdapterData(requireNotNull(calendarData))
                 setCalendar(requireNotNull(curCalendar.value))
             }
             ibYearPrev.setOnClickListener {
                 yearPrevButtonClickListener?.invoke()
                 newPosition = calendarViewPager.currentItem - 12
                 calendarViewPager.currentItem = newPosition
+                //setAdapterData(requireNotNull(calendarData))
                 setCalendar(requireNotNull(curCalendar.value))
             }
         }
@@ -156,6 +150,27 @@ class CalendarView(
 
     fun setYearPrevButtonClickListener(listener: () -> Unit) {
         yearPrevButtonClickListener = listener
+    }
+
+    private val scope = CoroutineScope(Job() + Dispatchers.Main)
+    private lateinit var lazyPagerAddJob: Job
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        lazyPagerAddJob = scope.launch {
+            calendarData.toString()
+            calendarViewPagerAdapter = CalendarViewPagerAdapter(fragmentViewLifecycleOwner)
+            calendarViewPager = createViewPager()
+            TransitionManager.beginDelayedTransition(this@CalendarView)
+            addView(calendarViewPager)
+            calendarData.observe(fragmentViewLifecycleOwner){
+                setAdapterData(it)
+            }
+        }
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        lazyPagerAddJob.cancel()
     }
 
     companion object {
