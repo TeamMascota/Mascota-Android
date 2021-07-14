@@ -25,9 +25,9 @@
 
     <!--calendar-->
     <string name="past_day">" 작가님의 지나온 날들"</string>
-    <string name="num_record">번째 기록</string>
+    <string name="start_story_record">이야기 기록하기</string>
     <string name="today_is">"오늘은 "</string>
-    <string name="with_what_day">와 함께 어떤 하루를 보냈나요?</string>
+    <string name="with_what_day">과 함께 어떤 하루를 보냈나요?</string>
     <string name="part1">1부</string>
     <string name="part2">2부</string>
     <string name="monday">월</string>
@@ -37,6 +37,7 @@
     <string name="friday">금</string>
     <string name="saturday">토</string>
     <string name="sunday">일</string>
+    <string name="hero_pet">주인공</string>
 
     <!--home-->
     <string name="content">목차</string>

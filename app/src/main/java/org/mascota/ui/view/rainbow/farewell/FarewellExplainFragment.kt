@@ -45,7 +45,7 @@ class FarewellExplainFragment :
     }
 
     companion object {
-        const val DOG = 0
-        const val CAT = 1
+        const val DOG = 1
+        const val CAT = 2
     }
 }

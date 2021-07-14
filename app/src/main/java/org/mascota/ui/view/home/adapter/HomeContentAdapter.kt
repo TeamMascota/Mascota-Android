@@ -5,16 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.databinding.ItemContentBinding
-import org.mascota.util.StringUtil.makePartText
+import org.mascota.util.StringUtil.makeChapterText
 import org.mascota.util.StringUtil.makeTotalText
 
 class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>() {
 
     private val _contentList = mutableListOf<ResHomePart1.Data.FirstPartMainPage.TableContent>()
 
-    private var navigateContentDetail: (() -> Unit)? = null
+    private var navigateContentDetail: ((String) -> Unit)? = null
 
-    fun setNavigateContentDetail(setter: () -> Unit) {
+    fun setNavigateContentDetail(setter: (String) -> Unit) {
         navigateContentDetail = setter
     }
 
@@ -44,13 +44,13 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
         fun onBind(tableContent: ResHomePart1.Data.FirstPartMainPage.TableContent) {
             binding.apply {
                 with(tableContent) {
-                    tvChapter.text = makePartText(chapter)
+                    tvChapter.text = makeChapterText(chapter)
                     tvTitle.text = chapterName
                     tvEpisode.text = makeTotalText(episodePerchapterCount)
                 }
             }
             binding.clItemContent.setOnClickListener {
-                navigateContentDetail?.invoke()
+                navigateContentDetail?.invoke(tableContent.chapterId)
             }
         }
     }

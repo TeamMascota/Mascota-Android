@@ -6,7 +6,7 @@ import retrofit2.http.Path
 
 interface CalendarService {
     //GET Calendar
-    @GET("calendar/:{year}/:{month}/:{part}")
+    @GET("calendar/{year}/{month}/{part}")
     suspend fun getCalendar(
         @Path("year") userId: Int,
         @Path("month") month: Int,

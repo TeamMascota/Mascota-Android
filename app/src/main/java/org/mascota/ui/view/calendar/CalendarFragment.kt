@@ -1,12 +1,15 @@
 package org.mascota.ui.view.calendar
 
 import android.content.Intent
+import android.util.Log
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentCalendarBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.viewmodel.CalendarViewModel
+import org.mascota.util.CalendarUtil.initCalendar
+import java.util.*
 
 class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragment_calendar) {
     private val calendarViewModel: CalendarViewModel by viewModel()
@@ -17,7 +20,6 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
         initPart()
         initData()
         initCalendar()
-        observeAuthorInfo()
         observeCurCalendar()
         observeDateItem()
     }
@@ -45,24 +47,24 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
 
     private fun initData() {
         calendarViewModel.getAuthorInfo()
-        calendarViewModel.getDateItem()
-    }
-
-    private fun observeAuthorInfo() {
-        calendarViewModel.authorInfo.observe(viewLifecycleOwner) {
-            binding.authorInfoData = it
-        }
+        calendarViewModel.getDateItem(calendarViewModel.nowCalendar)
     }
 
     private fun observeCurCalendar() {
-        calendarViewModel.curCalendar.observe(viewLifecycleOwner) {
-            binding.calendar.setCurCalendar(it)
+        calendarViewModel.apply {
+            curCalendar.observe(viewLifecycleOwner) {
+                binding.calendar.setCurCalendar(it)
+                getDateItem(it)
+            }
         }
     }
 
     private fun observeDateItem() {
         calendarViewModel.dateItem.observe(viewLifecycleOwner) {
-            binding.calendar.dateData = it
+            binding.apply {
+                calendar.setCalendarData(it)
+                tvName.text = it.data.name
+            }
         }
     }
 
@@ -72,10 +74,18 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
 
             with(calendar) {
                 calendarViewModel.apply {
-                    setMonthNextButtonClickListener { addMonth() }
-                    setMonthPrevButtonClickListener { minusMonth() }
-                    setYearNextButtonClickListener { addYear() }
-                    setYearPrevButtonClickListener { minusYear() }
+                    setMonthNextButtonClickListener {
+                        addMonth()
+                    }
+                    setMonthPrevButtonClickListener {
+                        minusMonth()
+                    }
+                    setYearNextButtonClickListener {
+                        addYear()
+                    }
+                    setYearPrevButtonClickListener {
+                        minusYear()
+                    }
                 }
             }
         }
@@ -91,13 +101,20 @@ class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragm
         startActivity(Intent(requireActivity(), DiaryWriteActivity::class.java))
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("Ddfd", "dfddfd")
+        calendarViewModel.nowCalendar = initCalendar(Calendar.getInstance(Locale.KOREA))
+        calendarViewModel.setCalendar()
+    }
+
     companion object {
-        const val DOG_ANGRY = 1
-        const val DOG_BORING = 2
-        const val DOG_JOY = 3
-        const val DOG_LOVE = 4
-        const val DOG_SAD = 5
-        const val DOG_USUAL = 6
-        const val EMPTY = 7
+        const val ANIMAL_ANGRY = 4
+        const val ANIMAL_BORING = 5
+        const val ANIMAL_JOY = 1
+        const val ANIMAL_LOVE = 0
+        const val ANIMAL_SAD = 3
+        const val ANIMAL_USUAL = 2
+        const val EMPTY = 100
     }
 }

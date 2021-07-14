@@ -6,6 +6,7 @@ import androidx.core.content.edit
 
 object MascotaSharedPreference {
     private const val USER_ID = "USER_ID"
+    private const val PET_ID = "PET_ID"
     private const val PART = "PART"
 
     lateinit var preferences: SharedPreferences
@@ -16,6 +17,15 @@ object MascotaSharedPreference {
 
     fun getUserId(): String {
         return preferences.getString(USER_ID, "60edf1b7a95c4a2a8c64c6ba") ?: "60edf1b7a95c4a2a8c64c6ba"
+    }
+
+    fun getPetId(): String {
+        return preferences.getString(USER_ID, "60edf6e5e5003a744892ce39") ?: "60edf6e5e5003a744892ce39"
+    }
+
+    fun setPetId(value: String) {
+        preferences.edit().putString(PET_ID, value).apply()
+
     }
 
     fun setUserId(value: String) {
