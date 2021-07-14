@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View" />
+        <variable
+            name="isPictureExist"
+            type="Boolean" />
+        <variable
+            name="isPictures"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -126,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="17dp"
-                android:src="@drawable/ic_back_small"
+                android:background="@drawable/selector_back_small"
                 app:layout_constraintEnd_toStartOf="@id/btn_right"
                 app:layout_constraintTop_toBottomOf="@id/cl_date" />
 
@@ -135,9 +141,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
-                android:src="@drawable/ic_next_small"
+                android:background="@drawable/selector_next_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/btn_left" />
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mascota_logo_orange"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cl_date"
+                app:layout_constraintBottom_toTopOf="@id/tv_content"
+                android:layout_marginTop="190dp"
+                android:layout_marginBottom="156dp"
+                android:visibility="@{isPictureExist? View.INVISIBLE : View.VISIBLE}"/>
+
+
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vp_pet_img"
@@ -148,7 +169,8 @@
                 app:layout_constraintDimensionRatio="343:300"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_left" />
+                app:layout_constraintTop_toBottomOf="@id/btn_left"
+                android:visibility="@{isPictureExist? View.VISIBLE : View.INVISIBLE}"/>
 
             <ImageView
                 android:id="@+id/iv_pictures"
@@ -156,8 +178,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_pictures"
                 app:layout_constraintBottom_toBottomOf="@id/vp_pet_img"
-                app:layout_constraintEnd_toEndOf="@id/vp_pet_img" />
+                app:layout_constraintEnd_toEndOf="@id/vp_pet_img"
+                android:visibility="@{isPictures? View.VISIBLE : View.INVISIBLE}"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_emotion"
@@ -192,6 +216,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="16dp"
+                android:paddingTop="15dp"
+                android:textAppearance="@style/TextBody1Style"
+                android:textColor="@color/maco_dark_gray"
+                android:paddingHorizontal="22dp"
                 android:background="@drawable/rectangle_orange_top_radius_3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spring_dots_indicator" />
