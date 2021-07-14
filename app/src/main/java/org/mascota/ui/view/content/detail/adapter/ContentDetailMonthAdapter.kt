@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.R
+import org.mascota.data.remote.model.response.content.ResContentDetail
 import org.mascota.databinding.ItemDiaryMonthBinding
 import org.mascota.ui.view.content.detail.SwipeHelperCallback
-import org.mascota.ui.view.content.detail.data.model.ContentMonthInfoData
+import org.mascota.util.StringUtil.makeMonthText
 import org.mascota.util.StringUtil.makeTotalText
 import org.mascota.util.dp
 import org.mascota.util.extension.setTextPartialColor
@@ -16,7 +17,7 @@ import org.mascota.util.extension.setTextPartialColor
 class ContentDetailMonthAdapter :
     RecyclerView.Adapter<ContentDetailMonthAdapter.ContentDetailMonthViewHolder>() {
 
-    private val _contentMonthList = mutableListOf<ContentMonthInfoData>()
+    private val _contentMonthList = mutableListOf<ResContentDetail.Data.PetChapterDiary.Monthly>()
 
     private var navigateDiaryReadListener: (() -> Unit)? = null
 
@@ -24,7 +25,7 @@ class ContentDetailMonthAdapter :
         navigateDiaryReadListener = listener
     }
 
-    var contentMonthList: List<ContentMonthInfoData> = _contentMonthList
+    var contentMonthList: List<ResContentDetail.Data.PetChapterDiary.Monthly> = _contentMonthList
         set(value) {
             _contentMonthList.clear()
             _contentMonthList.addAll(value)
@@ -53,16 +54,16 @@ class ContentDetailMonthAdapter :
         val binding: ItemDiaryMonthBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("ClickableViewAccessibility")
-        fun onBind(contentMonthInfoData: ContentMonthInfoData) {
-            binding.contentMonthDataInfo = contentMonthInfoData
+        fun onBind(monthly: ResContentDetail.Data.PetChapterDiary.Monthly) {
+            binding.tvMonth.text = makeMonthText(monthly.month)
             binding.tvTotal.text = binding.tvTotal.setTextPartialColor(
                 R.color.maco_orange,
                 2,
-                2 + contentMonthInfoData.total.toString().length,
-                makeTotalText(contentMonthInfoData.total)
+                2 + monthly.episodePerMonthCount.toString().length,
+                makeTotalText(monthly.episodePerMonthCount)
             )
             ContentDetailDiaryAdapter().apply {
-                contentDiaryList = contentMonthInfoData.diaryList
+                contentDiaryList = monthly.diaries
                 binding.rvContentDiary.adapter = this
                 val swipeHelperCallback = SwipeHelperCallback()
                 swipeHelperCallback.apply {

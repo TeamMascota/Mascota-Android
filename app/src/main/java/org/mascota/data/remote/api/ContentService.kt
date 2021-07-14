@@ -40,7 +40,7 @@ interface ContentService {
     ) : ResContentDelete
 
     //GET Content Detail Part2
-    @GET("secondPart/chapter/user/:{chapterId}")
+    @GET("secondPart/chapter/user/{chapterId}")
     suspend fun getContentDetailPart2(
         @Path("chapterId") chapterId: String
     ): ResContentDetail
@@ -58,14 +58,14 @@ interface ContentService {
 
 
     //PUT Content Edit Part2
-    @PUT("secondPart/chapter/:{chapterId}")
+    @PUT("secondPart/chapter/{chapterId}")
     suspend fun putContentEditPart2(
         @Path("chapterId") chapterId: String,
         @Body body: ReqContent
     ) : ResContentEdit
 
     //DELETE Content Delete
-    @DELETE("secondPart/chapter/:{chapterId}")
+    @DELETE("secondPart/chapter/{chapterId}")
     suspend fun deleteContentPart2(
         @Path("chapterId") chapterId: String,
         @Body body: ReqContentDelete
