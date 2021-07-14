@@ -26,12 +26,14 @@ abstract class BindingFragment<T : ViewDataBinding>(
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
+
+        initView()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
+
     }
 
     override fun onDestroyView() {
