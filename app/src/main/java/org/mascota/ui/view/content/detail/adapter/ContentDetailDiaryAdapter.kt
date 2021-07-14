@@ -13,9 +13,9 @@ class ContentDetailDiaryAdapter :
 
     private val _contentDiaryList = mutableListOf<ResContentDetail.Data.PetChapterDiary.Monthly.Diary>()
 
-    private var diaryClickListener: (() -> Unit)? = null
+    private var diaryClickListener: ((String) -> Unit)? = null
 
-    fun setDiaryClickListener(listener: () -> Unit) {
+    fun setDiaryClickListener(listener: (String) -> Unit) {
         diaryClickListener = listener
     }
 
@@ -55,9 +55,9 @@ class ContentDetailDiaryAdapter :
                     date.length,
                     date + "\n" + weekday
                 )
-            }
-            binding.clItemDiary.setOnClickListener {
-                diaryClickListener?.invoke()
+                binding.clItemDiary.setOnClickListener {
+                    diaryClickListener?.invoke(diaryId)
+                }
             }
         }
     }

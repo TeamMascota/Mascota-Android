@@ -41,7 +41,9 @@ class ContentDetailActivity :
         contentDetailMonthAdapter = ContentDetailMonthAdapter()
         binding.rvContentMonth.adapter = contentDetailMonthAdapter
         contentDetailMonthAdapter.setNavigateDiaryReadListener {
-            startActivity(Intent(this, DiaryReadActivity::class.java))
+            val intent = Intent(this, DiaryReadActivity::class.java)
+            intent.putStringArrayListExtra("petDiaryIdList", arrayListOf(it))
+            startActivity(intent)
         }
     }
 
