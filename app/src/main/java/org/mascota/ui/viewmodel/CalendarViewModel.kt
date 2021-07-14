@@ -1,39 +1,40 @@
 package org.mascota.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import org.mascota.data.local.MascotaSharedPreference.getPart
+import org.mascota.data.remote.model.response.calendar.ResCalendar
 import org.mascota.data.repository.calendar.CalendarRepository
 import org.mascota.ui.view.calendar.data.datasource.AuthorDataSource
-import org.mascota.ui.view.calendar.data.datasource.TempCalendarDataSource
 import org.mascota.ui.view.calendar.data.model.AuthorInfoData
-import org.mascota.ui.view.calendar.data.model.CalendarData
 import org.mascota.util.CalendarUtil.initCalendar
 import java.util.*
 
 class CalendarViewModel(
     private val calendarRepository: CalendarRepository,
-    private val authorDataSource: AuthorDataSource,
-    private val tempCalendarDataSource: TempCalendarDataSource
+    private val authorDataSource: AuthorDataSource
 ) : ViewModel() {
-    private val nowCalendar = initCalendar(Calendar.getInstance(Locale.KOREA))
+    var nowCalendar = initCalendar(Calendar.getInstance(Locale.KOREA))
     private val _authorInfo = MutableLiveData<AuthorInfoData>()
     val authorInfo: LiveData<AuthorInfoData>
         get() = _authorInfo
 
-    private val _dateItem = MutableLiveData<List<CalendarData>>()
-    val dateItem: LiveData<List<CalendarData>>
+    private val _dateItem = MutableLiveData<ResCalendar>()
+    val dateItem: LiveData<ResCalendar>
         get() = _dateItem
 
-    private val _curCalendar = MutableLiveData<Calendar>()
+    private val _curCalendar = MutableLiveData(nowCalendar)
     val curCalendar: LiveData<Calendar>
         get() = _curCalendar
 
     fun getAuthorInfo() = viewModelScope.launch {
         runCatching { authorDataSource.getAuthorInfoData() }
             .onSuccess {
+                Log.d("tets", "fsdasdfa")
                 _authorInfo.postValue(it)
             }
             .onFailure {
@@ -41,14 +42,18 @@ class CalendarViewModel(
             }
     }
 
-    fun getDateItem() = viewModelScope.launch {
-        runCatching { tempCalendarDataSource.getCalendarData() }
-            .onSuccess {
-                _dateItem.postValue(it)
+    fun getDateItem(calendar: Calendar) = viewModelScope.launch {
+        runCatching {
+            with(calendar) {
+                calendarRepository.getCalendar(
+                    get(Calendar.YEAR),
+                    get(Calendar.MONTH) + 1,
+                    getPart()
+                )
             }
-            .onFailure {
-                it.printStackTrace()
-            }
+        }.onSuccess {
+            _dateItem.postValue(it)
+        }.onFailure { it.printStackTrace() }
     }
 
     fun setCalendar() {
