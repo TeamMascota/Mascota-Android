@@ -3,7 +3,6 @@ package org.mascota.data.remote.api
 import org.mascota.data.remote.model.request.content.ReqContent
 import org.mascota.data.remote.model.request.content.ReqContentDelete
 import org.mascota.data.remote.model.response.content.*
-import org.mascota.data.remote.model.response.diary.ResDiaryRead
 import retrofit2.http.*
 
 interface ContentService {
@@ -14,7 +13,7 @@ interface ContentService {
     ): ResContentDetail
 
     //GET Content List
-    @GET("chapter/chapter/{userId}")
+    @GET("chapter/{userId}")
     suspend fun getContentList(
         @Path("userId") userId: String
     ): ResContentList
