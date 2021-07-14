@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getUserId
+import org.mascota.data.remote.model.response.rainbow.ResBestMoment
+import org.mascota.data.remote.model.response.rainbow.ResPetName
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.data.repository.rainbow.RainbowRepository
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
@@ -16,6 +18,13 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     val rainbowHomeInfo: LiveData<ResRainbowHome>
         get() = _rainbowHomeInfo
 
+    private val _bestMoment =MutableLiveData<ResBestMoment>()
+    val bestMoment : MutableLiveData<ResBestMoment>
+        get() = _bestMoment
+
+    private val _petName = MutableLiveData<ResPetName>()
+    val petName : MutableLiveData<ResPetName>
+    get() = _petName
 
 
     /*private val _loveMoment =MutableLiveData<RainbowInfoData>()
@@ -44,6 +53,8 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     private val _boringMoment = MutableLiveData<RainbowInfoData>()
     val boringMoment : MutableLiveData<RainbowInfoData>
     get() = _boringMoment
+
+
 
     fun getSadMoment() = viewModelScope.launch {
         kotlin.runCatching { tempRainbowDataSource.getSadMomentData() }
@@ -108,6 +119,30 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
             }
     }*/
 
+
+    fun getBestMoment() = viewModelScope.launch {
+        //    //GET Rainbow Best Moment
+        //    suspend fun getRainbowBestMoment(userId: String, petId: String): ResBestMoment
+        kotlin.runCatching { rainbowRepository.getRainbowBestMoment(getUserId(), "60ed4359e5003a744892ce2b")}
+            .onSuccess {
+                _bestMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    fun getPetName() = viewModelScope.launch {
+        //    //GET Rainbow Pet Name
+        //    suspend fun getRainbowPetName(petId: String): ResPetName
+        kotlin.runCatching { rainbowRepository.getRainbowPetName("60ed4359e5003a744892ce2b") }
+            .onSuccess {
+                _petName.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
 
     private val _petInfo = MutableLiveData<PetInfoData>()
     val petInfo: LiveData<PetInfoData>
