@@ -1,6 +1,7 @@
 package org.mascota.ui.view.content.edit
 
 import android.app.Dialog
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import androidx.core.widget.addTextChangedListener
@@ -13,12 +14,8 @@ import org.mascota.databinding.LayoutHelpMessageDialogBinding
 import org.mascota.databinding.LayoutMascotaDialogBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.edit.adapter.ContentEditAdapter
-import org.mascota.ui.view.content.edit.data.datasource.LocalContentEditDataSource
-import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.ContentViewModel
-import org.mascota.ui.viewmodel.HomeViewModel
 import org.mascota.util.DialogUtil
-import org.mascota.util.EventObserver
 import org.mascota.util.StringUtil
 import org.mascota.util.StringUtil.setTextPartialBold
 
@@ -53,10 +50,16 @@ class ContentEditActivity :
         contentViewModel.getResContentList()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getResContentList()
+    }
+
     private fun observeResContentList() {
         contentViewModel.resContentList.observe(this) {
-            contentEditAdapter.contentEditList = it.tableContents.subList(1, it.tableContents.size - 1)
-            binding.tvPrologTitle.text = it.tableContents[0].chapterTitle
+            Log.d("listCount", "${it.data.tableContents.size}")
+            contentEditAdapter.contentEditList = it.data.tableContents.subList(1, it.data.tableContents.size - 1)
+            binding.tvPrologTitle.text = it.data.tableContents[0].chapterTitle
         }
     }
 
@@ -157,6 +160,7 @@ class ContentEditActivity :
             }
             tvNext.setOnClickListener {
                 contentViewModel.deleteContent()
+                contentViewModel.getResContentList()
                 deleteDialog.dismiss()
                 deleteCompleteDialog.show()
             }
@@ -176,6 +180,7 @@ class ContentEditActivity :
             tvAdd.setOnClickListener {
                 contentViewModel.postChapterTitle(etContent.text.toString())
                 contentViewModel.postContentAdd()
+                contentViewModel.getResContentList()
                 addDialog.dismiss()
             }
         }
@@ -190,6 +195,7 @@ class ContentEditActivity :
             tvAdd.setOnClickListener {
                 contentViewModel.postChapterTitle(etContent.text.toString())
                 contentViewModel.putContentEdit()
+                contentViewModel.getResContentList()
                 editDialog.dismiss()
             }
         }

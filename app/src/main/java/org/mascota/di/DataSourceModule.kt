@@ -17,15 +17,12 @@ import org.mascota.data.remote.datasource.user.RemoteUserDataSource
 import org.mascota.data.remote.datasource.user.UserDataSource
 import org.mascota.ui.view.calendar.data.datasource.AuthorDataSource
 import org.mascota.ui.view.calendar.data.datasource.LocalAuthorDataSource
-import org.mascota.ui.view.content.detail.data.datasource.ContentDetailDataSource
-import org.mascota.ui.view.content.detail.data.datasource.LocalContentDetailDataSource
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
 import org.mascota.ui.view.rainbow.farewell.data.datasource.LocalFarewellDataSource
 
 
 val dataSourceModule = module {
     single<AuthorDataSource> { LocalAuthorDataSource() }
-    single<ContentDetailDataSource> { LocalContentDetailDataSource() }
     single<FarewellDataSource> { LocalFarewellDataSource() }
 
     //remote

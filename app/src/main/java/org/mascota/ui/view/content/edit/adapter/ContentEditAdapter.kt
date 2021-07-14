@@ -22,9 +22,9 @@ class ContentEditAdapter : RecyclerView.Adapter<ContentEditAdapter.ContentEditVi
         editClickLister = listener
     }
 
-    private val _contentEditList = mutableListOf<ResContentList.TableContent>()
+    private val _contentEditList = mutableListOf<ResContentList.Data.TableContent>()
 
-    var contentEditList: List<ResContentList.TableContent> = _contentEditList
+    var contentEditList: List<ResContentList.Data.TableContent> = _contentEditList
         set(value) {
             _contentEditList.clear()
             _contentEditList.addAll(value)
@@ -47,16 +47,17 @@ class ContentEditAdapter : RecyclerView.Adapter<ContentEditAdapter.ContentEditVi
     inner class ContentEditViewHolder(
         private val binding: ItemContentEditBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(content: ResContentList.TableContent) {
+        fun onBind(content: ResContentList.Data.TableContent) {
             content.apply {
-                binding.contentEditInfoData = ContentEditInfoData(chapter, chapterTitle)
+                val testTitle: String = chapterTitle?: "테스트 서버가 타이틀 안줌.."
+                binding.contentEditInfoData = ContentEditInfoData(chapter, testTitle)
                 binding.tvDelete.setOnClickListener {
-                    deleteClickListener?.invoke(makeChapterText(chapter) + " " + chapterTitle, chapterId)
+                    deleteClickListener?.invoke(makeChapterText(chapter) + " " + testTitle, chapterId)
                 }
                 binding.tvEdit.setOnClickListener {
                     editClickLister?.invoke(
                         makeChapterText(chapter),
-                        chapterTitle,
+                        testTitle,
                         chapterId
                     )
                 }
