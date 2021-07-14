@@ -17,45 +17,45 @@ interface RainbowService {
     suspend fun getFarewellSelect(): ResFarewellSelect
 
     //PUT Rainbow Content
-    @PUT("rainbow/pet/:{petId}")
+    @PUT("rainbow/pet/{petId}")
     suspend fun putRainbowContent(
         @Path("petId") petId: String
     ): ResRainbowContent
 
     //DELETE Rainbow Quit
-    @DELETE("rainbow/pet/:{petId}")
+    @DELETE("rainbow/pet/{petId}")
     suspend fun deleteFarewellQuit(
         @Path("petId") petId: String
     ): ResFarewellQuit
 
     //GET Rainbow Book
-    @GET("rainbow/record/:{petId}")
+    @GET("rainbow/record/{petId}")
     suspend fun getRainbowBook(
         @Path("userId") userId: String,
         @Path("petId") petId: String
     ): ResRainbowBook
 
     //GET Rainbow Best Moment
-    @GET("rainbow/moment/:{userId}/:{petId}")
+    @GET("rainbow/moment/{userId}/{petId}")
     suspend fun getRainbowBestMoment(
         @Path("userId") userId: String,
         @Path("petId") petId: String
     ): ResBestMoment
 
     //GET Rainbow Pet Name
-    @GET("rainbow/parting/pet/:{petId}")
+    @GET("rainbow/parting/pet/{petId}")
     suspend fun getRainbowPetName(
         @Path("petId") petId: String
     ): ResPetName
 
     //POST Rainbow Epilogue
-    @POST("rainbow/epilogue/:{userId}/:{petId}")
+    @POST("rainbow/epilogue/{userId}/{petId}")
     suspend fun postRainbowEpilogue(
         @Body body: ReqRainbowEpilogue
     ): ResRainbowEpilogue
 
     //GET Sub Home
-    @GET("rainbow/moment/sub/:{petId}")
+    @GET("rainbow/moment/sub/{petId}")
     suspend fun getRainbowSubHome(
         @Path("userId") userId: String,
         @Path("petId") petId: String

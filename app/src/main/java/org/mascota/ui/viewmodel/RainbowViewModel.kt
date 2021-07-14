@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getPetId
 import org.mascota.data.local.MascotaSharedPreference.getUserId
+import org.mascota.data.remote.model.response.rainbow.ResBestMoment
+import org.mascota.data.remote.model.response.rainbow.ResPetName
 import org.mascota.data.remote.model.response.rainbow.ResFarewellSelect
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.data.repository.rainbow.RainbowRepository
@@ -17,6 +19,14 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     private val _rainbowHomeInfo = MutableLiveData<ResRainbowHome>()
     val rainbowHomeInfo: LiveData<ResRainbowHome>
         get() = _rainbowHomeInfo
+
+    private val _bestMoment =MutableLiveData<ResBestMoment>()
+    val bestMoment : MutableLiveData<ResBestMoment>
+        get() = _bestMoment
+
+    private val _petName = MutableLiveData<ResPetName>()
+    val petName : MutableLiveData<ResPetName>
+    get() = _petName
 
     private val _farewellAnimalList = MutableLiveData<List<ResFarewellSelect.Data>>()
     val farewellAnimalList: LiveData<List<ResFarewellSelect.Data>>
@@ -113,6 +123,30 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     }*/
 
 
+    fun getBestMoment() = viewModelScope.launch {
+        //    //GET Rainbow Best Moment
+        //    suspend fun getRainbowBestMoment(userId: String, petId: String): ResBestMoment
+        kotlin.runCatching { rainbowRepository.getRainbowBestMoment(getUserId(), "60ed4359e5003a744892ce2b")}
+            .onSuccess {
+                _bestMoment.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    fun getPetName() = viewModelScope.launch {
+        //    //GET Rainbow Pet Name
+        //    suspend fun getRainbowPetName(petId: String): ResPetName
+        kotlin.runCatching { rainbowRepository.getRainbowPetName("60ed4359e5003a744892ce2b") }
+            .onSuccess {
+                _petName.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
     private val _petInfo = MutableLiveData<PetInfoData>()
     val petInfo: LiveData<PetInfoData>
         get() = _petInfo
@@ -146,4 +180,5 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
                 it.printStackTrace()
             }
     }
+
 }

@@ -1,6 +1,7 @@
 package org.mascota.ui.view.rainbow.farewell
 
 import android.app.Dialog
+import android.content.Intent
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
@@ -11,6 +12,7 @@ import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.adapter.MascotaViewPagerAdapter
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.FIRST_PAGE
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.SECOND_PAGE
+import org.mascota.ui.view.rainbow.epilogue.EpilogueWriteActivity
 import org.mascota.util.DialogUtil
 import org.mascota.util.StatusBarUtil.setStatusBarColor
 
@@ -56,7 +58,7 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
                     when (currentItem) {
                         FIRST_PAGE -> setCurrentItem(SECOND_PAGE, false)
                         SECOND_PAGE -> setCurrentItem(THIRD_PAGE, false)
-                        else -> true
+                        else -> startActivity(Intent(this@FarewellActivity, EpilogueWriteActivity::class.java))
                     }
                 }
 

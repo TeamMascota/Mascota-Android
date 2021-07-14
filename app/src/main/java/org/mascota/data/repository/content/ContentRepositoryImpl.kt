@@ -14,7 +14,7 @@ class ContentRepositoryImpl(private val remoteDataSource: ContentDataSource) : C
 
     override suspend fun putContentEdit(path: String, body: ReqContent): ResContentEdit = remoteDataSource.putContentEdit(path, body)
 
-    override suspend fun deleteContent(path: String, body: ReqContentDelete): ResContentDelete = remoteDataSource.deleteContent(path, body)
+    override suspend fun deleteContent(path: String): ResContentDelete = remoteDataSource.deleteContent(path)
 
     override suspend fun getContentDetailPart2(path: String): ResContentDetail = remoteDataSource.getContentDetailPart2(path)
 

@@ -25,6 +25,7 @@ object MascotaSharedPreference {
 
     fun setPetId(value: String) {
         preferences.edit().putString(PET_ID, value).apply()
+
     }
 
     fun setUserId(value: String) {

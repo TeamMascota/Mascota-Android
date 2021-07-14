@@ -58,4 +58,6 @@ object StringUtil {
     }
 
     fun makeChapterText(chapter: Int) : String = "제 ${chapter}장"
+
+    fun makeMonthText(month: Int) : String = "${month}월"
 }

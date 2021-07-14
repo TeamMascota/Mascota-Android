@@ -35,9 +35,6 @@ class BookView @JvmOverloads constructor(
     private lateinit var lineView: View
     private lateinit var bottomLineView: View
 
-    private var rainbowLeftPageClickListener : (() -> Unit) ?= null
-    private var rainbowRightPageClickListener : (() -> Unit) ?= null
-
     init {
         addView(createCustomView())
         setLeftDiaryFlag(false)
