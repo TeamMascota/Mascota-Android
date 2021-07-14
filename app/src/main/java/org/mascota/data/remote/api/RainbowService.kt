@@ -6,7 +6,7 @@ import retrofit2.http.*
 
 interface RainbowService {
     //GET Rainbow Home
-    @GET("rainbow/main/:{userId}/:{petId}")
+    @GET("rainbow/main/{userId}/{petId}")
     suspend fun getRainbowHome(
         @Path("userId") userId: String,
         @Path("petId") petId: String
