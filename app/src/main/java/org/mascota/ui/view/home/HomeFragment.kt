@@ -37,7 +37,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         homeContentAdapter = HomeContentAdapter()
         binding.rvContent.adapter = homeContentAdapter
         homeContentAdapter.setNavigateContentDetail {
-            startActivity(Intent(requireContext(), ContentDetailActivity::class.java))
+            val intent = Intent(requireContext(), ContentDetailActivity::class.java)
+            intent.putExtra("chapterId", it)
+            startActivity(intent)
         }
         binding.rvContent.isNestedScrollingEnabled = false
     }

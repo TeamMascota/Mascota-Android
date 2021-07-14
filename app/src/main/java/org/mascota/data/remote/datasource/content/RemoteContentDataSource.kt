@@ -17,8 +17,8 @@ class RemoteContentDataSource(private val service: ContentService) : ContentData
     override suspend fun putContentEdit(path: String, body: ReqContent): ResContentEdit =
         service.putContentEdit(path, body)
 
-    override suspend fun deleteContent(path: String, body: ReqContentDelete): ResContentDelete =
-        service.deleteContent(path, body)
+    override suspend fun deleteContent(path: String): ResContentDelete =
+        service.deleteContent(path)
 
     override suspend fun getContentDetailPart2(path: String): ResContentDetail =
         service.getContentDetailPart2(path)
