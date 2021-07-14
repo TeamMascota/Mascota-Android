@@ -249,4 +249,7 @@
     <string name="write_story">이야기 작성</string>
     <string name="image_upload">사진 업로드</string>
 
+    <!--home2-->
+    <string name="publish_date">발행일</string>
+
 </resources>
