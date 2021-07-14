@@ -8,40 +8,40 @@ import retrofit2.http.*
 
 interface ContentService {
     //GET Content Detail
-    @GET("chapter/pet/:{chapterId}")
+    @GET("chapter/pet/{chapterId}")
     suspend fun getContentDetail(
         @Path("chapterId") chapterId: String
     ): ResContentDetail
 
     //GET Content List
-    @GET("chapter/chapter/:{userId}")
+    @GET("chapter/chapter/{userId}")
     suspend fun getContentList(
         @Path("userId") userId: String
     ): ResContentList
 
     //POST Content Add
-    @POST("chapter/:{userId}")
+    @POST("chapter/{userId}")
     suspend fun postContentAdd(
         @Path("userId") userId: String,
         @Body body: ReqContent
     ): ResContentAdd
 
     //PUT Content Edit
-    @PUT("chapter/:{chapterId}")
+    @PUT("chapter/{chapterId}")
     suspend fun putContentEdit(
         @Path("chapterId") chapterId: String,
         @Body body: ReqContent
     ) : ResContentEdit
 
     //DELETE Content Delete
-    @DELETE("chapter/:{chapterId}")
+    @DELETE("chapter/{chapterId}")
     suspend fun deleteContent(
         @Path("chapterId") chapterId: String,
         @Body body: ReqContentDelete
     ) : ResContentDelete
 
     //GET Content Detail Part2
-    @GET("secondPart/chapter/user/:{chapterId}")
+    @GET("secondPart/chapter/user/{chapterId}")
     suspend fun getContentDetailPart2(
         @Path("chapterId") chapterId: String
     ): ResContentDetail
@@ -59,14 +59,14 @@ interface ContentService {
 
 
     //PUT Content Edit Part2
-    @PUT("secondPart/chapter/:{chapterId}")
+    @PUT("secondPart/chapter/{chapterId}")
     suspend fun putContentEditPart2(
         @Path("chapterId") chapterId: String,
         @Body body: ReqContent
     ) : ResContentEdit
 
     //DELETE Content Delete
-    @DELETE("secondPart/chapter/:{chapterId}")
+    @DELETE("secondPart/chapter/{chapterId}")
     suspend fun deleteContentPart2(
         @Path("chapterId") chapterId: String,
         @Body body: ReqContentDelete

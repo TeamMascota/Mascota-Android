@@ -6,22 +6,35 @@ import org.mascota.R
 import org.mascota.databinding.ActivityContentDetailBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.adapter.ContentDetailMonthAdapter
-import org.mascota.ui.viewmodel.ContentViewModel
 import org.mascota.ui.view.diary.read.DiaryReadActivity
+import org.mascota.ui.viewmodel.ContentViewModel
+import org.mascota.util.StringUtil.makeChapterText
 
-class ContentDetailActivity : BindingActivity<ActivityContentDetailBinding>(R.layout.activity_content_detail) {
-    private val contentViewModel : ContentViewModel by viewModel()
+class ContentDetailActivity :
+    BindingActivity<ActivityContentDetailBinding>(R.layout.activity_content_detail) {
+    private val contentViewModel: ContentViewModel by viewModel()
     private lateinit var contentDetailMonthAdapter: ContentDetailMonthAdapter
 
     override fun initView() {
-        getContentMonthInfo()
+        getResContentDetail()
         initContentDetailMonthAdapter()
-        observeContentDetailMonthInfo()
+        observeResContentDetail()
         setBackBtnClickListener()
     }
 
-    private fun getContentMonthInfo() {
-        contentViewModel.getContentDetailMonthInfo()
+    private fun getResContentDetail() {
+        contentViewModel.getContentDetail(intent.getStringExtra("chapterId").toString())
+    }
+
+    private fun observeResContentDetail() {
+        contentViewModel.resContentDetail.observe(this) {
+            it.data.petChapterDiary.apply {
+                contentDetailMonthAdapter.contentMonthList = monthly
+                binding.tvChapter.text = makeChapterText(chapter)
+                binding.tvTitle.text = chapterTitle
+            }
+
+        }
     }
 
     private fun initContentDetailMonthAdapter() {
@@ -29,12 +42,6 @@ class ContentDetailActivity : BindingActivity<ActivityContentDetailBinding>(R.la
         binding.rvContentMonth.adapter = contentDetailMonthAdapter
         contentDetailMonthAdapter.setNavigateDiaryReadListener {
             startActivity(Intent(this, DiaryReadActivity::class.java))
-        }
-    }
-
-    private fun observeContentDetailMonthInfo() {
-        contentViewModel.contentDetailMonth.observe(this) {
-            contentDetailMonthAdapter.contentMonthList = it
         }
     }
 
