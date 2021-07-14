@@ -15,7 +15,7 @@ object MascotaSharedPreference {
     }
 
     fun getUserId(): String {
-        return preferences.getString(USER_ID, "60ed286ee8071256280e0fe7") ?: "60ed286ee8071256280e0fe7"
+        return preferences.getString(USER_ID, "60edf1b7a95c4a2a8c64c6ba") ?: "60edf1b7a95c4a2a8c64c6ba"
     }
 
     fun setUserId(value: String) {
