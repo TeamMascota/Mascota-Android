@@ -6,8 +6,11 @@
     <data>
         <import type="android.view.View"/>
         <variable
+            name="isEmpty"
+            type="Boolean" />
+        <variable
             name="dateItem"
-            type="org.mascota.ui.view.calendar.data.model.CalendarData" />
+            type="org.mascota.data.remote.model.response.calendar.ResCalendar.Data.Calendar.Date" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,28 +45,28 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_dog_usual"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tv_day"
             app:layout_constraintStart_toStartOf="@+id/tv_day"
             app:layout_constraintTop_toBottomOf="@+id/tv_day"
-            app:imgEmo="@{dateItem.emo}"
-            tools:src="@drawable/ic_dog_usual" />
+            app:emo="@{dateItem.feeling}"
+            app:species="@{dateItem.kind}"
+            tools:src="@drawable/ic_empty" />
 
         <TextView
             android:id="@+id/tv_record_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textSize="12sp"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:paddingHorizontal="6dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginBottom="19dp"
             android:background="@drawable/oval_orange_alpha_90"
-            android:text="@{dateItem.recordSize}"
+            android:fontFamily="@font/noto_sans_cjk_kr_regular"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="6dp"
+            android:text="@string/one"
             android:textColor="@color/maco_white"
-            android:layout_marginStart="18dp"
-            android:layout_marginBottom="16dp"
-            app:isEmpty="@{dateItem.empty}"
+            android:textSize="12sp"
+            app:isEmpty="@{isEmpty}"
             app:layout_constraintBottom_toBottomOf="@+id/iv_emo"
             app:layout_constraintStart_toStartOf="@+id/iv_emo"
             tools:text="@string/one" />

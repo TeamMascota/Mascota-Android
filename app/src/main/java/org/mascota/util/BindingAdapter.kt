@@ -9,13 +9,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import org.mascota.R
-import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_ANGRY
-import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_BORING
-import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_JOY
-import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_LOVE
-import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_SAD
-import org.mascota.ui.view.calendar.CalendarFragment.Companion.DOG_USUAL
-import org.mascota.ui.view.calendar.CalendarFragment.Companion.EMPTY
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_ANGRY
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_BORING
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_JOY
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_LOVE
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_SAD
+import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_USUAL
 import org.mascota.ui.view.content.detail.adapter.ContentDetailDiaryAdapter
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.CAT
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.DOG
@@ -29,32 +28,28 @@ object BindingAdapter {
     fun setDogEmo(image: ImageView, emo: Int?) {
         with(image) {
             when (emo) {
-                DOG_SAD -> {
+                ANIMAL_SAD -> {
                     setImageResource(R.drawable.ic_dog_sad)
                     visibility = View.VISIBLE
                 }
-                DOG_ANGRY -> {
+                ANIMAL_ANGRY -> {
                     setImageResource(R.drawable.ic_dog_angry)
                     visibility = View.VISIBLE
                 }
-                DOG_BORING -> {
+                ANIMAL_BORING -> {
                     setImageResource(R.drawable.ic_dog_boring)
                     visibility = View.VISIBLE
                 }
-                DOG_JOY -> {
+                ANIMAL_JOY -> {
                     setImageResource(R.drawable.ic_dog_joy)
                     visibility = View.VISIBLE
                 }
-                DOG_LOVE -> {
+                ANIMAL_LOVE -> {
                     setImageResource(R.drawable.ic_dog_love)
                     visibility = View.VISIBLE
                 }
-                DOG_USUAL -> {
+                ANIMAL_USUAL -> {
                     setImageResource(R.drawable.ic_dog_usual)
-                    visibility = View.VISIBLE
-                }
-                EMPTY -> {
-                    setImageResource(R.drawable.ic_empty)
                     visibility = View.VISIBLE
                 }
                 else -> visibility = View.INVISIBLE
@@ -69,31 +64,31 @@ object BindingAdapter {
             when (species) {
                 DOG -> {
                     when (emo) {
-                        DOG_SAD -> {
+                        ANIMAL_SAD -> {
                             setImageResource(R.drawable.ic_dog_sad)
                             visibility = View.VISIBLE
                         }
-                        DOG_ANGRY -> {
+                        ANIMAL_ANGRY -> {
                             setImageResource(R.drawable.ic_dog_angry)
                             visibility = View.VISIBLE
                         }
-                        DOG_BORING -> {
+                        ANIMAL_BORING -> {
                             setImageResource(R.drawable.ic_dog_boring)
                             visibility = View.VISIBLE
                         }
-                        DOG_JOY -> {
+                        ANIMAL_JOY -> {
                             setImageResource(R.drawable.ic_dog_joy)
                             visibility = View.VISIBLE
                         }
-                        DOG_LOVE -> {
+                        ANIMAL_LOVE -> {
                             setImageResource(R.drawable.ic_dog_love)
                             visibility = View.VISIBLE
                         }
-                        DOG_USUAL -> {
+                        ANIMAL_USUAL -> {
                             setImageResource(R.drawable.ic_dog_usual)
                             visibility = View.VISIBLE
                         }
-                        EMPTY -> {
+                        TODAY_EMPTY -> {
                             setImageResource(R.drawable.ic_empty)
                             visibility = View.VISIBLE
                         }
@@ -102,31 +97,31 @@ object BindingAdapter {
                 }
                 CAT -> {
                     when (emo) {
-                        DOG_SAD -> {
-                            setImageResource(R.drawable.ic_dog_sad)
+                        ANIMAL_SAD -> {
+                            setImageResource(R.drawable.ic_cat_sad)
                             visibility = View.VISIBLE
                         }
-                        DOG_ANGRY -> {
-                            setImageResource(R.drawable.ic_dog_angry)
+                        ANIMAL_ANGRY -> {
+                            setImageResource(R.drawable.ic_cat_angry)
                             visibility = View.VISIBLE
                         }
-                        DOG_BORING -> {
-                            setImageResource(R.drawable.ic_dog_boring)
+                        ANIMAL_BORING -> {
+                            setImageResource(R.drawable.ic_cat_boring)
                             visibility = View.VISIBLE
                         }
-                        DOG_JOY -> {
-                            setImageResource(R.drawable.ic_dog_joy)
+                        ANIMAL_JOY -> {
+                            setImageResource(R.drawable.ic_cat_joy)
                             visibility = View.VISIBLE
                         }
-                        DOG_LOVE -> {
-                            setImageResource(R.drawable.ic_dog_love)
+                        ANIMAL_LOVE -> {
+                            setImageResource(R.drawable.ic_cat_love)
                             visibility = View.VISIBLE
                         }
-                        DOG_USUAL -> {
-                            setImageResource(R.drawable.ic_dog_usual)
+                        ANIMAL_USUAL -> {
+                            setImageResource(R.drawable.ic_cat_usual)
                             visibility = View.VISIBLE
                         }
-                        EMPTY -> {
+                        TODAY_EMPTY -> {
                             setImageResource(R.drawable.ic_empty)
                             visibility = View.VISIBLE
                         }
@@ -136,30 +131,30 @@ object BindingAdapter {
                 else -> {
                     when (emo) {
                         DENY -> {
-                            setImageResource(R.drawable.selector_human_deny)
+                            setImageResource(R.drawable.ic_human_deny)
                             visibility = View.VISIBLE
                         }
                         ANGRY -> {
-                            setImageResource(R.drawable.selector_human_angry)
+                            setImageResource(R.drawable.ic_human_angry)
                             visibility = View.VISIBLE
                         }
                         REGRET -> {
-                            setImageResource(R.drawable.selector_human_regret)
+                            setImageResource(R.drawable.ic_human_regret)
                             visibility = View.VISIBLE
                         }
                         LOSS -> {
-                            setImageResource(R.drawable.selector_human_loss)
+                            setImageResource(R.drawable.ic_human_loss)
                             visibility = View.VISIBLE
                         }
                         SAD -> {
-                            setImageResource(R.drawable.selector_human_sad)
+                            setImageResource(R.drawable.ic_human_sad)
                             visibility = View.VISIBLE
                         }
                         ACCEPT -> {
-                            setImageResource(R.drawable.selector_human_accept)
+                            setImageResource(R.drawable.ic_human_accept)
                             visibility = View.VISIBLE
                         }
-                        EMPTY -> {
+                        TODAY_EMPTY -> {
                             setImageResource(R.drawable.ic_empty)
                             visibility = View.VISIBLE
                         }
@@ -272,11 +267,12 @@ object BindingAdapter {
         ).into(imageView)
     }
 
-    const val PERSON = 2
-    const val DENY = 0
-    const val ANGRY = 1
-    const val REGRET = 2
-    const val LOSS = 3
-    const val SAD = 4
-    const val ACCEPT = 5
+    const val PERSON = 0
+    const val DENY = 6
+    const val ANGRY = 7
+    const val REGRET = 8
+    const val LOSS = 9
+    const val SAD = 10
+    const val ACCEPT = 11
+    const val TODAY_EMPTY = 101
 }
