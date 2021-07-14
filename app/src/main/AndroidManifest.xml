@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.view.home.Home2Activity"></activity>
+        <activity android:name=".ui.view.home.Home2Activity"
+            android:exported="true"/>
         <activity
             android:name=".ui.view.rainbow.epilogue.EpilogueWriteActivity"
             android:exported="true" />
