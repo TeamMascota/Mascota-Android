@@ -1,18 +1,21 @@
 package org.mascota.ui.view.custom.book
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.TypedArray
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import org.mascota.R
 import org.mascota.R.styleable.CustomBookView
 import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.databinding.ViewCustomBookBinding
+import org.mascota.ui.view.diary.read.DiaryReadActivity
 import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
 import org.mascota.util.CalendarUtil.convertCalendarToBeFamilyDateString
 import org.mascota.util.CalendarUtil.convertCalendarToStoryDateString
@@ -31,6 +34,9 @@ class BookView @JvmOverloads constructor(
     private lateinit var topBookView: View
     private lateinit var lineView: View
     private lateinit var bottomLineView: View
+
+    private var rainbowLeftPageClickListener : (() -> Unit) ?= null
+    private var rainbowRightPageClickListener : (() -> Unit) ?= null
 
     init {
         addView(createCustomView())
@@ -51,6 +57,14 @@ class BookView @JvmOverloads constructor(
             lineView = midLine
             bottomLineView = midBottomLine
         }
+    }
+
+    fun setLeftPageClickListener(listener : () -> Unit) {
+        rainbowLeftPageClickListener = listener
+    }
+
+    fun setRightPageClickListener(listener : () -> Unit) {
+        rainbowRightPageClickListener = listener
     }
 
     fun setLeftPart1Diary(diaryPart1Info: ResHomePart1.Data.FirstPartMainPage.Diary) {
@@ -74,14 +88,24 @@ class BookView @JvmOverloads constructor(
             tvDate.text = convertCalendarToBeFamilyDateString(calendar)
             clDiary.visibility = View.VISIBLE
             ivLogo.visibility = View.GONE
+
+            clDiary.setOnClickListener {
+                rainbowLeftPageClickListener?.invoke()
+            }
         }
     }
 
     fun setRightRainbow(rainbowDiaryInfoData: ResRainbowHome.Data.RainbowMainPage.Memory) {
         viewCustomBookBinding.layoutRainbowRightPage.apply {
             rainbowDiaryInfo = rainbowDiaryInfoData
+            val calendar = convertStringToCalendar(rainbowDiaryInfoData.date)
+            tvStory.text = convertCalendarToStoryDateString(calendar)
+            tvDate.text = convertCalendarToBeFamilyDateString(calendar)
             clDiary.visibility = View.VISIBLE
             ivLogo.visibility = View.GONE
+            clDiary.setOnClickListener {
+                rainbowRightPageClickListener?.invoke()
+            }
         }
     }
 
