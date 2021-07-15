@@ -32,7 +32,7 @@
             android:windowSoftInputMode="adjustPan" />
 
 
-        <activity android:name=".ui.view.rainbow.farewell.FarewellActivity" />
+        <activity android:name=".ui.view.rainbow.farewell.FarewellActivity"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
