@@ -23,7 +23,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private lateinit var homeContentAdapter: HomeContentAdapter
 
     override fun initView() {
-        MascotaSharedPreference.setPart(2)
+
         val part =  MascotaSharedPreference.getPart()
 
         initColorFilter()
