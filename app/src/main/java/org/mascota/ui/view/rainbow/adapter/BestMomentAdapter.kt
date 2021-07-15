@@ -4,13 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.data.remote.model.response.rainbow.ResBestMoment
+import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.databinding.ItemMomentBinding
+import org.mascota.ui.view.rainbow.farewell.data.model.BestMomentInfoData
 
 class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewHolder>() {
 
+    lateinit var emo : Pair<Int, Int>
 
-    private val _data = mutableListOf<Pair<ResBestMoment.Data.TheBestMoment, ResBestMoment.Data.TheBestMoment>>()
-    var data: List<Pair<ResBestMoment.Data.TheBestMoment, ResBestMoment.Data.TheBestMoment>> = _data
+    private val _data = mutableListOf<Pair<ResBestMoment.Data.TheBestMoment.Diary, ResBestMoment.Data.TheBestMoment.Diary>>()
+    var data: List<Pair<ResBestMoment.Data.TheBestMoment.Diary, ResBestMoment.Data.TheBestMoment.Diary>> = _data
         set(value) {
             _data.clear()
             _data.addAll(value)
@@ -40,20 +43,18 @@ class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewH
 
     inner class BestMomentViewHolder(private val binding: ItemMomentBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data : Pair<ResBestMoment.Data.TheBestMoment, ResBestMoment.Data.TheBestMoment>) {
-            //binding.dvBestMoment.setWhereBookView(IS_RAINBOW)
-            //binding.dvBestMoment.setLeftRainbow(data.first)
-
-
-           // data.first.diaries[1].chapter
-            //data.second
-            //binding.dvBestMoment.setWhereBookView(IS_RAINBOW)
-            //binding.dvBestMoment.setLeftRainbow(rainbowInfoData)
-            //binding.dvBestMoment.setRightRainbow(rainbowInfoData)
-
+        fun bind(data : Pair<ResBestMoment.Data.TheBestMoment.Diary, ResBestMoment.Data.TheBestMoment.Diary>) {
+            data.first.apply {
+                binding.dvBestMoment.setLeftBestMoment(BestMomentInfoData(
+                    chapter, episode, title, contents, date, emo.first, emo.second
+                ))
+            }
+            data.second.apply {
+                binding.dvBestMoment.setRightBestMoment(BestMomentInfoData(
+                    chapter, episode, title, contents, date, emo.first, emo.second
+                ))
+            }
         }
-
-
     }
 
     companion object {

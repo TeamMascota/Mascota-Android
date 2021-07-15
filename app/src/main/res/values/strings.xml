@@ -89,6 +89,7 @@
     <string name="tv_jae">제</string>
     <string name="tv_jang">장</string>
     <string name="tv_hwa">화</string>
+    <string name="verbs">(은)는</string>
 
     <!--profile_create-->
     <string name="total_page">/2</string>

@@ -78,6 +78,18 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_love_explain_verbs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/verbs"
+                    android:textColor="@color/maco_white"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                    app:layout_constraintStart_toEndOf="@id/tv_pet_name_3"
+                    app:layout_constraintTop_toTopOf="@id/tv_pet_name_3"
+                    />
+
+                <TextView
                     android:id="@+id/tv_love_explain_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -371,7 +383,7 @@
                     android:id="@+id/tv_angry_explain_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/usual_explain_1"
+                    android:text="@string/angry_explin"
                     android:textColor="@color/maco_white"
                     android:textSize="14sp"
                     android:fontFamily="@font/noto_sans_cjk_kr_medium"
