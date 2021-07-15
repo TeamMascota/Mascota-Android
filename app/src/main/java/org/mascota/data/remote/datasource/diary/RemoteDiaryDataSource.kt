@@ -11,8 +11,8 @@ class RemoteDiaryDataSource(private val service: DiaryService) : DiaryDataSource
     override suspend fun postPetDiaryWrite(body: ReqPetDiaryWrite): ResPetDiaryWrite =
         service.postPetDiaryWrite(body)
 
-    override suspend fun postPetDiaryRead(path: String): ResDiaryRead =
-        service.postPetDiaryRead(path)
+    override suspend fun getPetDiaryRead(path: String): ResDiaryRead =
+        service.getPetDiaryRead(path)
 
     override suspend fun putPetDiaryEdit(path: String, body: ReqPetDiaryWrite): ResDiaryEdit =
         service.putPetDiaryEdit(path, body)

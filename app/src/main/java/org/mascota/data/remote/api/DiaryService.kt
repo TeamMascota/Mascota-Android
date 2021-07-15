@@ -15,20 +15,20 @@ interface DiaryService {
     ): ResPetDiaryWrite
 
     //GET Diary Read(Pet)
-    @GET("diary/pet/:{petDiaryId}")
-    suspend fun postPetDiaryRead(
+    @GET("diary/pet/{petDiaryId}")
+    suspend fun getPetDiaryRead(
         @Path("petDiaryId") petDiaryId: String
     ): ResDiaryRead
 
     //PUT Diary Edit(Pet)
-    @PUT("diary/pet/:{petDiaryId}")
+    @PUT("diary/pet/{petDiaryId}")
     suspend fun putPetDiaryEdit(
         @Path("petDiaryId") petDiaryId: String,
         @Body body: ReqPetDiaryWrite
     ): ResDiaryEdit
 
     //DELETE Diary Delete(Pet)
-    @DELETE("petDiary/putPetDiary/:{petDiaryId}")
+    @DELETE("petDiary/putPetDiary/{petDiaryId}")
     suspend fun deletePetDiary(
         @Path("petDiaryId") petDiaryId: String,
         @Body body: ReqDiaryDelete
@@ -40,20 +40,20 @@ interface DiaryService {
         @Body body: ReqPersonDiaryWrite
     ): ResPersonDiaryWrite
 
-    @GET("secondPart/diary/user/:{diaryId}")
+    @GET("secondPart/diary/user/{diaryId}")
     suspend fun getPersonDiaryRead(
         @Path("diaryId") diaryId: String
     ) : ResPersonDiaryRead
 
     //PUT Diary Edit(Person)
-    @PUT("diary/user/:{petDiaryId}")
+    @PUT("diary/user/{petDiaryId}")
     suspend fun putPersonDiaryEdit(
         @Path("petDiaryId") petDiaryId: String,
         @Body body: ReqPersonDiaryEdit
     ): ResDiaryEdit
 
     //PUT Diary Delete(Person)
-    @DELETE("userDiary/putUserDiary/:{diaryId}")
+    @DELETE("userDiary/putUserDiary/{diaryId}")
     suspend fun deletePersonDiary(
         @Path("diaryId") diaryId: String,
         @Body body: ReqDiaryDelete

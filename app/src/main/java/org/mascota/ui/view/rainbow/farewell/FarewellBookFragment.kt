@@ -1,14 +1,11 @@
 package org.mascota.ui.view.rainbow.farewell
 
-import android.graphics.Color
-import android.graphics.PorterDuff
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentFarewellBookBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.viewmodel.RainbowViewModel
+import org.mascota.util.ColorFilterUtil.setImgFilter
 import org.mascota.util.StringUtil
 import org.mascota.util.StringUtil.makeAllText
 import org.mascota.util.StringUtil.makeAuthorText
@@ -16,8 +13,6 @@ import org.mascota.util.StringUtil.makeDayText
 import org.mascota.util.StringUtil.makeEpisodeText
 import org.mascota.util.StringUtil.makeNowDay
 import org.mascota.util.StringUtil.makeNowEpisode
-import org.mascota.util.extension.getColor
-import org.mascota.util.extension.setImgBackgroundFilter
 
 class FarewellBookFragment :
     BindingFragment<FragmentFarewellBookBinding>(R.layout.fragment_farewell_book) {
@@ -31,7 +26,7 @@ class FarewellBookFragment :
 
 
     private fun initColorFilter() {
-        binding.ivBookImg.setImgBackgroundFilter()
+        setImgFilter(binding.ivBookImg)
     }
 
     private fun observePetInfo() {

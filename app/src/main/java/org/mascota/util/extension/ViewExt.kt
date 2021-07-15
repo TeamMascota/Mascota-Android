@@ -45,9 +45,5 @@ fun Fragment.setTextPartialColor(@ColorRes res: Int, start : Int, end : Int, tex
     return resultString
 }
 
-fun View.setImgBackgroundFilter(){
-    background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(getColor(R.color.maco_black_alpha_30), BlendModeCompat.SRC_OVER)
-}
-
 @Px
 fun View.px(dp: Int) = (dp * resources.displayMetrics.density).roundToInt()
