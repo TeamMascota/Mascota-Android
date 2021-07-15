@@ -1,5 +1,6 @@
 package org.mascota.ui.view.diary.read
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,9 @@ import org.mascota.data.remote.model.response.diary.ResDiaryRead
 import org.mascota.databinding.ActivityDiaryReadBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.adapter.ContentDetailMonthAdapter
+import org.mascota.ui.view.content.edit.ContentEditActivity
+import org.mascota.ui.view.diary.BottomSheet
+import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.diary.read.adapter.EmotionImageAdapter
 import org.mascota.ui.view.diary.read.adapter.PetImagePagerAdapter
 import org.mascota.ui.view.diary.read.data.datasource.LocalPetImageDataSource
@@ -40,7 +44,32 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
         initEmotionImageAdapter()
         setBackBtnClickListener()
         checkIntentFrom()
+        initClickEditBtn()
     }
+
+
+    private fun initClickEditBtn() {
+        binding.tvEdit.setOnClickListener {
+            showEditBottomSheet()
+        }
+
+    }
+
+    private fun showEditBottomSheet() {
+        val bottomSheet = EditBottomSheet()
+        bottomSheet.setCallbackButtonClickListener {
+            // 내용 수정 버튼 눌렀을 떄
+            startActivity(Intent(this, DiaryWriteActivity::class.java))
+        }
+
+        bottomSheet.setCallbackDeleteBtnClickListener {
+            //내용 삭제 버튼 눌렀을 떄
+            Log.d("다이얼로그 창","나중에 추가해랑")
+        }
+
+        bottomSheet.show(supportFragmentManager.beginTransaction(), bottomSheet.tag)
+    }
+
 
     private fun observeResPetDiaryRead() {
         diaryViewModel.diaryReadPet.observe(this){
@@ -175,4 +204,8 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
             postPetDiaryId(id)
         }
     }
+
+
+
+
 }
