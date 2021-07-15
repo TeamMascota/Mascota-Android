@@ -8,8 +8,8 @@ import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getPetId
 import org.mascota.data.local.MascotaSharedPreference.getUserId
 import org.mascota.data.remote.model.response.rainbow.ResBestMoment
-import org.mascota.data.remote.model.response.rainbow.ResPetName
 import org.mascota.data.remote.model.response.rainbow.ResFarewellSelect
+import org.mascota.data.remote.model.response.rainbow.ResPetName
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.data.repository.rainbow.RainbowRepository
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
@@ -138,7 +138,7 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     fun getPetName() = viewModelScope.launch {
         //    //GET Rainbow Pet Name
         //    suspend fun getRainbowPetName(petId: String): ResPetName
-        kotlin.runCatching { rainbowRepository.getRainbowPetName("60ed4359e5003a744892ce2b") }
+        kotlin.runCatching { rainbowRepository.getRainbowPetName("60edf6e5e5003a744892ce39") }
             .onSuccess {
                 _petName.postValue(it)
             }

@@ -19,9 +19,15 @@ class EpilogueWriteActivity :
 
     override fun initView() {
         setStatusBarColor(getColor(R.color.maco_blue))
-        initPetName()
+      //  initPetName()
         initTextChangeEvent()
         getPetName()
+    }
+
+
+    private fun showHint(){
+
+        binding.etEpilogue.setText(R.string.end_story)
     }
 
     private fun getPetName(){
@@ -30,6 +36,9 @@ class EpilogueWriteActivity :
             binding.tvPet.text = it.data.name
             binding.tvPet2.text = it.data.name
            binding.petname  = it
+
+            val hint = it.data.name + getString(R.string.end_story)
+            binding.etEpilogue.hint = hint
                     //petnameinfo.data.name = it.data.name
         }
     }
