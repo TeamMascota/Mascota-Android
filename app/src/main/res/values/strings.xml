@@ -98,6 +98,7 @@
     <string name="hero_register">주인공 등록</string>
     <string name="book_register">책 등록</string>
     <string name="total_name_size">/6)</string>
+    <string name="current_complete_pet">"현재 작성 완료된 반려동물 주인공 "</string>
     <string name="current_pet">"현재 등록된 반려동물 주인공 "</string>
     <string name="num">마리</string>
     <string name="plz_input_pet_name">반려동물의 이름을 입력해 주세요</string>
@@ -123,7 +124,9 @@
     <string name="profile_photo_register">프로필 사진 등록하기</string>
     <string name="album_photo">앨범에서 사진 선택</string>
     <string name="photo_delete">사진 삭제</string>
+    <string name="profile_delete">프로필 삭제</string>
     <string name="quit">취소</string>
+    <string name="profile_alert">지금 작성 중인 프로필부터 작성 완료해야\n주인공을 추가할 수 있습니다</string>
 
     <!--content-->
     <string name="content_edit">목차 편집</string>

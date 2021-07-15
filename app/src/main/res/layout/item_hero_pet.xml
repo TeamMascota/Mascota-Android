@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
-        <variable
-            name="isEmptyImgVisible"
-            type="Boolean" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,16 +24,6 @@
             <include
                 android:id="@+id/layout_empty_image"
                 layout="@layout/layout_empty_image"
-                android:visibility="@{isEmptyImgVisible? View.VISIBLE : View.GONE}"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_hero"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <include
-                android:id="@+id/layout_plus_image"
-                layout="@layout/layout_plus_image"
-                android:visibility="@{isEmptyImgVisible? View.GONE : View.VISIBLE}"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toTopOf="@+id/tv_hero"
@@ -58,9 +45,15 @@
 
             <ImageView
                 android:id="@+id/iv_pet_img"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toTopOf="@+id/tv_hero"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/ic_dog_boring" />
         </androidx.constraintlayout.widget.ConstraintLayout>

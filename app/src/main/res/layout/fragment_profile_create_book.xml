@@ -43,6 +43,21 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:srcCompat="@drawable/rectangle_fill_orange_left_3" />
 
+                    <ImageView
+                        android:id="@+id/iv_book_cover"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:scaleType="fitXY"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:background="@drawable/cat2" />
+
                     <View
                         android:id="@+id/line"
                         android:layout_width="0dp"
@@ -309,6 +324,7 @@
                     android:layout_marginBottom="12dp"
                     android:ems="10"
                     android:padding="10dp"
+                    android:gravity="top|start"
                     android:hint="@string/now_cobong_what_life"
                     android:textColor="@color/maco_black"
                     android:textColorHint="@color/maco_light_gray"

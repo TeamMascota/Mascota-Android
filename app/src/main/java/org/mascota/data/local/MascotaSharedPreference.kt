@@ -8,6 +8,7 @@ object MascotaSharedPreference {
     private const val USER_ID = "USER_ID"
     private const val PET_ID = "PET_ID"
     private const val PART = "PART"
+    private const val IS_PROFILE_CREATE = "IS_PROFILE_CREATE"
 
     lateinit var preferences: SharedPreferences
 
@@ -30,6 +31,14 @@ object MascotaSharedPreference {
 
     fun setUserId(value: String) {
         preferences.edit().putString(USER_ID, value).apply()
+    }
+
+    fun getIsProfileCreate(value: Boolean) {
+        preferences.getBoolean(IS_PROFILE_CREATE, false)
+    }
+
+    fun setIsProfileCreate(value: Boolean) {
+        preferences.edit().putBoolean(USER_ID, value).apply()
     }
 
     fun getPart(): Int = preferences.getInt(PART, 1)

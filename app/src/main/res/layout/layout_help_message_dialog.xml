@@ -39,6 +39,7 @@
             android:layout_marginStart="29dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="28dp"
+            android:lineSpacingExtra="6dp"
             android:gravity="center"
             android:text="@string/help_explain"
             android:textAppearance="@style/TextBody2Style"

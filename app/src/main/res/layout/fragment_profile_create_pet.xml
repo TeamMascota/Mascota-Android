@@ -22,30 +22,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_pet"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="43dp"
-                    android:layout_marginBottom="11dp"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_current_pet"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:listitem="@layout/item_hero_pet" />
-
                 <TextView
                     android:id="@+id/tv_current_pet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="186dp"
-                    android:text="@string/current_pet"
+                    android:text="@string/current_complete_pet"
                     android:textAppearance="@style/TextBody2Style"
                     android:textColor="@color/maco_gray"
-                    app:layout_constraintStart_toStartOf="@+id/rv_pet"
+                    app:layout_constraintStart_toStartOf="@+id/sv_profile"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -235,6 +220,7 @@
                     android:id="@+id/cl_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="27dp"
                     android:background="@drawable/selector_profile_et"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -248,22 +234,91 @@
                         android:layout_marginStart="9dp"
                         android:text="@string/yyyy_mm_dd"
                         android:textAppearance="@style/TextBody2Style"
-                        android:textColor="@color/maco_light_gray"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                        app:layout_constraintStart_toEndOf="@+id/imageView" />
+                        android:textColor="@color/selector_date_text"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_calendar"
+                        app:layout_constraintStart_toEndOf="@+id/iv_calendar" />
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/iv_calendar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
+                        android:background="@drawable/selector_calendar"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_calendar_off" />
+                        app:layout_constraintTop_toTopOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <HorizontalScrollView
+                    android:id="@+id/sv_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="43dp"
+                    android:layout_marginBottom="11dp"
+                    android:scrollbars="none"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_current_pet"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_pet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_hero_pet" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_plus"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="12dp"
+                            android:background="@drawable/rectangle_fill_ivory_border_gray_3"
+                            app:layout_constraintBottom_toBottomOf="@+id/rv_pet"
+                            app:layout_constraintDimensionRatio="100:132"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/rv_pet"
+                            app:layout_constraintTop_toTopOf="@+id/rv_pet">
+
+                            <ImageView
+                                android:id="@+id/iv_plus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintBottom_toTopOf="@+id/tv_hero"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_plus" />
+
+                            <TextView
+                                android:id="@+id/tv_hero"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/selector_profile_bottom_btn"
+                                android:gravity="center"
+                                android:paddingVertical="6dp"
+                                android:textAppearance="@style/TextBody2Style"
+                                android:textColor="@color/maco_white"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:text="@string/pet1" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
