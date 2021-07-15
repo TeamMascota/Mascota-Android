@@ -1,9 +1,12 @@
 package org.mascota.ui.view.profile.adapteer
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import org.mascota.databinding.ItemHeroPetBinding
 import org.mascota.ui.view.profile.data.model.ResHero
 import org.mascota.util.StringUtil.makeHeroNumbering
@@ -12,8 +15,8 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
     private var itemClickListener: ((Int, Boolean) -> Unit) ?= null
     private var quitBtnClickListener: ((Int) -> Unit) ?= null
     private var isSelectedViewType = 0
-    private val _data = mutableListOf<ResHero>()
-    var data: List<ResHero> = _data
+    private val _data = mutableListOf<Uri?>()
+    var data: List<Uri?> = _data
         set(value) {
             _data.clear()
             _data.addAll(value)
@@ -22,7 +25,6 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
 
     fun setItemViewType(type : Int) {
         isSelectedViewType = type
-        notifyDataSetChanged()
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -54,19 +56,21 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
 
     inner class HeroViewHolder(private val binding: ItemHeroPetBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(resHero: ResHero, position: Int) {
+        fun bind(data: Uri?, position: Int) {
             binding.apply {
                 if(position == FIRST_HERO)
                     layoutEmptyImage.ibQuit.visibility = View.INVISIBLE
-
-                if(position == isSelectedViewType)
-                    isEmptyImgVisible = true
 
                 clItem.isSelected = position == isSelectedViewType
 
                 tvHero.text = makeHeroNumbering(position + 1)
                 clItem.setOnClickListener {
                     itemClickListener?.invoke(position, clItem.isSelected)
+                }
+
+                if(data != null) {
+                    Glide.with(ivPetImg).load(data).into(ivPetImg)
+                    layoutEmptyImage.ivEmptyImg.isVisible = false
                 }
 
                 layoutEmptyImage.ibQuit.setOnClickListener {

@@ -28,8 +28,6 @@ import java.time.format.DateTimeFormatter
 
 @Suppress("DEPRECATION")
 class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding>(R.layout.fragment_diary_detail_write){
-
-    val REQ_STORAGE_PERMISSION: Int = 1
     val REQ_GALLERY = 12
     @RequiresApi(Build.VERSION_CODES.O)
     val current_date : LocalDate = now()
@@ -200,5 +198,8 @@ class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding
 
     }
 
+    companion object {
+        const val REQ_STORAGE_PERMISSION = 1
+    }
 
 }
