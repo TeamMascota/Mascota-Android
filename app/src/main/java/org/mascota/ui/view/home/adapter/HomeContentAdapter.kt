@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.data.remote.model.response.home.ResHomePart1
-import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.databinding.ItemContentBinding
 import org.mascota.util.StringUtil.makeChapterText
 import org.mascota.util.StringUtil.makeTotalText
@@ -12,7 +11,6 @@ import org.mascota.util.StringUtil.makeTotalText
 class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentViewHolder>() {
 
     private val _contentList = mutableListOf<ResHomePart1.Data.FirstPartMainPage.TableContent>()
-    private val _contentList2 = mutableListOf<ResHomePart2.Data.TableContent>()
 
     private var navigateContentDetail: ((String) -> Unit)? = null
 
@@ -27,13 +25,6 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
             notifyDataSetChanged()
         }
 
-    var contentlist2 : List<ResHomePart2.Data.TableContent>  = _contentList2
-    set(value) {
-        _contentList.clear()
-        _contentList2.addAll(value)
-        notifyDataSetChanged()
-
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeContentViewHolder {
         val binding = ItemContentBinding.inflate(
