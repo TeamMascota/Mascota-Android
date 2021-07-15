@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getUserId
 import org.mascota.data.remote.model.response.home.ResHomePart1
+import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.data.repository.home.HomeRepository
 
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
@@ -14,6 +15,11 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     private val _homePart1 = MutableLiveData<ResHomePart1>()
     val homePart1: LiveData<ResHomePart1>
         get() = _homePart1
+
+    private val _homePart2 = MutableLiveData<ResHomePart2>()
+    val homePart2 : LiveData<ResHomePart2>
+    get() = _homePart2
+
 
     fun getResHomePart1() = viewModelScope.launch {
         runCatching { homeRepository.getHomePart1(getUserId())}
@@ -23,6 +29,16 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
             .onFailure {
                 it.printStackTrace()
             }
+    }
+
+    fun getResHomePart2() = viewModelScope.launch {
+       runCatching  { homeRepository.getHomePart2(getUserId()) }
+           .onSuccess {
+               _homePart2.postValue(it)
+           }
+           .onFailure {
+               it.printStackTrace()
+           }
     }
 
 }

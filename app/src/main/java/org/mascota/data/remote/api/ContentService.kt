@@ -1,7 +1,6 @@
 package org.mascota.data.remote.api
 
 import org.mascota.data.remote.model.request.content.ReqContent
-import org.mascota.data.remote.model.request.content.ReqContentDelete
 import org.mascota.data.remote.model.response.content.*
 import retrofit2.http.*
 
@@ -46,7 +45,7 @@ interface ContentService {
 
     //GET Content List Part2 목차
     @GET("secondPart/chapter/list")
-    suspend fun getContentListPart2(): ResContentList
+    suspend fun getContentListPart2(): ResPart2ContentList
 
 
     //POST Content Add Part2
@@ -67,6 +66,5 @@ interface ContentService {
     @DELETE("secondPart/chapter/{chapterId}")
     suspend fun deleteContentPart2(
         @Path("chapterId") chapterId: String,
-        @Body body: ReqContentDelete
     ) : ResContentDelete
 }

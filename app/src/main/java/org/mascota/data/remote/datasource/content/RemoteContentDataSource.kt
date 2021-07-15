@@ -2,7 +2,6 @@ package org.mascota.data.remote.datasource.content
 
 import org.mascota.data.remote.api.ContentService
 import org.mascota.data.remote.model.request.content.ReqContent
-import org.mascota.data.remote.model.request.content.ReqContentDelete
 import org.mascota.data.remote.model.response.content.*
 
 class RemoteContentDataSource(private val service: ContentService) : ContentDataSource {
@@ -23,7 +22,7 @@ class RemoteContentDataSource(private val service: ContentService) : ContentData
     override suspend fun getContentDetailPart2(path: String): ResContentDetail =
         service.getContentDetailPart2(path)
 
-    override suspend fun getContentListPart2(): ResContentList = service.getContentListPart2()
+    override suspend fun getContentListPart2(): ResPart2ContentList = service.getContentListPart2()
 
     override suspend fun postContentAddPart2(body: ReqContent): ResContentAdd =
         service.postContentAddPart2(body)
@@ -32,8 +31,7 @@ class RemoteContentDataSource(private val service: ContentService) : ContentData
         service.putContentEditPart2(path, body)
 
     override suspend fun deleteContentPart2(
-        path: String,
-        body: ReqContentDelete
-    ): ResContentDelete = service.deleteContentPart2(path, body)
+        path: String
+    ): ResContentDelete = service.deleteContentPart2(path)
 
 }

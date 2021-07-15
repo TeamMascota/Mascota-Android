@@ -25,6 +25,7 @@ class HomeContentAdapter : RecyclerView.Adapter<HomeContentAdapter.HomeContentVi
             notifyDataSetChanged()
         }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeContentViewHolder {
         val binding = ItemContentBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
