@@ -1,5 +1,6 @@
 package org.mascota.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -76,9 +77,11 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
     fun getResContentList() = viewModelScope.launch {
         runCatching { contentRepository.getContentList(getUserId()) }
             .onSuccess {
+                Log.d("list", "success")
                 _resContentList.postValue(it)
             }
             .onFailure {
+                Log.d("list", "fail")
                 it.printStackTrace()
             }
     }
