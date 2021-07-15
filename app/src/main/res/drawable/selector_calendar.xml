@@ -4,5 +4,5 @@
 
     <item android:drawable="@drawable/ic_calendar_on" android:state_checked="true" android:state_selected="true" />
 
-    <item android:drawable="@drawable/ic_calendar_off" />
+    <item android:drawable="@drawable/ic_calendar_on" />
 </selector>

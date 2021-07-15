@@ -105,7 +105,8 @@
                 android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
-                app:srcCompat="@drawable/ic_dog_angry" />
+                android:scaleType="fitXY"
+                tools:src="@drawable/ic_dog_angry" />
 
             <TextView
                 android:id="@+id/tv_book_title"
@@ -114,7 +115,7 @@
                 android:layout_marginTop="34dp"
                 android:layout_marginEnd="21dp"
                 android:textColor="@color/maco_white"
-                android:textAppearance="@style/TextH1Style"
+                android:textAppearance="@style/TextH1MediumStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:text="@string/home_title"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -127,7 +128,7 @@
                 android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_mascota_logo_white" />
+                android:background="@drawable/ic_mascota_logo_white" />
 
             <View
                 android:id="@+id/line"
