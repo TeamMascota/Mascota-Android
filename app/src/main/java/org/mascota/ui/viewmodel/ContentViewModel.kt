@@ -10,6 +10,7 @@ import org.mascota.data.local.MascotaSharedPreference.getUserId
 import org.mascota.data.remote.model.request.content.ReqContent
 import org.mascota.data.remote.model.response.content.ResContentDetail
 import org.mascota.data.remote.model.response.content.ResContentList
+import org.mascota.data.remote.model.response.content.ResPart2ContentList
 import org.mascota.data.repository.content.ContentRepository
 import org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData
 
@@ -25,6 +26,10 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
     private val _resContentList = MutableLiveData<ResContentList>()
     val resContentList: LiveData<ResContentList>
         get() = _resContentList
+
+    private val _resPart2ContentList = MutableLiveData<ResPart2ContentList>()
+    val resPart2ContentList: LiveData<ResPart2ContentList>
+        get() = _resPart2ContentList
 
 
     private val _chapterTitle = MutableLiveData<String>()
@@ -82,6 +87,18 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
             }
             .onFailure {
                 Log.d("list", "fail")
+                it.printStackTrace()
+            }
+    }
+
+    fun getResPart2ContentList() = viewModelScope.launch {
+        runCatching { contentRepository.getContentListPart2() }
+            .onSuccess {
+                Log.d("server", it.toString())
+                _resPart2ContentList.postValue(it)
+            }
+            .onFailure {
+                Log.d("server", "failure")
                 it.printStackTrace()
             }
     }

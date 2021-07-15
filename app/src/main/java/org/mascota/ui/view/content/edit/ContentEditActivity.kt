@@ -1,19 +1,22 @@
 package org.mascota.ui.view.content.edit
 
 import android.app.Dialog
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
+import org.mascota.data.local.MascotaSharedPreference
+import org.mascota.data.remote.model.response.content.ResContentList
+import org.mascota.data.remote.model.response.content.ResPart2ContentList
 import org.mascota.databinding.ActivityContentEditBinding
 import org.mascota.databinding.LayoutContentEditDialogBinding
 import org.mascota.databinding.LayoutHelpMessageDialogBinding
 import org.mascota.databinding.LayoutMascotaDialogBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.edit.adapter.ContentEditAdapter
+import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.viewmodel.ContentViewModel
 import org.mascota.util.DialogUtil
 import org.mascota.util.StringUtil
@@ -42,12 +45,23 @@ class ContentEditActivity :
         initDialogClickEvent()
         setAddClickListener()
         setBackBtnClickListener()
-        getResContentList()
-        observeResContentList()
+        checkPartData()
+    }
+
+
+    private fun checkPartData() {
+        when (MascotaSharedPreference.getPart()) {
+            DiaryWriteActivity.PART1 ->  observeResPart1ContentList()
+            else -> observeResPart2ContentList()
+        }
     }
 
     private fun getResContentList() {
         contentViewModel.getResContentList()
+    }
+
+    private fun getResPart2ContentList() {
+        contentViewModel.getResPart2ContentList()
     }
 
     override fun onResume() {
@@ -55,12 +69,24 @@ class ContentEditActivity :
         getResContentList()
     }
 
-    private fun observeResContentList() {
+    private fun observeResPart1ContentList() {
+        getResContentList()
         contentViewModel.resContentList.observe(this) {
-            Log.d("listCount", "${it.data.tableContents.size}")
             contentEditAdapter.contentEditList = it.data.tableContents.subList(1, it.data.tableContents.size - 1)
             binding.tvPrologTitle.text = it.data.tableContents[0].chapterTitle
         }
+    }
+
+    private fun observeResPart2ContentList() {
+        getResPart2ContentList()
+        contentViewModel.resPart2ContentList.observe(this) { resPart2ContentList ->
+            contentEditAdapter.contentEditList = resPart2ContentList.data.tableContents.subList(1, resPart2ContentList.data.tableContents.size - 1).map{changeRes(it)}
+            binding.tvPrologTitle.text = resPart2ContentList.data.tableContents[0].chapterTitle
+        }
+    }
+
+    private fun changeRes(tableContent: ResPart2ContentList.Data.TableContent) : ResContentList.Data.TableContent{
+        return ResContentList.Data.TableContent(tableContent.chapterId, tableContent.chapter, tableContent.chapterTitle)
     }
 
     private fun initContentEditAdapter() {
@@ -212,4 +238,6 @@ class ContentEditActivity :
             finish()
         }
     }
+
+
 }

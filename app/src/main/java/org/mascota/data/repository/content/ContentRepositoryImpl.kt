@@ -18,7 +18,7 @@ class ContentRepositoryImpl(private val remoteDataSource: ContentDataSource) : C
 
     override suspend fun getContentDetailPart2(path: String): ResContentDetail = remoteDataSource.getContentDetailPart2(path)
 
-    override suspend fun getContentListPart2(): ResContentList = remoteDataSource.getContentListPart2()
+    override suspend fun getContentListPart2(): ResPart2ContentList = remoteDataSource.getContentListPart2()
 
     override suspend fun postContentAddPart2(body: ReqContent): ResContentAdd = remoteDataSource.postContentAddPart2(body)
 

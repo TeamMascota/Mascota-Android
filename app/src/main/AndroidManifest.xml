@@ -48,7 +48,8 @@
         <activity
             android:name=".ui.view.content.detail.ContentDetailActivity"
             android:exported="true" />
-        <activity android:name=".ui.view.content.edit.ContentEditActivity" />
+        <activity android:name=".ui.view.content.edit.ContentEditActivity"
+            android:exported="true"/>
         <activity
             android:name=".ui.view.diary.read.DiaryReadActivity"
             android:exported="true" />

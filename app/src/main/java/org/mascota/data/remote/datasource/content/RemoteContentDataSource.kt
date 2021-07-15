@@ -23,7 +23,7 @@ class RemoteContentDataSource(private val service: ContentService) : ContentData
     override suspend fun getContentDetailPart2(path: String): ResContentDetail =
         service.getContentDetailPart2(path)
 
-    override suspend fun getContentListPart2(): ResContentList = service.getContentListPart2()
+    override suspend fun getContentListPart2(): ResPart2ContentList = service.getContentListPart2()
 
     override suspend fun postContentAddPart2(body: ReqContent): ResContentAdd =
         service.postContentAddPart2(body)

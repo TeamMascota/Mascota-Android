@@ -46,7 +46,7 @@ interface ContentService {
 
     //GET Content List Part2 목차
     @GET("secondPart/chapter/list")
-    suspend fun getContentListPart2(): ResContentList
+    suspend fun getContentListPart2(): ResPart2ContentList
 
 
     //POST Content Add Part2

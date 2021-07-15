@@ -24,7 +24,7 @@ interface ContentDataSource {
     suspend fun getContentDetailPart2(path: String): ResContentDetail
 
     //GET Content List Part2
-    suspend fun getContentListPart2(): ResContentList
+    suspend fun getContentListPart2(): ResPart2ContentList
 
 
     //POST Content Add Part2

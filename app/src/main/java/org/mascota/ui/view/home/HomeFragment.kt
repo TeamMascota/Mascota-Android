@@ -73,6 +73,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun observeHomePart2() {
+        homeViewModel.getResHomePart2()
+        homeViewModel.homePart2.observe(viewLifecycleOwner){
+
+
+        }
 
     }
 
