@@ -8,6 +8,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
+import org.mascota.data.local.MascotaSharedPreference
+import org.mascota.data.remote.model.response.content.ResContentList
+import org.mascota.data.remote.model.response.content.ResPart2ContentList
 import org.mascota.databinding.ActivityContentEditBinding
 import org.mascota.databinding.LayoutContentEditDialogBinding
 import org.mascota.databinding.LayoutHelpMessageDialogBinding
@@ -34,33 +37,65 @@ class ContentEditActivity :
     private val contentViewModel: ContentViewModel by viewModel()
     private lateinit var contentEditAdapter: ContentEditAdapter
 
+
     override fun initView() {
+
+        val part =  MascotaSharedPreference.getPart()
+
+        checkPartData(part)
         initDialogDataBinding()
         initDialog()
         initContentEditAdapter()
         setDialog()
-        initDialogClickEvent()
+        initDialogClickEvent(part)
         setAddClickListener()
         setBackBtnClickListener()
-        getResContentList()
-        observeResContentList()
+
+    }
+
+
+    private fun checkPartData(part : Int) {
+        when (part) {
+            1 -> observeResPart1ContentList()
+            else -> observeResPart2ContentList()
+        }
     }
 
     private fun getResContentList() {
         contentViewModel.getResContentList()
     }
 
-    override fun onResume() {
-        super.onResume()
-        getResContentList()
+    private fun getResPart2ContentList() {
+        contentViewModel.getResPart2ContentList()
     }
 
-    private fun observeResContentList() {
-        contentViewModel.resContentList.observe(this) {
-            Log.d("listCount", "${it.data.tableContents.size}")
-            contentEditAdapter.contentEditList = it.data.tableContents.subList(1, it.data.tableContents.size - 1)
+    private fun observeResPart1ContentList() {
+        getResContentList()
+        contentViewModel.resContentList.observe(this) { contentEditAdapter.contentEditList =
+                it.data.tableContents.subList(1, it.data.tableContents.size - 1)
             binding.tvPrologTitle.text = it.data.tableContents[0].chapterTitle
+            binding.tvProlog.text = getString(R.string.prolog)
         }
+    }
+
+    private fun observeResPart2ContentList() {
+        getResPart2ContentList()
+        contentViewModel.resPart2ContentList.observe(this) { resPart2ContentList ->
+            contentEditAdapter.contentEditList = resPart2ContentList.data.tableContents.subList(
+                1,
+                resPart2ContentList.data.tableContents.size - 1
+            ).map { changeRes(it) }
+            binding.tvPrologTitle.text = resPart2ContentList.data.tableContents[0].chapterTitle
+            binding.tvProlog.text = getString(R.string.epilogue)
+        }
+    }
+
+    private fun changeRes(tableContent: ResPart2ContentList.Data.TableContent): ResContentList.Data.TableContent {
+        return ResContentList.Data.TableContent(
+            tableContent.chapterId,
+            tableContent.chapter,
+            tableContent.chapterTitle ?: "서버야.."
+        )
     }
 
     private fun initContentEditAdapter() {
@@ -82,15 +117,18 @@ class ContentEditActivity :
                 )
                 contentViewModel.postChapterId(chapterId)
                 deleteDialog.show()
+                notifyDataSetChanged()
             }
             setEditClickListener { chapter, title, chapterId ->
                 editDialogBinding.apply {
                     tvTitle.text = chapter
                     etContent.setText(title)
                     contentViewModel.postChapterId(chapterId)
+                    notifyDataSetChanged()
                 }
                 editDialog.show()
             }
+
         }
     }
 
@@ -153,21 +191,34 @@ class ContentEditActivity :
         }
     }
 
-    private fun initDialogClickEvent() {
+    private fun initDialogClickEvent(part : Int) {
         deleteDialogBinding.apply {
             tvQuit.setOnClickListener {
                 deleteDialog.dismiss()
             }
             tvNext.setOnClickListener {
-                contentViewModel.deleteContent()
-                contentViewModel.getResContentList()
                 deleteDialog.dismiss()
                 deleteCompleteDialog.show()
             }
         }
 
         deleteCompleteDialogBinding.tvClose.setOnClickListener {
+
+            when (part) {
+                1 -> {
+                    //1부 삭제코드
+                    contentViewModel.deleteContent()
+                    contentViewModel.getResContentList()
+                }
+                else -> {
+                    //2부 삭제
+                    contentViewModel.deleteContent2()
+                    contentViewModel.getResPart2ContentList()
+                }
+            }
+
             deleteCompleteDialog.dismiss()
+            contentEditAdapter.notifyDataSetChanged()
         }
 
         addDialogBinding.apply {
@@ -179,9 +230,24 @@ class ContentEditActivity :
             }
             tvAdd.setOnClickListener {
                 contentViewModel.postChapterTitle(etContent.text.toString())
-                contentViewModel.postContentAdd()
-                contentViewModel.getResContentList()
+                Log.d("postId", etContent.text.toString())
+
+                when (part) {
+                    1 -> {
+                        // 1부 add 코드
+                        contentViewModel.postContentAdd()
+                        contentViewModel.getResContentList()
+
+                    }
+                    else -> {
+                        //2부 add코드
+                        contentViewModel.putContentAdd2()
+                        contentViewModel.getResPart2ContentList()
+                    }
+                }
+
                 addDialog.dismiss()
+                contentEditAdapter.notifyDataSetChanged()
             }
         }
 
@@ -194,8 +260,20 @@ class ContentEditActivity :
             }
             tvAdd.setOnClickListener {
                 contentViewModel.postChapterTitle(etContent.text.toString())
-                contentViewModel.putContentEdit()
-                contentViewModel.getResContentList()
+
+                when(part){
+                    1 ->{
+                        //1부 edit코드
+                        contentViewModel.putContentEdit()
+                        contentViewModel.getResContentList()
+                    }
+                     else ->{
+                        //2부 edit코드
+                        contentViewModel.putContentEdit2()
+                        contentViewModel.getResPart2ContentList()
+
+                    }
+                }
                 editDialog.dismiss()
             }
         }
@@ -212,4 +290,6 @@ class ContentEditActivity :
             finish()
         }
     }
+
+
 }

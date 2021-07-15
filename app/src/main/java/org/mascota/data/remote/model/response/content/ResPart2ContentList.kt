@@ -1,5 +1,7 @@
 package org.mascota.data.remote.model.response.content
 
+import com.google.gson.annotations.SerializedName
+
 data class ResPart2ContentList(
     // 목차 리스트
     val status : Int,
@@ -11,9 +13,12 @@ data class ResPart2ContentList(
         val tableContents: List<TableContent>
     ){
         data class TableContent(
-            val _id: String,
+            @SerializedName("_id")
+            val chapterId: String,
+            @SerializedName("chapter")
             val chapter: Int,
-            val title: String
+            @SerializedName("title")
+            val chapterTitle: String
         )
     }
 }

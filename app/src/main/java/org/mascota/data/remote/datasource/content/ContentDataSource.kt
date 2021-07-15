@@ -1,7 +1,6 @@
 package org.mascota.data.remote.datasource.content
 
 import org.mascota.data.remote.model.request.content.ReqContent
-import org.mascota.data.remote.model.request.content.ReqContentDelete
 import org.mascota.data.remote.model.response.content.*
 
 interface ContentDataSource {
@@ -24,7 +23,7 @@ interface ContentDataSource {
     suspend fun getContentDetailPart2(path: String): ResContentDetail
 
     //GET Content List Part2
-    suspend fun getContentListPart2(): ResContentList
+    suspend fun getContentListPart2(): ResPart2ContentList
 
 
     //POST Content Add Part2
@@ -35,5 +34,5 @@ interface ContentDataSource {
     suspend fun putContentEditPart2(path: String, body: ReqContent): ResContentEdit
 
     //DELETE Content Delete
-    suspend fun deleteContentPart2(path: String, body: ReqContentDelete): ResContentDelete
+    suspend fun deleteContentPart2(path: String): ResContentDelete
 }

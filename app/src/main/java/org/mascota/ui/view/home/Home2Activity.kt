@@ -4,17 +4,15 @@ import android.content.Intent
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
-import org.mascota.data.local.MascotaSharedPreference
 import org.mascota.databinding.ActivityHome2Binding
 import org.mascota.ui.MainActivity
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.ContentDetailActivity
 import org.mascota.ui.view.content.edit.ContentEditActivity
 import org.mascota.ui.view.diary.DiaryWriteActivity
-import org.mascota.ui.view.diary.DiaryWriteActivity.Companion.PART1
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
-import org.mascota.util.ColorFilterUtil.setImgFilter
+import org.mascota.util.ColorFilterUtil
 import org.mascota.util.StringUtil.makePartText
 
 class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_home2){
@@ -24,7 +22,7 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
 
     override fun initView() {
         initColorFilter()
-        checkPartData()
+        observeHomePart1()
         initHomeContentAdapter()
         initBookView()
         setEditBtnClickListener()
@@ -39,15 +37,7 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
     }
 
     private fun initColorFilter() {
-        setImgFilter(binding.ivBookImg)
-    }
-
-
-    private fun checkPartData() {
-        when (MascotaSharedPreference.getPart()) {
-            PART1 -> observeHomePart1()
-            else -> observeHomePart2()
-        }
+        ColorFilterUtil.setImgFilter(binding.ivBookImg)
     }
 
     private fun initHomeContentAdapter() {
@@ -98,9 +88,7 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
         }
     }
 
-    private fun observeHomePart2() {
 
-    }
 
     companion object {
         const val IS_HOME = true

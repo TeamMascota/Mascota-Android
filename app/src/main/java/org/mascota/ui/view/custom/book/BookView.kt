@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import org.mascota.R
 import org.mascota.R.styleable.CustomBookView
 import org.mascota.data.remote.model.response.home.ResHomePart1
+import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.databinding.ViewCustomBookBinding
 import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
@@ -83,6 +84,18 @@ class BookView @JvmOverloads constructor(
                 chapterDiary = makeChapterText(chapter) + " " + makeEpisodeText(episode)
             }
 
+            viewCustomBookBinding.layoutLeftPage.homeDiaryInfoData = HomeDiaryInfoData(
+                chapterDiary, title, contents, date
+            )
+        }
+    }
+
+    fun setLeftPart2Diary(diartPart2Info : ResHomePart2.Data.SecondPartMainPage.Diary){
+        diartPart2Info.apply {
+            var chapterDiary : String = R.string.epilogue.toString()
+            if(chapter != 0){
+                chapterDiary = makeChapterText(chapter) + " " + makeEpisodeText(episode)
+            }
             viewCustomBookBinding.layoutLeftPage.homeDiaryInfoData = HomeDiaryInfoData(
                 chapterDiary, title, contents, date
             )

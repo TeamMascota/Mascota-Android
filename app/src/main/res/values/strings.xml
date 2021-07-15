@@ -42,6 +42,7 @@
     <!--home-->
     <string name="content">목차</string>
     <string name="edit">편집</string>
+    <string name="go_one">1부 보러가기</string>
 
     <!--rainbow-->
     <string name="prepare_rainbow">무지개 준비하기</string>
