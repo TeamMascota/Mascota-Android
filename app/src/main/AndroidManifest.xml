@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name=".MascotaApplication"
@@ -31,10 +33,16 @@
             android:name=".ui.view.diary.DiaryWriteActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" />
+
+
+        <activity android:name=".ui.view.rainbow.farewell.FarewellActivity"
+            android:windowSoftInputMode="adjustPan" />
+
         <activity android:name=".ui.view.rainbow.farewell.FarewellActivity" />
         <activity
             android:name=".ui.view.profile.ProfileCreateActivity"
             android:exported="true" />
+
         <activity
             android:name=".ui.view.profile.BookCompleteActivity"
             android:exported="true" />
@@ -55,6 +63,7 @@
         <activity
             android:name=".ui.view.user.login.LoginActivity"
             android:exported="true" />
+
     </application>
 
 </manifest>
