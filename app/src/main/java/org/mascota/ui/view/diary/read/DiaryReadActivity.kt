@@ -1,13 +1,18 @@
 package org.mascota.ui.view.diary.read
 
+import android.app.Dialog
 import android.content.Intent
 import android.util.Log
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.data.remote.model.response.diary.ResDiaryRead
 import org.mascota.databinding.ActivityDiaryReadBinding
+import org.mascota.databinding.LayoutMascotaDialogBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.adapter.ContentDetailMonthAdapter
 import org.mascota.ui.view.content.edit.ContentEditActivity
@@ -19,6 +24,8 @@ import org.mascota.ui.view.diary.read.data.datasource.LocalPetImageDataSource
 import org.mascota.ui.view.diary.read.data.model.DiaryEmoDataInfo
 import org.mascota.ui.viewmodel.ContentViewModel
 import org.mascota.ui.viewmodel.DiaryViewModel
+import org.mascota.util.DialogUtil
+import org.mascota.util.StringUtil
 import org.mascota.util.StringUtil.makeEpisodeText
 import org.mascota.util.StringUtil.makeTogetherDay
 import org.mascota.util.StringUtil.makeTotalText
@@ -27,13 +34,15 @@ import org.mascota.util.extension.setTextPartialColor
 
 class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.activity_diary_read) {
     private val petImageDataSource = LocalPetImageDataSource()
-    private val diaryViewModel : DiaryViewModel by viewModel()
+    private val diaryViewModel: DiaryViewModel by viewModel()
     private lateinit var petImagePagerAdapter: PetImagePagerAdapter
     private lateinit var emotionImageAdapter: EmotionImageAdapter
+    private lateinit var deleteDialogBinding: LayoutMascotaDialogBinding
+    private lateinit var deleteDialog: Dialog
 
     private var _diaryIdList = arrayListOf<String>()
 
-    fun setDiaryIdList(diaryIdList : ArrayList<String>){
+    fun setDiaryIdList(diaryIdList: ArrayList<String>) {
         _diaryIdList = diaryIdList
     }
 
@@ -45,6 +54,32 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
         setBackBtnClickListener()
         checkIntentFrom()
         initClickEditBtn()
+        initDialog()
+    }
+
+
+    private fun initDialog() {
+
+        deleteDialog = DialogUtil.makeDialog(this@DiaryReadActivity)
+        deleteDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(this),
+            R.layout.layout_mascota_dialog,
+            null,
+            false
+        )
+
+        DialogUtil.setDialog(deleteDialog, deleteDialogBinding.root)
+
+        deleteDialogBinding.apply {
+            tvQuit.setOnClickListener {
+                deleteDialog.dismiss()
+            }
+            tvNext.setOnClickListener {
+                deleteDialog.dismiss()
+                Log.d("삭제 서버", "나중에 연동하기")
+
+            }
+        }
     }
 
 
@@ -64,20 +99,40 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
 
         bottomSheet.setCallbackDeleteBtnClickListener {
             //내용 삭제 버튼 눌렀을 떄
-            Log.d("다이얼로그 창","나중에 추가해랑")
+            showDelteDialog()
+            Log.d("다이얼로그 창", "나중에 추가해랑")
+
         }
 
         bottomSheet.show(supportFragmentManager.beginTransaction(), bottomSheet.tag)
     }
 
 
+    private fun showDelteDialog() {
+        val prefixWord = getString(R.string.delete_story)
+        deleteDialogBinding.apply {
+            tvTitle.text = getString(R.string.diary_delete)
+            tvContent.text = getString(R.string.delete_story)
+            tvNext.setTextColor(getColor(R.color.maco_orange))
+            tvNext.setOnClickListener {
+
+                // activity -> 현재 액티비비
+                // 일기작성의 경우에만 2단계전 처리하기
+
+                finish()
+            }
+        }
+        deleteDialog.show()
+    }
+
+
     private fun observeResPetDiaryRead() {
-        diaryViewModel.diaryReadPet.observe(this){
-            it.data.petDiary.apply{
-                with(binding){
-                    if(episode != 0){
+        diaryViewModel.diaryReadPet.observe(this) {
+            it.data.petDiary.apply {
+                with(binding) {
+                    if (episode != 0) {
                         tvEpisode.text = makeEpisodeText(episode)
-                    }else {
+                    } else {
                         tvEpisode.visibility = View.INVISIBLE
                     }
                     tvTitle.text = title
@@ -109,13 +164,14 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
                 val diaryEmoDataList = mutableListOf<DiaryEmoDataInfo>()
 
                 var filteredList = listOf<ResDiaryRead.Data.PetDiary.Feeling>()
-                for(kindIdx in 0..2){
-                    for(feelingIdx in 0..5){
-                        filteredList = feelingList.filter{it.kind == kindIdx && it.feeling == feelingIdx}
+                for (kindIdx in 0..2) {
+                    for (feelingIdx in 0..5) {
+                        filteredList =
+                            feelingList.filter { it.kind == kindIdx && it.feeling == feelingIdx }
                         Log.d("filteredList", "$filteredList")
-                        if(filteredList.isNotEmpty()) {
+                        if (filteredList.isNotEmpty()) {
                             val diaryImgsList = mutableListOf<String>()
-                            for(element in filteredList){
+                            for (element in filteredList) {
                                 diaryImgsList.add(element.petImg)
                             }
                             diaryEmoDataList.add(
@@ -169,7 +225,7 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
                 }
             }
             else -> {
-                for(i in 0 until _diaryIdList.size){
+                for (i in 0 until _diaryIdList.size) {
                     setArrowBtnClickListener(_diaryIdList[i])
                     when (i) {
                         0 -> {
@@ -205,7 +261,5 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
         }
     }
 
-
-
-
 }
+

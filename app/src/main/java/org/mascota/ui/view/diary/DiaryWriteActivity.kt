@@ -62,8 +62,10 @@ class DiaryWriteActivity :
                             else
                                 setCurrentItem(THIRD_PAGE, false)
                         }
-                        SECOND_PAGE ->
+                        SECOND_PAGE -> {
                             startDiaryReadActivity()
+                            finish()
+                        }
                         else ->
                             setCurrentItem(SECOND_PAGE, false)
                     }
