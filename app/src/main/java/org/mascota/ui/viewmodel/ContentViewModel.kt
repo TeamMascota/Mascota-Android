@@ -8,10 +8,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getUserId
 import org.mascota.data.remote.model.request.content.ReqContent
-import org.mascota.data.remote.model.response.content.ResContentAdd
-import org.mascota.data.remote.model.response.content.ResContentDetail
-import org.mascota.data.remote.model.response.content.ResContentList
-import org.mascota.data.remote.model.response.content.ResPart2ContentList
+import org.mascota.data.remote.model.response.content.*
 import org.mascota.data.repository.content.ContentRepository
 import org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData
 
@@ -35,6 +32,11 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
     private var _resTableContent = listOf<ResContentList.Data.TableContent>()
     val resTableContent: List<ResContentList.Data.TableContent>
     get() = _resTableContent
+
+
+    private var _resTableContent2 = listOf<ResPart2ContentAdd.Data.TableContent>()
+    val resTableContent2 : List<ResPart2ContentAdd.Data.TableContent>
+    get() = _resTableContent2
 
     fun getResTable2Content() : List<ResContentList.Data.TableContent>{
         return _resTableContent
@@ -65,6 +67,18 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
             }
     }
 
+    // Part2 - delete
+    fun deleteContent2() = viewModelScope.launch {
+        kotlin.runCatching { contentRepository.deleteContentPart2(_chapterId) }
+            .onSuccess {
+                getResPart2ContentList()
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+
+    }
+
     fun putContentEdit() = viewModelScope.launch {
         runCatching {
             contentRepository.putContentEdit(
@@ -79,6 +93,40 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
                 it.printStackTrace()
             }
     }
+    // Part2 - Edit
+    fun putContentEdit2() = viewModelScope.launch {
+        runCatching{
+            contentRepository.putContentEditPart2(
+                _chapterId,
+                ReqContent(requireNotNull(_chapterTitle))
+            )
+        }
+            .onSuccess {
+                getResPart2ContentList()
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    //Part2 - Add
+    fun putContentAdd2() = viewModelScope.launch {
+        runCatching {
+            contentRepository.postContentAddPart2(
+                ReqContent(_chapterTitle,)
+            )
+        }
+            .onSuccess { resContentAdd->
+                Log.d("resContentAdd", resContentAdd.toString())
+                _resTableContent2 = resContentAdd.data.tableContents.map{changeTableContent2(it)}
+                getResPart2ContentList()
+
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
 
     fun postContentAdd() = viewModelScope.launch {
         runCatching {
@@ -99,6 +147,10 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
 
     private fun changeTableContent(table: ResContentAdd.Data.TableContent) : ResContentList.Data.TableContent{
         return ResContentList.Data.TableContent(table.chapterId, table.chapter, table.chapterTitle?: "서버타이틀")
+    }
+
+    private fun changeTableContent2 (table: ResContentAdd.Data.TableContent) : ResPart2ContentAdd.Data.TableContent{
+        return ResPart2ContentAdd.Data.TableContent(table.chapterId?:"0", table.chapter?:1, table.chapterTitle?: "서버야 타이틀좀")
     }
 
     fun getResContentList() = viewModelScope.launch {

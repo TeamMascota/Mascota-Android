@@ -23,8 +23,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         initBookView()
         initHomeContentAdapter()
         setEditBtnClickListener()
-        observeHomePart1()
-        checkPartData()
+       // observeHomePart1()
+        //checkPartData()
+        observeHomePart2()
         navigateDiaryWriteActivity()
     }
 

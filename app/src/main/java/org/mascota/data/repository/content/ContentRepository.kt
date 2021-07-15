@@ -1,7 +1,6 @@
 package org.mascota.data.repository.content
 
 import org.mascota.data.remote.model.request.content.ReqContent
-import org.mascota.data.remote.model.request.content.ReqContentDelete
 import org.mascota.data.remote.model.response.content.*
 
 interface ContentRepository {
@@ -33,5 +32,5 @@ interface ContentRepository {
     suspend fun putContentEditPart2(path: String, body: ReqContent): ResContentEdit
 
     //DELETE Content Delete
-    suspend fun deleteContentPart2(path: String, body: ReqContentDelete): ResContentDelete
+    suspend fun deleteContentPart2(path: String) : ResContentDelete
 }
