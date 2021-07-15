@@ -15,14 +15,15 @@ import org.mascota.ui.view.content.edit.ContentEditActivity
 import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
+import org.mascota.util.ColorFilterUtil
 import org.mascota.util.StringUtil.makePartText
-import org.mascota.util.extension.setImgBackgroundFilter
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var homeContentAdapter: HomeContentAdapter
 
     override fun initView() {
+        MascotaSharedPreference.setPart(2)
         val part =  MascotaSharedPreference.getPart()
 
         initColorFilter()
@@ -51,7 +52,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
 
     private fun initColorFilter() {
-        binding.ivBookImg.setImgBackgroundFilter()
+        ColorFilterUtil.setImgFilter(binding.ivBookImg)
     }
 
     private fun hideBookView(){
@@ -66,11 +67,14 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun showBookView(){
         binding.apply {
+            initColorFilter()
             clBook.visibility = View.VISIBLE
             tvWriter.visibility = View.VISIBLE
             tvWriterName.visibility = View.VISIBLE
             tvPublishdate.visibility = View.VISIBLE
             tvFullDate.visibility = View.VISIBLE
+            ivBookImg.visibility = View.VISIBLE
+
         }
     }
 

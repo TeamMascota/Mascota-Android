@@ -12,8 +12,8 @@ import org.mascota.ui.view.content.edit.ContentEditActivity
 import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
+import org.mascota.util.ColorFilterUtil
 import org.mascota.util.StringUtil.makePartText
-import org.mascota.util.extension.setImgBackgroundFilter
 
 class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_home2){
 
@@ -37,7 +37,7 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
     }
 
     private fun initColorFilter() {
-        binding.ivBookImg.setImgBackgroundFilter()
+        ColorFilterUtil.setImgFilter(binding.ivBookImg)
     }
 
     private fun initHomeContentAdapter() {
