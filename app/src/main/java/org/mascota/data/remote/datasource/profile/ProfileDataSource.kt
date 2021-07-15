@@ -7,11 +7,12 @@ import org.mascota.data.remote.model.request.profile.ReqRegisterBook
 import org.mascota.data.remote.model.request.profile.ReqRegisterPet
 import org.mascota.data.remote.model.response.profile.ResRegisterBook
 import org.mascota.data.remote.model.response.profile.ResRegisterPet
+import org.mascota.ui.view.profile.data.model.Pets
 import retrofit2.http.Body
 
 interface ProfileDataSource {
     //POST 반려동물 등록
-    suspend fun postRegisterPet(body: ReqRegisterPet, images : List<MultipartBody.Part>): ResRegisterPet
+    suspend fun postRegisterPet(body: HashMap<String, RequestBody>, images : List<MultipartBody.Part?>): ResRegisterPet
 
     //POST 책 등록
     suspend fun postRegisterBook(body: ReqRegisterBook): ResRegisterBook
