@@ -1,6 +1,7 @@
 package org.mascota.ui.view.content.detail
 
 import android.content.Intent
+import android.util.Log
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.ActivityContentDetailBinding
@@ -41,7 +42,10 @@ class ContentDetailActivity :
         contentDetailMonthAdapter = ContentDetailMonthAdapter()
         binding.rvContentMonth.adapter = contentDetailMonthAdapter
         contentDetailMonthAdapter.setNavigateDiaryReadListener {
-            startActivity(Intent(this, DiaryReadActivity::class.java))
+            val intent = Intent(this, DiaryReadActivity::class.java)
+            intent.putStringArrayListExtra("petDiaryIdList", arrayListOf(it))
+            intent.putExtra("from", DiaryReadActivity.IS_CONTENT)
+            startActivity(intent)
         }
     }
 

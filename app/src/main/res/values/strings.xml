@@ -180,6 +180,9 @@
     <string name="writer_select_emo">작가님이 선택한 감정</string>
     <string name="help_talk">도움이 되는 말</string>
     <string name="sad_solution">사랑하는 반려동물과 이별했을 때 슬픔을 느끼는 것은 당연합니다. 급하게 감정을 정리하려 하지 마세요. 지금 느끼는 슬픔 속에서 천천히 마음을 정리하는 것이, 사랑하는 존재를 떠나보내기 위해 해야할 일입니다.</string>
+    <string name="diary_edit">이야기 편집하기</string>
+    <string name="content_edit_bottom">내용 수정</string>
+    <string name="diary_delete">이야기 삭제</string>
 
     <!--tools-->
     <string name="soeun">최소은</string>
@@ -251,6 +254,7 @@
     <string name="explain_tv">오늘 이야기의 주인공을 모두 선택해 주세요</string>
     <string name="write_story">이야기 작성</string>
     <string name="image_upload">사진 업로드</string>
+    <string name="delete_story">이 이야기를 삭제하시겠어요?</string>
 
     <!--home2-->
     <string name="publish_date">발행일</string>

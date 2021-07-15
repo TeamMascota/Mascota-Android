@@ -6,10 +6,11 @@
     <data>
 
         <import type="android.view.View" />
+        <import type="kotlin.Pair"/>
 
         <variable
-            name="emotionImgNum"
-            type="Integer" />
+            name="emoBigType"
+            type="Pair&lt;Integer, Integer&gt;" />
 
         <variable
             name="smallProfileVisibility"
@@ -23,7 +24,8 @@
 
         <ImageView
             android:id="@+id/iv_emotion"
-            imgEmo="@{emotionImgNum}"
+            bigEmo="@{emoBigType.first}"
+            bigSpecies="@{emoBigType.second}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"

@@ -19,9 +19,9 @@ class ContentDetailMonthAdapter :
 
     private val _contentMonthList = mutableListOf<ResContentDetail.Data.PetChapterDiary.Monthly>()
 
-    private var navigateDiaryReadListener: (() -> Unit)? = null
+    private var navigateDiaryReadListener: ((String) -> Unit)? = null
 
-    fun setNavigateDiaryReadListener(listener: () -> Unit) {
+    fun setNavigateDiaryReadListener(listener: (String) -> Unit) {
         navigateDiaryReadListener = listener
     }
 
@@ -80,7 +80,7 @@ class ContentDetailMonthAdapter :
                 }
 
                 setDiaryClickListener {
-                    navigateDiaryReadListener?.invoke()
+                    navigateDiaryReadListener?.invoke(it)
                 }
 
             }

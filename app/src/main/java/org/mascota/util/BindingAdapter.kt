@@ -166,6 +166,114 @@ object BindingAdapter {
     }
 
     @JvmStatic
+    @BindingAdapter("bigEmo", "bigSpecies")
+    fun setBigEmo(image: ImageView, emo: Int?, species: Int) {
+        with(image) {
+            when (species) {
+                DOG -> {
+                    when (emo) {
+                        ANIMAL_SAD -> {
+                            setImageResource(R.drawable.ic_emo_dog_sad_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_ANGRY -> {
+                            setImageResource(R.drawable.ic_emo_dog_angry_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_BORING -> {
+                            setImageResource(R.drawable.ic_emo_dog_boring_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_JOY -> {
+                            setImageResource(R.drawable.ic_emo_dog_joy_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_LOVE -> {
+                            setImageResource(R.drawable.ic_emo_dog_love_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_USUAL -> {
+                            setImageResource(R.drawable.ic_emo_dog_usual_sel)
+                            visibility = View.VISIBLE
+                        }
+                        TODAY_EMPTY -> {
+                            setImageResource(R.drawable.ic_empty)
+                            visibility = View.VISIBLE
+                        }
+                        else -> visibility = View.INVISIBLE
+                    }
+                }
+                CAT -> {
+                    when (emo) {
+                        ANIMAL_SAD -> {
+                            setImageResource(R.drawable.ic_emo_cat_sad_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_ANGRY -> {
+                            setImageResource(R.drawable.ic_emo_cat_angry_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_BORING -> {
+                            setImageResource(R.drawable.ic_emo_cat_boring_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_JOY -> {
+                            setImageResource(R.drawable.ic_emo_cat_joy_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_LOVE -> {
+                            setImageResource(R.drawable.ic_emo_cat_love_sel)
+                            visibility = View.VISIBLE
+                        }
+                        ANIMAL_USUAL -> {
+                            setImageResource(R.drawable.ic_emo_cat_usual_sel)
+                            visibility = View.VISIBLE
+                        }
+                        TODAY_EMPTY -> {
+                            setImageResource(R.drawable.ic_empty)
+                            visibility = View.VISIBLE
+                        }
+                        else -> visibility = View.INVISIBLE
+                    }
+                }
+                else -> {
+                    when (emo) {
+                        DENY -> {
+                            setImageResource(R.drawable.ic_emo_human_deny_medium)
+                            visibility = View.VISIBLE
+                        }
+                        ANGRY -> {
+                            setImageResource(R.drawable.ic_emo_human_angry_medium)
+                            visibility = View.VISIBLE
+                        }
+                        REGRET -> {
+                            setImageResource(R.drawable.ic_emo_human_regret_medium)
+                            visibility = View.VISIBLE
+                        }
+                        LOSS -> {
+                            setImageResource(R.drawable.ic_emo_human_loss_medium)
+                            visibility = View.VISIBLE
+                        }
+                        SAD -> {
+                            setImageResource(R.drawable.ic_emo_human_sad_medium)
+                            visibility = View.VISIBLE
+                        }
+                        ACCEPT -> {
+                            setImageResource(R.drawable.ic_emo_human_accept_medium)
+                            visibility = View.VISIBLE
+                        }
+                        TODAY_EMPTY -> {
+                            setImageResource(R.drawable.ic_empty)
+                            visibility = View.VISIBLE
+                        }
+                        else -> visibility = View.INVISIBLE
+                    }
+                }
+            }
+        }
+    }
+
+    @JvmStatic
     @BindingAdapter("imgPersonEmo")
     fun setPersonEmo(image: ImageView, imgPersonEmo: Int?) {
         with(image) {

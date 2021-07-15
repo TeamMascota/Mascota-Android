@@ -10,7 +10,7 @@ import org.mascota.data.remote.model.response.diary.*
 class DiaryRepositoryImpl(private val remoteDataSource : DiaryDataSource) : DiaryRepository{
     override suspend fun postPetDiaryWrite(body: ReqPetDiaryWrite): ResPetDiaryWrite = remoteDataSource.postPetDiaryWrite(body)
 
-    override suspend fun postPetDiaryRead(path: String): ResDiaryRead = remoteDataSource.postPetDiaryRead(path)
+    override suspend fun getPetDiaryRead(path: String): ResDiaryRead = remoteDataSource.getPetDiaryRead(path)
 
     override suspend fun putPetDiaryEdit(path: String, body: ReqPetDiaryWrite): ResDiaryEdit = remoteDataSource.putPetDiaryEdit(path, body)
 

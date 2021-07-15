@@ -11,7 +11,7 @@ interface DiaryRepository {
     suspend fun postPetDiaryWrite(body: ReqPetDiaryWrite): ResPetDiaryWrite
 
     //GET Diary Read(Pet)
-    suspend fun postPetDiaryRead(path: String): ResDiaryRead
+    suspend fun getPetDiaryRead(path: String): ResDiaryRead
 
     //PUT Diary Edit(Pet)
     suspend fun putPetDiaryEdit(path: String, body: ReqPetDiaryWrite): ResDiaryEdit
