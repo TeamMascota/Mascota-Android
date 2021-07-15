@@ -244,6 +244,7 @@
                 android:minHeight="@dimen/text_min_height"
                 android:layout_marginTop="16dp"
                 android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 android:textAppearance="@style/TextBody1Style"
                 android:textColor="@color/maco_dark_gray"
                 android:paddingHorizontal="22dp"
