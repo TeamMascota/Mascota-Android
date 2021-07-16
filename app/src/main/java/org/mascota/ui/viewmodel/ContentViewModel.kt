@@ -33,22 +33,15 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
     val resTableContent: List<ResContentList.Data.TableContent>
     get() = _resTableContent
 
-
-    private var _resTableContent2 = listOf<ResPart2ContentAdd.Data.TableContent>()
-    val resTableContent2 : List<ResPart2ContentAdd.Data.TableContent>
-    get() = _resTableContent2
-
-    fun getResTable2Content() : List<ResContentList.Data.TableContent>{
-        return _resTableContent
-    }
+    private val _resPart2ContentDetail = MutableLiveData<ResPart2ContentDetail>()
+    val resPart2ContentDetail: LiveData<ResPart2ContentDetail>
+        get() = _resPart2ContentDetail
 
     private lateinit var _chapterTitle : String
 
 
     fun postChapterTitle(chapterTitle: String) {
-        Log.d("post", chapterTitle)
         _chapterTitle = chapterTitle
-        Log.d("chaptertitlesetting", _chapterTitle.toString())
     }
 
     private lateinit var _chapterId : String
@@ -118,7 +111,6 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
         }
             .onSuccess { resContentAdd->
                 Log.d("resContentAdd", resContentAdd.toString())
-                _resTableContent2 = resContentAdd.data.tableContents.map{changeTableContent2(it)}
                 getResPart2ContentList()
 
             }
@@ -149,10 +141,6 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
         return ResContentList.Data.TableContent(table.chapterId, table.chapter, table.chapterTitle?: "서버타이틀")
     }
 
-    private fun changeTableContent2 (table: ResContentAdd.Data.TableContent) : ResPart2ContentAdd.Data.TableContent{
-        return ResPart2ContentAdd.Data.TableContent(table.chapterId?:"0", table.chapter?:1, table.chapterTitle?: "서버야 타이틀좀")
-    }
-
     fun getResContentList() = viewModelScope.launch {
         runCatching { contentRepository.getContentList(getUserId()) }
             .onSuccess {
@@ -181,6 +169,16 @@ class ContentViewModel(private val contentRepository: ContentRepository) : ViewM
         runCatching { contentRepository.getContentDetail(chapterId) }
             .onSuccess {
                 _resContentDetail.postValue(it)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
+    }
+
+    fun getPart2ContentDetail(chapterId: String) = viewModelScope.launch {
+        runCatching { contentRepository.getContentDetailPart2(chapterId) }
+            .onSuccess {
+                _resPart2ContentDetail.postValue(it)
             }
             .onFailure {
                 it.printStackTrace()
