@@ -6,7 +6,7 @@ data class ResRainbowBook(
     val success: Boolean,
     val message: String,
     val data: Data
-) {
+)  {
     data class Data(
         val diaryCount: Int,
         val dayTogether: Int,
@@ -14,7 +14,8 @@ data class ResRainbowBook(
     ) {
         data class BookInfo(
             val title: String,
-            val bookImg: String
+            val bookImg: String,
+            val author : String
         )
     }
 }

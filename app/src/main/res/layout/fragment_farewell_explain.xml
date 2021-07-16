@@ -23,12 +23,12 @@
             android:layout_marginStart="23dp"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="25dp"
+            android:lineSpacingExtra="3dp"
             android:textAppearance="@style/TextBody1Style"
             android:textColor="@color/maco_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/with_story"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_animal"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/happy_life"
+            tools:text="@string/happy_life"
             android:lineSpacingExtra="6dp"
             android:textAppearance="@style/TextBody1Style"
             android:textColor="@color/maco_white"
@@ -71,10 +71,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="@string/assemble"
+            tools:text="@string/assemble"
             android:textAppearance="@style/TextBody1Style"
             android:textColor="@color/maco_white"
             app:layout_constraintStart_toStartOf="@+id/tv_best_moment"
             app:layout_constraintTop_toBottomOf="@+id/tv_best_moment" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintDimensionRatio="375:209"
+            android:src="@drawable/ic_illust_rainbow_cat_big"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_in_story" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
