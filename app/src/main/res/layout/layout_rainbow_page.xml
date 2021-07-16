@@ -12,6 +12,9 @@
         <variable
             name="emoFeeling"
             type="Integer" />
+        <variable
+            name="pageDiaryId"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

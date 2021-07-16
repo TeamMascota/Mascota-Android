@@ -42,7 +42,6 @@ class FarewellBestMoment :
         setToday()
         getResBestMoment()
         observeResRainBowBestMoment()
-        initBookClickListener()
     }
 
     private fun observeResRainBowBestMoment() {
@@ -82,16 +81,6 @@ class FarewellBestMoment :
         }
     }
 
-    private fun initBookClickListener() {
-        val intent = Intent(requireContext(), DiaryReadActivity::class.java)
-        loveAdapter.setBestLeftPageClickListener {
-//            intent.putStringArrayListExtra("petDiaryIdList", arrayListOf(it)) //여기서 아이디 리스트 보낵.
-//            intent.putExtra("from", DiaryReadActivity.IS_BEST_MOMENT)
-//            startActivity(intent)
-        }
-
-    }
-
     private fun changePair(list: List<ResBestMoment.Data.TheBestMoment.Diary>)
     : List<Pair<ResBestMoment.Data.TheBestMoment.Diary, ResBestMoment.Data.TheBestMoment.Diary>>{
         val diaryPairList = arrayListOf<Pair<ResBestMoment.Data.TheBestMoment.Diary, ResBestMoment.Data.TheBestMoment.Diary>>()
@@ -101,10 +90,10 @@ class FarewellBestMoment :
             first = list[i]
             second = list[i+1]
             if(first == null){
-                first = ResBestMoment.Data.TheBestMoment.Diary(0,0,"NULL","NULL","NULL")
+                first = ResBestMoment.Data.TheBestMoment.Diary("NULL",0,0,"NULL","NULL","NULL")
             }
             if(second == null){
-                second = ResBestMoment.Data.TheBestMoment.Diary(0,0,"NULL","NULL","NULL")
+                second = ResBestMoment.Data.TheBestMoment.Diary("NULL",0,0,"NULL","NULL","NULL")
             }
             diaryPairList.add(Pair(first, second))
         }
