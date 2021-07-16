@@ -17,7 +17,7 @@ interface RainbowRepository {
     suspend fun deleteFarewellQuit(path: String): ResFarewellQuit
 
     //GET Rainbow Book
-    suspend fun getRainbowBook(userId: String, petId: String): ResRainbowBook
+    suspend fun getRainbowBook(petId: String): ResRainbowBook
 
     //GET Rainbow Best Moment
     suspend fun getRainbowBestMoment(userId: String, petId: String): ResBestMoment

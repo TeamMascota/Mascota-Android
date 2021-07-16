@@ -17,8 +17,8 @@ class RainbowRepositoryImpl(private val remoteDataSource: RainbowDataSource) : R
     override suspend fun deleteFarewellQuit(path: String): ResFarewellQuit =
         remoteDataSource.deleteFarewellQuit(path)
 
-    override suspend fun getRainbowBook(userId: String, petId: String): ResRainbowBook =
-        remoteDataSource.getRainbowBook(userId, petId)
+    override suspend fun getRainbowBook(petId: String): ResRainbowBook =
+        remoteDataSource.getRainbowBook(petId)
 
     override suspend fun getRainbowBestMoment(userId: String, petId: String): ResBestMoment =
         remoteDataSource.getRainbowBestMoment(userId, petId)

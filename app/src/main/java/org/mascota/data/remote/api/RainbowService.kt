@@ -31,7 +31,6 @@ interface RainbowService {
     //GET Rainbow Book
     @GET("rainbow/record/{petId}")
     suspend fun getRainbowBook(
-        @Path("userId") userId: String,
         @Path("petId") petId: String
     ): ResRainbowBook
 

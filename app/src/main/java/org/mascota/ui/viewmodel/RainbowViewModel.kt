@@ -40,6 +40,11 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     val farewellAnimalList: LiveData<List<ResFarewellSelect.Data>>
         get() = _farewellAnimalList
 
+
+    private val _rainBowBookInfo = MutableLiveData<ResRainbowBook.Data>()
+    val rainbowBookInfo : LiveData<ResRainbowBook.Data>
+    get() = _rainBowBookInfo
+
     var name = ""
 
     fun deleteFareWellQuit() = viewModelScope.launch {
@@ -114,6 +119,17 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
 
             }
 
+    }
+
+
+    fun getRainbowBookInfo() = viewModelScope.launch {
+        kotlin.runCatching { rainbowRepository.getRainbowBook(getPetId()) }
+            .onSuccess {
+                _rainBowBookInfo.postValue(it.data)
+            }
+            .onFailure {
+                it.printStackTrace()
+            }
     }
     fun getPetName() = viewModelScope.launch {
         //    //GET Rainbow Pet Name
