@@ -9,7 +9,7 @@ val viewModelModule = module {
     viewModel { CalendarViewModel(get(), get()) }
     viewModel { RainbowViewModel(get(), get()) }
     viewModel { ContentViewModel(get()) }
-    viewModel { DiaryViewModel(get()) }
+    viewModel { DiaryViewModel(get(), get()) }
     viewModel { ProfileViewModel(get()) }
     viewModel { UserViewModel(get()) }
 }

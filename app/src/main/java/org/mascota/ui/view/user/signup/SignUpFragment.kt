@@ -1,4 +1,4 @@
-package org.mascota.ui.view.signup
+package org.mascota.ui.view.user.signup
 
 import android.text.Editable
 import android.text.TextWatcher
@@ -38,6 +38,7 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
                     vaildcheckId()
                     postBtnEnable()
                     postId(etEmail.text.toString())
+                    userViewModel.email = etEmail.text.toString()
                 }
 
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -49,6 +50,7 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
                     vaildcheckId()
                     postBtnEnable()
                     postId(etEmail.text.toString())
+                    userViewModel.email = etEmail.text.toString()
                 }
 
             })
@@ -107,6 +109,7 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
                 val pwd  = etPwd.text.toString()
                 override fun afterTextChanged(p0: Editable?) {
                     countPwd()
+                    equalsPwd()
                     postBtnEnable()
                     postPass(etPwd.text.toString())
                 }
@@ -117,6 +120,7 @@ class SignUpFragment: BindingFragment<FragmentSignUpBinding> (R.layout.fragment_
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     countPwd()
+                    equalsPwd()
                     postBtnEnable()
                     postPass(etPwd.text.toString())
                 }

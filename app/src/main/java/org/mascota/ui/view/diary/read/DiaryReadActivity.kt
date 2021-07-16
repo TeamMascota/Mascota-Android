@@ -256,6 +256,8 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
             binding.vpPetImg.adapter = this
             pagerFrom = from
             binding.springDotsIndicator.setViewPager2(binding.vpPetImg)
+            //petImgUrlList = petImageDataSource.getPetImageUrlData()
+            //binding.springDotsIndicator.setViewPager2(binding.vpPetImg)
         }
     }
 

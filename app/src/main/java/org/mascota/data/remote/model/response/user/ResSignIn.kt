@@ -7,5 +7,7 @@ data class ResSignIn(
     val data: Data
 ) {
     class Data(
+        val userId : String,
+        val petId : String
     )
 }

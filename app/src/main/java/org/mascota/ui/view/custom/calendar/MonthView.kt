@@ -17,6 +17,7 @@ import org.mascota.databinding.ItemDateBinding
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.EMPTY
 import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.diary.read.DiaryReadActivity
+import org.mascota.ui.view.diary.read.DiaryReadActivity.Companion.IS_CALENDAR
 import org.mascota.util.BindingAdapter.TODAY_EMPTY
 import org.mascota.util.CalendarUtil.isDaySame
 import org.mascota.util.extension.getColor
@@ -126,9 +127,14 @@ class MonthView(
                                 else
                                     item.isEmpty = true
                                 item.dateItem = data
-                                item.ivEmo.setOnClickListener {
-                                    startActivity(context, Intent(context, DiaryReadActivity::class.java), null)
-                                }
+                                /*item.ivEmo.setOnClickListener {
+                                    startActivity(context,
+                                        Intent(context, DiaryReadActivity::class.java).apply {
+                                            putExtra("from", IS_CALENDAR)
+                                            putExtra("petDiaryIdList", ArrayList(data.id))
+                                        },
+                                        null)
+                                }*/
                             }
                             else {
                                 item.dateItem = emptyTodayData
@@ -151,7 +157,8 @@ class MonthView(
                                     item.isEmpty = true
                                 item.dateItem = data
                                 item.ivEmo.setOnClickListener {
-                                    startActivity(context, Intent(context, DiaryReadActivity::class.java), null)
+                                    //
+                                // startActivity(context, Intent(context, DiaryReadActivity::class.java), null)
                                 }
                             }
                             else {

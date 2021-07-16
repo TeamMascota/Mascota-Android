@@ -1,4 +1,4 @@
-package org.mascota.ui.view.signup
+package org.mascota.ui.view.user.signup
 
 import android.content.Intent
 import android.util.Log
@@ -59,17 +59,21 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
                         FIRST_PAGE -> {
                             userViewModel.postSignUp()
                         }
-                        else -> finish()
+                        else -> {
+                            finish()
+                            startCreateProfileActivity()
+                        }
                     }
                 }
 
                 btnBack.setOnClickListener {
-
                     when(currentItem){
-                        FIRST_PAGE -> Log.d("로그인 액티비티","실행하기")
+                        FIRST_PAGE -> {
+                            finish()
+                            Log.d("로그인 액티비티", "실행하기")
+                        }
                         else -> setCurrentItem(FIRST_PAGE,true)
                     }
-
                 }
 
 
@@ -79,14 +83,12 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
                         when(position){
                             FIRST_PAGE ->{
                                 btnSignup.text = getString(R.string.signup)
-
                             }
                             else ->{
                                 btnSignup.text = getString(R.string.register_pet)
                                 btnBack.visibility = View.INVISIBLE
                                 tvAgree.visibility = View.INVISIBLE
                                 tvSignup.visibility = View.INVISIBLE
-
                             }
                         }
                     }
@@ -98,9 +100,22 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
             }
         }
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        with(binding.vpSignup) {
+            when(currentItem) {
+                FIRST_PAGE -> {
+                    finish()
+                    Log.d("로그인 액티비티", "실행하기")
+                }
+                else -> setCurrentItem(FIRST_PAGE,true)
+            }
+        }
+    }
+
     private fun startCreateProfileActivity() {
         startActivity(Intent(this@SignUpActivity, ProfileCreateActivity::class.java))
-
     }
 
     private fun startLoginActivity(){

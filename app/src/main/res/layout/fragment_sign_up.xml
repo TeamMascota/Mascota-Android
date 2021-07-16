@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.view.signup.SignUpFragment">
+    tools:context=".ui.view.user.signup.SignUpFragment">
 
     <data>
 
@@ -31,8 +31,6 @@
                     android:text="@string/ment"
                     android:textColor="@color/maco_dark_gray"
                     android:textSize="20sp"
-                    android:layout_marginEnd="59dp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

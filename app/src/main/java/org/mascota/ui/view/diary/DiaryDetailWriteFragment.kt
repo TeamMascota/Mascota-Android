@@ -1,205 +1,229 @@
 package org.mascota.ui.view.diary
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.provider.MediaStore
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
+import org.mascota.data.local.MascotaSharedPreference.getPart
 import org.mascota.databinding.FragmentDiaryDetailWriteBinding
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.diary.DiaryWriteActivity.Companion.PART1
 import org.mascota.ui.view.diary.adpter.ImageAdapter
 import org.mascota.ui.view.diary.adpter.SpinnerAdapter
-import org.mascota.ui.view.diary.data.ImageList
-import org.mascota.ui.view.diary.data.SpinnerModel
+import org.mascota.ui.viewmodel.DiaryViewModel
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.InputStream
 import java.time.LocalDate
 import java.time.LocalDate.now
 import java.time.format.DateTimeFormatter
 
 
 @Suppress("DEPRECATION")
-class DiaryDetailWriteFragment : BindingFragment<FragmentDiaryDetailWriteBinding>(R.layout.fragment_diary_detail_write){
-    val REQ_GALLERY = 12
+class DiaryDetailWriteFragment :
+    BindingFragment<FragmentDiaryDetailWriteBinding>(R.layout.fragment_diary_detail_write) {
     @RequiresApi(Build.VERSION_CODES.O)
-    val current_date : LocalDate = now()
+    private val currentDate: LocalDate = now()
+    private val diaryViewModel: DiaryViewModel by sharedViewModel()
+
+    private var isSpinnerSelected = false
+    private var isTitleExist = false
+    private var isContentExist = false
+
+    private var i = 0
+
+    private val requestImage =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
+            if (activityResult.resultCode == Activity.RESULT_OK) {
+                val intent = activityResult.data
+                if (intent != null) {
+                    val fileUri = requireNotNull(intent.data)
+                    diaryViewModel.imageUriList[i] = fileUri
+                    imageAdapter.data = diaryViewModel.imageUriList
+
+                    diaryViewModel.addImageList(null)
+                    imageAdapter.setSelectedList(i)
+
+                    val options = BitmapFactory.Options()
+                    val inputStream: InputStream =
+                        requireNotNull(requireActivity().contentResolver.openInputStream(fileUri))
+                    val bitmap = BitmapFactory.decodeStream(inputStream, null, options)
+                    val byteArrayOutputStream = ByteArrayOutputStream()
+                    bitmap!!.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream)
+                    val fileBody = byteArrayOutputStream.toByteArray()
+                        .toRequestBody("image/jpg".toMediaTypeOrNull())
+
+                    val part = MultipartBody.Part.createFormData(
+                        "images",
+                        File(fileUri.toString()).name,
+                        fileBody
+                    )
+
+                    diaryViewModel.setImageList(i++, part)
+
+                    if (i > 4)
+                        binding.btnAddImage.isSelected = true
+                }
+            }
+        }
+
     @RequiresApi(Build.VERSION_CODES.O)
-    val formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd")
+    private val formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd")
+
     @RequiresApi(Build.VERSION_CODES.O)
-    val tv_today = current_date.format(formatter).toString()
+    private val tvToday = currentDate.format(formatter).toString()
 
     private lateinit var spinnerAdapter: SpinnerAdapter
     private lateinit var imageAdapter: ImageAdapter
-    private var item_spin = arrayListOf<SpinnerModel>()
-    private val i = 0
 
     val image = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
 // i 넘어갈떄마다
             activityResult ->
-        if(activityResult.resultCode == Activity.RESULT_OK){
+        if (activityResult.resultCode == Activity.RESULT_OK) {
             val intent = activityResult.data
-            if(intent != null){
+            if (intent != null) {
                 val fileUri = intent.data
-                Log.d("사진","잘 가져옴")
-               imageAdapter.imageList.add(ImageList(img = fileUri),)
-               // imageAdapter.imageList.set(i,ImageList(img = fileUri))
-                imageAdapter.notifyDataSetChanged()
-            }
-            else{
-                Log.d("reusltcode","못함")
+                Log.d("사진", "잘 가져옴")
+
+            } else {
+                Log.d("reusltcode", "못함")
             }
         }
-
     }
 
-
-
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun initView() {
+        getData()
         initImageAdapter()
-        setupSpinner()
+        initObserver()
         initClickSelectImage()
-        binding.tvToday.setText(tv_today)
-        WriteTitle()
-
-
-
+        binding.tvToday.text = tvToday
+        initTextChangeEvent()
     }
 
-    private fun initImageAdapter(){
+    private fun getContentPart1() {
+        diaryViewModel.getContentPart1()
+    }
+
+    private fun getContentPart2() {
+        diaryViewModel.getContentPart2()
+    }
+
+    private fun getData() {
+        getContentPart1()
+    }
+
+    private fun initObserver() {
+        diaryViewModel.contentList.observe(viewLifecycleOwner) {
+            spinnerAdapter =
+                SpinnerAdapter(requireContext(), R.layout.item_spinner, it.toMutableList())
+            binding.spinSelectChapter.adapter = spinnerAdapter
+            spinnerAdapter.setChapterClickListener {
+                isSpinnerSelected = it
+            }
+        }
+    }
+
+    private fun initImageAdapter() {
         imageAdapter = ImageAdapter()
+        imageAdapter.data = diaryViewModel.imageUriList
         binding.rcvImage.adapter = imageAdapter
-        binding.rcvImage.setHasFixedSize(true)
     }
-
-    private fun initList(){
-        item_spin.add(SpinnerModel(tv_chapter = "제 1장",tv_chatitle = "코봉이의 적응"))
-        item_spin.add(SpinnerModel(tv_chapter = "제 2장", tv_chatitle = "코봉아 아프지마"))
-        item_spin.add(SpinnerModel(tv_chapter = "제 3장", tv_chatitle = "코봉아 사랑해"))
-
-
-    }
-
-    private fun setupSpinner(){
-
-       initList()
-
-        spinnerAdapter = context?.let { SpinnerAdapter(it, R.layout.item_spinner, item_spin) }!!
-        binding.spinSelectChapter.adapter = spinnerAdapter
-
-
-    }
-
 
     private fun initClickSelectImage() {
-        binding.btnAddImage.setOnClickListener{
+        binding.btnAddImage.setOnClickListener {
             showBottomSheet()
         }
-
     }
 
     private fun showBottomSheet() {
-        Log.d("바텀시트","열리기")
         val bottomSheet = BottomSheet()
         bottomSheet.setCallbackButtonClickListener {
             // 카메라 함수 실행하기
-            selectGallery()
-            Log.d("프래그멘트", "누름")
-        }
-        activity?.supportFragmentManager?.let { it1 ->
-            bottomSheet.show(it1, bottomSheet.tag)
+            getLocalImage()
         }
 
-
+        if(!binding.btnAddImage.isSelected)
+            bottomSheet.show(requireActivity().supportFragmentManager, bottomSheet.tag)
     }
 
-
-    private fun selectGallery() {
-        var writePermission = context?.let {
-            ContextCompat.checkSelfPermission(
-                it,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-        }
-        var readPermission = context?.let {
-            ContextCompat.checkSelfPermission(
-                it,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            )
-        }
+    private fun getLocalImage() {
+        val writePermission = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+        val readPermission = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        )
 
         if (writePermission == PackageManager.PERMISSION_DENIED || readPermission == PackageManager.PERMISSION_DENIED) {
-            //권한이 없을 경우 요청함
-            context?.let {
-                ActivityCompat.requestPermissions(
-                    it as Activity,
-                    arrayOf(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                    ),
-                    REQ_STORAGE_PERMISSION
-                )
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ),
+                REQ_STORAGE_PERMISSION
+            )
+
+            if (writePermission == PackageManager.PERMISSION_DENIED || readPermission == PackageManager.PERMISSION_DENIED) {
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                intent.type = "image/*"
+                requestImage.launch(intent)
             }
-
         } else {
-            //권한 있을 경우
-                Log.d("갤러리","잘옴")
-           var intent = Intent(Intent.ACTION_PICK)
-            //어떤 종류의 데이터를 선택할 수 있는지 정해줌
+            val intent = Intent(Intent.ACTION_PICK)
             intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            intent.type = MediaStore.Images.Media.CONTENT_TYPE
-            image.launch(intent)
-
-
-
+            intent.type = "image/*"
+            requestImage.launch(intent)
         }
     }
 
-
-
-
-
-    //갤러리에서 사진 선택한 후 호출
-    //결과값이 넘어옴
-    //인탠트로 이미지가 넘어옴
-
-
-
-
-    private fun WriteTitle() {
-        binding.etTitle.addTextChangedListener(object : TextWatcher{
-            @SuppressLint("SetTextI18n")
-            override fun afterTextChanged(p0: Editable?) {
-                var userinput = binding.etTitle.text.toString()
-                binding.tvCount.text = userinput.length.toString() + " /11"
-
+    private fun initTextChangeEvent() {
+        binding.apply {
+            etStory.addTextChangedListener {
+                diaryViewModel.contents = etStory.text.toString()
+                isContentExist = !etStory.text.isNullOrEmpty()
+                diaryViewModel.postBtnEnable(isEnable())
             }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                binding.tvCount.text = "0/11"
-
+            etTitle.addTextChangedListener {
+                diaryViewModel.title = etTitle.text.toString()
+                val userInput = binding.etTitle.text.toString()
+                binding.tvCount.text = "(" + userInput.length.toString() + " /11)"
+                isTitleExist = !etTitle.text.isNullOrEmpty()
+                diaryViewModel.postBtnEnable(isEnable())
             }
+        }
+    }
 
-            @SuppressLint("SetTextI18n")
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                var userinput = binding.etTitle.text.toString()
-                binding.tvCount.text = userinput.length.toString() + " /11"
-            }
-
-
-        })
-
+    private fun isEnable(): Boolean {
+        return isContentExist && isSpinnerSelected && isTitleExist
     }
 
     companion object {
         const val REQ_STORAGE_PERMISSION = 1
+        const val REQ_GALLERY = 12
     }
 
+    override fun onResume() {
+        super.onResume()
+        diaryViewModel.postBtnEnable(isEnable())
+    }
 }

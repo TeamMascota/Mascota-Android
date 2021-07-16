@@ -29,4 +29,7 @@ interface DiaryRepository {
 
     //PUT Diary Delete(Person)
     suspend fun deletePersonDiary(path: String, body: ReqDiaryDelete): ResDiaryDelete
+
+    //Get Animal List
+    suspend fun getAnimalInfo(): ResPetInfo
 }

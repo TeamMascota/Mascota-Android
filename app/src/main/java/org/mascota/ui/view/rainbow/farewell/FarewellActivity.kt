@@ -44,8 +44,18 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
                     registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                         override fun onPageSelected(position: Int) {
                             isBackVisible = when (position) {
-                                FIRST_PAGE -> false
-                                else -> true
+                                FIRST_PAGE -> {
+                                    tvRainbow.text = "무지개 다리"
+                                    false
+                                }
+                                SECOND_PAGE -> {
+                                    tvRainbow.text = "무지개 다리"
+                                    true
+                                }
+                                else -> {
+                                    tvRainbow.text = "최고의 순간"
+                                    true
+                                }
                             }
                         }
                     })

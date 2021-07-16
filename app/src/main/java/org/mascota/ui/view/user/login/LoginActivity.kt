@@ -7,10 +7,17 @@ import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
+import org.mascota.data.local.MascotaSharedPreference.getIsProfileCreate
+import org.mascota.data.local.MascotaSharedPreference.getPetId
+import org.mascota.data.local.MascotaSharedPreference.setLogin
+import org.mascota.data.local.MascotaSharedPreference.setPetId
+import org.mascota.data.local.MascotaSharedPreference.setUserId
 import org.mascota.databinding.ActivityLoginBinding
 import org.mascota.databinding.LayoutHelpMessageDialogBinding
 import org.mascota.ui.MainActivity
 import org.mascota.ui.base.BindingActivity
+import org.mascota.ui.view.profile.ProfileCreateActivity
+import org.mascota.ui.view.user.signup.SignUpActivity
 import org.mascota.ui.viewmodel.UserViewModel
 import org.mascota.util.DialogUtil
 import org.mascota.util.EventObserver
@@ -29,6 +36,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         initDialogDataBinding()
         initDialog()
         setDialog()
+        observeSignIn()
         setLoginBtnClickListener()
         initTextChangeEvent()
     }
@@ -62,7 +70,18 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     private fun observeSignIn() {
         userViewModel.signInEvent.observe(this, EventObserver {
             when(it) {
-                true -> startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                true -> {
+                    finish()
+                    setUserId(userViewModel.getUserID())
+                    if(!getIsProfileCreate()) {
+                        startActivity(Intent(this@LoginActivity, ProfileCreateActivity::class.java))
+                    }
+                    else {
+                        setPetId(getPetId())
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        setLogin(true)
+                    }
+                }
                 false -> loginFailDialog.show()
             }
 
@@ -79,8 +98,11 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         binding.btnLogin.setOnClickListener {
             //아이디, 비밀번호 보내고 bool값 받아오기
             userViewModel.postSignIn()
-            observeSignIn()
             //loginFailDialog.show()
+        }
+
+        binding.tvSignUp.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
 

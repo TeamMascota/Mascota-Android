@@ -137,16 +137,13 @@ class ProfileCreateBookFragment :
             etPrologTitle.addTextChangedListener {
                 isPrologTitleExist = !etPrologTitle.text.isNullOrEmpty()
                 postBtnEnable()
-                tvPrologSize.text = StringUtil.makeTextLength(etPrologTitle.length())
-            }
-            etPrologTitle.addTextChangedListener {
-                isPrologTitleExist = !etPrologTitle.text.isNullOrEmpty()
-                postBtnEnable()
+                profileViewModel.prologueTitle = etPrologTitle.text.toString()
                 tvPrologSize.text = StringUtil.makeTextLength(etPrologTitle.length())
             }
             etProlog.addTextChangedListener {
                 isPrologExist = !etProlog.text.isNullOrEmpty()
                 postBtnEnable()
+                profileViewModel.prologue = etProlog.text.toString()
             }
         }
     }

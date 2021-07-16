@@ -7,6 +7,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.IdRes
 import androidx.annotation.Px
@@ -43,6 +44,11 @@ fun Fragment.setTextPartialColor(@ColorRes res: Int, start : Int, end : Int, tex
     resultString.setSpan(ForegroundColorSpan(getColor(res)), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
     return resultString
+}
+
+
+fun Context.shortToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
 @Px

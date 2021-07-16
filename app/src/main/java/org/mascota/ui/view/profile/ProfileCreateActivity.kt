@@ -43,7 +43,11 @@ class ProfileCreateActivity :
                             profileViewModel.postProfilePet()
                             setCurrentItem(SECOND_PAGE, true)
                         }
-                        else -> startBookCompleteActivity()
+                        else -> {
+                            profileViewModel.postProlog()
+
+                            startBookCompleteActivity()
+                        }
                     }
                 }
 

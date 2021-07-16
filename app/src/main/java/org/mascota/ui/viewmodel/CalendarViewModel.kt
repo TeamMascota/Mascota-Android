@@ -53,6 +53,7 @@ class CalendarViewModel(
             }
         }.onSuccess {
             _dateItem.postValue(it)
+            Log.d("fdsafs", it.data.toString())
         }.onFailure { it.printStackTrace() }
     }
 
