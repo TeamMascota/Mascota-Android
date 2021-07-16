@@ -20,6 +20,7 @@ import org.mascota.util.AnimationUtil.setProgress100Animation
 import org.mascota.util.AnimationUtil.setProgress50Animation
 import org.mascota.util.EventObserver
 import org.mascota.util.StatusBarUtil.setStatusBarColor
+import org.mascota.util.extension.shortToast
 
 class DiaryWriteActivity :
     BindingActivity<ActivityDiaryWriteBinding>(R.layout.activity_diary_write) {
@@ -57,13 +58,16 @@ class DiaryWriteActivity :
                 btnNext.setOnClickListener {
                     when (currentItem) {
                         FIRST_PAGE -> {
-                            if (getPart() == PART1)
+                            if (getPart() == PART1) {
                                 setCurrentItem(SECOND_PAGE, true)
+                            }
                             else
                                 setCurrentItem(THIRD_PAGE, false)
                         }
                         SECOND_PAGE -> {
-                            startDiaryReadActivity()
+                            diaryViewModel.postDiary()
+                            //startDiaryReadActivity()
+                            shortToast("작성이 완료되었습니다")
                             finish()
                         }
                         else ->
