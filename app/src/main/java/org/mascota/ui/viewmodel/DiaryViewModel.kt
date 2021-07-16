@@ -39,10 +39,11 @@ class DiaryViewModel(private val diaryRepository: DiaryRepository) : ViewModel()
         runCatching { diaryRepository.getPetDiaryRead(_petDiaryId) }
             .onSuccess {
                 _diaryReadPet.postValue(it)
-                Log.d("server", it.toString())
+                Log.d("server-diary-read", it.toString())
             }
             .onFailure {
                 it.printStackTrace()
+                Log.d("server-diary-read-fail", "why?????????")
             }
     }
 

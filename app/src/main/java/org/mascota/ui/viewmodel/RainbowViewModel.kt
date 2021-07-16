@@ -40,9 +40,8 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     private val _rainbowContent = MutableLiveData<ResRainbowContent>()
     val rainbowContent : MutableLiveData<ResRainbowContent>
     get() = _rainbowContent
-
-    private val _farewellAnimalList = MutableLiveData<List<ResFarewellSelect.Data>>()
-    val farewellAnimalList: LiveData<List<ResFarewellSelect.Data>>
+    private val _farewellAnimalList = MutableLiveData<List<ResFarewellSelect.Data.Pet>>()
+    val farewellAnimalList: LiveData<List<ResFarewellSelect.Data.Pet>>
         get() = _farewellAnimalList
 
 
@@ -156,7 +155,8 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     fun getFarewellSelect() = viewModelScope.launch {
         runCatching { rainbowRepository.getFarewellSelect() }
             .onSuccess {
-                _farewellAnimalList.postValue(it.data)
+                Log.d("server-farewell-select", it.toString())
+                _farewellAnimalList.postValue(it.data.pet)
             }
             .onFailure {
                 it.printStackTrace()

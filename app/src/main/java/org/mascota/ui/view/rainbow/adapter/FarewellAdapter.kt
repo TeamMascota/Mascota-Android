@@ -10,8 +10,8 @@ import org.mascota.databinding.ItemFarewellBinding
 class FarewellAdapter : RecyclerView.Adapter<FarewellAdapter.FarewellViewHolder>() {
     private var heroClickListener: ((String, Int) -> Unit)? = null
     private var isSelectedViewType = NOT_SELECTED
-    private val _data = mutableListOf<ResFarewellSelect.Data>()
-    var data: List<ResFarewellSelect.Data> = _data
+    private val _data = mutableListOf<ResFarewellSelect.Data.Pet>()
+    var data: List<ResFarewellSelect.Data.Pet> = _data
         set(value) {
             _data.clear()
             _data.addAll(value)
@@ -48,7 +48,7 @@ class FarewellAdapter : RecyclerView.Adapter<FarewellAdapter.FarewellViewHolder>
 
     inner class FarewellViewHolder(private val binding: ItemFarewellBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: ResFarewellSelect.Data, position: Int) {
+        fun bind(data: ResFarewellSelect.Data.Pet, position: Int) {
             binding.apply {
                 tvName.text = data.name
                 Glide.with(ivHero).load(data.img).into(ivHero)

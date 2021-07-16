@@ -321,7 +321,7 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("imgUrl")
     fun setRemoteImage(image: ImageView, url: String?) {
-        Glide.with(image.context).load(url).into(image)
+        Glide.with(image.context).load(url).centerCrop().into(image)
     }
 
     @SuppressLint("SetTextI18n")

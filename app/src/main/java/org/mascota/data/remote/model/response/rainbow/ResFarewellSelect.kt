@@ -4,11 +4,15 @@ data class ResFarewellSelect(
     val status: Int,
     val success: Boolean,
     val message: String,
-    val data: List<Data>
+    val data: Data
 ) {
     data class Data(
-        val _id: String,
-        val name: String,
-        val img: String
-    )
+        val pet: List<Pet>
+    ){
+        data class Pet(
+            val _id: String,
+            val name: String,
+            val img: String
+        )
+    }
 }
