@@ -61,6 +61,9 @@
  <img src="https://user-images.githubusercontent.com/81518783/125974364-c3e4bdb1-ad21-45b8-b07c-e638707de993.png" width="250" /> <img src="https://user-images.githubusercontent.com/81518783/125974372-1f147ebe-fcec-4f28-944e-a76e87096cdb.png" width="250" />
  
  
+### 2부에서 1부로 넘어감
+<img src="https://user-images.githubusercontent.com/81518783/125975850-b6af852f-25d3-4bc4-9ded-9c121dcdbf28.png" width="250" /> <img src="https://user-images.githubusercontent.com/81518783/125975861-504d9e1f-96d2-410a-aa3a-7e16494b4ffd.png" width="250" />
+
  
 
 # 🐶기능 설명
@@ -151,6 +154,10 @@
 ### 무지개
 - 펫로스 증후군 예방을 위한 정보
 - 이별한 반려동물의 최고의 순간
+
+### 캘린더
+<img src="https://user-images.githubusercontent.com/81518783/125976416-22b9c2fb-4b38-4e39-bd45-b5d996d9c7ef.png
+" width="250" />
 
 
 <br>
