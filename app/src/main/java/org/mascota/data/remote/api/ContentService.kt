@@ -41,7 +41,7 @@ interface ContentService {
     @GET("secondPart/chapter/user/{chapterId}")
     suspend fun getContentDetailPart2(
         @Path("chapterId") chapterId: String
-    ): ResContentDetail
+    ): ResPart2ContentDetail
 
     //GET Content List Part2 목차
     @GET("secondPart/chapter/list")
