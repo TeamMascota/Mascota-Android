@@ -57,6 +57,8 @@ object StringUtil {
         return resultString
     }
 
+    fun makeEmotionText(name : String) : String = "${name}의 기분"
+
     fun makeChapterText(chapter: Int) : String = "제 ${chapter}장"
 
     fun makeMonthText(month: Int) : String = "${month}월"
