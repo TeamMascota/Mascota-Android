@@ -1,5 +1,6 @@
 package org.mascota.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,10 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
     val rainbowHomeInfo: LiveData<ResRainbowHome>
         get() = _rainbowHomeInfo
 
+    private val _fareWellQuit = MutableLiveData<ResFarewellQuit>()
+    val fareWellQuit : LiveData<ResFarewellQuit>
+    get() = _fareWellQuit
+
     private val _bestMoment =MutableLiveData<ResBestMoment>()
     val bestMoment : MutableLiveData<ResBestMoment>
         get() = _bestMoment
@@ -37,6 +42,17 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
 
     var name = ""
 
+    fun deleteFareWellQuit() = viewModelScope.launch {
+        kotlin.runCatching { rainbowRepository.deleteFarewellQuit(getPetId()) }
+            .onSuccess {
+                Log.d("이별준비 취소","성공")
+                _fareWellQuit.postValue(it)
+            }
+            .onFailure {
+                Log.d("이별준비 취소","실패")
+                it.printStackTrace()
+            }
+    }
     fun putRainbowContent() = viewModelScope.launch {
 
         kotlin.runCatching { rainbowRepository.putRainbowContent(getPetId()) }
