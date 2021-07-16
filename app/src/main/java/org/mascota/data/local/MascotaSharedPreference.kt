@@ -9,6 +9,7 @@ object MascotaSharedPreference {
     private const val PET_ID = "PET_ID"
     private const val PART = "PART"
     private const val IS_PROFILE_CREATE = "IS_PROFILE_CREATE"
+    private const val IS_LOGIN = "LOGIN"
 
     lateinit var preferences: SharedPreferences
 
@@ -17,28 +18,31 @@ object MascotaSharedPreference {
     }
 
     fun getUserId(): String {
-        return preferences.getString(USER_ID, "60efd82b4339d225dc7497d0") ?: "60efd82b4339d225dc7497d0"
+        return preferences.getString(USER_ID, "") ?: ""
     }
 
     fun getPetId(): String {
-        return preferences.getString(USER_ID, "60edf6e5e5003a744892ce39") ?: "60edf6e5e5003a744892ce39"
+        return preferences.getString(PET_ID, "") ?: ""
     }
 
     fun setPetId(value: String) {
         preferences.edit().putString(PET_ID, value).apply()
-
     }
 
     fun setUserId(value: String) {
         preferences.edit().putString(USER_ID, value).apply()
     }
 
-    fun getIsProfileCreate(value: Boolean) {
-        preferences.getBoolean(IS_PROFILE_CREATE, false)
-    }
+    fun getIsProfileCreate() = preferences.getBoolean(IS_PROFILE_CREATE, false)
 
     fun setIsProfileCreate(value: Boolean) {
-        preferences.edit().putBoolean(USER_ID, value).apply()
+        preferences.edit().putBoolean(IS_PROFILE_CREATE, value).apply()
+    }
+
+    fun getLogin(): Boolean = preferences.getBoolean(IS_LOGIN, false)
+
+    fun setLogin(value: Boolean) {
+        preferences.edit{putBoolean(IS_LOGIN, value)}
     }
 
     fun getPart(): Int = preferences.getInt(PART, 1)
