@@ -165,22 +165,22 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
                             if (i == 1) {
                                 bvRainbow.setLeftRainbow(memories[i - 1])
                                 bvRainbow.setLeftPageClickListener {
-                                    startActivity(
+                                    /*startActivity(
                                         Intent(
                                             requireContext(),
                                             DiaryReadActivity::class.java
                                         )
-                                    )
+                                    )*/
                                 }
                             } else {
                                 bvRainbow.setRightRainbow(memories[i - 1])
                                 bvRainbow.setRightPageClickListener {
-                                    startActivity(
+                                    /*startActivity(
                                         Intent(
                                             requireContext(),
                                             DiaryReadActivity::class.java
                                         )
-                                    )
+                                    )*/
                                 }
                             }
                         }

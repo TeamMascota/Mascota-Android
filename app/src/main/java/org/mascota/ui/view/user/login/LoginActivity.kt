@@ -77,7 +77,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
                         //startActivity(Intent(this@LoginActivity, ProfileCreateActivity::class.java))
                     //}
                     //else {
-                        setPetId(getPetId())
+                        setPetId(userViewModel.getPetID())
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         setLogin(true)
                     //}
