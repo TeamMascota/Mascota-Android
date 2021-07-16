@@ -12,6 +12,7 @@ import org.mascota.data.local.MascotaSharedPreference
 import org.mascota.data.remote.model.response.diary.ResDiaryRead
 import org.mascota.data.remote.model.response.diary.ResPersonDiaryRead
 import org.mascota.databinding.ActivityDiaryReadBinding
+import org.mascota.databinding.LayoutLoadingBinding
 import org.mascota.databinding.LayoutMascotaDialogBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.diary.DiaryWriteActivity
@@ -26,6 +27,8 @@ import org.mascota.util.extension.setTextPartialColor
 
 
 class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.activity_diary_read) {
+    private lateinit var loadingDialog: Dialog
+    private lateinit var loadingDialogBinding: LayoutLoadingBinding
     private val diaryViewModel: DiaryViewModel by viewModel()
     private lateinit var petImagePagerAdapter: PetImagePagerAdapter
     private lateinit var emotionImageAdapter: EmotionImageAdapter
@@ -41,6 +44,7 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
     }
 
     override fun initView() {
+        initLoadingDialog()
         checkIntentFrom()
         checkPart()
         initClickEditBtn()
@@ -48,6 +52,21 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
         initEmotionImageAdapter()
         setBackBtnClickListener()
         initDialog()
+    }
+
+    private fun initLoadingDialog() {
+        loadingDialog = DialogUtil.makeLoadingDialog(this)
+
+        loadingDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(this),
+            R.layout.layout_loading,
+            null,
+            false
+        )
+
+        DialogUtil.setLoadingDialog(loadingDialog, loadingDialogBinding.root)
+
+        loadingDialog.show()
     }
 
     private fun checkPart() {
@@ -60,6 +79,7 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
     private fun observeResPersonDiaryRead() {
         getResPersonDiaryRead()
         diaryViewModel.diaryReadPerson.observe(this) { resPersonDiaryRead ->
+            loadingDialog.dismiss()
             resPersonDiaryRead.data.secondPartDiary.apply {
                 with(binding) {
                     if (episode != 0) {

@@ -7,13 +7,16 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import org.mascota.databinding.ItemHeroPetBinding
-import org.mascota.ui.view.profile.data.model.ResHero
+import org.mascota.ui.view.content.detail.adapter.ContentDetailDiaryAdapter
 import org.mascota.util.StringUtil.makeHeroNumbering
+import org.mascota.util.dp
 
 class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
-    private var itemClickListener: ((Int, Boolean) -> Unit) ?= null
-    private var quitBtnClickListener: ((Int) -> Unit) ?= null
+    private var itemClickListener: ((Int, Boolean) -> Unit)? = null
+    private var quitBtnClickListener: ((Int) -> Unit)? = null
     private var isSelectedViewType = 0
     private val _data = mutableListOf<Uri?>()
     var data: List<Uri?> = _data
@@ -23,7 +26,7 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
             notifyDataSetChanged()
         }
 
-    fun setItemViewType(type : Int) {
+    fun setItemViewType(type: Int) {
         isSelectedViewType = type
     }
 
@@ -31,11 +34,11 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
         return isSelectedViewType
     }
 
-    fun setItemClickListener(listener : (Int, Boolean)-> Unit) {
+    fun setItemClickListener(listener: (Int, Boolean) -> Unit) {
         this.itemClickListener = listener
     }
 
-    fun setQuitBtnClickListener(listener : (position: Int)-> Unit) {
+    fun setQuitBtnClickListener(listener: (position: Int) -> Unit) {
         this.quitBtnClickListener = listener
     }
 
@@ -58,7 +61,7 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Uri?, position: Int) {
             binding.apply {
-                if(position == FIRST_HERO)
+                if (position == FIRST_HERO)
                     layoutEmptyImage.ibQuit.visibility = View.INVISIBLE
 
                 clItem.isSelected = position == isSelectedViewType
@@ -68,8 +71,11 @@ class HeroAdapter : RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() {
                     itemClickListener?.invoke(position, clItem.isSelected)
                 }
 
-                if(data != null) {
-                    Glide.with(ivPetImg).load(data).into(ivPetImg)
+                if (data != null) {
+                    Glide.with(ivPetImg).load(data).transform(
+                        CenterCrop(),
+                        RoundedCorners(ContentDetailDiaryAdapter.IMAGE_RADIUS.dp)
+                    ).into(ivPetImg)
                     layoutEmptyImage.ivEmptyImg.isVisible = false
                 }
 

@@ -1,10 +1,13 @@
 package org.mascota.ui.view.rainbow.farewell
 
+import androidx.core.view.isVisible
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentFarewellExplainBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.viewmodel.RainbowViewModel
+import org.mascota.util.AnimationUtil.getFadeInAnim
 import org.mascota.util.StringUtil.makeBestMomentText
 import org.mascota.util.StringUtil.makeEpisodeText
 import org.mascota.util.StringUtil.makePetInfoText
@@ -13,7 +16,7 @@ import org.mascota.util.StringUtil.setTextPartialBold
 
 class FarewellExplainFragment :
     BindingFragment<FragmentFarewellExplainBinding>(R.layout.fragment_farewell_explain) {
-    private val rainbowViewModel: RainbowViewModel by viewModel()
+    private val rainbowViewModel: RainbowViewModel by sharedViewModel()
 
     override fun initView() {
         putRainbowContent()
@@ -27,6 +30,13 @@ class FarewellExplainFragment :
         rainbowViewModel.getPetInfo()
     }
 
+    private fun setImgVisible() {
+        binding.ivIllust.apply {
+            isVisible = true
+            startAnimation(requireContext().getFadeInAnim())
+        }
+    }
+
     private fun putRainbowContent(){
         rainbowViewModel.putRainbowContent()
     }
@@ -35,7 +45,9 @@ class FarewellExplainFragment :
         rainbowViewModel.rainbowContent.observe(viewLifecycleOwner){
             binding.apply {
                 with(it){
-                    tvInStory.text = it.data.partingRainbowBridge.contents
+                    setImgVisible()
+                    tvInStory.text = data.partingRainbowBridge.contents
+                    tvInStory.startAnimation(requireContext().getFadeInAnim())
                 }
             }
         }

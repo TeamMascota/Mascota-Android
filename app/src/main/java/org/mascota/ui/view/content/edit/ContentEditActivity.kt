@@ -11,10 +11,7 @@ import org.mascota.R
 import org.mascota.data.local.MascotaSharedPreference
 import org.mascota.data.remote.model.response.content.ResContentList
 import org.mascota.data.remote.model.response.content.ResPart2ContentList
-import org.mascota.databinding.ActivityContentEditBinding
-import org.mascota.databinding.LayoutContentEditDialogBinding
-import org.mascota.databinding.LayoutHelpMessageDialogBinding
-import org.mascota.databinding.LayoutMascotaDialogBinding
+import org.mascota.databinding.*
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.edit.adapter.ContentEditAdapter
 import org.mascota.ui.viewmodel.ContentViewModel
@@ -24,6 +21,8 @@ import org.mascota.util.StringUtil.setTextPartialBold
 
 class ContentEditActivity :
     BindingActivity<ActivityContentEditBinding>(R.layout.activity_content_edit) {
+    private lateinit var loadingDialog: Dialog
+    private lateinit var loadingDialogBinding: LayoutLoadingBinding
 
     private lateinit var deleteDialog: Dialog
     private lateinit var deleteCompleteDialog: Dialog
@@ -42,6 +41,7 @@ class ContentEditActivity :
 
         val part =  MascotaSharedPreference.getPart()
 
+        initLoadingDialog()
         checkPartData(part)
         initDialogDataBinding()
         initDialog()
@@ -51,6 +51,21 @@ class ContentEditActivity :
         setAddClickListener()
         setBackBtnClickListener()
 
+    }
+
+    private fun initLoadingDialog() {
+        loadingDialog = DialogUtil.makeLoadingDialog(this)
+
+        loadingDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(this),
+            R.layout.layout_loading,
+            null,
+            false
+        )
+
+        DialogUtil.setLoadingDialog(loadingDialog, loadingDialogBinding.root)
+
+        loadingDialog.show()
     }
 
 
@@ -71,7 +86,9 @@ class ContentEditActivity :
 
     private fun observeResPart1ContentList() {
         getResContentList()
-        contentViewModel.resContentList.observe(this) { contentEditAdapter.contentEditList =
+        contentViewModel.resContentList.observe(this) {
+            loadingDialog.dismiss()
+            contentEditAdapter.contentEditList =
                 it.data.tableContents.subList(1, it.data.tableContents.size - 1)
             binding.tvPrologTitle.text = it.data.tableContents[0].chapterTitle
             binding.tvProlog.text = getString(R.string.prolog)
@@ -81,6 +98,7 @@ class ContentEditActivity :
     private fun observeResPart2ContentList() {
         getResPart2ContentList()
         contentViewModel.resPart2ContentList.observe(this) { resPart2ContentList ->
+            loadingDialog.dismiss()
             contentEditAdapter.contentEditList = resPart2ContentList.data.tableContents.subList(
                 1,
                 resPart2ContentList.data.tableContents.size - 1

@@ -6,9 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import org.mascota.R
 import org.mascota.databinding.ItemImageBinding
+import org.mascota.ui.view.content.detail.adapter.ContentDetailDiaryAdapter
 import org.mascota.ui.view.diary.data.ImageList
+import org.mascota.util.dp
 
 class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
     private val _data = mutableListOf<Uri?>()
@@ -33,7 +38,10 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
     ){
         fun onBind(data: Uri?, position: Int){
             viewBinding.clImg.isSelected = selectedList[position]
-            viewBinding.ivImg.setImageURI(data)
+            Glide.with(viewBinding.ivImg).load(data).transform(
+                CenterCrop(),
+                RoundedCorners(ContentDetailDiaryAdapter.IMAGE_RADIUS.dp)
+            ).into(viewBinding.ivImg)
         }
     }
 
