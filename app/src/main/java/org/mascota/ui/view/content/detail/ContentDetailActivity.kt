@@ -1,17 +1,22 @@
 package org.mascota.ui.view.content.detail
 
+import android.app.Dialog
 import android.content.Intent
+import android.view.LayoutInflater
+import androidx.databinding.DataBindingUtil
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.data.local.MascotaSharedPreference
 import org.mascota.data.remote.model.response.content.ResContentDetail
 import org.mascota.data.remote.model.response.content.ResPart2ContentDetail
 import org.mascota.databinding.ActivityContentDetailBinding
+import org.mascota.databinding.LayoutLoadingBinding
 import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.content.detail.adapter.ContentDetailMonthAdapter
 import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.diary.read.DiaryReadActivity
 import org.mascota.ui.viewmodel.ContentViewModel
+import org.mascota.util.DialogUtil
 import org.mascota.util.StringUtil.makeChapterText
 import org.mascota.util.StringUtil.makeDayText
 
@@ -19,13 +24,31 @@ class ContentDetailActivity :
     BindingActivity<ActivityContentDetailBinding>(R.layout.activity_content_detail) {
     private val contentViewModel: ContentViewModel by viewModel()
     private lateinit var contentDetailMonthAdapter: ContentDetailMonthAdapter
+    private lateinit var loadingDialog: Dialog
+    private lateinit var loadingDialogBinding: LayoutLoadingBinding
 
     override fun initView() {
+        initLoadingDialog()
         checkPart()
         observeResContentDetail()
         observeResPart2ContentDetail()
         initContentDetailMonthAdapter()
         setBackBtnClickListener()
+    }
+
+    private fun initLoadingDialog() {
+        loadingDialog = DialogUtil.makeLoadingDialog(this)
+
+        loadingDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(this),
+            R.layout.layout_loading,
+            null,
+            false
+        )
+
+        DialogUtil.setLoadingDialog(loadingDialog, loadingDialogBinding.root)
+
+        loadingDialog.show()
     }
 
     private fun checkPart() {
@@ -46,6 +69,7 @@ class ContentDetailActivity :
     private fun observeResPart2ContentDetail() {
         getResPart2ContentDetail()
         contentViewModel.resPart2ContentDetail.observe(this){
+            loadingDialog.dismiss()
             it.data.apply {
                 contentDetailMonthAdapter.contentMonthList = changeResContentDetail(diaryiesOfMonth)
                 binding.tvChapter.text = makeChapterText(chapter)
@@ -84,6 +108,7 @@ class ContentDetailActivity :
     private fun observeResContentDetail() {
         getResContentDetail()
         contentViewModel.resContentDetail.observe(this) {
+            loadingDialog.dismiss()
             it.data.petChapterDiary.apply {
                 contentDetailMonthAdapter.contentMonthList = monthly
                 binding.tvChapter.text = makeChapterText(chapter)

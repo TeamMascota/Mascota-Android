@@ -1,7 +1,10 @@
 package org.mascota.ui.view.home
 
+import android.app.Dialog
 import android.content.Intent
+import android.view.LayoutInflater
 import android.view.View
+import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
@@ -9,6 +12,7 @@ import org.mascota.data.local.MascotaSharedPreference
 import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.databinding.FragmentHomeBinding
+import org.mascota.databinding.LayoutLoadingBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.content.detail.ContentDetailActivity
 import org.mascota.ui.view.content.edit.ContentEditActivity
@@ -16,9 +20,12 @@ import org.mascota.ui.view.diary.DiaryWriteActivity
 import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
 import org.mascota.util.ColorFilterUtil
+import org.mascota.util.DialogUtil
 import org.mascota.util.StringUtil.makePartText
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+    private lateinit var loadingDialog: Dialog
+    private lateinit var loadingDialogBinding: LayoutLoadingBinding
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var homeContentAdapter: HomeContentAdapter
 
@@ -28,6 +35,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
         initColorFilter()
         initBookView()
+        initLoadingDialog()
         initHomeContentAdapter()
         setEditBtnClickListener()
         checkPartData(part)
@@ -35,6 +43,21 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         navigateDiaryWriteActivity()
         movePart1()
 
+    }
+
+    private fun initLoadingDialog() {
+        loadingDialog = DialogUtil.makeLoadingDialog(requireContext())
+
+        loadingDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(requireContext()),
+            R.layout.layout_loading,
+            null,
+            false
+        )
+
+        DialogUtil.setLoadingDialog(loadingDialog, loadingDialogBinding.root)
+
+        loadingDialog.show()
     }
 
     private fun checkPartData(part : Int) {
@@ -108,6 +131,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun observeHomePart1() {
         homeViewModel.getResHomePart1()
         homeViewModel.homePart1.observe(viewLifecycleOwner) {
+            loadingDialog.dismiss()
             homeContentAdapter.contentList = it.data.firstPartMainPage.tableContents.subList(1, it.data.firstPartMainPage.tableContents.size - 1)
             binding.apply {
                 with(it.data.firstPartMainPage) {
@@ -124,6 +148,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun observeHomePart2() {
         homeViewModel.getResHomePart2()
         homeViewModel.homePart2.observe(viewLifecycleOwner){
+            loadingDialog.dismiss()
             homeContentAdapter.contentList = it.data.secondPartMainPage.tableContents.subList(1, it.data.secondPartMainPage.tableContents.size-1).map{
                 changeResPart1(it)
             }

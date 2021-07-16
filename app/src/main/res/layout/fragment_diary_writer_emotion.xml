@@ -280,7 +280,7 @@
                     android:id="@+id/tv_title_loss"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="19dp"
                     android:text="@string/loss"
                     android:textAppearance="@style/TextSub1Style"
                     android:textColor="@color/selector_human_emotion_text"

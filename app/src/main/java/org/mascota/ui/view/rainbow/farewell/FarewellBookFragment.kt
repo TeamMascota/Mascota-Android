@@ -1,10 +1,12 @@
 package org.mascota.ui.view.rainbow.farewell
 
+import androidx.core.view.isVisible
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentFarewellBookBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.viewmodel.RainbowViewModel
+import org.mascota.util.AnimationUtil.getFadeInAnim
 import org.mascota.util.ColorFilterUtil
 import org.mascota.util.StringUtil
 import org.mascota.util.StringUtil.makeAllText
@@ -19,11 +21,20 @@ class FarewellBookFragment :
     private val rainbowViewModel: RainbowViewModel by sharedViewModel()
 
     override fun initView() {
+        setVisible(false)
         initColorFilter()
-       // getPetInfo()
-       // observePetInfo()
+        // getPetInfo()
+        // observePetInfo()
         getRainbowBookInfo()
         observeRainbowBookInfo()
+    }
+
+    private fun setVisible(value: Boolean) {
+        binding.apply {
+            tvWithDay.isVisible = value
+            tvBook.isVisible = value
+            clBook.isVisible = value
+        }
     }
 
 
@@ -32,10 +43,17 @@ class FarewellBookFragment :
     }
 
 
-    private fun observeRainbowBookInfo(){
-        rainbowViewModel.rainbowBookInfo.observe(viewLifecycleOwner){
+    private fun observeRainbowBookInfo() {
+        rainbowViewModel.rainbowBookInfo.observe(viewLifecycleOwner) {
+            setVisible(true)
             binding.apply {
-                with(it){
+                with(requireContext().getFadeInAnim()) {
+                    tvBook.startAnimation(this)
+                    tvWithDay.startAnimation(this)
+                    clBook.startAnimation(this)
+                }
+
+                with(it) {
 
                     val episodeText = makeAllText(makeEpisodeText(diaryCount))
                     val dayText = makeAllText(makeDayText(dayTogether))
@@ -91,7 +109,7 @@ class FarewellBookFragment :
         rainbowViewModel.getPetInfo()
     }
 
-    private fun getRainbowBookInfo(){
+    private fun getRainbowBookInfo() {
         rainbowViewModel.getRainbowBookInfo()
     }
 

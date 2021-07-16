@@ -15,7 +15,6 @@ import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_JOY
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_LOVE
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_SAD
 import org.mascota.ui.view.calendar.CalendarFragment.Companion.ANIMAL_USUAL
-import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.CAT
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.DOG
 
@@ -65,7 +64,7 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
             with(viewBiding) {
                 when(data.kind) {
                     CAT -> {
-                        ivLove.setImageResource(R.drawable.selector_emo_cat_angry)
+                        ivLove.setImageResource(R.drawable.selector_emo_cat_love)
                         ivJoy.setImageResource(R.drawable.selector_emo_cat_joy)
                         ivUsual.setImageResource(R.drawable.selector_emo_cat_usual)
                         ivSad.setImageResource(R.drawable.selector_emo_cat_sad)
@@ -113,7 +112,7 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
                     emoButtonClickListener?.invoke(getPetId(), position, ANIMAL_USUAL)
                 }
                 btnDelete.setOnClickListener {
-                    deleteButtonClickListener?.invoke(getPetId(), position)
+                    deleteButtonClickListener?.invoke(data.name, position)
                 }
             }
         }

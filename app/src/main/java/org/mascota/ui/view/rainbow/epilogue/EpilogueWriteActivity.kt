@@ -5,9 +5,11 @@ import android.util.Log
 import androidx.core.widget.addTextChangedListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
+import org.mascota.data.local.MascotaSharedPreference.setPart
 import org.mascota.databinding.ActivityEpilogueWriteBinding
 import org.mascota.ui.MainActivity
 import org.mascota.ui.base.BindingActivity
+import org.mascota.ui.view.diary.DiaryWriteActivity.Companion.PART2
 import org.mascota.ui.viewmodel.RainbowViewModel
 import org.mascota.util.EventObserver
 import org.mascota.util.StatusBarUtil.setStatusBarColor
@@ -26,6 +28,7 @@ class EpilogueWriteActivity :
         getPetName()
         clickBtn()
         initTextChangeEvent()
+        observeEp()
     }
 
 
@@ -72,7 +75,9 @@ class EpilogueWriteActivity :
     private fun observeEp() {
         rainbowViewModel.epliEvent.observe(this, EventObserver {
             when(it) {
-                true -> startActivity(Intent(this@EpilogueWriteActivity, MainActivity::class.java))
+                true -> {
+
+                }
                 false -> Log.d("이동","못함")
             }
 
@@ -82,8 +87,14 @@ class EpilogueWriteActivity :
     private fun clickBtn(){
         binding.btnComplete.setOnClickListener {
             rainbowViewModel.postEpilogue()
-            observeEp()
 
+            finishAffinity()
+            setPart(PART2)
+            startActivity(Intent(this@EpilogueWriteActivity, MainActivity::class.java))
         }
+    }
+
+    companion object {
+        const val IS_EPILOGUE_WRITE = "is_epilogue_write"
     }
 }

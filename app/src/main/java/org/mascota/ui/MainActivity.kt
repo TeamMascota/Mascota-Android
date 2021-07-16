@@ -7,6 +7,7 @@ import org.mascota.ui.base.BindingActivity
 import org.mascota.ui.view.calendar.CalendarFragment
 import org.mascota.ui.view.home.HomeFragment
 import org.mascota.ui.view.rainbow.RainbowFragment
+import org.mascota.ui.view.rainbow.epilogue.EpilogueWriteActivity.Companion.IS_EPILOGUE_WRITE
 import org.mascota.util.extension.replace
 
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -18,8 +19,6 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         initSelectMenu()
         replaceHomeFragment()
         initBottomNavigation()
-
-        Log.d("앙앙","dkd")
     }
 
     private fun initBottomNavigation() {

@@ -7,10 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
-import org.mascota.databinding.FragmentRainbowBinding
-import org.mascota.databinding.LayoutFarewellDialogBinding
-import org.mascota.databinding.LayoutHelpMessageDialogBinding
-import org.mascota.databinding.LayoutMascotaDialogBinding
+import org.mascota.databinding.*
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.view.diary.read.DiaryReadActivity
 import org.mascota.ui.view.rainbow.adapter.FarewellAdapter
@@ -19,7 +16,9 @@ import org.mascota.ui.view.rainbow.adapter.HelpAdapter
 import org.mascota.ui.view.rainbow.farewell.FarewellActivity
 import org.mascota.ui.viewmodel.RainbowViewModel
 import org.mascota.util.DialogUtil.makeDialog
+import org.mascota.util.DialogUtil.makeLoadingDialog
 import org.mascota.util.DialogUtil.setDialog
+import org.mascota.util.DialogUtil.setLoadingDialog
 import org.mascota.util.StringUtil.setTextPartialBold
 import org.mascota.util.extension.setTextPartialColor
 import org.mascota.util.extension.urlIntent
@@ -32,7 +31,9 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
     private lateinit var farewellDialog: Dialog
     private lateinit var helpDialog: Dialog
     private lateinit var finishDialog: Dialog
+    private lateinit var loadingDialog: Dialog
     private lateinit var farewellDialogBinding: LayoutFarewellDialogBinding
+    private lateinit var loadingDialogBinding: LayoutLoadingBinding
     private lateinit var helpMessageDialogBinding: LayoutHelpMessageDialogBinding
     private lateinit var finishDialogBinding: LayoutMascotaDialogBinding
 
@@ -41,10 +42,26 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
         initData()
         initDialogDataBinding()
         initDialog()
+        initLoadingDialog()
         initAdapter()
         initClickEvent()
         observeRainbowInfo()
         observeFarewellSelect()
+    }
+
+    private fun initLoadingDialog() {
+        loadingDialog = makeLoadingDialog(requireContext())
+
+        loadingDialogBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(requireContext()),
+            R.layout.layout_loading,
+            null,
+            false
+        )
+
+        setLoadingDialog(loadingDialog, loadingDialogBinding.root)
+
+        loadingDialog.show()
     }
 
     private fun initBookView() {
@@ -156,6 +173,7 @@ class RainbowFragment : BindingFragment<FragmentRainbowBinding>(R.layout.fragmen
 
     private fun observeRainbowInfo() {
         rainbowViewModel.rainbowHomeInfo.observe(viewLifecycleOwner) {
+            loadingDialog.dismiss()
             it.data.rainbowMainPage.apply {
                 with(binding) {
                     tvRainbow.text = title
