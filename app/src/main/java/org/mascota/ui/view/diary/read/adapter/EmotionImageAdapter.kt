@@ -49,7 +49,9 @@ class EmotionImageAdapter() : RecyclerView.Adapter<EmotionImageAdapter.EmotionIm
                 }
             }
             binding.ivEmotion.setOnClickListener {
-                binding.smallProfileVisibility = !requireNotNull(binding.smallProfileVisibility)
+                if(diaryEmoData.kind != 0) {
+                    binding.smallProfileVisibility = !requireNotNull(binding.smallProfileVisibility)
+                }
             }
         }
     }
