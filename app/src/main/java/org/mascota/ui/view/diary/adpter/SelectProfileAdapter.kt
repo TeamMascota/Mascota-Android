@@ -4,61 +4,74 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.mascota.R
+import org.mascota.data.remote.model.response.diary.ResPetInfo
+import org.mascota.data.remote.model.response.rainbow.ResFarewellSelect
 import org.mascota.databinding.ItemProfileBinding
 import org.mascota.ui.view.diary.data.ProfileList
-import kotlin.coroutines.coroutineContext
+import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.CAT
+import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.DOG
 
 class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectProfileViewHolder>() {
+    private val _data = mutableListOf<ResPetInfo.Data.Pet>()
+    var data: List<ResPetInfo.Data.Pet> = _data
+        set(value) {
+            _data.clear()
+            _data.addAll(value)
+            notifyDataSetChanged()
+        }
 
+    private val selectedList = MutableList(4) { false }
 
-    var profileList = mutableListOf<ProfileList>()
-    private lateinit var itemClickListener : OnItemClickListener
+    private var itemClickListener: ((String, Int) -> Unit)? = null
+    private var itemShowListener: ((Int) -> Unit)? = null
+
+    fun setSelectedList(index: Int, isShow: Boolean) {
+        selectedList[index] = isShow
+    }
+
+    fun setItemClickListener(listener : ((String, Int) -> Unit)) {
+        itemClickListener = listener
+    }
+
+    fun setItemShowListener(listener : ((Int) -> Unit)) {
+        itemShowListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectProfileViewHolder {
-        //뷰홀더
-        //뷰에 대한 정보(layou,data)담고 있는 상자이자
-        //이를 넣어주는 역할
-        //databinding 객체 만들어서 item_profile.xml에 뷰로 만들어줄 데이터를 담아줘야함
-        //databidding해서 이곳을 객체로 넘겨줘야함
-
-
-        val binding : ItemProfileBinding = DataBindingUtil.inflate(
+        val binding: ItemProfileBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_profile, parent, false)
+            R.layout.item_profile, parent, false
+        )
 
         return SelectProfileViewHolder(binding)
     }
 
 
-
     inner class SelectProfileViewHolder(
-
-        private val viewBiding : ItemProfileBinding
-
-        ) : RecyclerView.ViewHolder(
+        private val viewBiding: ItemProfileBinding
+    ) : RecyclerView.ViewHolder(
         viewBiding.root
-    ){
-        fun onBind(data : ProfileList, position: Int){
-            viewBiding.animal = data
-            viewBiding.tvName.setText(data.tv_name)
-            viewBiding.ivProfile.setBackgroundResource(data.img_profile)
-            viewBiding.listView.setOnClickListener {
-                // 색깔 바뀌게 했는데
-                val item = profileList.get(position).tv_name
-                itemClickListener.onClick(it, position, item)
+    ) {
+        fun onBind(data: ResPetInfo.Data.Pet, position: Int) {
+            viewBiding.apply {
+                petData = data
 
-                viewBiding.tvName.isSelected = !it.isSelected
+                clItem.isSelected = selectedList[position]
 
-                //Log.d("이름","아이템:")
-
+                viewBiding.clItem.setOnClickListener {
+                    if(!clItem.isSelected) {
+                        clItem.isSelected = true
+                        selectedList[position] = true
+                        itemShowListener?.invoke(position)
+                    }
+                    else {
+                        itemClickListener?.invoke(tvName.text.toString(), position)
+                    }
+                }
             }
-
-
-
         }
     }
 
@@ -68,29 +81,10 @@ class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectPro
 
 
     override fun onBindViewHolder(holder: SelectProfileViewHolder, position: Int) {
-        holder.onBind(profileList[position], position)
-
-
+        holder.onBind(data[position], position)
     }
 
-
-
-    override fun getItemCount(): Int = profileList.size
-
-    //어댑터에 클릭리스너 구현하기
-   interface OnItemClickListener{
-
-        fun onClick(v : View, position: Int, item : String)
-    }
-
-
-
-    fun setItemClickListenr(itemClickListener: OnItemClickListener) {
-        this.itemClickListener = itemClickListener
-
-    }
-// 프로필 색깔 함수를 만들었어! seletor로!
-
+    override fun getItemCount(): Int = _data.size
 
 }
 
