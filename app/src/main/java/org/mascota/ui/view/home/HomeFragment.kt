@@ -137,8 +137,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                     Glide.with(civCover.context).load(bookImg).into(civCover)
                     tvWriterName.text = it.data.secondPartMainPage.firstPartBook.author
                     tvFullDate.text = it.data.secondPartMainPage.firstPartBook.date
-                    // 사진 넣기! 서버 다시 완성되면 넣기
-                    //   ivBookImg.setImageResource(secondPartBook.imgs.toInt())
+                    imgurl = it.data.secondPartMainPage.bookImg
 
                 }
             }

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="imgurl"
+            type="String" />
 
     </data>
 
@@ -219,9 +222,9 @@
                             android:id="@+id/iv_book_img"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:background="@drawable/ic_quit_orange"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
+                            app:imgUrl="@{imgurl}"
                             app:layout_constraintStart_toEndOf="@+id/iv_book_holder"
                             tools:layout_editor_absoluteY="0dp" />
 
