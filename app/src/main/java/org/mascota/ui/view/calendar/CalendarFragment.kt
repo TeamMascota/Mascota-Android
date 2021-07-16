@@ -2,6 +2,7 @@ package org.mascota.ui.view.calendar
 
 import android.content.Intent
 import android.util.Log
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.FragmentCalendarBinding
@@ -12,7 +13,7 @@ import org.mascota.util.CalendarUtil.initCalendar
 import java.util.*
 
 class CalendarFragment : BindingFragment<FragmentCalendarBinding>(R.layout.fragment_calendar) {
-    private val calendarViewModel: CalendarViewModel by viewModel()
+    private val calendarViewModel: CalendarViewModel by sharedViewModel()
 
     override fun initView() {
         initSwitchEvent()
