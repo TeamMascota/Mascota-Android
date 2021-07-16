@@ -57,11 +57,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun hideBookView(){
         binding.apply {
-            clBook.visibility = View.INVISIBLE
-            tvWriter.visibility = View.INVISIBLE
-            tvWriterName.visibility = View.INVISIBLE
-            tvPublishdate.visibility = View.INVISIBLE
-            tvFullDate.visibility = View.INVISIBLE
+            clBook.visibility = View.GONE
+            tvWriter.visibility = View.GONE
+            tvWriterName.visibility = View.GONE
+            tvPublishdate.visibility = View.GONE
+            tvFullDate.visibility = View.GONE
         }
     }
 

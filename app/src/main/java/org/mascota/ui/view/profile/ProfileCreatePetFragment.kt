@@ -23,6 +23,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
+import org.mascota.data.remote.model.request.profile.ReqRegisterPet
 import org.mascota.databinding.FragmentProfileCreatePetBinding
 import org.mascota.databinding.LayoutHelpMessageDialogBinding
 import org.mascota.databinding.LayoutMascotaDialogBinding
@@ -153,16 +154,17 @@ class ProfileCreatePetFragment :
                 tvHero.text = makeHeroNumbering(profileViewModel.imageUriList.size + 1)
                 tvPetNum.text = heroAdapter.itemCount.toString()
 
-                setItemClickListener { position, isSelected ->
+                setItemClickListener { i, isSelected ->
                     if (isEnable()) {
-                        tvName.text = makeHeroNumberingAndName(position + 1)
+                        tvName.text = makeHeroNumberingAndName(i + 1)
                         setItemViewType(position)
                         notifyDataSetChanged()
-                        this@ProfileCreatePetFragment.position = position
+                        this@ProfileCreatePetFragment.position = i
                         setTempRestoreData()
                     } else {
                         //다이얼로그 띄우기
-                        alertDialog.show()
+                        if(position != i)
+                            alertDialog.show()
                     }
                     if (isSelected) {
                         ProfileBottomSheetDialog().apply {
@@ -417,7 +419,7 @@ class ProfileCreatePetFragment :
             if (isEnable()) {
                 tvPetNum.text = profileViewModel.petInfoDataList.size.toString()
                 profileViewModel.petInfoDataList[position] =
-                    Pets(
+                    ReqRegisterPet.Pet(
                         etName.text.toString(),
                         kind,
                         tvDate.text.toString(),
