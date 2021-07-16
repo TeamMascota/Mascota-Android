@@ -59,8 +59,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_launcher_background" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -231,12 +230,11 @@
                             android:id="@+id/tv_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="34dp"
-                            android:layout_marginEnd="21dp"
+                            android:layout_marginTop="15dp"
                             android:text="@string/go_one"
-                            android:textAppearance="@style/TextH1Style"
+                            android:textAppearance="@style/TextBody2MediumStyle"
                             android:textColor="@color/maco_white"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
