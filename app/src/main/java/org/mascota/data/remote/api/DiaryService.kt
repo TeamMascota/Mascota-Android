@@ -58,4 +58,8 @@ interface DiaryService {
         @Path("diaryId") diaryId: String,
         @Body body: ReqDiaryDelete
     ): ResDiaryDelete
+
+    //Get Animal List
+    @GET("pet/register/petInfo")
+    suspend fun getAnimalInfo(): ResPetInfo
 }
