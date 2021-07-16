@@ -156,9 +156,7 @@
 - 이별한 반려동물의 최고의 순간
 
 ### 캘린더
-<img src="https://user-images.githubusercontent.com/81518783/125976416-22b9c2fb-4b38-4e39-bd45-b5d996d9c7ef.png
-" width="250" />
-
+- 작가의 일기 날짜별 상세 조회
 
 <br>
 
