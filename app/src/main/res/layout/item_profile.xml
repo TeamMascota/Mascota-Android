@@ -4,62 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="animal"
-            type="org.mascota.ui.view.diary.data.ProfileList" />
+            name="petData"
+            type="org.mascota.data.remote.model.response.diary.ResPetInfo.Data.Pet" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingStart="12dp"
-        >
+        android:layout_height="match_parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/list_view"
-            android:layout_width="wrap_content"
+            android:id="@+id/cl_item"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/layout_bolder"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/selector_profile_white_btn"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="100:132"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/iv_profile"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="@+id/tv_name"
-                app:layout_constraintStart_toStartOf="@+id/tv_name"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@+id/tv_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/cat2" />
 
             <TextView
                 android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/selector_profile"
-                android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                android:background="@drawable/selector_profile_bottom_btn"
+                android:paddingTop="5dp"
+                android:paddingBottom="11dp"
+                android:text="@{petData.name}"
                 android:gravity="center"
-                android:paddingHorizontal="27dp"
-                android:text="코봉이"
+                android:textAppearance="@style/TextBody2Style"
                 android:textColor="@color/maco_white"
-                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
+                tools:text="@string/cobong" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 
 </layout>

@@ -11,7 +11,7 @@
         android:name=".MascotaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/mascota_korea"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mascota"
@@ -25,13 +25,20 @@
             android:name=".ui.view.diary.detail.EpilogueDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.view.signup.SignUpActivity"
+            android:name=".ui.view.user.signup.SignUpActivity"
             android:exported="true" />
         <activity
             android:name=".ui.view.diary.DiaryWriteActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan" />
 
+        <activity android:name=".ui.view.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".ui.view.rainbow.farewell.FarewellActivity"
             android:windowSoftInputMode="adjustPan" />
@@ -43,13 +50,7 @@
         <activity
             android:name=".ui.view.profile.BookCompleteActivity"
             android:exported="true" />
-        <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.MainActivity"/>
         <activity
             android:name=".ui.view.content.detail.ContentDetailActivity"
             android:exported="true" />

@@ -3,12 +3,13 @@ package org.mascota.ui.view.diary.read.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+
 import org.mascota.R
+import org.mascota.data.remote.model.response.diary.ResPetInfo
 import org.mascota.databinding.LayoutPetImageBinding
 import org.mascota.ui.view.diary.read.DiaryReadActivity
 
 class PetImagePagerAdapter : RecyclerView.Adapter<PetImagePagerAdapter.PetImagePagerViewHolder>() {
-
     private val _petImgUrlList = mutableListOf<String>()
 
     var pagerFrom : Int = 0

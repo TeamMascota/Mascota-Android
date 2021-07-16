@@ -9,7 +9,6 @@ import org.mascota.ui.view.diary.read.data.model.DiaryEmoDataInfo
 import org.mascota.ui.view.diary.read.data.model.DiaryPetFeelingInfoData
 
 class EmotionImageAdapter() : RecyclerView.Adapter<EmotionImageAdapter.EmotionImgViewHolder>() {
-
     private val _emotionNumList = mutableListOf<DiaryEmoDataInfo>()
 
     var emotionList: List<DiaryEmoDataInfo> = _emotionNumList

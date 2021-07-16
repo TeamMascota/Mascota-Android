@@ -11,26 +11,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="12dp"
-            android:background="@drawable/rectangle_fill_white_3"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/selector_image_upload"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/iv_img"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="@+id/cl_img"
-                app:layout_constraintEnd_toEndOf="@+id/cl_img"
-                app:layout_constraintStart_toStartOf="@+id/cl_img"
-                app:layout_constraintTop_toTopOf="@+id/cl_img" />
 
             <ImageView
                 android:id="@+id/iv_empty"
@@ -45,12 +36,20 @@
                 app:layout_constraintTop_toTopOf="@+id/cl_img" />
 
 
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/cl_img"
+                app:layout_constraintEnd_toEndOf="@+id/cl_img"
+                app:layout_constraintStart_toStartOf="@+id/cl_img"
+                app:layout_constraintTop_toTopOf="@+id/cl_img" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

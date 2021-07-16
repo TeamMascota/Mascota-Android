@@ -4,33 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
-            name="emotion"
-            type="org.mascota.ui.view.diary.data.EmotionList" />
-
-
+            name="isSelected"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container"
+        android:visibility="@{isSelected? View.VISIBLE : View.GONE}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/maco_light_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_pet_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/noto_sans_cjk_kr_medium"
+            android:textColor="@color/maco_dark_gray"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="20dp"
-            android:textColor="@color/maco_dark_gray"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
             tools:text="코봉" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_emotion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
@@ -42,171 +52,210 @@
             app:layout_constraintStart_toEndOf="@id/tv_pet_name"
             app:layout_constraintTop_toTopOf="@id/tv_pet_name" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/ic_delete"
-            app:layout_constraintBottom_toBottomOf="@id/textView"
-            app:layout_constraintStart_toEndOf="@id/textView"
-            app:layout_constraintTop_toTopOf="@id/textView" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-        <ImageView
-            android:id="@+id/iv_dog_love"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/ll_emotion"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
-            android:layout_marginTop="15dp"
-            android:contentDescription="@string/love"
-            android:src="@drawable/selector_emodog_love"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="horizontal"
+            android:weightSum="6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_pet_name">
 
-        <ImageView
-            android:id="@+id/iv_dog_joy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:contentDescription="@string/joy"
-            android:src="@drawable/selector_emodog_joy"
-            app:layout_constraintBottom_toBottomOf="@id/iv_dog_love"
-            app:layout_constraintStart_toEndOf="@id/iv_dog_love"
-            app:layout_constraintTop_toTopOf="@id/iv_dog_love" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_love"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/iv_dog_usual"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:contentDescription="@string/usual"
-            android:src="@drawable/selector_emodog_usual"
-            app:layout_constraintBottom_toBottomOf="@id/iv_dog_joy"
-            app:layout_constraintStart_toEndOf="@id/iv_dog_joy"
-            app:layout_constraintTop_toTopOf="@id/iv_dog_joy" />
+                <ImageView
+                    android:id="@+id/iv_love"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/love"
+                    android:src="@drawable/selector_emodog_love"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_dog_sad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:contentDescription="@string/sad"
-            android:src="@drawable/selector_emodog_sad"
-            app:layout_constraintBottom_toBottomOf="@id/iv_dog_usual"
-            app:layout_constraintStart_toEndOf="@id/iv_dog_usual"
-            app:layout_constraintTop_toTopOf="@id/iv_dog_usual" />
+                <TextView
+                    android:id="@+id/tv_love"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/love"
+                    android:textColor="@color/selector_emotion_text"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_love"
+                    app:layout_constraintStart_toStartOf="@+id/iv_love"
+                    app:layout_constraintTop_toBottomOf="@id/iv_love" />
 
-        <ImageView
-            android:id="@+id/iv_dog_angry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:contentDescription="@string/angry"
-            android:src="@drawable/selector_emodog_angry"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_dog_sad"
-            app:layout_constraintStart_toEndOf="@id/iv_dog_sad"
-            app:layout_constraintTop_toTopOf="@id/iv_dog_sad" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/iv_dog_boring"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="9dp"
-            android:contentDescription="@string/boring"
-            android:src="@drawable/seletor_emodog_boring"
-            app:layout_constraintBottom_toBottomOf="@id/iv_dog_angry"
-            app:layout_constraintStart_toEndOf="@id/iv_dog_angry"
-            app:layout_constraintTop_toTopOf="@id/iv_dog_angry"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_joy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-            />
+                <ImageView
+                    android:id="@+id/iv_joy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/joy"
+                    android:src="@drawable/selector_emodog_joy" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/love"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:textColor="@color/maco_gray"
-            android:textSize="15sp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_dog_love" />
+                <TextView
+                    android:id="@+id/tv_joy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/joy"
+                    android:textColor="@color/selector_emotion_text"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_joy"
+                    app:layout_constraintStart_toStartOf="@+id/iv_joy"
+                    app:layout_constraintTop_toBottomOf="@id/iv_joy" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/joy"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:textColor="@color/maco_gray"
-            android:textSize="15sp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/iv_dog_joy"
-            app:layout_constraintTop_toBottomOf="@id/iv_dog_joy" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_usual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/usual"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:textColor="@color/maco_gray"
-            android:textSize="15sp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/iv_dog_usual"
-            app:layout_constraintTop_toBottomOf="@id/iv_dog_usual" />
+                <ImageView
+                    android:id="@+id/iv_usual"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/usual"
+                    android:src="@drawable/selector_emodog_usual" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/sad"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:textColor="@color/maco_gray"
-            android:textSize="15sp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/iv_dog_sad"
-            app:layout_constraintTop_toBottomOf="@id/iv_dog_sad" />
+                <TextView
+                    android:id="@+id/tv_usual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/usual"
+                    android:textColor="@color/selector_emotion_text"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_usual"
+                    app:layout_constraintStart_toStartOf="@+id/iv_usual"
+                    app:layout_constraintTop_toBottomOf="@id/iv_usual" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/angry"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:textColor="@color/maco_gray"
-            android:textSize="15sp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/iv_dog_angry"
-            app:layout_constraintTop_toBottomOf="@id/iv_dog_angry" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/boring"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:textColor="@color/maco_gray"
-            android:textSize="15sp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/iv_dog_boring"
-            app:layout_constraintTop_toBottomOf="@id/iv_dog_boring" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_sad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_sad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/sad"
+                    android:src="@drawable/selector_emodog_sad" />
+
+                <TextView
+                    android:id="@+id/tv_sad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/sad"
+                    android:textColor="@color/selector_emotion_text"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_sad"
+                    app:layout_constraintStart_toStartOf="@+id/iv_sad"
+                    app:layout_constraintTop_toBottomOf="@id/iv_sad" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_angry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_angry"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/angry"
+                    android:src="@drawable/selector_emodog_angry" />
+
+                <TextView
+                    android:id="@+id/tv_angry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/angry"
+                    android:textColor="@color/maco_gray"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_angry"
+                    app:layout_constraintStart_toStartOf="@+id/iv_angry"
+                    app:layout_constraintTop_toBottomOf="@id/iv_angry" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_boring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_boring"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/boring"
+                    android:src="@drawable/seletor_emodog_boring" />
+
+                <TextView
+                    android:id="@+id/tv_boring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                    android:text="@string/boring"
+                    android:textColor="@color/selector_emotion_text"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_boring" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </layout>

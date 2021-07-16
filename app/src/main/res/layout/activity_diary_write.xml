@@ -90,7 +90,7 @@
             android:textColor="@color/maco_dark_gray"
             app:layout_constraintBottom_toBottomOf="@+id/tv_total_page"
             app:layout_constraintEnd_toStartOf="@+id/tv_total_page"
-            tools:text="@string/one" />
+            android:text="@string/one" />
 
             <ProgressBar
                 android:id="@+id/pb_diary_write"

@@ -37,19 +37,27 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcv_profile"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="324:132"
-                    android:layout_marginTop="3dp"
-                    android:paddingStart="12dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="28dp"
                     android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_select"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_explain"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toTopOf="@+id/rcv_emotion"
-                    app:spanCount="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tv_explain"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_explain"
                     tools:listitem="@layout/item_profile" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/maco_light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rcv_emotion" />
 
                 <TextView
                     android:id="@+id/tv_explain"
@@ -66,13 +74,14 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcv_emotion"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="173dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rcv_profile"
-                    tools:listitem="@layout/item_emotion" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_explain"
+                    tools:listitem="@layout/item_emotion"
+                    tools:spanCount="3" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

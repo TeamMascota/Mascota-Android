@@ -1,5 +1,4 @@
 package org.mascota.ui.view.home
-
 import android.content.Intent
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -14,12 +13,9 @@ import org.mascota.ui.view.home.adapter.HomeContentAdapter
 import org.mascota.ui.viewmodel.HomeViewModel
 import org.mascota.util.ColorFilterUtil
 import org.mascota.util.StringUtil.makePartText
-
 class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_home2){
-
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var homeContentAdapter: HomeContentAdapter
-
     override fun initView() {
         initColorFilter()
         observeHomePart1()
@@ -29,17 +25,14 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
         movePartTwo()
         navigateDiaryWriteActivity()
     }
-
     private fun navigateDiaryWriteActivity() {
         binding.bvHome.setWriteBtnClickListener{
             startActivity(Intent(this, DiaryWriteActivity::class.java))
         }
     }
-
     private fun initColorFilter() {
         ColorFilterUtil.setImgFilter(binding.ivBookImg)
     }
-
     private fun initHomeContentAdapter() {
         homeContentAdapter = HomeContentAdapter()
         binding.rvContent.adapter = homeContentAdapter
@@ -50,17 +43,14 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
         }
         binding.rvContent.isNestedScrollingEnabled = false
     }
-
     private fun initBookView() {
         binding.bvHome.setWhereBookView(IS_HOME)
     }
-
     private fun setEditBtnClickListener() {
         binding.tvEdit.setOnClickListener {
             startActivity(Intent(this, ContentEditActivity::class.java))
         }
     }
-
     private fun observeHomePart1() {
         homeViewModel.getResHomePart1()
         homeViewModel.homePart1.observe(this) {
@@ -74,28 +64,18 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
                     bvHome.setLeftPart1Diary(diary)
                     tvWriterName.text = secondPartBook.author
                     tvFullDate.text = secondPartBook.date
-                    // 사진 넣기! 서버 다시 완성되면 넣기
-                 //   ivBookImg.setImageResource(secondPartBook.imgs.toInt())
-
+                    imgurl = secondPartBook.imgs
                 }
             }
         }
     }
-
     private fun movePartTwo(){
         binding.clBook.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
-
-
-
     companion object {
         const val IS_HOME = true
         const val PART = 1
     }
-
-
-
-
 }
