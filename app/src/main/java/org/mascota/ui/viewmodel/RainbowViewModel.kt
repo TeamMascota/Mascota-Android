@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.mascota.data.local.MascotaSharedPreference.getPetId
 import org.mascota.data.local.MascotaSharedPreference.getUserId
+import org.mascota.data.remote.model.request.rainbow.ReqRainbowEpilogue
 import org.mascota.data.remote.model.response.rainbow.ResBestMoment
 import org.mascota.data.remote.model.response.rainbow.ResFarewellSelect
 import org.mascota.data.remote.model.response.rainbow.ResPetName
@@ -14,6 +15,7 @@ import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.data.repository.rainbow.RainbowRepository
 import org.mascota.ui.view.rainbow.farewell.data.datasource.FarewellDataSource
 import org.mascota.ui.view.rainbow.farewell.data.model.PetInfoData
+import org.mascota.util.Event
 
 class RainbowViewModel(private val rainbowRepository: RainbowRepository, private val farewellDataSource: FarewellDataSource) : ViewModel() {
     private val _rainbowHomeInfo = MutableLiveData<ResRainbowHome>()
@@ -135,6 +137,45 @@ class RainbowViewModel(private val rainbowRepository: RainbowRepository, private
             }
     }
 
+
+    private val _epliEvent = MutableLiveData<Event<Boolean>>()
+    val epliEvent : LiveData<Event<Boolean>> = _epliEvent
+
+    private val _title = MutableLiveData<String>()
+    private val _content = MutableLiveData<String>()
+
+    fun postTitle(title: String){
+        _title.postValue(title)
+    }
+
+    fun postContent(content : String){
+        _content.postValue(content)
+    }
+
+    private val _nextBtnEnaleEvent = MutableLiveData<Event<Boolean>>()
+    val nextBtnEnaleEvent : LiveData<Event<Boolean>>
+        get() = _nextBtnEnaleEvent
+
+
+
+    fun postEpilogue()  = viewModelScope.launch {
+        kotlin.runCatching {
+            rainbowRepository.postRainbowEpilogue(
+                getUserId(),
+                getPetId(),
+                ReqRainbowEpilogue(requireNotNull(_title.value), requireNotNull(_content.value))
+            )
+              }
+            .onSuccess {
+                _epliEvent.postValue(Event(true))
+            }
+            .onFailure {
+                _epliEvent.postValue(Event(false))
+                it.printStackTrace()
+
+            }
+
+    }
     fun getPetName() = viewModelScope.launch {
         //    //GET Rainbow Pet Name
         //    suspend fun getRainbowPetName(petId: String): ResPetName

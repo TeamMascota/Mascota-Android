@@ -26,8 +26,14 @@ class RainbowRepositoryImpl(private val remoteDataSource: RainbowDataSource) : R
     override suspend fun getRainbowPetName(petId: String): ResPetName =
         remoteDataSource.getRainbowPetName(petId)
 
-    override suspend fun postRainbowEpilogue(body: ReqRainbowEpilogue): ResRainbowEpilogue =
-        remoteDataSource.postRainbowEpilogue(body)
+    //override suspend fun postContentAdd(path: String, body: ReqContent): ResContentAdd = remoteDataSource.postContentAdd(path, body)
+    override suspend fun postRainbowEpilogue(
+        userId: String,
+        petId: String,
+        body: ReqRainbowEpilogue
+    ): ResRainbowEpilogue = remoteDataSource.postRainbowEpilogue(userId, petId, body)
+
+
 
     override suspend fun getRainbowSubHome(userId: String, petId: String): ResRainbowSubHome =
         remoteDataSource.getRainbowSubHome(userId, petId)

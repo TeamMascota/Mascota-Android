@@ -19,7 +19,9 @@ class RemoteRainbowDataSource(private val service : RainbowService) : RainbowDat
 
     override suspend fun getRainbowPetName(path: String): ResPetName = service.getRainbowPetName(path)
 
-    override suspend fun postRainbowEpilogue(body: ReqRainbowEpilogue): ResRainbowEpilogue = service.postRainbowEpilogue(body)
+    override suspend fun postRainbowEpilogue(userId: String,petId: String, body: ReqRainbowEpilogue): ResRainbowEpilogue = service.postRainbowEpilogue(userId,petId,body)
 
     override suspend fun getRainbowSubHome(userId: String, petId: String): ResRainbowSubHome = service.getRainbowSubHome(userId, petId)
-}
+
+    }
+

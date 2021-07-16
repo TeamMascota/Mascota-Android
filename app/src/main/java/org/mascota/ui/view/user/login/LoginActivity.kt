@@ -65,7 +65,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
                 true -> startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 false -> loginFailDialog.show()
             }
-            //binding.vpSignup.setCurrentItem(ProfileCreateActivity.SECOND_PAGE, true)
+
         })
     }
 
