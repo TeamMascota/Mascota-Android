@@ -7,21 +7,26 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 import org.mascota.data.local.MascotaSharedPreference.getUserId
+import org.mascota.data.local.MascotaSharedPreference.setIsProfileCreate
+import org.mascota.data.local.MascotaSharedPreference.setPetId
+import org.mascota.data.remote.model.request.profile.ReqRegisterBook
+import org.mascota.data.remote.model.request.profile.ReqRegisterPet
 import org.mascota.data.repository.profile.ProfileRepository
 import org.mascota.ui.view.profile.data.model.Pets
 import org.mascota.util.Event
 
 class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewModel() {
-    private val emptyInfoData = Pets("", -1, "", -1)
-    val petInfoDataList = mutableListOf<Pets>()
+    private val emptyInfoData = ReqRegisterPet.Pet("", -1, "", -1)
+    val petInfoDataList = mutableListOf<ReqRegisterPet.Pet>()
 
+    var petId = ""
     var writer = ""
-    lateinit var imgUri : Uri
+    var prologueTitle = ""
+    var prologue = ""
+    lateinit var imgUri: Uri
     var petNum = 0
     var title = "0"
 
@@ -37,19 +42,41 @@ class ProfileViewModel(private val profileRepository: ProfileRepository) : ViewM
     val petInfo: LiveData<MutableList<HashMap<String, RequestBody>>>
         get() = _petInfo
 
-    fun postBtnEnable(isNotEmpty : Boolean) = _nextBtnEnableEvent.postValue(Event(isNotEmpty))
+    fun postBtnEnable(isNotEmpty: Boolean) = _nextBtnEnableEvent.postValue(Event(isNotEmpty))
 
     fun postProfilePet() {
         viewModelScope.launch {
             runCatching {
-                Log.d("hi", _imageList.size.toString())
-                val pet = petInfoDataList.map{it.toRequestBody()}
+                //val pet = petInfoDataList.map { it.toRequestBody() }
 
-                profileRepository.postRegisterPet(hashMapOf("userId" to getUserId().toRequestBody("text/plain".toMediaTypeOrNull()),
-                    "pets" to pet.toString().toRequestBody("text/plain".toMediaTypeOrNull())
-                    ), _imageList)}
-                    .onSuccess { Log.d("fads",it.message) }
-                    .onFailure { it.printStackTrace() }
+                val pet = ReqRegisterPet(petInfoDataList, getUserId())
+                viewModelScope.launch {
+                    runCatching {
+                        profileRepository.postRegisterPet(pet)
+                    }
+                        .onSuccess {
+                            petId = it.data.petId[0]
+                            Log.d("fads", it.message)
+                        }
+                        .onFailure { it.printStackTrace() }
+                }
+            }
+        }
+    }
+
+    fun postProlog() {
+        viewModelScope.launch {
+            runCatching {
+                profileRepository.postRegisterBook(
+                    getUserId(),
+                    ReqRegisterBook(imgUri.toString(), title, writer, prologueTitle, prologue)
+                )
+            }
+                .onSuccess {
+                    setPetId(petId)
+                    setIsProfileCreate(true)
+                }
+                .onFailure { it.printStackTrace() }
         }
     }
 
