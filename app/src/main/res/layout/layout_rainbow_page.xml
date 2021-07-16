@@ -6,6 +6,12 @@
     <data>
         <variable
             name="rainbowDiaryInfo" type="org.mascota.data.remote.model.response.rainbow.ResRainbowHome.Data.RainbowMainPage.Memory" />
+        <variable
+            name="emoKind"
+            type="Integer" />
+        <variable
+            name="emoFeeling"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                app:imgEmo="@{rainbowDiaryInfo.feeling}"
+                app:emo="@{emoFeeling}"
+                app:species="@{emoKind}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:src="@drawable/ic_dog_usual" />

@@ -8,8 +8,13 @@ data class ResBestMoment(
     val data: Data
 ) {
     data class Data(
+        val pet: Pet,
         val theBestMoments: List<TheBestMoment>
     ) {
+        data class Pet(
+            val name: String,
+            val kind: Int
+        )
         data class TheBestMoment(
             val comment: String,
             val feeling: Int,

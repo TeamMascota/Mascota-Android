@@ -15,6 +15,7 @@ import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.databinding.ViewCustomBookBinding
 import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
+import org.mascota.ui.view.rainbow.farewell.data.model.BestMomentInfoData
 import org.mascota.util.CalendarUtil.convertCalendarToBeFamilyDateString
 import org.mascota.util.CalendarUtil.convertCalendarToStoryDateString
 import org.mascota.util.CalendarUtil.convertStringToCalendar
@@ -27,6 +28,8 @@ class BookView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     private var rainbowLeftPageClickListener : (() -> Unit) ?= null
     private var rainbowRightPageClickListener : (() -> Unit) ?= null
+    private var bestMomentLeftPageClickListener : (() -> Unit) ?= null
+    private var bestMomentRightPageClickListener : (() -> Unit) ?= null
     private lateinit var viewCustomBookBinding: ViewCustomBookBinding
 
     private lateinit var bgBookView: View
@@ -74,6 +77,14 @@ class BookView @JvmOverloads constructor(
 
     fun setRightPageClickListener(listener : () -> Unit) {
         rainbowRightPageClickListener = listener
+    }
+
+    fun setBestLeftPageClickListener(listener: () -> Unit){
+        bestMomentLeftPageClickListener = listener
+    }
+
+    fun setBestRightPageClickListener(listener: () -> Unit){
+        bestMomentRightPageClickListener = listener
     }
 
     fun setLeftPart1Diary(diaryPart1Info: ResHomePart1.Data.FirstPartMainPage.Diary) {
@@ -126,6 +137,52 @@ class BookView @JvmOverloads constructor(
             ivLogo.visibility = View.GONE
             clDiary.setOnClickListener {
                 rainbowRightPageClickListener?.invoke()
+            }
+        }
+    }
+
+    fun setLeftBestMoment(bestMomentInfoData: BestMomentInfoData) {
+        viewCustomBookBinding.layoutRainbowLeftPage.apply {
+            with(bestMomentInfoData){
+                if(chapter == 0){
+                    ivLogo.visibility = View.VISIBLE
+                    clDiary.visibility = View.INVISIBLE
+                }else {
+                    rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                    emoFeeling = feeling
+                    emoKind = kind
+                    tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
+                    tvDate.text = date
+                    clDiary.visibility = View.VISIBLE
+                    ivLogo.visibility = View.GONE
+
+                    clDiary.setOnClickListener {
+                        bestMomentLeftPageClickListener?.invoke()
+                    }
+                }
+            }
+        }
+    }
+
+    fun setRightBestMoment(bestMomentInfoData: BestMomentInfoData) {
+        viewCustomBookBinding.layoutRainbowRightPage.apply {
+            with(bestMomentInfoData){
+                if(chapter == 0){
+                    ivLogo.visibility = View.VISIBLE
+                    clDiary.visibility = View.INVISIBLE
+                }else {
+                    rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                    emoFeeling = feeling
+                    emoKind = kind
+                    tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
+                    tvDate.text = date
+                    clDiary.visibility = View.VISIBLE
+                    ivLogo.visibility = View.GONE
+
+                    clDiary.setOnClickListener {
+                        bestMomentRightPageClickListener?.invoke()
+                    }
+                }
             }
         }
     }

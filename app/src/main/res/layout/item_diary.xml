@@ -8,6 +8,9 @@
         <variable
             name="contentDiaryInfoData"
             type="org.mascota.ui.view.content.detail.data.model.ContentDiaryInfoData" />
+
+        <import type="kotlin.Pair"/>
+        <variable name="emo" type="Pair&lt;Integer, Integer&gt;"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,7 +57,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/maco_ivory"
-            android:paddingBottom="8dp"
             app:layout_constraintBottom_toTopOf="@id/bottom_line"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -75,7 +77,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="4dp"
-                android:src="@drawable/ic_dog_joy"
+                app:emo="@{emo.second}"
+                app:species="@{emo.first}"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_day" />
 
@@ -99,14 +104,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:layout_marginEnd="54dp"
+                android:layout_marginEnd="131dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/noto_sans_cjk_kr_regular"
                 android:maxLines="2"
                 android:text="@{contentDiaryInfoData.content}"
                 android:textColor="@color/maco_gray"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@id/cl_image_border"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_title"
                 tools:text="@string/diary_content" />
@@ -115,14 +120,13 @@
                 android:id="@+id/cl_image_border"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="86dp"
                 android:layout_marginEnd="6dp"
+                android:layout_marginVertical="12dp"
                 android:background="@drawable/rectangle_red_orange_radius_3"
-                app:layout_constraintBottom_toBottomOf="@id/tv_content"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_title"
-                app:layout_constraintTop_toTopOf="@id/tv_title">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/iv_picture"
@@ -130,7 +134,6 @@
                     android:layout_height="0dp"
                     android:layout_margin="1dp"
                     remoteRoundedImg="@{contentDiaryInfoData.img}"
-                    android:background="@drawable/rectangle_red_orange_radius_3"
                     android:scaleType="fitXY"
                     android:src="@mipmap/ic_launcher"
                     app:layout_constraintBottom_toBottomOf="parent"

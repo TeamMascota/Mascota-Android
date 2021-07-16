@@ -22,43 +22,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_chapter"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_title_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="34dp"
-            android:fontFamily="@font/noto_sans_cjk_kr_regular"
-            android:text="@string/chapter1"
-            android:textColor="@color/maco_dark_gray"
-            android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/btn_back"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/chapter1" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="31dp"
-            android:fontFamily="@font/noto_sans_cjk_kr_medium"
-            android:text="@string/content_title"
-            android:textColor="@color/maco_black"
-            android:textSize="17sp"
-            app:layout_constraintStart_toEndOf="@id/tv_chapter"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/content_title" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/btn_spinner"
-            android:layout_width="19dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="36dp"
-            android:src="@drawable/ic_arrow_bottom"
-            app:layout_constraintStart_toEndOf="@id/tv_title"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv_chapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_regular"
+                android:text="@string/chapter1"
+                android:textColor="@color/maco_dark_gray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/chapter1" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/noto_sans_cjk_kr_medium"
+                android:text="@string/content_title"
+                android:textColor="@color/maco_black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@id/tv_chapter"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/content_title" />
+
+            <ImageView
+                android:id="@+id/btn_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_arrow_bottom"
+                app:layout_constraintStart_toEndOf="@id/tv_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_content_month"
@@ -71,7 +81,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/cl_title_bar"
             tools:listitem="@layout/item_diary_month" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
