@@ -23,4 +23,6 @@ class DiaryRepositoryImpl(private val remoteDataSource : DiaryDataSource) : Diar
     override suspend fun putPersonDiaryEdit(path: String, body: ReqPersonDiaryEdit): ResDiaryEdit = remoteDataSource.putPersonDiaryEdit(path, body)
 
     override suspend fun deletePersonDiary(path: String, body: ReqDiaryDelete): ResDiaryDelete = remoteDataSource.deletePersonDiary(path, body)
+
+    override suspend fun getAnimalInfo(): ResPetInfo = remoteDataSource.getAnimalInfo()
 }
