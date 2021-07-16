@@ -96,6 +96,9 @@ dependencies {
     //dotsIndicator
     implementation "com.tbuonomo:dotsindicator:$dotsIndicator_version"
 
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.6.0'
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
