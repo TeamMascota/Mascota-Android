@@ -14,6 +14,27 @@
 
 
 # 🐱PRIVIEW
+## 회원가입 & 로그인
+
+<img src = "https://user-images.githubusercontent.com/81518783/125963123-fdb40b74-b302-4cff-859a-00c64463839a.png" width="250"/> <img src = "https://user-images.githubusercontent.com/81518783/125963128-6f7537ea-c507-4031-b823-48e910b771ed.png" width="250"/>
+
+### 반려동물 프로필 생성
+<img src = "https://user-images.githubusercontent.com/81518783/125963360-360da253-7014-4dd4-8be5-0e25dc820f8c.png" width="250"/> <img src = "https://user-images.githubusercontent.com/81518783/125963367-3f7124a2-c821-4cd0-b60c-7e145f686b41.png" width="250"/> <img src = "https://user-images.githubusercontent.com/81518783/125963363-138b0dff-b079-41d3-ac46-5331331d0ee9.png" width="250"/>
+
+### 반려동물의 일기 작성
+<img src = "https://user-images.githubusercontent.com/81518783/125963870-ce111873-07ef-41db-a8a5-f523bff3cc37.png" width="250"/> <img src = "https://user-images.githubusercontent.com/81518783/125963852-8e67ec3f-8acc-42c7-8d0e-5a911972d2c5.png" width="250"/> <img src = "https://user-images.githubusercontent.com/81518783/125963865-809b7c44-0f7f-4b60-b0dc-b83b9ebf93bd.png" width="250"/>
+
+### 캘린더
+<img src = "https://user-images.githubusercontent.com/81518783/125964173-8882142e-84a4-4dd3-a91e-dfe143e465c5.png" width="250"/>
+
+### 일기 조회
+<img src=""/> <img src=""/> <img src=""/> 
+
+### 목차
+<img src="https://user-images.githubusercontent.com/81518783/125964335-34bcd8bf-c6eb-417a-99d8-815a6a8fab82.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125964340-52966df8-d1e1-46ae-9630-849d1dc223f5.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125964345-44699ec1-1fad-460a-8fde-23c7a71554fd.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125964645-00817d38-01c6-405c-9fd4-0b3fee9519d5.png" width="250" />
+
+### 무지개
+<img src="" width="250"/> <img src="" width="250"/> <img src="" width="250"/> 
 
 
 # 🐶기능 설명
