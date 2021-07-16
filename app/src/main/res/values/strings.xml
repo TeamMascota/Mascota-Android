@@ -146,6 +146,7 @@
     <string name="save">저장</string>
     <string name="new_line">\n</string>
     <string name="prolog_name">코봉이와의 7년</string>
+    <string name="week_day">요일</string>
 
     <!--login-->
     <string name="login">로그인</string>

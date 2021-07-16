@@ -28,6 +28,8 @@ class BookView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     private var rainbowLeftPageClickListener : (() -> Unit) ?= null
     private var rainbowRightPageClickListener : (() -> Unit) ?= null
+    private var bestMomentLeftPageClickListener : (() -> Unit) ?= null
+    private var bestMomentRightPageClickListener : (() -> Unit) ?= null
     private lateinit var viewCustomBookBinding: ViewCustomBookBinding
 
     private lateinit var bgBookView: View
@@ -75,6 +77,14 @@ class BookView @JvmOverloads constructor(
 
     fun setRightPageClickListener(listener : () -> Unit) {
         rainbowRightPageClickListener = listener
+    }
+
+    fun setBestLeftPageClickListener(listener: () -> Unit){
+        bestMomentLeftPageClickListener = listener
+    }
+
+    fun setBestRightPageClickListener(listener: () -> Unit){
+        bestMomentRightPageClickListener = listener
     }
 
     fun setLeftPart1Diary(diaryPart1Info: ResHomePart1.Data.FirstPartMainPage.Diary) {
@@ -139,10 +149,16 @@ class BookView @JvmOverloads constructor(
                     clDiary.visibility = View.INVISIBLE
                 }else {
                     rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                    emoFeeling = feeling
+                    emoKind = kind
                     tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
                     tvDate.text = date
                     clDiary.visibility = View.VISIBLE
                     ivLogo.visibility = View.GONE
+
+                    clDiary.setOnClickListener {
+                        bestMomentLeftPageClickListener?.invoke()
+                    }
                 }
             }
         }
@@ -156,10 +172,16 @@ class BookView @JvmOverloads constructor(
                     clDiary.visibility = View.INVISIBLE
                 }else {
                     rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                    emoFeeling = feeling
+                    emoKind = kind
                     tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
                     tvDate.text = date
                     clDiary.visibility = View.VISIBLE
                     ivLogo.visibility = View.GONE
+
+                    clDiary.setOnClickListener {
+                        bestMomentRightPageClickListener?.invoke()
+                    }
                 }
             }
         }

@@ -20,6 +20,17 @@ class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewH
             notifyDataSetChanged()
         }
 
+    private var bestLeftPageClickListener : (() -> Unit) ?= null
+    private var bestRightPageClickListener : (() -> Unit) ?= null
+
+    fun setBestLeftPageClickListener(listener: () -> Unit){
+       bestLeftPageClickListener = listener
+    }
+
+    fun setBestRightPageClickListener(listener: () -> Unit){
+       bestRightPageClickListener = listener
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestMomentViewHolder {
 
@@ -53,6 +64,12 @@ class BestMomentAdapter : RecyclerView.Adapter<BestMomentAdapter.BestMomentViewH
                 binding.dvBestMoment.setRightBestMoment(BestMomentInfoData(
                     chapter, episode, title, contents, date, emo.first, emo.second
                 ))
+            }
+            binding.dvBestMoment.setBestLeftPageClickListener {
+                bestLeftPageClickListener?.invoke()
+            }
+            binding.dvBestMoment.setBestRightPageClickListener {
+                bestRightPageClickListener?.invoke()
             }
         }
     }

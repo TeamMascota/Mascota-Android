@@ -58,11 +58,12 @@ class ContentDetailDiaryAdapter :
                 binding.clItemDiary.setOnClickListener {
                     diaryClickListener?.invoke(diaryId)
                 }
+                binding.emo = Pair(kind, feeling)
             }
         }
     }
 
     companion object {
-        const val IMAGE_RADIUS = 3
+        const val IMAGE_RADIUS = 1
     }
 }
