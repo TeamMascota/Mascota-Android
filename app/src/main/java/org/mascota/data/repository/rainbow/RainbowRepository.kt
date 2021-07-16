@@ -17,7 +17,7 @@ interface RainbowRepository {
     suspend fun deleteFarewellQuit(path: String): ResFarewellQuit
 
     //GET Rainbow Book
-    suspend fun getRainbowBook(userId: String, petId: String): ResRainbowBook
+    suspend fun getRainbowBook(petId: String): ResRainbowBook
 
     //GET Rainbow Best Moment
     suspend fun getRainbowBestMoment(userId: String, petId: String): ResBestMoment
@@ -26,8 +26,9 @@ interface RainbowRepository {
     suspend fun getRainbowPetName(path: String): ResPetName
 
     //POST Rainbow Epilogue
-    suspend fun postRainbowEpilogue(body: ReqRainbowEpilogue): ResRainbowEpilogue
+    suspend fun postRainbowEpilogue(userId: String, petId: String, body: ReqRainbowEpilogue): ResRainbowEpilogue
 
     //GET Sub Home
     suspend fun getRainbowSubHome(userId: String, petId: String): ResRainbowSubHome
+
 }

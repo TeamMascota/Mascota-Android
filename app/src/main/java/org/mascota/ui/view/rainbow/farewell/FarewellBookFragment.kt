@@ -5,7 +5,7 @@ import org.mascota.R
 import org.mascota.databinding.FragmentFarewellBookBinding
 import org.mascota.ui.base.BindingFragment
 import org.mascota.ui.viewmodel.RainbowViewModel
-import org.mascota.util.ColorFilterUtil.setImgFilter
+import org.mascota.util.ColorFilterUtil
 import org.mascota.util.StringUtil
 import org.mascota.util.StringUtil.makeAllText
 import org.mascota.util.StringUtil.makeAuthorText
@@ -20,13 +20,46 @@ class FarewellBookFragment :
 
     override fun initView() {
         initColorFilter()
-        getPetInfo()
-        observePetInfo()
+       // getPetInfo()
+       // observePetInfo()
+        getRainbowBookInfo()
+        observeRainbowBookInfo()
     }
 
 
     private fun initColorFilter() {
-        setImgFilter(binding.ivBookImg)
+        ColorFilterUtil.setImgFilter(binding.ivBookImg)
+    }
+
+
+    private fun observeRainbowBookInfo(){
+        rainbowViewModel.rainbowBookInfo.observe(viewLifecycleOwner){
+            binding.apply {
+                with(it){
+
+                    val episodeText = makeAllText(makeEpisodeText(diaryCount))
+                    val dayText = makeAllText(makeDayText(dayTogether))
+
+                    tvBook.text = StringUtil.setTextPartialBold(
+                        10,
+                        10 + episodeText.length,
+                        makeNowEpisode(episodeText)
+                    )
+
+                    tvWithDay.text = StringUtil.setTextPartialBold(
+                        9,
+                        9 + dayText.length,
+                        makeNowDay(dayText)
+                    )
+
+                    tvTitle.text = bookInfo.title
+                    tvWriter.text = makeAuthorText(bookInfo.author)
+
+                    imgurl = bookInfo.bookImg
+
+                }
+            }
+        }
     }
 
     private fun observePetInfo() {
@@ -57,4 +90,10 @@ class FarewellBookFragment :
     private fun getPetInfo() {
         rainbowViewModel.getPetInfo()
     }
+
+    private fun getRainbowBookInfo(){
+        rainbowViewModel.getRainbowBookInfo()
+    }
+
+
 }

@@ -13,14 +13,15 @@ data class ResRainbowEpilogue(
         data class RainbowMainPage(
             val title: String,
             val bookImg: String,
+            val rainbowCheck : Boolean,
             val memories: List<Memory>,
-            val help: List<Help>
+            val help : List<Help>
         ) {
             data class Memory(
+                val diaryId : String,
                 val title: String,
                 val contents: String,
                 val date: String,
-                val feel: Int,
                 val feeling: Int
             )
             data class Help(

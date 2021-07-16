@@ -74,8 +74,7 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
                     bvHome.setLeftPart1Diary(diary)
                     tvWriterName.text = secondPartBook.author
                     tvFullDate.text = secondPartBook.date
-                    // 사진 넣기! 서버 다시 완성되면 넣기
-                 //   ivBookImg.setImageResource(secondPartBook.imgs.toInt())
+                    imgurl = secondPartBook.imgs
 
                 }
             }

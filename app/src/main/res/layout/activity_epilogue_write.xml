@@ -127,7 +127,7 @@
                     app:layout_constraintTop_toTopOf="@+id/tv_pet"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_pet"
                     app:layout_constraintStart_toEndOf="@+id/tv_pet"
-                    tools:text="@string/talk_pet" />
+                    android:text="@string/talk_pet" />
 
 
 
@@ -166,7 +166,19 @@
                     app:layout_constraintTop_toTopOf="@+id/tv_pet2"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_pet2"
                     app:layout_constraintStart_toEndOf="@+id/tv_pet2"
-                    tools:text="@string/talk_pet3" />
+                    android:text="@string/talk_pet3" />
+
+                <TextView
+                    android:id="@+id/tv_talk_pet4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="6dp"
+                    android:layout_marginTop="6dp"
+                    android:textAppearance="@style/TextBody2Style"
+                    android:textColor="@color/maco_gray"
+                    app:layout_constraintStart_toStartOf="@+id/tv_writer_story"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_writer_story"
+                    android:text="@string/talk_pet4" />
 
                 <TextView
                     android:id="@+id/tv_epilogue_title"
@@ -176,8 +188,8 @@
                     android:text="@string/epilogue_title"
                     android:textAppearance="@style/TextSub1Style"
                     android:textColor="@color/maco_dark_gray"
-                    app:layout_constraintStart_toStartOf="@+id/tv_writer_story"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_writer_story" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_talk_pet4"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_talk_pet4" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_epilogue_title"
@@ -249,7 +261,6 @@
                     android:background="@drawable/rectangle_bottom_blue_3"
                     android:ems="10"
                     android:gravity="top|left"
-                    android:hint="@string/end_story"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="12dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"

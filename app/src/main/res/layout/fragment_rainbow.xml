@@ -85,13 +85,30 @@
                     android:layout_marginStart="27dp"
                     android:layout_marginEnd="28dp"
                     android:layout_marginBottom="86dp"
+                    android:layout_marginTop="28dp"
                     android:background="@drawable/rectangle_fill_blue_3"
                     android:text="@string/farewell_pet_question"
                     android:textAppearance="@style/TextSub1Style"
                     android:textColor="@color/maco_white"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_help"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="336:165"
+                    android:src="@drawable/ic_illust_rainbow_human"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_farewell_pet"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    />
 
                 <View
                     android:id="@+id/line"
@@ -111,7 +128,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="29dp"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toTopOf="@+id/btn_farewell_pet"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/line"
