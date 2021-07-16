@@ -31,7 +31,6 @@ interface RainbowService {
     //GET Rainbow Book
     @GET("rainbow/record/{petId}")
     suspend fun getRainbowBook(
-        @Path("userId") userId: String,
         @Path("petId") petId: String
     ): ResRainbowBook
 
@@ -51,8 +50,12 @@ interface RainbowService {
     //POST Rainbow Epilogue
     @POST("rainbow/epilogue/{userId}/{petId}")
     suspend fun postRainbowEpilogue(
+        @Path("userId") userId: String,
+        @Path("petId") petId: String,
         @Body body: ReqRainbowEpilogue
     ): ResRainbowEpilogue
+
+
 
     //GET Sub Home
     @GET("rainbow/moment/sub/{petId}")

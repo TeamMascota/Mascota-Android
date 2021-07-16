@@ -1,5 +1,6 @@
 package org.mascota.ui.view.rainbow.farewell
 
+import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -8,6 +9,7 @@ import org.mascota.R
 import org.mascota.data.remote.model.response.rainbow.ResBestMoment
 import org.mascota.databinding.FragmentFarewellBestMomentBinding
 import org.mascota.ui.base.BindingFragment
+import org.mascota.ui.view.diary.read.DiaryReadActivity
 import org.mascota.ui.view.rainbow.adapter.BestMomentAdapter
 import org.mascota.ui.viewmodel.RainbowViewModel
 import java.time.LocalDate
@@ -59,12 +61,22 @@ class FarewellBestMoment :
                 angryAdapter.emo = Pair(pet.kind, 4)
                 sadAdapter.emo = Pair(pet.kind, 3)
                 boringAdapter.emo = Pair(pet.kind, 5)
+                binding.apply {
+                    kind = pet.kind
+                    emoLove = 0
+                    emoJoy = 1
+                    emoUsual = 2
+                    emoAngry = 4
+                    emoSad = 3
+                    emoBoring = 5
+                }
                 loveAdapter.data = changePair(it.data.theBestMoments[0].diaries)
                 joyAdapter.data = changePair(it.data.theBestMoments[1].diaries)
                 usualAdapter.data = changePair(it.data.theBestMoments[2].diaries)
                 angryAdapter.data = changePair(it.data.theBestMoments[4].diaries)
                 sadAdapter.data = changePair(it.data.theBestMoments[3].diaries)
                 boringAdapter.data = changePair(it.data.theBestMoments[5].diaries)
+
             }
         }
     }
@@ -78,10 +90,10 @@ class FarewellBestMoment :
             first = list[i]
             second = list[i+1]
             if(first == null){
-                first = ResBestMoment.Data.TheBestMoment.Diary(0,0,"","","")
+                first = ResBestMoment.Data.TheBestMoment.Diary("NULL",0,0,"NULL","NULL","NULL")
             }
             if(second == null){
-                second = ResBestMoment.Data.TheBestMoment.Diary(0,0,"","","")
+                second = ResBestMoment.Data.TheBestMoment.Diary("NULL",0,0,"NULL","NULL","NULL")
             }
             diaryPairList.add(Pair(first, second))
         }

@@ -5,8 +5,4 @@ data class ResFarewellQuit(
     val status: Int,
     val success: Boolean,
     val message: String,
-    val data: Data
-) {
-    class Data(
-    )
-}
+)

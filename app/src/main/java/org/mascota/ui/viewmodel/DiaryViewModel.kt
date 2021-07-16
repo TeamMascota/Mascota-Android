@@ -69,10 +69,11 @@ class DiaryViewModel(
         runCatching { diaryRepository.getPetDiaryRead(_petDiaryId) }
             .onSuccess {
                 _diaryReadPet.postValue(it)
-                Log.d("server", it.toString())
+                Log.d("server-diary-read", it.toString())
             }
             .onFailure {
                 it.printStackTrace()
+                Log.d("server-diary-read-fail", "why?????????")
             }
     }
 
@@ -80,10 +81,10 @@ class DiaryViewModel(
         runCatching { diaryRepository.getPersonDiaryRead(_petDiaryId) }
             .onSuccess {
                 _diaryReadPerson.postValue(it)
-                Log.d("server", it.toString())
+                Log.d("server-person-diary", it.toString())
             }
             .onFailure {
-                Log.d("server", "chapter2fail")
+                Log.d("server-person-diary", "chapter2fail")
                 it.printStackTrace()
             }
     }

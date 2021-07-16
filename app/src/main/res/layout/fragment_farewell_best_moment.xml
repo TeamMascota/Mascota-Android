@@ -5,6 +5,15 @@
     tools:context=".ui.view.rainbow.farewell.FarewellBestMoment">
 
 <data>
+    <variable
+        name="kind"
+        type="Integer" />
+    <variable name="emoLove" type="Integer"/>
+    <variable name="emoJoy" type="Integer"/>
+    <variable name="emoUsual" type="Integer"/>
+    <variable name="emoAngry" type="Integer"/>
+    <variable name="emoSad" type="Integer"/>
+    <variable name="emoBoring" type="Integer"/>
 
 </data>
 
@@ -30,7 +39,8 @@
                     android:id="@+id/iv_dog_love"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_emo_dog_love_sel"
+                    bigSpecies="@{kind}"
+                    bigEmo="@{emoLove}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="22dp"
@@ -173,9 +183,10 @@
                     android:id="@+id/iv_dog_joy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    bigSpecies="@{kind}"
+                    bigEmo="@{emoJoy}"
                     app:layout_constraintTop_toBottomOf="@+id/rcv_love"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/ic_emo_dog_joy_sel"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="22dp"
                     />
@@ -306,9 +317,10 @@
                     android:id="@+id/iv_dog_usual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    bigSpecies="@{kind}"
+                    bigEmo="@{emoUsual}"
                     app:layout_constraintTop_toBottomOf="@+id/rcv_joy"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/ic_emo_dog_usual_sel"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="22dp"
                     />
@@ -358,9 +370,10 @@
                     android:id="@+id/iv_dog_angry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    bigSpecies="@{kind}"
+                    bigEmo="@{emoAngry}"
                     app:layout_constraintTop_toBottomOf="@id/rcv_usual"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/ic_emo_dog_angry_sel"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="22dp"
                     />
@@ -451,9 +464,10 @@
                     android:id="@+id/iv_dog_sad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    bigSpecies="@{kind}"
+                    bigEmo="@{emoSad}"
                     app:layout_constraintTop_toBottomOf="@id/rcv_angry"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/ic_emo_dog_sad_sel"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="22dp"
                     />
@@ -503,9 +517,10 @@
                     android:id="@+id/iv_dog_boring"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    bigSpecies="@{kind}"
+                    bigEmo="@{emoBoring}"
                     app:layout_constraintTop_toBottomOf="@id/rcv_sad"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:src="@drawable/ic_emo_dog_boring_sel"
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="22dp"
                     />

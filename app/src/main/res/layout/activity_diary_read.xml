@@ -11,6 +11,8 @@
         <variable
             name="isPictures"
             type="Boolean" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -234,8 +236,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vp_pet_img"
-                app:stiffness="300"
-                android:visibility="@{isPictureExist? View.VISIBLE : View.INVISIBLE}"/>
+                app:stiffness="300" />
 
             <TextView
                 android:id="@+id/tv_content"

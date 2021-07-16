@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.mascota.R
 import org.mascota.databinding.ActivityFarewellBinding
 import org.mascota.databinding.LayoutMascotaDialogBinding
@@ -13,6 +14,7 @@ import org.mascota.ui.view.adapter.MascotaViewPagerAdapter
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.FIRST_PAGE
 import org.mascota.ui.view.profile.ProfileCreateActivity.Companion.SECOND_PAGE
 import org.mascota.ui.view.rainbow.epilogue.EpilogueWriteActivity
+import org.mascota.ui.viewmodel.RainbowViewModel
 import org.mascota.util.DialogUtil
 import org.mascota.util.StatusBarUtil.setStatusBarColor
 
@@ -20,6 +22,7 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
     private lateinit var farewellViewPagerAdapter: MascotaViewPagerAdapter
     private lateinit var farewellFinishDialog : Dialog
     private lateinit var farewellFinishDialogBinding : LayoutMascotaDialogBinding
+    private val rainbowViewModel: RainbowViewModel by viewModel()
 
     override fun initView() {
         setStatusBarColor(getColor(R.color.maco_blue))
@@ -61,6 +64,11 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
         }
     }
 
+
+    private fun deleteFareWellQuit() {
+        rainbowViewModel.deleteFareWellQuit()
+    }
+
     private fun initClickEvent() {
         binding.apply {
             with(vpFarewell) {
@@ -90,7 +98,9 @@ class FarewellActivity : BindingActivity<ActivityFarewellBinding>(R.layout.activ
             farewellFinishDialogBinding.apply {
                 clNext.setOnClickListener {
                     farewellFinishDialog.dismiss()
+                    //여기에 delete 서버 연동해주기
                     finish()
+                    deleteFareWellQuit()
                 }
                 clQuit.setOnClickListener {
                     farewellFinishDialog.dismiss()

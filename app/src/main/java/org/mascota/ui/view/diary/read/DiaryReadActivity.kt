@@ -74,16 +74,20 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
                     Log.d("here", "arrive")
                     when {
                         diaryImg.isEmpty() -> {
+
                             isPictureExist = false
                             isPictures = false
+                            springDotsIndicator.visibility = View.INVISIBLE
                         }
                         diaryImg.size == 1 -> {
                             isPictureExist = true
                             isPictures = false
+                            springDotsIndicator.visibility = View.INVISIBLE
                         }
                         else -> {
                             isPictureExist = true
                             isPictures = true
+                            springDotsIndicator.visibility = View.VISIBLE
                         }
                     }
                 }
@@ -92,21 +96,11 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
                 val diaryEmoDataList = mutableListOf<DiaryEmoDataInfo>()
 
                 var filteredList = listOf<ResPersonDiaryRead.Data.SecondPartDiary.Feeling>()
-                for (kindIdx in 0..2) {
-                    for (feelingIdx in 0..5) {
-                        filteredList =
-                            feelingList.filter { it.kind == kindIdx && it.feeling == feelingIdx }
-                        Log.d("filteredList", "$filteredList")
-                        if (filteredList.isNotEmpty()) {
-                            val diaryImgsList = mutableListOf<String>()
-                            for (element in filteredList) {
-                                diaryImgsList.add(element.petImg)
-                            }
-                            diaryEmoDataList.add(
-                                DiaryEmoDataInfo(feelingIdx, kindIdx, diaryImgsList)
-                            )
-                        }
-                    }
+
+                this.feelingList[0].apply{
+                    diaryEmoDataList.add(
+                        DiaryEmoDataInfo(feeling,0, listOf("NULL"))
+                    )
                 }
                 emotionImageAdapter.emotionList = diaryEmoDataList
             }
@@ -205,14 +199,17 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
                         bookImg.isEmpty() -> {
                             isPictureExist = false
                             isPictures = false
+                            springDotsIndicator.visibility = View.INVISIBLE
                         }
                         bookImg.size == 1 -> {
                             isPictureExist = true
                             isPictures = false
+                            springDotsIndicator.visibility = View.INVISIBLE
                         }
                         else -> {
                             isPictureExist = true
                             isPictures = true
+                            springDotsIndicator.visibility = View.VISIBLE
                         }
                     }
                 }
@@ -289,6 +286,7 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
         }
         when(from){
             IS_CONTENT -> {
+                Log.d("is_content", _diaryIdList[0])
                 postPetDiaryId(_diaryIdList[0])
                 with(binding) {
                     btnLeft.isEnabled = false

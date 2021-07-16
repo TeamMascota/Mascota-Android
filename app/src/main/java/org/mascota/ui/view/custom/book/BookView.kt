@@ -28,6 +28,8 @@ class BookView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     private var rainbowLeftPageClickListener : (() -> Unit) ?= null
     private var rainbowRightPageClickListener : (() -> Unit) ?= null
+    private var bestMomentLeftPageClickListener : ((String) -> Unit) ?= null
+    private var bestMomentRightPageClickListener : ((String) -> Unit) ?= null
     private lateinit var viewCustomBookBinding: ViewCustomBookBinding
 
     private lateinit var bgBookView: View
@@ -77,6 +79,14 @@ class BookView @JvmOverloads constructor(
         rainbowRightPageClickListener = listener
     }
 
+    fun setBestLeftPageClickListener(listener: (String) -> Unit){
+        bestMomentLeftPageClickListener = listener
+    }
+
+    fun setBestRightPageClickListener(listener: (String) -> Unit){
+        bestMomentRightPageClickListener = listener
+    }
+
     fun setLeftPart1Diary(diaryPart1Info: ResHomePart1.Data.FirstPartMainPage.Diary) {
         diaryPart1Info.apply {
             var chapterDiary: String = R.string.prolog.toString()
@@ -112,6 +122,7 @@ class BookView @JvmOverloads constructor(
             ivLogo.visibility = View.GONE
 
             clDiary.setOnClickListener {
+
                 rainbowLeftPageClickListener?.invoke()
             }
         }
@@ -139,10 +150,17 @@ class BookView @JvmOverloads constructor(
                     clDiary.visibility = View.INVISIBLE
                 }else {
                     rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                    emoFeeling = feeling
+                    emoKind = kind
                     tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
                     tvDate.text = date
                     clDiary.visibility = View.VISIBLE
                     ivLogo.visibility = View.GONE
+                    pageDiaryId = id
+
+//                    clDiary.setOnClickListener {
+//                        pageDiaryId?.let { it -> bestMomentLeftPageClickListener?.invoke(it) }
+//                    }
                 }
             }
         }
@@ -156,10 +174,17 @@ class BookView @JvmOverloads constructor(
                     clDiary.visibility = View.INVISIBLE
                 }else {
                     rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                    emoFeeling = feeling
+                    emoKind = kind
                     tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
                     tvDate.text = date
                     clDiary.visibility = View.VISIBLE
                     ivLogo.visibility = View.GONE
+                    pageDiaryId = id
+
+//                    clDiary.setOnClickListener {
+//                        pageDiaryId?.let { it -> bestMomentLeftPageClickListener?.invoke(it) }
+//                    }
                 }
             }
         }

@@ -20,7 +20,7 @@ interface ContentDataSource {
     suspend fun deleteContent(path: String): ResContentDelete
 
     //GET Content Detail Part2
-    suspend fun getContentDetailPart2(path: String): ResContentDetail
+    suspend fun getContentDetailPart2(path: String): ResPart2ContentDetail
 
     //GET Content List Part2
     suspend fun getContentListPart2(): ResPart2ContentList

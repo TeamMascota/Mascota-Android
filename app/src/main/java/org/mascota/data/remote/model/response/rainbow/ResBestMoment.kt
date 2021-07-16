@@ -21,6 +21,7 @@ data class ResBestMoment(
             val diaries: List<Diary>
         ) {
             data class Diary(
+                val diaryId: String,
                 val chapter: Int,
                 val episode: Int,
                 val title: String,
