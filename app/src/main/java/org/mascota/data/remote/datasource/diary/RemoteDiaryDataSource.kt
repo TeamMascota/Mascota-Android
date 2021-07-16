@@ -31,4 +31,8 @@ class RemoteDiaryDataSource(private val service: DiaryService) : DiaryDataSource
 
     override suspend fun deletePersonDiary(path: String, body: ReqDiaryDelete): ResDiaryDelete =
         service.deletePersonDiary(path, body)
+
+    //Get Animal List
+    override suspend fun getAnimalInfo(): ResPetInfo =
+        service.getAnimalInfo()
 }
