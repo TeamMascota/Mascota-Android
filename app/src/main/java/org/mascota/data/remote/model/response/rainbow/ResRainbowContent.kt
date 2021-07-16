@@ -11,7 +11,8 @@ data class ResRainbowContent(
         val partingRainbowBridge: PartingRainbowBridge
     ) {
         data class PartingRainbowBridge(
-            val contents: String
+            val contents: String,
+            val diaryCount : Int
         )
     }
 }

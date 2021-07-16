@@ -16,12 +16,29 @@ class FarewellExplainFragment :
     private val rainbowViewModel: RainbowViewModel by viewModel()
 
     override fun initView() {
-        getPetInfo()
-        observePetInfo()
+        putRainbowContent()
+        observeRainbowContent()
+
+    // getPetInfo()
+      //  observePetInfo()
     }
 
     private fun getPetInfo() {
         rainbowViewModel.getPetInfo()
+    }
+
+    private fun putRainbowContent(){
+        rainbowViewModel.putRainbowContent()
+    }
+
+    private fun observeRainbowContent(){
+        rainbowViewModel.rainbowContent.observe(viewLifecycleOwner){
+            binding.apply {
+                with(it){
+                    tvInStory.text = it.data.partingRainbowBridge.contents
+                }
+            }
+        }
     }
 
     private fun observePetInfo() {
