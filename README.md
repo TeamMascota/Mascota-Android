@@ -28,14 +28,40 @@
 <img src = "https://user-images.githubusercontent.com/81518783/125964173-8882142e-84a4-4dd3-a91e-dfe143e465c5.png" width="250"/>
 
 ### 일기 조회
-<img src=""/> <img src=""/> <img src=""/> 
+<img src="https://user-images.githubusercontent.com/81518783/125964645-00817d38-01c6-405c-9fd4-0b3fee9519d5.png" width="250"/>
 
 ### 목차
 <img src="https://user-images.githubusercontent.com/81518783/125964335-34bcd8bf-c6eb-417a-99d8-815a6a8fab82.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125964340-52966df8-d1e1-46ae-9630-849d1dc223f5.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125964345-44699ec1-1fad-460a-8fde-23c7a71554fd.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125964645-00817d38-01c6-405c-9fd4-0b3fee9519d5.png" width="250" />
 
-### 무지개
-<img src="" width="250"/> <img src="" width="250"/> <img src="" width="250"/> 
 
+### 무지개 - 이별
+<img src="https://user-images.githubusercontent.com/81518783/125974822-a362c6ba-34ae-4c8e-a2b0-e50e396d1a6d.png" width="250" /> <img src="https://user-images.githubusercontent.com/81518783/125974828-5757a74b-0528-467a-88c8-6ad0b0ed3e86.png" width="250" />
+
+
+### 무지개
+ <img src="https://user-images.githubusercontent.com/81518783/125973002-b1d1f498-9e57-4826-9a20-1b509c724b60.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125973007-041cfda1-801f-4357-bb03-e211da78ad16.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125972996-5a8a5f39-478e-4b4a-9f30-7d5451ca9c29.png" width="250"/> <img src="https://user-images.githubusercontent.com/81518783/125973012-4adf19c5-ece5-4470-9abd-a3b3f6bca84b.png" width=250>
+ 
+ 
+
+ 
+
+### 최고의 순간
+<img src="https://user-images.githubusercontent.com/81518783/125973428-a078a386-8920-47fa-893f-b411bd04e0a1.png" width="250" /> <img src="https://user-images.githubusercontent.com/81518783/125973439-7e30cc33-8651-4372-9c7e-a94286545323.png" width="250" /> <img src="https://user-images.githubusercontent.com/81518783/125973446-b656e5e0-6252-4591-af50-6bac6577d4c1.png" width="250" />
+
+
+### 에필로그 작성
+<img src="https://user-images.githubusercontent.com/81518783/125974022-1bce4c7d-26ff-41e0-aa8d-f818a94aa770.png" width="250" />
+
+
+### 2부 - 일기 작성
+ <img src="https://user-images.githubusercontent.com/81518783/125974195-ea49ae10-7f55-43c1-b30d-f231a18cc372.png" width="250" /><img src="https://user-images.githubusercontent.com/81518783/125974202-1fb541e3-f9b8-49f5-b598-419e139c6341.png" width="250" />
+ 
+ 
+ ### 2부 - 일기 조회
+ <img src="https://user-images.githubusercontent.com/81518783/125974364-c3e4bdb1-ad21-45b8-b07c-e638707de993.png" width="250" /> <img src="https://user-images.githubusercontent.com/81518783/125974372-1f147ebe-fcec-4f28-944e-a76e87096cdb.png" width="250" />
+ 
+ 
+ 
 
 # 🐶기능 설명
 ### 회원가입 & 로그인
