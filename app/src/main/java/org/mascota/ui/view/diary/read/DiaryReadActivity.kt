@@ -194,6 +194,7 @@ class DiaryReadActivity : BindingActivity<ActivityDiaryReadBinding>(R.layout.act
     private fun observeResPetDiaryRead() {
         getResPetDiaryRead()
         diaryViewModel.diaryReadPet.observe(this) {
+            loadingDialog.dismiss()
             it.data.petDiary.apply {
                 with(binding) {
                     if (episode != 0) {
