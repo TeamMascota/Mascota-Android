@@ -1,5 +1,6 @@
 package org.mascota.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +12,7 @@ import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.data.repository.home.HomeRepository
 
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
+    var imgUrl = ""
 
     private val _homePart1 = MutableLiveData<ResHomePart1>()
     val homePart1: LiveData<ResHomePart1>
@@ -25,6 +27,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
         runCatching { homeRepository.getHomePart1(getUserId())}
             .onSuccess {
                 _homePart1.postValue(it)
+                Log.d("fdadfs", it.toString())
             }
             .onFailure {
                 it.printStackTrace()
@@ -35,6 +38,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
        runCatching  { homeRepository.getHomePart2(getUserId()) }
            .onSuccess {
                _homePart2.postValue(it)
+               Log.d("fdadfs", it.toString())
            }
            .onFailure {
                it.printStackTrace()

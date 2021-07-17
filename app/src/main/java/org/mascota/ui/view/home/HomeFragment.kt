@@ -104,7 +104,8 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun movePart1(){
         binding.clBook.setOnClickListener {
-            startActivity(Intent(requireContext(), Home2Activity::class.java))
+            startActivity(Intent(requireContext(), Home2Activity::class.java)
+                .putExtra("img", homeViewModel.imgUrl))
         }
     }
 
@@ -168,6 +169,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
                         tvChapter.text = makePartText(PART_2)
                         tvHomeTitle.text = title
                         bvHome.setLeftPart2Diary(diary)
+                        homeViewModel.imgUrl = bookImg
                         tvPrologTitle.text = tableContents[0].chapterTitle
                         Glide.with(civCover.context).load(bookImg).into(civCover)
                         tvWriterName.text = it.data.secondPartMainPage.firstPartBook.author

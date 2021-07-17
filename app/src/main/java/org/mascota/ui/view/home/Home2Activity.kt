@@ -97,8 +97,7 @@ class Home2Activity : BindingActivity<ActivityHome2Binding>(R.layout.activity_ho
                     bvHome.setLeftPart1Diary(diary)
                     tvWriterName.text = secondPartBook.author
                     tvFullDate.text = secondPartBook.date
-                    imgurl = secondPartBook.imgs
-
+                    imgurl = intent.getStringExtra("img")
                 }
             }
         }
