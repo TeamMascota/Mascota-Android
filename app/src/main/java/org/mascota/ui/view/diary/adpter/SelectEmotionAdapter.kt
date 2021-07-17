@@ -89,27 +89,27 @@ class SelectEmotionAdapter : RecyclerView.Adapter<SelectEmotionAdapter.SelectEmo
 
                 ivAngry.setOnClickListener {
                     initReleaseEvent(viewBiding, ivAngry)
-                    emoButtonClickListener?.invoke(getPetId(), position, ANIMAL_ANGRY)
+                    emoButtonClickListener?.invoke(data._id, position, ANIMAL_ANGRY)
                 }
                 ivBoring.setOnClickListener {
                     initReleaseEvent(viewBiding, ivBoring)
-                    emoButtonClickListener?.invoke(getPetId(), position, ANIMAL_BORING)
+                    emoButtonClickListener?.invoke(data._id, position, ANIMAL_BORING)
                 }
                 ivJoy.setOnClickListener {
                     initReleaseEvent(viewBiding, ivJoy)
-                    emoButtonClickListener?.invoke(getPetId(), position, ANIMAL_JOY)
+                    emoButtonClickListener?.invoke(data._id, position, ANIMAL_JOY)
                 }
                 ivLove.setOnClickListener {
                     initReleaseEvent(viewBiding, ivLove)
-                    emoButtonClickListener?.invoke(getPetId(), position, ANIMAL_LOVE)
+                    emoButtonClickListener?.invoke(data._id, position, ANIMAL_LOVE)
                 }
                 ivSad.setOnClickListener {
                     initReleaseEvent(viewBiding, ivSad)
-                    emoButtonClickListener?.invoke(getPetId(), position, ANIMAL_SAD)
+                    emoButtonClickListener?.invoke(data._id, position, ANIMAL_SAD)
                 }
                 ivUsual.setOnClickListener {
                     initReleaseEvent(viewBiding, ivUsual)
-                    emoButtonClickListener?.invoke(getPetId(), position, ANIMAL_USUAL)
+                    emoButtonClickListener?.invoke(data._id, position, ANIMAL_USUAL)
                 }
                 btnDelete.setOnClickListener {
                     deleteButtonClickListener?.invoke(data.name, position)
