@@ -10,9 +10,9 @@ data class ResPetInfo(
     ) {
         data class Pet(
             val name: String,
-            val image: String,
+            val img: String,
             val kind: Int,
-            val petId: String
+            val _id: String
         )
     }
 }

@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.mascota.R
 import org.mascota.data.local.MascotaSharedPreference
+import org.mascota.data.local.MascotaSharedPreference.getPart
 import org.mascota.data.remote.model.response.home.ResHomePart1
 import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.databinding.FragmentHomeBinding
@@ -26,7 +27,7 @@ import org.mascota.util.StringUtil.makePartText
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private lateinit var loadingDialog: Dialog
     private lateinit var loadingDialogBinding: LayoutLoadingBinding
-    private val homeViewModel: HomeViewModel by viewModel()
+    private val homeViewModel: HomeViewModel by sharedViewModel()
     private lateinit var homeContentAdapter: HomeContentAdapter
 
     override fun initView() {
@@ -103,7 +104,8 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun movePart1(){
         binding.clBook.setOnClickListener {
-            startActivity(Intent(requireContext(), Home2Activity::class.java))
+            startActivity(Intent(requireContext(), Home2Activity::class.java)
+                .putExtra("img", homeViewModel.imgUrl))
         }
     }
 
@@ -129,44 +131,54 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun observeHomePart1() {
-        homeViewModel.getResHomePart1()
-        homeViewModel.homePart1.observe(viewLifecycleOwner) {
-            loadingDialog.dismiss()
-            homeContentAdapter.contentList = it.data.firstPartMainPage.tableContents.subList(1, it.data.firstPartMainPage.tableContents.size - 1)
-            binding.apply {
-                with(it.data.firstPartMainPage) {
-                    tvChapter.text = makePartText(PART_1)
-                    tvPrologTitle.text = tableContents[0].chapterTitle
-                    tvHomeTitle.text = title
-                    Glide.with(civCover.context).load(bookImg).into(civCover)
-                    bvHome.setLeftPart1Diary(diary)
+        if(getPart() == PART_1) {
+            homeViewModel.getResHomePart1()
+            homeViewModel.homePart1.observe(viewLifecycleOwner) {
+                loadingDialog.dismiss()
+                homeContentAdapter.contentList = it.data.firstPartMainPage.tableContents.subList(
+                    1,
+                    it.data.firstPartMainPage.tableContents.size - 1
+                )
+                binding.apply {
+                    with(it.data.firstPartMainPage) {
+                        tvChapter.text = makePartText(PART_1)
+                        tvPrologTitle.text = tableContents[0].chapterTitle
+                        tvHomeTitle.text = title
+                        Glide.with(civCover.context).load(bookImg).into(civCover)
+                        bvHome.setLeftPart1Diary(diary)
+                    }
                 }
             }
         }
     }
 
     private fun observeHomePart2() {
-        homeViewModel.getResHomePart2()
-        homeViewModel.homePart2.observe(viewLifecycleOwner){
-            loadingDialog.dismiss()
-            homeContentAdapter.contentList = it.data.secondPartMainPage.tableContents.subList(1, it.data.secondPartMainPage.tableContents.size-1).map{
-                changeResPart1(it)
-            }
+        if(getPart() == PART_2) {
+            homeViewModel.getResHomePart2()
+            homeViewModel.homePart2.observe(viewLifecycleOwner) {
+                loadingDialog.dismiss()
+                homeContentAdapter.contentList = it.data.secondPartMainPage.tableContents.subList(
+                    1,
+                    it.data.secondPartMainPage.tableContents.size - 1
+                ).map {
+                    changeResPart1(it)
+                }
 
-            binding.apply {
-                with(it.data.secondPartMainPage){
-                    tvChapter.text  = makePartText(PART_2)
-                    tvHomeTitle.text = title
-                    bvHome.setLeftPart2Diary(diary)
-                    tvPrologTitle.text = tableContents[0].chapterTitle
-                    Glide.with(civCover.context).load(bookImg).into(civCover)
-                    tvWriterName.text = it.data.secondPartMainPage.firstPartBook.author
-                    tvFullDate.text = it.data.secondPartMainPage.firstPartBook.date
-                    imgurl = it.data.secondPartMainPage.bookImg
+                binding.apply {
+                    with(it.data.secondPartMainPage) {
+                        tvChapter.text = makePartText(PART_2)
+                        tvHomeTitle.text = title
+                        bvHome.setLeftPart2Diary(diary)
+                        homeViewModel.imgUrl = bookImg
+                        tvPrologTitle.text = tableContents[0].chapterTitle
+                        Glide.with(civCover.context).load(bookImg).into(civCover)
+                        tvWriterName.text = it.data.secondPartMainPage.firstPartBook.author
+                        tvFullDate.text = it.data.secondPartMainPage.firstPartBook.date
+                        imgurl = it.data.secondPartMainPage.bookImg
 
+                    }
                 }
             }
-
         }
 
     }

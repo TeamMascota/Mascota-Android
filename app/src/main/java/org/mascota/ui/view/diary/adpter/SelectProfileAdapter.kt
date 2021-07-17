@@ -6,13 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import org.mascota.R
 import org.mascota.data.remote.model.response.diary.ResPetInfo
 import org.mascota.data.remote.model.response.rainbow.ResFarewellSelect
 import org.mascota.databinding.ItemProfileBinding
+import org.mascota.ui.view.content.detail.adapter.ContentDetailDiaryAdapter
 import org.mascota.ui.view.diary.data.ProfileList
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.CAT
 import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.DOG
+import org.mascota.util.dp
 
 class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectProfileViewHolder>() {
     private val _data = mutableListOf<ResPetInfo.Data.Pet>()
@@ -58,6 +63,10 @@ class SelectProfileAdapter : RecyclerView.Adapter<SelectProfileAdapter.SelectPro
         fun onBind(data: ResPetInfo.Data.Pet, position: Int) {
             viewBiding.apply {
                 petData = data
+                Glide.with(ivProfile.context).load(data.img).transform(
+                    CenterCrop(),
+                    RoundedCorners(ContentDetailDiaryAdapter.IMAGE_RADIUS.dp)
+                ).into(ivProfile)
 
                 clItem.isSelected = selectedList[position]
 

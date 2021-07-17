@@ -15,6 +15,7 @@ import org.mascota.data.remote.model.response.home.ResHomePart2
 import org.mascota.data.remote.model.response.rainbow.ResRainbowHome
 import org.mascota.databinding.ViewCustomBookBinding
 import org.mascota.ui.view.home.data.model.HomeDiaryInfoData
+import org.mascota.ui.view.rainbow.farewell.FarewellExplainFragment.Companion.DOG
 import org.mascota.ui.view.rainbow.farewell.data.model.BestMomentInfoData
 import org.mascota.util.CalendarUtil.convertCalendarToBeFamilyDateString
 import org.mascota.util.CalendarUtil.convertCalendarToStoryDateString
@@ -26,10 +27,10 @@ import org.mascota.util.extension.px
 class BookView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    private var rainbowLeftPageClickListener : (() -> Unit) ?= null
-    private var rainbowRightPageClickListener : (() -> Unit) ?= null
-    private var bestMomentLeftPageClickListener : ((String) -> Unit) ?= null
-    private var bestMomentRightPageClickListener : ((String) -> Unit) ?= null
+    private var rainbowLeftPageClickListener: (() -> Unit)? = null
+    private var rainbowRightPageClickListener: (() -> Unit)? = null
+    private var bestMomentLeftPageClickListener: ((String) -> Unit)? = null
+    private var bestMomentRightPageClickListener: ((String) -> Unit)? = null
     private lateinit var viewCustomBookBinding: ViewCustomBookBinding
 
     private lateinit var bgBookView: View
@@ -37,7 +38,7 @@ class BookView @JvmOverloads constructor(
     private lateinit var lineView: View
     private lateinit var bottomLineView: View
 
-    private var _writeBtnClickListener : (()->Unit) ?= null
+    private var _writeBtnClickListener: (() -> Unit)? = null
 
     fun setWriteBtnClickListener(listener: () -> Unit) {
         _writeBtnClickListener = listener
@@ -71,19 +72,19 @@ class BookView @JvmOverloads constructor(
         }
     }
 
-    fun setLeftPageClickListener(listener : () -> Unit) {
+    fun setLeftPageClickListener(listener: () -> Unit) {
         rainbowLeftPageClickListener = listener
     }
 
-    fun setRightPageClickListener(listener : () -> Unit) {
+    fun setRightPageClickListener(listener: () -> Unit) {
         rainbowRightPageClickListener = listener
     }
 
-    fun setBestLeftPageClickListener(listener: (String) -> Unit){
+    fun setBestLeftPageClickListener(listener: (String) -> Unit) {
         bestMomentLeftPageClickListener = listener
     }
 
-    fun setBestRightPageClickListener(listener: (String) -> Unit){
+    fun setBestRightPageClickListener(listener: (String) -> Unit) {
         bestMomentRightPageClickListener = listener
     }
 
@@ -100,15 +101,16 @@ class BookView @JvmOverloads constructor(
         }
     }
 
-    fun setLeftPart2Diary(diartPart2Info : ResHomePart2.Data.SecondPartMainPage.Diary){
+    fun setLeftPart2Diary(diartPart2Info: ResHomePart2.Data.SecondPartMainPage.Diary) {
         diartPart2Info.apply {
-            var chapterDiary : String = R.string.epilogue.toString()
-            if(chapter != 0){
+            var chapterDiary: String = "에필로그"
+            if (chapter != 0) {
                 chapterDiary = makeChapterText(chapter) + " " + makeEpisodeText(episode)
             }
             viewCustomBookBinding.layoutLeftPage.homeDiaryInfoData = HomeDiaryInfoData(
                 chapterDiary, title, contents, date
             )
+            viewCustomBookBinding.layoutRightPage.ivDogList.setImageResource(R.drawable.ic_emo_human_group)
         }
     }
 
@@ -120,6 +122,9 @@ class BookView @JvmOverloads constructor(
             tvDate.text = convertCalendarToBeFamilyDateString(calendar)
             clDiary.visibility = View.VISIBLE
             ivLogo.visibility = View.GONE
+
+            emoFeeling = rainbowDiaryInfoData.feeling
+            emoKind = DOG
 
             clDiary.setOnClickListener {
 
@@ -136,6 +141,8 @@ class BookView @JvmOverloads constructor(
             tvDate.text = convertCalendarToBeFamilyDateString(calendar)
             clDiary.visibility = View.VISIBLE
             ivLogo.visibility = View.GONE
+            emoFeeling = rainbowDiaryInfoData.feeling
+            emoKind = DOG
             clDiary.setOnClickListener {
                 rainbowRightPageClickListener?.invoke()
             }
@@ -144,12 +151,13 @@ class BookView @JvmOverloads constructor(
 
     fun setLeftBestMoment(bestMomentInfoData: BestMomentInfoData) {
         viewCustomBookBinding.layoutRainbowLeftPage.apply {
-            with(bestMomentInfoData){
-                if(chapter == 0){
+            with(bestMomentInfoData) {
+                if (chapter == 0) {
                     ivLogo.visibility = View.VISIBLE
                     clDiary.visibility = View.INVISIBLE
-                }else {
-                    rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                } else {
+                    rainbowDiaryInfo =
+                        ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
                     emoFeeling = feeling
                     emoKind = kind
                     tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
@@ -168,12 +176,13 @@ class BookView @JvmOverloads constructor(
 
     fun setRightBestMoment(bestMomentInfoData: BestMomentInfoData) {
         viewCustomBookBinding.layoutRainbowRightPage.apply {
-            with(bestMomentInfoData){
-                if(chapter == 0){
+            with(bestMomentInfoData) {
+                if (chapter == 0) {
                     ivLogo.visibility = View.VISIBLE
                     clDiary.visibility = View.INVISIBLE
-                }else {
-                    rainbowDiaryInfo = ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
+                } else {
+                    rainbowDiaryInfo =
+                        ResRainbowHome.Data.RainbowMainPage.Memory(title, contents, date, feeling)
                     emoFeeling = feeling
                     emoKind = kind
                     tvStory.text = makeChapterText(chapter) + " " + makeEpisodeText(episode)
